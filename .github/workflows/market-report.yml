@@ -8,6 +8,11 @@ on:
         default: manual
         type: choice
         options: [manual, previous, noon]
+  push:
+    branches: [main]
+    paths:
+      - "scripts/update_report.py"
+      - ".github/workflows/market-report.yml"
   schedule:
     - cron: "0 17 * * 0-5"
     - cron: "0 4 * * 1-5"
@@ -27,16 +32,16 @@ jobs:
         id: mode
         shell: bash
         run: |
-          if [ "\${{ github.event_name }}" = "workflow_dispatch" ]; then
-            echo "value=\${{ inputs.report_mode }}" >> "$GITHUB_OUTPUT"
-          elif [ "\${{ github.event.schedule }}" = "0 17 * * 0-5" ]; then
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "value=${{ inputs.report_mode }}" >> "$GITHUB_OUTPUT"
+          elif [ "${{ github.event.schedule }}" = "0 17 * * 0-5" ]; then
             echo "value=previous" >> "$GITHUB_OUTPUT"
           else
             echo "value=noon" >> "$GITHUB_OUTPUT"
           fi
       - name: Generate report
         env:
-          REPORT_MODE: \${{ steps.mode.outputs.value }}
+          REPORT_MODE: ${{ steps.mode.outputs.value }}
         run: python scripts/update_report.py
       - name: Commit report snapshot
         run: |
@@ -44,5 +49,5 @@ jobs:
           git config user.email "actions@users.noreply.github.com"
           git add data reports
           git diff --cached --quiet && exit 0
-          git commit -m "data: update \${{ steps.mode.outputs.value }} market report"
+          git commit -m "data: update ${{ steps.mode.outputs.value }} market report"
           git push
