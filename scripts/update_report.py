@@ -11,6 +11,7 @@ KBASE="https://push2his.eastmoney.com/api/qt/stock/kline/get"
 HEADERS={"User-Agent":"Mozilla/5.0","Referer":"https://quote.eastmoney.com/"}
 POS=re.compile(r"增持|回购|中标|预增|扭亏|分红|签订|获批|突破")
 NEG=re.compile(r"减持|亏损|处罚|立案|诉讼|终止|退市|风险|质押")
+META_BOARD=re.compile(r"昨日|涨停|连板|ST|预盈|融资融券|深股通|沪股通|百元股|机构重仓|基金重仓|MSCI|标准普尔|证金持股|AH股|次新股|破净股|低价股|高送转|转债标的")
 
 def get(url, params):
     last_error=None
@@ -96,16 +97,16 @@ def main():
     unique={}
     for b in sorted(boards,key=lambda x:x.get("f3",-999),reverse=True):
         if b.get("f14") not in unique: unique[b.get("f14")]=b
-    hot=list(unique.values())[:5]
+    hot=[b for b in unique.values() if not META_BOARD.search(b.get("f14",""))][:5]
     candidates=[]
     for b in hot:
         try:
-            rows=clist("b:"+b["f12"],8)
+            rows=clist("b:"+b["f12"],15)
         except Exception as exc:
             print("skip board",b.get("f14"),exc)
             continue
         scored=[]
-        for row in rows[:5]:
+        for row in rows[:12]:
             try:
                 item=analyze(row,b["f14"])
                 if item: scored.append(item)
