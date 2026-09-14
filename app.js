@@ -20,7 +20,7 @@ var DEFAULT_SECTORS=[
 var META_BOARD=/昨日|涨停|连板|ST|预盈|融资融券|深股通|沪股通|百元股|机构重仓|基金重仓|MSCI|标准普尔|证金持股|AH股|次新股|破净股|低价股|高送转|转债标的/;
 var state={
   hot:[],boards:[],fixed:readStore("ashare.fixed",DEFAULT_SECTORS.map(function(x){return{label:x.label,name:x.label,code:""}})),watch:readStore("ashare.watch",[]),
-  candidates:[],watchRows:[],searchRows:[],universe:null,activeBoard:null,selected:null,chart:null,searchTimer:null
+  candidates:[],watchRows:[],searchRows:[],universe:null,activeBoard:null,selected:null,chart:null,searchTimer:null,fallbackHits:0
 };
 var $=function(s){return document.querySelector(s)};
 var $$=function(s){return Array.from(document.querySelectorAll(s))};
@@ -95,7 +95,7 @@ async function getTencentQuote(code){
   if(a.length<10||!isFinite(+a[3]))throw new Error("腾讯行情无该股票数据");
   return{f58:a[1],f57:a[2],f43:+a[3],f60:+a[4],f46:+a[5],f47:+a[36]||+a[6],f48:(+a[37]||0)*10000,f170:+a[32],f169:+a[31],f44:+a[33],f45:+a[34],f168:+a[38],f162:+a[39],_source:"腾讯行情"};
 }
-async function getQuote(code){try{return await getEastmoneyQuote(code)}catch(e){return getTencentQuote(code)}}
+async function getQuote(code){try{return await getEastmoneyQuote(code)}catch(e){state.fallbackHits++;return getTencentQuote(code)}}
 function parseKRows(rows,source){
   var out=(rows||[]).map(function(a){if(typeof a==="string")a=a.split(",");return{date:a[0],open:+a[1],close:+a[2],high:+a[3],low:+a[4],volume:+a[5],amount:+a[6]||0,amplitude:+a[7]||0,pct:+a[8]||0,turnover:+a[10]||0}});
   out._source=source;return out;
@@ -111,7 +111,7 @@ async function getTencentK(code,klt,lmt){
   for(var i=0;i<out.length;i++){if(!out[i].pct&&i)out[i].pct=(out[i].close/out[i-1].close-1)*100}
   return out;
 }
-async function getK(code,klt,lmt){try{var k=await getEastmoneyK(code,klt,lmt);if(!k.length)throw new Error("东方财富K线为空");return k}catch(e){return getTencentK(code,klt,lmt)}}
+async function getK(code,klt,lmt){try{var k=await getEastmoneyK(code,klt,lmt);if(!k.length)throw new Error("东方财富K线为空");return k}catch(e){state.fallbackHits++;return getTencentK(code,klt,lmt)}}
 function getEastmoneyTrend(code){
   return jsonp(API.trend,{secid:marketId(code),ndays:1,iscr:0,iscca:0,fields1:"f1,f2,f3,f4,f5,f6,f7,f8",fields2:"f51,f52,f53,f54,f55,f56,f57,f58"}).then(function(j){var d=j&&j.data?j.data:{},rows=d.trends||[];return{preClose:+d.preClose,source:"东方财富",rows:rows.map(function(v){var a=v.split(",");return{time:a[0],price:+a[2],avg:+a[3],volume:+a[5],amount:+a[6]}})}});
 }
@@ -121,7 +121,7 @@ async function getTencentTrend(code){
   if(!rows.length)throw new Error("腾讯分时数据为空");
   return{preClose:+root.qt&&+root.qt[3]||0,source:"腾讯行情",rows:rows};
 }
-async function getTrend(code){try{var t=await getEastmoneyTrend(code);if(!t.rows.length)throw new Error("东方财富分时为空");return t}catch(e){return getTencentTrend(code)}}
+async function getTrend(code){try{var t=await getEastmoneyTrend(code);if(!t.rows.length)throw new Error("东方财富分时为空");return t}catch(e){state.fallbackHits++;return getTencentTrend(code)}}
 function compute(meta,q,k){
   if(!k||k.length<31)return Object.assign({},meta,{name:q.f58||meta.name,price:q.f43,pct:q.f170,volume:q.f47,amount:q.f48,signal:"历史数据不足",score:0,k:k||[],quote:q,source:q._source||(k&&k._source)||"未知"});
   var last=k[k.length-1],prev=k[k.length-2],avg5=mean(k.slice(-6,-1).map(function(x){return x.volume})),ma=function(n){return mean(k.slice(-n).map(function(x){return x.close}))};
@@ -261,11 +261,11 @@ function hideSearch(){var b=$("#searchResults");b.classList.add("hidden");b.inne
 async function openDetail(meta){
   $("#detail").showModal();$("#detailName").textContent=meta.name||meta.code;$("#detailCode").textContent=meta.code;$("#detailPrice").textContent="读取中";$("#metrics").innerHTML='<div class="metric skeleton"><span class="label">读取行情</span><b>--</b></div>';$("#chart").innerHTML='<div class="chart-status">正在加载分时数据...</div>';$("#announcements").innerHTML='<div class="help">正在读取近期公告...</div>';
   try{
-    var x=meta.k?meta:await analyze({code:meta.code,name:meta.name,sector:meta.sector||"全市场"});
+    var x=meta.k&&meta.k.length?meta:await analyze({code:meta.code,name:meta.name,sector:meta.sector||"全市场"});
     state.selected=x;$("#detailName").textContent=x.name;$("#detailCode").textContent=x.code+" · "+(x.sector||"全市场");$("#detailPrice").textContent=fmt(x.price);$("#detailPrice").className="modal-price "+color(x.pct);
     $("#metrics").innerHTML=metric("涨幅",pct(x.pct),color(x.pct))+metric("成交额",unit(x.amount))+metric("换手率",fmt(x.quote.f168,2)+"%")+metric("量比",fmt(x.vr,2))+metric("10日涨幅",pct(x.r10),color(x.r10))+metric("20日涨幅",pct(x.r20),color(x.r20))+metric("市盈率",fmt(x.quote.f162,2))+metric("数据源",esc(x.source||"缓存快照"));
     syncWatchButtons();selectChart("trend");loadAnnouncements(x);
-  }catch(e){$("#metrics").innerHTML='<div class="empty">详情读取失败：'+esc(e.message)+'</div>';$("#chart").innerHTML=""}
+  }catch(e){if(isFinite(meta.price)){state.selected=meta;$("#detailPrice").textContent=fmt(meta.price);$("#metrics").innerHTML=metric("涨幅",pct(meta.pct),color(meta.pct))+metric("成交额",unit(meta.amount))+metric("数据源","定时快照");$("#chart").innerHTML='<div class="chart-status">实时K线源均不可用，已保留快照指标。</div>';loadAnnouncements(meta)}else{$("#metrics").innerHTML='<div class="empty">详情读取失败：'+esc(e.message)+'</div>';$("#chart").innerHTML=""}}
 }
 function metric(label,value,c){return'<div class="metric"><span class="label">'+label+'</span><b class="'+(c||"")+'">'+value+'</b></div>'}
 function resetChart(){
@@ -297,7 +297,7 @@ async function loadAnnouncements(x){
     var res=await fetch(API.ann+"?sr=-1&page_size=10&page_index=1&ann_type=A&client_source=web&stock_list="+x.code),j=await res.json(),rows=j&&j.data&&j.data.list||[];
     if(!rows.length)throw new Error("暂无公告");
     box.innerHTML=rows.map(function(a){var title=a.title||"公告",kind=neg.test(title)?"risk":pos.test(title)?"good":"warn",label=kind==="risk"?"偏利空词":kind==="good"?"偏利好词":"中性/待核实";return'<a class="ann" target="_blank" rel="noopener" href="https://data.eastmoney.com/notices/stock/'+x.code+'.html"><span class="ann-title">'+esc(title)+'</span><span class="tag '+kind+'">'+label+'</span></a>'}).join("");
-  }catch(e){box.innerHTML='<div class="help">公告接口当前不可用或暂无公告。<a class="up" target="_blank" rel="noopener" href="https://data.eastmoney.com/notices/stock/'+x.code+'.html">前往东方财富核对</a></div>'}
+  }catch(e){var snap=state.snapshot&&state.snapshot.candidates&&state.snapshot.candidates.find(function(v){return v.code===x.code}),cached=snap&&snap.announcements||[];if(cached.length){box.innerHTML=cached.map(function(a){var kind=a.tone==="偏利空"?"risk":a.tone==="偏利好"?"good":"warn";return'<div class="ann"><span class="ann-title">'+esc(a.title)+'</span><span class="tag '+kind+'">'+esc(a.tone)+' · 快照</span></div>'}).join("")}else{box.innerHTML='<div class="help">实时公告源不可用且无缓存。<a class="up" target="_blank" rel="noopener" href="https://www.cninfo.com.cn/new/disclosure/stock?stockCode='+x.code+'">前往巨潮资讯核验</a></div>'}}
 }
 async function loadSnapshot(){
   try{
@@ -326,7 +326,8 @@ function switchView(id){
 }
 async function refresh(){
   $("#refreshBtn").disabled=true;$("#sourceDot").className="dot";$("#sourceText").textContent="正在连接东方财富";
-  try{await Promise.all([loadIndices(),loadBoards()]);setSource(true,"东方财富 · "+new Date().toLocaleTimeString("zh-CN",{hour12:false}));if($("#watch").classList.contains("active"))renderWatch()}
+  state.fallbackHits=0;
+  try{await Promise.all([loadIndices(),loadBoards()]);setSource(true,(state.fallbackHits?"东方财富 + 腾讯容灾":"东方财富")+" · "+new Date().toLocaleTimeString("zh-CN",{hour12:false}));if($("#watch").classList.contains("active"))renderWatch()}
   catch(e){if(state.snapshot){setSource(false,"实时接口限流 · 当前显示定时快照");toast("实时请求受限，已切换到缓存快照")}else{setSource(false,"行情接口不可用，未使用模拟数据");toast(e.message)}}
   finally{$("#refreshBtn").disabled=false}
 }
