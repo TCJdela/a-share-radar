@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-import json, os, re
+import json, os, re, time
 from datetime import datetime, timedelta
 from pathlib import Path
 from urllib.parse import urlencode
@@ -13,9 +13,16 @@ POS=re.compile(r"增持|回购|中标|预增|扭亏|分红|签订|获批|突破"
 NEG=re.compile(r"减持|亏损|处罚|立案|诉讼|终止|退市|风险|质押")
 
 def get(url, params):
-    req=Request(url+"?"+urlencode(params),headers=HEADERS)
-    with urlopen(req,timeout=20) as r:
-        return json.loads(r.read().decode("utf-8"))
+    last_error=None
+    for attempt in range(4):
+        try:
+            req=Request(url+"?"+urlencode(params),headers=HEADERS)
+            with urlopen(req,timeout=25) as r:
+                return json.loads(r.read().decode("utf-8"))
+        except Exception as exc:
+            last_error=exc
+            time.sleep(2 ** attempt)
+    raise last_error
 
 def clist(fs,pz=20,fid="f3"):
     j=get(BASE,{"pn":1,"pz":pz,"po":1,"np":1,"fltt":2,"invt":2,"fid":fid,"fs":fs,
@@ -92,7 +99,11 @@ def main():
     hot=list(unique.values())[:5]
     candidates=[]
     for b in hot:
-        rows=clist("b:"+b["f12"],8)
+        try:
+            rows=clist("b:"+b["f12"],8)
+        except Exception as exc:
+            print("skip board",b.get("f14"),exc)
+            continue
         scored=[]
         for row in rows[:5]:
             try:
