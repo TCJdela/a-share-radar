@@ -14,6 +14,9 @@ HEADERS={"User-Agent":"Mozilla/5.0","Referer":"https://quote.eastmoney.com/"}
 POS=re.compile(r"增持|回购|中标|预增|扭亏|分红|签订|获批|突破")
 NEG=re.compile(r"减持|亏损|处罚|立案|诉讼|终止|退市|风险|质押")
 META_BOARD=re.compile(r"昨日|涨停|连板|ST|预盈|融资融券|深股通|沪股通|百元股|机构重仓|基金重仓|MSCI|标准普尔|证金持股|AH股|次新股|破净股|低价股|高送转|转债标的")
+DOMESTIC_EVENT=re.compile(r"国务院|中央|央行|人民银行|证监会|财政部|发改委|统计局|政策|利率|降准|降息|GDP|CPI|关税|贸易|经济|科技|人工智能|能源|地震|台风|洪水|事故|外交")
+GLOBAL_EVENT=re.compile(r"战争|冲突|停火|制裁|关税|贸易|选举|总统|央行|利率|联合国|峰会|地震|飓风|石油|黄金|能源|人工智能|AI|芯片|核|外交|经济")
+EVENT_EXCLUDE=re.compile(r"重大资产重组|复牌|开学典礼|招聘|校招|股价异动|涨停")
 
 def get(url, params):
     last_error=None
@@ -104,7 +107,10 @@ def fetch_rss(url, category):
                 title=(item.findtext("title") or "").strip()
                 link=(item.findtext("link") or "").strip()
                 pub=(item.findtext("pubDate") or "").strip()
-                if not title or not link:
+                if not title or not link or EVENT_EXCLUDE.search(title):
+                    continue
+                rule=DOMESTIC_EVENT if category=="国内" else GLOBAL_EVENT
+                if not rule.search(title):
                     continue
                 try:
                     dt=parsedate_to_datetime(pub)
@@ -128,10 +134,10 @@ def fetch_rss(url, category):
     return []
 
 def update_events():
-    domestic_bing="https://www.bing.com/news/search?"+urlencode({"q":"中国 国内 重大 新闻","format":"rss","setlang":"zh-cn"})
-    world_bing="https://www.bing.com/news/search?"+urlencode({"q":"国际 全球 重大 新闻","format":"rss","setlang":"zh-cn"})
-    domestic_google="https://news.google.com/rss/search?"+urlencode({"q":"中国 国内 重大 新闻 when:3d","hl":"zh-CN","gl":"CN","ceid":"CN:zh-Hans"})
-    world_google="https://news.google.com/rss/search?"+urlencode({"q":"国际 全球 重大 新闻 when:3d","hl":"zh-CN","gl":"CN","ceid":"CN:zh-Hans"})
+    domestic_bing="https://www.bing.com/news/search?"+urlencode({"q":"中国 国务院 央行 证监会 财政 经济 政策 科技","format":"rss","setlang":"zh-cn"})
+    world_bing="https://www.bing.com/news/search?"+urlencode({"q":"全球 国际 冲突 央行 贸易 能源 科技","format":"rss","setlang":"zh-cn"})
+    domestic_google="https://news.google.com/rss/search?"+urlencode({"q":"中国 国务院 央行 证监会 财政 经济 政策 科技 when:3d","hl":"zh-CN","gl":"CN","ceid":"CN:zh-Hans"})
+    world_google="https://news.google.com/rss/search?"+urlencode({"q":"全球 国际 冲突 央行 贸易 能源 科技 when:3d","hl":"zh-CN","gl":"CN","ceid":"CN:zh-Hans"})
     feeds=[
         ("国内",[domestic_bing,domestic_google]),
         ("国际",[world_bing,world_google])
