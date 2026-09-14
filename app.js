@@ -277,7 +277,7 @@ function renderSearch(){
 }
 function hideSearch(){var b=$("#searchResults");b.classList.add("hidden");b.innerHTML=""}
 async function openDetail(meta){
-  $("#detail").showModal();$("#detailName").textContent=meta.name||meta.code;$("#detailCode").textContent=meta.code;$("#detailPrice").textContent="读取中";$("#metrics").innerHTML='<div class="metric skeleton"><span class="label">读取行情</span><b>--</b></div>';$("#chart").innerHTML='<div class="chart-status">正在加载分时数据...</div>';$("#announcements").innerHTML='<div class="help">正在读取近期公告...</div>';
+  $("#detail").showModal();$("#detailName").textContent=meta.name||meta.code;$("#detailCode").textContent=meta.code;$("#detailPrice").textContent="读取中";$("#metrics").innerHTML='<div class="metric skeleton"><span class="label">读取行情</span><b>--</b></div>';$("#chart").innerHTML='<div class="chart-status">正在加载分时数据...</div>';$("#professionalFactors").innerHTML="";$("#announcements").innerHTML='<div class="help">正在读取近期公告...</div>';
   try{
     var x=meta.k&&meta.k.length?meta:await analyze({code:meta.code,name:meta.name,sector:meta.sector||"全市场"});
     state.selected=x;$("#detailName").textContent=x.name;$("#detailCode").textContent=x.code+" · "+(x.sector||"全市场");$("#detailPrice").textContent=fmt(x.price);$("#detailPrice").className="modal-price "+color(x.pct);
@@ -350,8 +350,8 @@ async function runStrategy(key){
   var rule=STRATEGIES[key];if(!rule)return;switchView("strategy");$("#strategyTitle").textContent=rule.name+" · 筛选结果";$("#strategyRows").innerHTML='<tr><td colspan="12" class="empty">正在建立活跃股票池...</td></tr>';
   $("[data-strategy]").forEach(function(b){b.disabled=true});var progress=$("#strategyProgress");
   try{
-    var market=await clist("m:0+t:6,m:0+t:80,m:1+t:2,m:1+t:23",50,"f6"),seen={},pool=[];
-    market.concat(state.candidates).forEach(function(x){var code=x.f12||x.code,name=x.f14||x.name;if(!/^\d{6}$/.test(code)||seen[code]||(state.hsOnly&&!isHuShen(code)))return;seen[code]=1;pool.push({code:code,name:name,sector:"策略池"})});
+    var market=[];try{market=await clist("m:0+t:6,m:0+t:80,m:1+t:2,m:1+t:23",50,"f6")}catch(sourceError){market=(state.snapshot&&state.snapshot.candidates||[]).map(function(x){return{f12:x.code,f14:x.name}})}var seen={},pool=[];
+    market.concat(state.candidates).concat(state.watch).forEach(function(x){var code=x.f12||x.code,name=x.f14||x.name;if(!/^\d{6}$/.test(code)||seen[code]||(state.hsOnly&&!isHuShen(code)))return;seen[code]=1;pool.push({code:code,name:name,sector:"策略池"})});
     pool=pool.slice(0,30);var done=0;
     var rows=await Promise.all(pool.map(async function(x){try{return await analyze(x)}catch(e){return null}finally{done++;progress.innerHTML="正在应用 <b>"+esc(rule.name)+"</b>："+done+" / "+pool.length}}));
     rows=rows.filter(Boolean);state.strategyRows=rows.filter(rule.test).sort(function(a,b){return b.score-a.score}).slice(0,20);
