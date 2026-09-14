@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 import json, os, re, time
+import xml.etree.ElementTree as ET
+from email.utils import parsedate_to_datetime
 from datetime import datetime, timedelta
 from pathlib import Path
 from urllib.parse import urlencode
@@ -89,6 +91,62 @@ def announcements(code):
     except Exception as e:
         return [{"title":"公告接口不可用","tone":"需人工核对","error":str(e)}]
 
+def fetch_rss(url, category):
+    last_error=None
+    for attempt in range(3):
+        try:
+            req=Request(url,headers=HEADERS)
+            with urlopen(req,timeout=25) as r:
+                raw=r.read()
+            root=ET.fromstring(raw)
+            out=[]
+            for item in root.findall(".//item")[:40]:
+                title=(item.findtext("title") or "").strip()
+                link=(item.findtext("link") or "").strip()
+                pub=(item.findtext("pubDate") or "").strip()
+                if not title or not link:
+                    continue
+                try:
+                    dt=parsedate_to_datetime(pub)
+                    if dt.tzinfo is None:
+                        dt=dt.replace(tzinfo=ZoneInfo("Asia/Shanghai"))
+                    dt=dt.astimezone(ZoneInfo("Asia/Shanghai"))
+                except Exception:
+                    dt=datetime.now(ZoneInfo("Asia/Shanghai"))
+                out.append({"title":title,"link":link,"category":category,"source":"新华网",
+                            "date":dt.strftime("%Y-%m-%d"),"time":dt.strftime("%H:%M"),
+                            "timestamp":dt.isoformat()})
+            return out
+        except Exception as exc:
+            last_error=exc
+            time.sleep(2 ** attempt)
+    print("rss failed",url,last_error)
+    return []
+
+def update_events():
+    feeds=[
+        ("国内",["https://www.xinhuanet.com/politics/news_politics.xml","http://www.xinhuanet.com/politics/news_politics.xml"]),
+        ("国际",["https://www.xinhuanet.com/world/news_world.xml","http://www.xinhuanet.com/world/news_world.xml"])
+    ]
+    events=[]
+    for category,urls in feeds:
+        rows=[]
+        for url in urls:
+            rows=fetch_rss(url,category)
+            if rows:
+                break
+        events.extend(rows[:30])
+    seen=set()
+    events=[x for x in sorted(events,key=lambda x:x["timestamp"],reverse=True)
+            if not (x["title"] in seen or seen.add(x["title"]))]
+    if events:
+        Path("data").mkdir(exist_ok=True)
+        Path("data/events.json").write_text(json.dumps({"generated_at":datetime.now(ZoneInfo("Asia/Shanghai")).isoformat(),
+                                                       "events":events},ensure_ascii=False,indent=2),encoding="utf-8")
+        print("events",len(events))
+    else:
+        print("no fresh events; preserving previous snapshot")
+
 def main():
     now=datetime.now(ZoneInfo("Asia/Shanghai"))
     mode=os.getenv("REPORT_MODE","manual")
@@ -125,6 +183,7 @@ def main():
     Path("data/latest.json").write_text(json.dumps(payload,ensure_ascii=False,indent=2),encoding="utf-8")
     stamp=now.strftime("%Y-%m-%d-%H%M")
     Path("reports",stamp+".json").write_text(json.dumps(payload,ensure_ascii=False,indent=2),encoding="utf-8")
+    update_events()
     print("generated",stamp,len(candidates))
 
 if __name__=="__main__":
