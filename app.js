@@ -380,7 +380,7 @@ function switchView(id){
   if(id==="watch")renderWatch();if(id==="events"&&!state.events.length)loadEvents();
 }
 async function refresh(){
-  $("#refreshBtn").disabled=true;$("#sourceDot").className="dot";$("#sourceText").textContent="正在连接东方财富";
+  $("#refreshBtn").disabled=true;$("#sourceDot").className="dot";$("#sourceText").textContent="正在连接腾讯财经";
   state.fallbackHits=0;
   try{await Promise.all([loadIndices(),loadBoards()]);setSource(true,(state.fallbackHits?"腾讯财经 + 东方财富容灾":"腾讯财经")+" · "+new Date().toLocaleTimeString("zh-CN",{hour12:false}));if($("#watch").classList.contains("active"))renderWatch()}
   catch(e){if(state.snapshot){setSource(false,"实时接口限流 · 当前显示定时快照");toast("实时请求受限，已切换到缓存快照")}else{setSource(false,"行情接口不可用，未使用模拟数据");toast(e.message)}}
