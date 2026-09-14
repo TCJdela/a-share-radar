@@ -50,5 +50,6 @@ jobs:
           git add data reports
           git diff --cached --quiet && exit 0
           git commit -m "data: update ${{ steps.mode.outputs.value }} market report"
-          git pull --rebase origin main
+          git fetch origin main
+          git rebase -X theirs origin/main
           git push
