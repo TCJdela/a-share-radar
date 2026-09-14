@@ -1,0 +1,48 @@
+name: A股定时报告
+on:
+  workflow_dispatch:
+    inputs:
+      report_mode:
+        description: 报告类型
+        required: true
+        default: manual
+        type: choice
+        options: [manual, previous, noon]
+  schedule:
+    - cron: "0 17 * * 0-5"
+    - cron: "0 4 * * 1-5"
+
+permissions:
+  contents: write
+
+jobs:
+  update-report:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Determine report mode
+        id: mode
+        shell: bash
+        run: |
+          if [ "\${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "value=\${{ inputs.report_mode }}" >> "$GITHUB_OUTPUT"
+          elif [ "\${{ github.event.schedule }}" = "0 17 * * 0-5" ]; then
+            echo "value=previous" >> "$GITHUB_OUTPUT"
+          else
+            echo "value=noon" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Generate report
+        env:
+          REPORT_MODE: \${{ steps.mode.outputs.value }}
+        run: python scripts/update_report.py
+      - name: Commit report snapshot
+        run: |
+          git config user.name "a-share-radar-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data reports
+          git diff --cached --quiet && exit 0
+          git commit -m "data: update \${{ steps.mode.outputs.value }} market report"
+          git push
