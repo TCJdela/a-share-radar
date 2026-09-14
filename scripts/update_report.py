@@ -112,8 +112,12 @@ def fetch_rss(url, category):
                         dt=dt.replace(tzinfo=ZoneInfo("Asia/Shanghai"))
                     dt=dt.astimezone(ZoneInfo("Asia/Shanghai"))
                 except Exception:
-                    dt=datetime.now(ZoneInfo("Asia/Shanghai"))
-                out.append({"title":title,"link":link,"category":category,"source":"新华网",
+                    continue
+                now=datetime.now(ZoneInfo("Asia/Shanghai"))
+                if dt < now-timedelta(days=7) or dt > now+timedelta(days=1):
+                    continue
+                source="Bing News" if "bing.com" in url else "Google News" if "google.com" in url else "新闻聚合"
+                out.append({"title":title,"link":link,"category":category,"source":source,
                             "date":dt.strftime("%Y-%m-%d"),"time":dt.strftime("%H:%M"),
                             "timestamp":dt.isoformat()})
             return out
@@ -124,9 +128,13 @@ def fetch_rss(url, category):
     return []
 
 def update_events():
+    domestic_bing="https://www.bing.com/news/search?"+urlencode({"q":"中国 国内 重大 新闻","format":"rss","setlang":"zh-cn"})
+    world_bing="https://www.bing.com/news/search?"+urlencode({"q":"国际 全球 重大 新闻","format":"rss","setlang":"zh-cn"})
+    domestic_google="https://news.google.com/rss/search?"+urlencode({"q":"中国 国内 重大 新闻 when:3d","hl":"zh-CN","gl":"CN","ceid":"CN:zh-Hans"})
+    world_google="https://news.google.com/rss/search?"+urlencode({"q":"国际 全球 重大 新闻 when:3d","hl":"zh-CN","gl":"CN","ceid":"CN:zh-Hans"})
     feeds=[
-        ("国内",["https://www.xinhuanet.com/politics/news_politics.xml","http://www.xinhuanet.com/politics/news_politics.xml"]),
-        ("国际",["https://www.xinhuanet.com/world/news_world.xml","http://www.xinhuanet.com/world/news_world.xml"])
+        ("国内",[domestic_bing,domestic_google]),
+        ("国际",[world_bing,world_google])
     ]
     events=[]
     for category,urls in feeds:
@@ -145,7 +153,9 @@ def update_events():
                                                        "events":events},ensure_ascii=False,indent=2),encoding="utf-8")
         print("events",len(events))
     else:
-        print("no fresh events; preserving previous snapshot")
+        Path("data").mkdir(exist_ok=True)
+        Path("data/events.json").write_text(json.dumps({"generated_at":datetime.now(ZoneInfo("Asia/Shanghai")).isoformat(),"events":[],"status":"news sources unavailable"},ensure_ascii=False,indent=2),encoding="utf-8")
+        print("no fresh events; stale entries cleared")
 
 def main():
     now=datetime.now(ZoneInfo("Asia/Shanghai"))
