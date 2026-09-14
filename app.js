@@ -15,7 +15,7 @@ var DEFAULT_SECTORS=[
 ];
 var META_BOARD=/昨日|涨停|连板|ST|预盈|融资融券|深股通|沪股通|百元股|机构重仓|基金重仓|MSCI|标准普尔|证金持股|AH股|次新股|破净股|低价股|高送转|转债标的/;
 var state={
-  hot:[],boards:[],fixed:readStore("ashare.fixed",null),watch:readStore("ashare.watch",[]),
+  hot:[],boards:[],fixed:readStore("ashare.fixed",DEFAULT_SECTORS.map(function(x){return{label:x.label,name:x.label,code:""}})),watch:readStore("ashare.watch",[]),
   candidates:[],watchRows:[],searchRows:[],universe:null,activeBoard:null,selected:null,chart:null,searchTimer:null
 };
 var $=function(s){return document.querySelector(s)};
@@ -32,16 +32,38 @@ function marketId(code){return(/^(6|9)/.test(code)?"1.":"0.")+code}
 function debounce(fn,ms){return function(){var args=arguments;clearTimeout(state.searchTimer);state.searchTimer=setTimeout(function(){fn.apply(null,args)},ms)}}
 function toast(text){var el=$("#toast");el.textContent=text;el.classList.add("show");setTimeout(function(){el.classList.remove("show")},1800)}
 function setSource(ok,text){$("#sourceDot").className="dot "+(ok?"ok":"bad");$("#sourceText").textContent=text}
-function jsonp(url,params,timeout){
+var REQUEST_LIMIT=3,REQUEST_GAP=220,requestQueue=[],activeRequests=0,nextRequestAt=0;
+function sleep(ms){return new Promise(function(resolve){setTimeout(resolve,ms)})}
+function pumpQueue(){
+  while(activeRequests<REQUEST_LIMIT&&requestQueue.length){
+    var item=requestQueue.shift(),now=Date.now(),wait=Math.max(0,nextRequestAt-now);
+    nextRequestAt=Math.max(nextRequestAt,now)+REQUEST_GAP;activeRequests++;
+    (function(job,delay){setTimeout(function(){
+      job.task().then(job.resolve,job.reject).finally(function(){activeRequests--;pumpQueue()});
+    },delay)})(item,wait);
+  }
+}
+function queued(task){return new Promise(function(resolve,reject){requestQueue.push({task:task,resolve:resolve,reject:reject});pumpQueue()})}
+function rawJsonp(url,params,timeout){
   timeout=timeout||15000;return new Promise(function(resolve,reject){
     var cb="em_"+Date.now()+"_"+Math.random().toString(16).slice(2),script=document.createElement("script"),timer;
-    params=params||{};params.cb=cb;params.callback=cb;
+    params=Object.assign({},params||{},{cb:cb});
     var q=Object.keys(params).map(function(k){return encodeURIComponent(k)+"="+encodeURIComponent(params[k])}).join("&");
     function clean(){clearTimeout(timer);delete window[cb];script.remove()}
     window[cb]=function(data){clean();resolve(data)};
     script.onerror=function(){clean();reject(new Error("东方财富接口加载失败"))};
     timer=setTimeout(function(){clean();reject(new Error("东方财富接口超时"))},timeout);
     script.src=url+(url.indexOf("?")>-1?"&":"?")+q;script.referrerPolicy="no-referrer-when-downgrade";document.head.appendChild(script);
+  });
+}
+function jsonp(url,params,timeout){
+  return queued(async function(){
+    var last;
+    for(var attempt=0;attempt<3;attempt++){
+      try{return await rawJsonp(url,params,timeout)}
+      catch(e){last=e;if(attempt<2)await sleep(500*Math.pow(2,attempt))}
+    }
+    throw last;
   });
 }
 function clist(fs,pz,fid){
@@ -134,11 +156,11 @@ async function selectBoard(board){
   switchView("market");state.activeBoard=board;renderSectors();$("#candidateTitle").textContent=(board.label||board.name)+" · 推荐观察";
   $("#candidateSub").textContent="正在读取板块成分股并计算量价结构";$("#candidateRows").innerHTML='<tr><td colspan="12" class="empty">正在分析板块成分股...</td></tr>';
   try{
-    var members=await clist("b:"+board.code,18,"f3");members=members.filter(function(x){return/^\d{6}$/.test(x.f12)}).slice(0,12);
+    var members=await clist("b:"+board.code,18,"f3");members=members.filter(function(x){return/^\d{6}$/.test(x.f12)}).slice(0,8);
     var rows=await Promise.all(members.map(async function(x){try{return await analyze({code:x.f12,name:x.f14,sector:board.label||board.name})}catch(e){return null}}));
     state.candidates=rows.filter(Boolean).sort(function(a,b){return b.score-a.score}).slice(0,5);
     $("#candidateSub").textContent="按结构评分列出 3–5 只，点击“详情”查看分时、K线和公告";renderTable("#candidateRows",state.candidates,false);buildReport();
-  }catch(e){state.candidates=[];$("#candidateRows").innerHTML='<tr><td colspan="12" class="empty">板块数据读取失败：'+esc(e.message)+'</td></tr>'}
+  }catch(e){var cached=snapshotForBoard(board);state.candidates=cached;if(cached.length){$("#candidateSub").textContent="实时接口限流，当前显示定时快照";renderTable("#candidateRows",cached,false)}else{$("#candidateRows").innerHTML='<tr><td colspan="12" class="empty">板块数据读取失败：'+esc(e.message)+'</td></tr>'}}
 }
 function tagClass(s){return s==="放量突破"||s==="缩量回踩"?"good":s==="放量滞涨"?"risk":"warn"}
 function renderTable(selector,rows,isWatch){
@@ -234,6 +256,22 @@ async function loadAnnouncements(x){
     box.innerHTML=rows.map(function(a){var title=a.title||"公告",kind=neg.test(title)?"risk":pos.test(title)?"good":"warn",label=kind==="risk"?"偏利空词":kind==="good"?"偏利好词":"中性/待核实";return'<a class="ann" target="_blank" rel="noopener" href="https://data.eastmoney.com/notices/stock/'+x.code+'.html"><span class="ann-title">'+esc(title)+'</span><span class="tag '+kind+'">'+label+'</span></a>'}).join("");
   }catch(e){box.innerHTML='<div class="help">公告接口当前不可用或暂无公告。<a class="up" target="_blank" rel="noopener" href="https://data.eastmoney.com/notices/stock/'+x.code+'.html">前往东方财富核对</a></div>'}
 }
+async function loadSnapshot(){
+  try{
+    var res=await fetch("./data/latest.json?v="+Date.now(),{cache:"no-store"});
+    if(!res.ok)throw new Error("快照不存在");
+    var j=await res.json();state.snapshot=j;
+    if(!state.hot.length)state.hot=(j.hot_sectors||[]).filter(function(x){return!META_BOARD.test(x.name)}).map(function(x){return{label:x.name,name:x.name,code:x.code,pct:x.pct}});
+    var rows=(j.candidates||[]).map(function(x){return{code:x.code,name:x.name,sector:x.sector,price:x.price,pct:x.pct,volume:x.volume,amount:x.amount,avg3:x.avg3_volume,r10:x.return_10d,r20:x.return_20d,d10:x.deviation_10d,d30:x.deviation_30d,vr:x.volume_ratio,signal:x.signal,score:x.score,k:[],quote:{}}});
+    if(rows.length&&!state.candidates.length){state.candidates=rows.slice(0,5);$("#candidateTitle").textContent="最新定时快照";$("#candidateSub").textContent="实时接口尚未完成时先展示 "+new Date(j.generated_at).toLocaleString("zh-CN")+" 的缓存数据";renderTable("#candidateRows",state.candidates,false)}
+    renderSectors();return j;
+  }catch(e){return null}
+}
+function snapshotForBoard(board){
+  if(!state.snapshot)return[];
+  var rows=(state.snapshot.candidates||[]).filter(function(x){return x.sector===(board.name||board.label)||x.sector===board.label}).map(function(x){return{code:x.code,name:x.name,sector:x.sector,price:x.price,pct:x.pct,volume:x.volume,amount:x.amount,avg3:x.avg3_volume,r10:x.return_10d,r20:x.return_20d,d10:x.deviation_10d,d30:x.deviation_30d,vr:x.volume_ratio,signal:x.signal,score:x.score,k:[],quote:{}}});
+  return rows.slice(0,5);
+}
 function buildReport(){
   var best=state.candidates.slice().sort(function(a,b){return b.score-a.score}),risk=best.filter(function(x){return x.signal==="放量滞涨"||x.d10>12});
   $("#reportTime").textContent="数据时间："+new Date().toLocaleString("zh-CN",{hour12:false});
@@ -246,7 +284,7 @@ function switchView(id){
 async function refresh(){
   $("#refreshBtn").disabled=true;$("#sourceDot").className="dot";$("#sourceText").textContent="正在连接东方财富";
   try{await Promise.all([loadIndices(),loadBoards()]);setSource(true,"东方财富 · "+new Date().toLocaleTimeString("zh-CN",{hour12:false}));if($("#watch").classList.contains("active"))renderWatch()}
-  catch(e){setSource(false,"行情接口不可用，未使用模拟数据");toast(e.message)}
+  catch(e){if(state.snapshot){setSource(false,"实时接口限流 · 当前显示定时快照");toast("实时请求受限，已切换到缓存快照")}else{setSource(false,"行情接口不可用，未使用模拟数据");toast(e.message)}}
   finally{$("#refreshBtn").disabled=false}
 }
 $$(".tab").forEach(function(b){b.onclick=function(){switchView(b.dataset.view)}});
@@ -256,5 +294,5 @@ document.addEventListener("click",function(e){if(!e.target.closest(".market-sear
 $("#detailClose").onclick=function(){$("#detail").close()};$("#detailWatch").onclick=function(){if(state.selected)toggleWatch(state.selected)};
 $$(".period").forEach(function(b){b.onclick=function(){if(state.selected)selectChart(b.dataset.chart)}});
 window.addEventListener("resize",function(){if(state.chart)state.chart.resize()});
-refresh();renderWatch();setInterval(refresh,180000);
+loadSnapshot().finally(function(){refresh()});setInterval(refresh,300000);
 })();
