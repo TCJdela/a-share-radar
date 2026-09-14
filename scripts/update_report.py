@@ -10,7 +10,10 @@ from zoneinfo import ZoneInfo
 
 BASE="https://push2.eastmoney.com/api/qt/clist/get"
 KBASE="https://push2his.eastmoney.com/api/qt/stock/kline/get"
-HEADERS={"User-Agent":"Mozilla/5.0","Referer":"https://quote.eastmoney.com/"}
+QBASE="https://push2.eastmoney.com/api/qt/stock/get"
+TENCENT_QUOTE="https://qt.gtimg.cn/q="
+TENCENT_K="https://web.ifzq.gtimg.cn/appstock/app/fqkline/get"
+HEADERS={"User-Agent":"Mozilla/5.0"}
 POS=re.compile(r"增持|回购|中标|预增|扭亏|分红|签订|获批|突破")
 NEG=re.compile(r"减持|亏损|处罚|立案|诉讼|终止|退市|风险|质押")
 META_BOARD=re.compile(r"昨日|涨停|连板|ST|预盈|融资融券|深股通|沪股通|百元股|机构重仓|基金重仓|MSCI|标准普尔|证金持股|AH股|次新股|破净股|低价股|高送转|转债标的")
@@ -35,10 +38,70 @@ def clist(fs,pz=20,fid="f3"):
                 "fields":"f2,f3,f5,f6,f8,f10,f12,f14,f15,f16,f17,f18,f20,f21,f62,f184"})
     return (j.get("data") or {}).get("diff") or []
 
+def get_text(url, params=None, encoding="utf-8"):
+    last_error=None
+    for attempt in range(4):
+        try:
+            target=url+("?"+urlencode(params) if params else "")
+            req=Request(target,headers=HEADERS)
+            with urlopen(req,timeout=25) as r:
+                return r.read().decode(encoding,errors="replace")
+        except Exception as exc:
+            last_error=exc
+            time.sleep(2 ** attempt)
+    raise last_error
+
 def secid(code):
     return ("1." if code.startswith(("6","9")) else "0.")+code
 
-def klines(code):
+def symbol(code):
+    if code.startswith(("4","8","92")):
+        return "bj"+code
+    return ("sh" if code.startswith(("6","9")) else "sz")+code
+
+def tencent_quote(code):
+    raw=get_text(TENCENT_QUOTE+symbol(code),encoding="gb18030")
+    match=re.search(r'="(.*)"',raw)
+    a=(match.group(1) if match else "").split("~")
+    if len(a)<40 or not a[3]:
+        raise ValueError("Tencent quote is empty")
+    return {"name":a[1],"price":float(a[3]),"pct":float(a[32] or 0),
+            "volume":float(a[36] or a[6] or 0),"amount":float(a[37] or 0)*10000}, "腾讯财经"
+
+def eastmoney_quote(code):
+    j=get(QBASE,{"secid":secid(code),"fltt":2,
+                 "fields":"f43,f47,f48,f57,f58,f170"})
+    q=j.get("data") or {}
+    if q.get("f43") is None:
+        raise ValueError("Eastmoney quote is empty")
+    return {"name":q.get("f58") or code,"price":float(q["f43"]),"pct":float(q.get("f170") or 0),
+            "volume":float(q.get("f47") or 0),"amount":float(q.get("f48") or 0)}, "东方财富"
+
+def quote(code):
+    try:
+        return tencent_quote(code)
+    except Exception as exc:
+        print("quote fallback",code,exc)
+        return eastmoney_quote(code)
+
+def tencent_klines(code):
+    s=symbol(code)
+    j=get(TENCENT_K,{"param":f"{s},day,,,90,qfq"})
+    root=((j.get("data") or {}).get(s) or {})
+    rows=root.get("qfqday") or root.get("day") or []
+    if not rows:
+        raise ValueError("Tencent kline is empty")
+    out=[]
+    previous=None
+    for a in rows:
+        close=float(a[2])
+        pct=(close/previous-1)*100 if previous else 0
+        out.append({"date":a[0],"open":float(a[1]),"close":close,"high":float(a[3]),"low":float(a[4]),
+                    "volume":float(a[5]),"amount":float(a[6]) if len(a)>6 and a[6] else 0,"pct":pct})
+        previous=close
+    return out, "腾讯财经"
+
+def eastmoney_klines(code):
     j=get(KBASE,{"secid":secid(code),"klt":101,"fqt":1,"lmt":90,"end":"20500101",
                  "fields1":"f1,f2,f3,f4,f5,f6","fields2":"f51,f52,f53,f54,f55,f56,f57,f58,f59,f60,f61"})
     rows=(j.get("data") or {}).get("klines") or []
@@ -47,38 +110,54 @@ def klines(code):
         a=row.split(",")
         out.append({"date":a[0],"open":float(a[1]),"close":float(a[2]),"high":float(a[3]),"low":float(a[4]),
                     "volume":float(a[5]),"amount":float(a[6]),"pct":float(a[8])})
-    return out
+    if not out:
+        raise ValueError("Eastmoney kline is empty")
+    return out, "东方财富"
+
+def klines(code):
+    try:
+        return tencent_klines(code)
+    except Exception as exc:
+        print("kline fallback",code,exc)
+        return eastmoney_klines(code)
 
 def avg(items):
     return sum(items)/len(items) if items else 0
 
 def analyze(raw, board):
-    k=klines(raw["f12"])
+    code=raw["f12"]
+    k,k_source=klines(code)
+    q,q_source=quote(code)
     if len(k)<31: return None
     last,prev=k[-1],k[-2]
     avg5=avg([x["volume"] for x in k[-6:-1]])
     ma=lambda n:avg([x["close"] for x in k[-n:]])
     ma5,ma10,ma20,ma30=ma(5),ma(10),ma(20),ma(30)
     max20=max(x["high"] for x in k[-21:-1])
-    r10=(last["close"]/k[-11]["close"]-1)*100
-    r20=(last["close"]/k[-21]["close"]-1)*100
-    d10=(last["close"]/ma10-1)*100
-    d30=(last["close"]/ma30-1)*100
-    vr=last["volume"]/avg5 if avg5 else 0
+    price=q["price"] if q.get("price") is not None else last["close"]
+    day_pct=q["pct"] if q.get("pct") is not None else last["pct"]
+    volume=q["volume"] if q.get("volume") is not None else last["volume"]
+    amount=q["amount"] if q.get("amount") is not None else last["amount"]
+    r10=(price/k[-11]["close"]-1)*100
+    r20=(price/k[-21]["close"]-1)*100
+    d10=(price/ma10-1)*100
+    d30=(price/ma30-1)*100
+    vr=volume/avg5 if avg5 else 0
     signal,score="趋势观察",45
-    if last["close"]>max20 and vr>1.5: signal,score="放量突破",88
-    elif ma20*.98<=last["close"]<=ma20*1.04 and vr<.82 and r20>4: signal,score="缩量回踩",82
-    elif last["pct"]>2 and prev["pct"]<0 and vr>1.05: signal,score="弱转强",78
-    elif abs(last["pct"])<2 and vr>1.8 and r20>15: signal,score="放量滞涨",30
+    if price>max20 and vr>1.5: signal,score="放量突破",88
+    elif ma20*.98<=price<=ma20*1.04 and vr<.82 and r20>4: signal,score="缩量回踩",82
+    elif day_pct>2 and prev["pct"]<0 and vr>1.05: signal,score="弱转强",78
+    elif abs(day_pct)<2 and vr>1.8 and r20>15: signal,score="放量滞涨",30
     if ma5>ma10>ma20: score+=7
-    if raw.get("f3",0)>0: score+=3
+    if day_pct>0: score+=3
     if r20>35: score-=10
     if d10>12: score-=8
-    return {"code":raw["f12"],"name":raw["f14"],"sector":board,"price":last["close"],"pct":last["pct"],
-            "volume":last["volume"],"amount":last["amount"],"avg3_volume":avg([x["volume"] for x in k[-3:]]),
+    source=q_source if q_source==k_source else f"{q_source}（行情）/{k_source}（K线）"
+    return {"code":code,"name":q.get("name") or raw["f14"],"sector":board,"price":price,"pct":day_pct,
+            "volume":volume,"amount":amount,"avg3_volume":avg([x["volume"] for x in k[-3:]]),
             "return_10d":round(r10,2),"return_20d":round(r20,2),"deviation_10d":round(d10,2),
             "deviation_30d":round(d30,2),"volume_ratio":round(vr,2),"signal":signal,
-            "score":max(0,min(99,score))}
+            "score":max(0,min(99,score)),"source":source}
 
 def announcements(code):
     url="https://np-anotice-stock.eastmoney.com/api/security/ann"
@@ -195,7 +274,8 @@ def main():
         for item in scored[:3]:
             item["announcements"]=announcements(item["code"])
         candidates.extend(scored[:5])
-    payload={"generated_at":now.isoformat(),"report_date":report_date,"mode":mode,"source":"东方财富公开行情接口",
+    payload={"generated_at":now.isoformat(),"report_date":report_date,"mode":mode,
+             "source":"个股行情与K线：腾讯财经优先，东方财富容灾；板块目录与公告：东方财富",
              "hot_sectors":[{"code":b["f12"],"name":b["f14"],"pct":b.get("f3")} for b in hot],
              "candidates":candidates,
              "notice":"技术偏离率不等同于交易所监管口径；报告不构成投资建议。"}
