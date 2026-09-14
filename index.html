@@ -129,14 +129,15 @@ async function loadIndices(){
 }
 async function loadHot(){
   var both=await Promise.all([clist("m:90+t:2",12,"f3"),clist("m:90+t:3",12,"f3")]);
-  var merged=both[0].concat(both[1]).filter(function(x){return x.f12&&isFinite(x.f3)});
+  var meta=/昨日|涨停|连板|ST|预盈|融资融券|深股通|沪股通|百元股|机构重仓|基金重仓|MSCI|标准普尔|证金持股|AH股|次新股|破净股|低价股|高送转|转债标的/;
+  var merged=both[0].concat(both[1]).filter(function(x){return x.f12&&isFinite(x.f3)&&!meta.test(x.f14)});
   var seen={};state.hot=merged.sort(function(a,b){return b.f3-a.f3}).filter(function(x){if(seen[x.f14])return false;seen[x.f14]=1;return true}).slice(0,5);
   renderSectors();
   var groups=await Promise.all(state.hot.map(async function(board){
-    var members=await clist("b:"+board.f12,10,"f3");
-    members=members.filter(function(x){return /^\d{6}$/.test(x.f12)}).slice(0,5);
+    var members=await clist("b:"+board.f12,15,"f3");
+    members=members.filter(function(x){return /^\d{6}$/.test(x.f12)}).slice(0,10);
     var full=await Promise.all(members.map(async function(x){try{return calc({code:x.f12,name:x.f14,sector:board.f14,f3:x.f3},await getK(x.f12,101,90))}catch(e){return null}}));
-    return full.filter(Boolean);
+    return full.filter(Boolean).sort(function(a,b){return b.score-a.score}).slice(0,5);
   }));
   state.stocks=[].concat.apply([],groups);renderStocks();makeReport();
 }
