@@ -151,7 +151,12 @@ def main():
     now=datetime.now(ZoneInfo("Asia/Shanghai"))
     mode=os.getenv("REPORT_MODE","manual")
     report_date=(now.date()-timedelta(days=1) if mode=="previous" else now.date()).isoformat()
-    boards=clist("m:90+t:2",15)+clist("m:90+t:3",15)
+    update_events()
+    try:
+        boards=clist("m:90+t:2",15)+clist("m:90+t:3",15)
+    except Exception as exc:
+        print("market snapshot unavailable; preserving previous snapshot",exc)
+        return
     unique={}
     for b in sorted(boards,key=lambda x:x.get("f3",-999),reverse=True):
         if b.get("f14") not in unique: unique[b.get("f14")]=b
@@ -183,7 +188,6 @@ def main():
     Path("data/latest.json").write_text(json.dumps(payload,ensure_ascii=False,indent=2),encoding="utf-8")
     stamp=now.strftime("%Y-%m-%d-%H%M")
     Path("reports",stamp+".json").write_text(json.dumps(payload,ensure_ascii=False,indent=2),encoding="utf-8")
-    update_events()
     print("generated",stamp,len(candidates))
 
 if __name__=="__main__":
