@@ -9,11 +9,27 @@
   <script defer src="https://cdn.jsdelivr.net/npm/echarts@5.5.1/dist/echarts.min.js"></script>
   <script defer src="./app.js"></script>
 </head>
-<body>
+<body class="locked">
+<section class="login-shell" id="loginShell">
+  <form class="login-card" id="loginForm">
+    <div class="login-brand"><span class="logo">量</span><div><h1>A股量价雷达</h1><p>专业行情观察与策略研究</p></div></div>
+    <label>手机号<input id="loginPhone" inputmode="numeric" autocomplete="username" maxlength="11" placeholder="请输入11位手机号" required></label>
+    <label>密码<input id="loginPassword" type="password" autocomplete="current-password" placeholder="请输入密码" required></label>
+    <button class="btn primary login-submit" type="submit">登录</button>
+    <p class="login-error" id="loginError"></p>
+    <p class="login-note">系统不开放自主注册；新账号由超级管理员创建。</p>
+  </form>
+</section>
 <div class="app">
   <header class="topbar">
     <div class="brand"><div class="logo">量</div><div><h1>A股量价雷达</h1><div class="subtitle">自选跟踪 · 全市场搜索 · 量价结构 · 风险先行</div></div></div>
-    <div class="actions"><div class="status"><i class="dot" id="sourceDot"></i><span id="sourceText">正在连接腾讯财经</span></div><button class="btn primary" id="refreshBtn">刷新数据</button></div>
+    <div class="actions">
+      <div class="status"><i class="dot" id="sourceDot"></i><span id="sourceText">正在连接腾讯财经</span></div>
+      <button class="btn" id="logShortcut">接口日志 <span class="badge" id="logBadge">0</span></button>
+      <span class="user-pill" id="userBadge">未登录</span>
+      <button class="btn" id="logoutBtn">退出</button>
+      <button class="btn primary" id="refreshBtn">刷新行情</button>
+    </div>
   </header>
 
   <nav class="tabs">
@@ -22,6 +38,8 @@
     <button class="tab" data-view="strategy">策略选股</button>
     <button class="tab" data-view="events">大事件</button>
     <button class="tab" data-view="report">市场报告</button>
+    <button class="tab" data-view="logs">接口日志</button>
+    <button class="tab admin-only hidden" data-view="accounts">账号管理</button>
     <button class="tab" data-view="method">筛选说明</button>
   </nav>
 
@@ -46,12 +64,20 @@
       <div class="card index skeleton"><span class="label">上证指数</span><div class="value">--</div><span class="delta">连接中</span></div>
       <div class="card index skeleton"><span class="label">深证成指</span><div class="value">--</div><span class="delta">连接中</span></div>
       <div class="card index skeleton"><span class="label">创业板指</span><div class="value">--</div><span class="delta">连接中</span></div>
-      <div class="card index"><span class="label">热门板块</span><div class="value">--</div><span class="delta flat">动态跟踪</span></div>
+      <div class="card index"><span class="label">行情状态</span><div class="value status-value">连接中</div><span class="delta flat">腾讯优先 · 东方财富容灾</span></div>
     </div>
+    <div class="market-grid">
+      <section class="card flow-panel"><div class="panel-title"><div><h3>主力净流入板块</h3><p>按板块主力净额排序</p></div><span class="flow-mark up">TOP 5</span></div><div id="inflowSectors" class="flow-list"><div class="empty compact">加载中</div></div></section>
+      <section class="card flow-panel"><div class="panel-title"><div><h3>主力净流出板块</h3><p>用于识别当日退潮方向</p></div><span class="flow-mark down">BOTTOM 5</span></div><div id="outflowSectors" class="flow-list"><div class="empty compact">加载中</div></div></section>
+    </div>
+    <section class="card hot-stock-panel">
+      <div class="panel-title"><div><h3>今日热门股票</h3><p>按成交活跃度、涨跌幅与量比构建热度代理，展示前10只</p></div><span class="help">点击股票查看详情</span></div>
+      <div class="hot-stock-grid" id="hotStocks"><div class="empty compact">正在计算市场热度...</div></div>
+    </section>
 
     <div class="layout">
       <aside class="card side">
-        <h3 class="section-title">热门前五 <span class="label">当日涨幅排序</span></h3>
+        <h3 class="section-title">涨幅热门板块 <span class="label">前5</span></h3>
         <div class="chips" id="hotSectors"><span class="chip skeleton">加载中</span></div>
         <hr class="divider">
         <h3 class="section-title">固定关注板块 <span class="label">支持增删</span></h3>
@@ -78,7 +104,7 @@
       <article class="card strategy-card"><h3>超跌修复</h3><p>RSI进入偏低区域后价格转正，仅用于高风险反弹观察，不等同于反转。</p><div class="strategy-meta"><span class="tag risk">高风险</span><span class="tag">左侧</span></div><button class="btn primary" data-strategy="oversold">应用策略</button></article>
     </div>
     <div class="card">
-      <div class="panel-title"><div><h3 id="strategyTitle">策略结果</h3><p>每次扫描成交活跃的沪深股票池；为控制接口频率，采用分批队列。</p></div></div>
+      <div class="panel-title"><div><h3 id="strategyTitle">策略结果</h3><p>每次扫描成交活跃的沪深股票池；行情请求按4只一批执行，失败会写入接口日志。</p></div></div>
       <div class="strategy-progress" id="strategyProgress">请选择一个策略开始筛选。</div>
       <div class="table-wrap"><table><thead><tr><th>股票</th><th>策略 / 形态</th><th>现价</th><th>涨幅</th><th>成交量</th><th>成交额</th><th>3日均量</th><th>10日</th><th>20日</th><th>偏离10/30</th><th>评分</th><th>操作</th></tr></thead><tbody id="strategyRows"><tr><td colspan="12" class="empty">尚未运行策略</td></tr></tbody></table></div>
     </div>
@@ -93,6 +119,22 @@
     <div class="report-grid">
       <article class="card report-card"><div class="label" id="reportTime">尚未生成</div><h2>市场结构摘要</h2><div id="reportContent"><p>选择板块或刷新行情后，根据真实数据生成当前观察报告。</p></div><div class="notice">报告仅为量价结构教学与信息整理，不构成投资建议。好股票不等于好买点，请预先定义失效条件。</div></article>
       <aside class="card report-card"><h2>报告计划</h2><div class="schedule"><div><span class="label">前一交易日复盘</span><br><b>01:00</b><br><span class="help">北京时间</span></div><div><span class="label">午间快照</span><br><b>12:00</b><br><span class="help">北京时间</span></div></div><h3>报告重点</h3><ul><li>热门板块持续性和轮动</li><li>突破、回踩与板块共振</li><li>高位巨量、滞涨和公告风险</li></ul></aside>
+    </div>
+  </section>
+
+  <section id="logs" class="view">
+    <div class="page-head"><div><h2>接口日志</h2><p>记录腾讯财经与东方财富的失败、超时、容灾切换和恢复情况。</p></div><div class="summary-row"><span class="summary-pill">总计 <b id="logTotal">0</b></span><span class="summary-pill">错误 <b id="logErrors">0</b></span><span class="summary-pill">容灾 <b id="logFallbacks">0</b></span></div></div>
+    <div class="card">
+      <div class="log-toolbar"><select id="logProvider"><option value="all">全部数据源</option><option value="腾讯财经">腾讯财经</option><option value="东方财富">东方财富</option><option value="系统">系统</option></select><select id="logLevel"><option value="all">全部级别</option><option value="error">错误</option><option value="warn">警告</option><option value="info">信息</option></select><button class="btn danger" id="clearLogs">清空日志</button></div>
+      <div class="table-wrap"><table class="log-table"><thead><tr><th>时间</th><th>级别</th><th>数据源</th><th>接口</th><th>对象</th><th>说明</th></tr></thead><tbody id="logRows"><tr><td colspan="6" class="empty">暂无接口日志</td></tr></tbody></table></div>
+    </div>
+  </section>
+
+  <section id="accounts" class="view">
+    <div class="page-head"><div><h2>账号管理</h2><p>仅超级管理员可见。新增账号默认密码为 123456。</p></div><span class="local-mode">本机账号模式</span></div>
+    <div class="account-layout">
+      <form class="card account-form" id="accountForm"><h3>新增账号</h3><label>手机号<input class="search" id="accountPhone" inputmode="numeric" maxlength="11" placeholder="11位手机号" required></label><button class="btn primary" type="submit">新增账号</button><p class="help">账号创建后即可在本浏览器登录。请提醒用户首次登录后谨慎使用默认密码。</p></form>
+      <div class="card"><div class="panel-title"><div><h3>全部账号</h3><p>超级账号不可删除或停用</p></div></div><div class="table-wrap"><table class="account-table"><thead><tr><th>手机号</th><th>角色</th><th>状态</th><th>创建时间</th><th>操作</th></tr></thead><tbody id="accountRows"></tbody></table></div></div>
     </div>
   </section>
 
