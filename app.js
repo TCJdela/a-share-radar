@@ -33,7 +33,7 @@ function pct(n){return(n>0?"+":"")+fmt(n,2)+"%"}
 function color(n){return Number(n)>0?"up":Number(n)<0?"down":"flat"}
 function mean(a){return a.length?a.reduce(function(x,y){return x+y},0)/a.length:0}
 function tradingProgress(){
-  var now=new Date(),m=now.getHours()*60+now.getMinutes();
+  var now=new Date(new Date().toLocaleString("en-US",{timeZone:"Asia/Shanghai"})),m=now.getHours()*60+now.getMinutes();
   if(m<570)return .08;if(m<=690)return Math.max(.08,(m-570)/240);if(m<780)return .5;if(m<=900)return .5+(m-780)/240;return 1;
 }
 function marketId(code){return(/^(6|9)/.test(code)?"1.":"0.")+code}
@@ -43,7 +43,7 @@ function setSource(ok,text){$("#sourceDot").className="dot "+(ok?"ok":"bad");$("
 function apiLogs(){return readStore("ashare.apiLogs",[])}
 function logApi(level,provider,endpoint,target,message,meta){var rows=apiLogs();rows.unshift({time:new Date().toISOString(),level:level,provider:provider,endpoint:endpoint,target:target||"--",message:String(message&&message.message||message||"未知错误"),fallback:!!(meta&&meta.fallback)});saveStore("ashare.apiLogs",rows.slice(0,300));updateLogBadge()}
 function updateLogBadge(){var bad=apiLogs().filter(function(x){return x.level==="error"||x.level==="warn"}).length;if($("#logBadge"))$("#logBadge").textContent=bad}
-function renderApiLogs(){if(!$("#logRows"))return;var provider=$("#logProvider").value,level=$("#logLevel").value,all=apiLogs(),rows=all.filter(function(x){return(provider==="all"||x.provider===provider)&&(level==="all"||x.level===level)});$("#logTotal").textContent=all.length;$("#logErrors").textContent=all.filter(function(x){return x.level==="error"}).length;$("#logFallbacks").textContent=all.filter(function(x){return x.fallback}).length;updateLogBadge();$("#logRows").innerHTML=rows.length?rows.map(function(x){return'<tr><td>'+new Date(x.time).toLocaleString("zh-CN",{hour12:false})+'</td><td><span class="log-level '+x.level+'">'+x.level+'</span></td><td>'+esc(x.provider)+'</td><td>'+esc(x.endpoint)+'</td><td>'+esc(x.target)+'</td><td>'+esc(x.message)+'</td></tr>'}).join(""):'<tr><td colspan="6" class="empty">当前筛选条件下没有日志</td></tr>'}
+function renderApiLogs(){if(!$("#logRows"))return;var provider=$("#logProvider").value,level=$("#logLevel").value,all=apiLogs(),rows=all.filter(function(x){return(provider==="all"||x.provider===provider)&&(level==="all"||x.level===level)});$("#logTotal").textContent=all.length;$("#logErrors").textContent=all.filter(function(x){return x.level==="error"}).length;$("#logFallbacks").textContent=all.filter(function(x){return x.fallback}).length;updateLogBadge();$("#logRows").innerHTML=rows.length?rows.map(function(x){return'<tr><td>'+new Date(x.time).toLocaleString("zh-CN",{hour12:false,timeZone:"Asia/Shanghai"})+'</td><td><span class="log-level '+x.level+'">'+x.level+'</span></td><td>'+esc(x.provider)+'</td><td>'+esc(x.endpoint)+'</td><td>'+esc(x.target)+'</td><td>'+esc(x.message)+'</td></tr>'}).join(""):'<tr><td colspan="6" class="empty">当前筛选条件下没有日志</td></tr>'}
 function clearApiLogs(){saveStore("ashare.apiLogs",[]);renderApiLogs();toast("接口日志已清空")}
 var REQUEST_LIMIT=3,REQUEST_GAP=220,requestQueue=[],activeRequests=0,nextRequestAt=0;
 function sleep(ms){return new Promise(function(resolve){setTimeout(resolve,ms)})}
@@ -98,7 +98,7 @@ function globalScript(url,globalName,timeout){
   return queued(async function(){var last;for(var i=0;i<2;i++){try{return await rawGlobalScript(url,globalName,timeout)}catch(e){last=e;if(i===0)await sleep(700)}}throw last});
 }
 function getEastmoneyQuote(code,secidOverride){
-  return jsonp(API.quote,{secid:secidOverride||marketId(code),fltt:2,fields:"f43,f44,f45,f46,f47,f48,f57,f58,f60,f116,f117,f162,f167,f168,f169,f170"}).then(function(j){var q=j&&j.data?j.data:{};q._source="东方财富";return q});
+  return jsonp(API.quote,{secid:secidOverride||marketId(code),fltt:2,fields:"f43,f44,f45,f46,f47,f48,f57,f58,f60,f116,f117,f162,f167,f168,f169,f170"}).then(function(j){var q=j&&j.data?j.data:{};q.f47=(+q.f47||0)*100;q._source="东方财富";return q});
 }
 async function getTencentQuote(code,symbolOverride){
   var s=symbolOverride||symbol(code),raw=await globalScript(API.tencentQuote+s,"v_"+s),a=String(raw||"").split("~");
@@ -183,11 +183,11 @@ async function loadIndices(){
   $("#indices").innerHTML=rows.map(function(x){var q=x[1];return'<div class="card index"><span class="label">'+x[0]+'</span><div class="value '+(q?color(q.f170):"")+'">'+(q?fmt(q.f43):"--")+'</div><span class="delta '+(q?color(q.f170):"flat")+'">'+(q?pct(q.f170):"接口不可用")+'</span></div>'}).join("")+'<div class="card index"><span class="label">热门板块</span><div class="value">'+state.hot.length+'</div><span class="delta flat">动态跟踪</span></div>';
 }
 function renderSnapshotHotStocks(){
-  var box=$("#hotStocks"),source=state.snapshot&&state.snapshot.candidates||[];
+  var box=$("#hotStocks"),source=state.snapshot&&(state.snapshot.hot_stocks&&state.snapshot.hot_stocks.length?state.snapshot.hot_stocks:state.snapshot.candidates)||[];
   var rows=source.slice().filter(function(x){return /^\d{6}$/.test(x.code)&&(!state.hsOnly||isHuShen(x.code))}).sort(function(a,b){return(+b.amount||0)-(+a.amount||0)}).slice(0,10).map(function(x){return{code:x.code,name:x.name,price:x.price,pct:x.pct,amount:x.amount,turnover:null,heat:Math.log10(Math.max(1,+x.amount||1))*8+Math.abs(+x.pct||0)*2}});
   state.hotStocks=rows;if(!rows.length){box.innerHTML='<div class="empty compact">热门股票实时列表暂不可用，请稍后刷新。</div>';return}
   var max=rows[0].heat||1;box.innerHTML='<div class="fallback-note">实时列表不可用，以下为当日定时快照</div>'+rows.map(function(x){return'<article class="hot-stock" data-hot-stock="'+x.code+'"><div class="hot-stock-top"><span class="hot-stock-name">'+esc(x.name)+'</span><span class="code">'+x.code+'</span></div><div class="hot-stock-price '+color(x.pct)+'">'+fmt(x.price)+' <small>'+pct(x.pct)+'</small></div><div class="hot-stock-meta"><span>成交 '+unit(x.amount)+'</span><span>定时快照</span></div><div class="heat-bar"><i style="width:'+Math.max(8,x.heat/max*100)+'%"></i></div></article>'}).join("");
-  $("[data-hot-stock]").forEach(function(el){el.onclick=function(){var x=state.hotStocks.find(function(v){return v.code===el.dataset.hotStock});openDetail({code:x.code,name:x.name,price:x.price,pct:x.pct,amount:x.amount,sector:"今日热门"})}})
+  $$("[data-hot-stock]").forEach(function(el){el.onclick=function(){var x=state.hotStocks.find(function(v){return v.code===el.dataset.hotStock});openDetail({code:x.code,name:x.name,price:x.price,pct:x.pct,amount:x.amount,sector:"今日热门"})}})
 }
 async function loadBoards(){
   try{
@@ -206,8 +206,10 @@ async function loadBoards(){
   renderSectors();renderFlowSectors();loadIndices();loadHotStocks();
   if(!state.activeBoard&&state.hot[0])selectBoard(state.hot[0]);
   }catch(e){
-    $("#inflowSectors").innerHTML='<div class="empty compact">板块资金接口暂不可用，失败详情已写入接口日志。</div>';
-    $("#outflowSectors").innerHTML='<div class="empty compact">板块资金接口暂不可用，失败详情已写入接口日志。</div>';
+    if(state.inflow.length||state.outflow.length)renderFlowSectors();else{
+      $("#inflowSectors").innerHTML='<div class="empty compact">板块资金接口暂不可用，失败详情已写入接口日志。</div>';
+      $("#outflowSectors").innerHTML='<div class="empty compact">板块资金接口暂不可用，失败详情已写入接口日志。</div>';
+    }
     renderSnapshotHotStocks();
     renderSectors();
     throw e;
@@ -355,16 +357,34 @@ async function loadAnnouncements(x){
     box.innerHTML=rows.map(function(a){var title=a.title||"公告",kind=neg.test(title)?"risk":pos.test(title)?"good":"warn",label=kind==="risk"?"偏利空词":kind==="good"?"偏利好词":"中性/待核实";return'<a class="ann" target="_blank" rel="noopener" href="https://data.eastmoney.com/notices/stock/'+x.code+'.html"><span class="ann-title">'+esc(title)+'</span><span class="tag '+kind+'">'+label+'</span></a>'}).join("");
   }catch(e){var snap=state.snapshot&&state.snapshot.candidates&&state.snapshot.candidates.find(function(v){return v.code===x.code}),cached=snap&&snap.announcements||[];if(cached.length){box.innerHTML=cached.map(function(a){var kind=a.tone==="偏利空"?"risk":a.tone==="偏利好"?"good":"warn";return'<div class="ann"><span class="ann-title">'+esc(a.title)+'</span><span class="tag '+kind+'">'+esc(a.tone)+' · 快照</span></div>'}).join("")}else{box.innerHTML='<div class="help">实时公告源不可用且无缓存。<a class="up" target="_blank" rel="noopener" href="https://www.cninfo.com.cn/new/disclosure/stock?stockCode='+x.code+'">前往巨潮资讯核验</a></div>'}}
 }
+function snapshotRow(x){
+  return{code:x.code,name:x.name,sector:x.sector,price:x.price,pct:x.pct,volume:x.volume,amount:x.amount,avg3:x.avg3_volume,r10:x.return_10d,r20:x.return_20d,d10:x.deviation_10d,d30:x.deviation_30d,vr:x.volume_ratio,volumePace:x.volume_pace,signal:x.signal,score:x.score,k:[],quote:{},source:"定时快照",confidence:"C"};
+}
+function renderTodayBrief(){
+  var box=$("#todayBrief"),stamp=$("#todayStamp");if(!box)return;var j=state.snapshot||{},closed=j.market_status==="closed",selected=j.selected_sectors||j.hot_sectors||[],rows=j.candidates||[];
+  if(stamp)stamp.textContent=j.generated_at?"更新于 "+new Date(j.generated_at).toLocaleString("zh-CN",{hour12:false,timeZone:"Asia/Shanghai"}):"等待数据";
+  if(closed){box.innerHTML='<div class="today-alert closed"><b>今日休市</b><span>最近交易日 '+esc(j.last_trading_date||"--")+'，页面未生成实时行情。</span></div>';return}
+  var signals={};rows.forEach(function(x){signals[x.signal]=(signals[x.signal]||0)+1});
+  box.innerHTML='<div class="today-kpi"><span>综合关注池最强板块</span><b>'+esc(selected.slice(0,3).map(function(x){return x.name}).join(" / ")||"--")+'</b></div><div class="today-kpi"><span>候选股票</span><b>'+rows.length+' 只</b></div><div class="today-kpi"><span>结构信号</span><b>'+esc(Object.keys(signals).slice(0,3).map(function(k){return k+" "+signals[k]}).join(" · ")||"--")+'</b></div><div class="today-kpi"><span>数据模式</span><b>'+(j.mode==="noon"?"午间快照":j.mode==="previous"?"前日复盘":"最新快照")+'</b></div>';
+}
+async function loadServerHealth(){
+  var box=$("#serverHealth");if(!box)return;
+  try{var res=await fetch("./data/health.json?v="+Date.now(),{cache:"no-store"});if(!res.ok)throw new Error();var j=await res.json(),age=(Date.now()-new Date(j.generated_at).getTime())/60000;box.innerHTML='<div><span>后台任务</span><b class="'+(j.status==="ok"?"up":j.status==="closed"?"flat":"down")+'">'+esc(j.status||"未知")+'</b></div><div><span>最后更新</span><b>'+new Date(j.generated_at).toLocaleString("zh-CN",{hour12:false,timeZone:"Asia/Shanghai"})+'</b></div><div><span>快照年龄</span><b>'+fmt(age,0)+' 分钟</b></div><div><span>候选/板块</span><b>'+esc((j.details&&j.details.candidates||0)+" / "+(j.details&&j.details.selected_sectors||0))+'</b></div>'}
+  catch(e){box.innerHTML='<div class="empty compact">后台健康记录尚未生成</div>'}
+}
 async function loadSnapshot(){
   try{
     var res=await fetch("./data/latest.json?v="+Date.now(),{cache:"no-store"});
     if(!res.ok)throw new Error("快照不存在");
     var j=await res.json();state.snapshot=j;
     if(!state.hot.length)state.hot=(j.hot_sectors||[]).filter(function(x){return!META_BOARD.test(x.name)}).map(function(x){return{label:x.name,name:x.name,code:x.code,pct:x.pct}});
-    var rows=(j.candidates||[]).map(function(x){return{code:x.code,name:x.name,sector:x.sector,price:x.price,pct:x.pct,volume:x.volume,amount:x.amount,avg3:x.avg3_volume,r10:x.return_10d,r20:x.return_20d,d10:x.deviation_10d,d30:x.deviation_30d,vr:x.volume_ratio,signal:x.signal,score:x.score,k:[],quote:{},source:"定时快照"}});
-    if(rows.length&&!state.candidates.length){state.candidates=rows.slice(0,5);$("#candidateTitle").textContent="最新定时快照";$("#candidateSub").textContent="实时接口尚未完成时先展示 "+new Date(j.generated_at).toLocaleString("zh-CN",{hour12:false,timeZone:"Asia/Shanghai"})+" 的缓存数据";renderTable("#candidateRows",state.candidates,false)}
-    renderSectors();return j;
-  }catch(e){return null}
+    state.inflow=(j.inflow_sectors||[]).map(function(x){return{f12:x.code,f14:x.name,f3:x.pct,f62:x.flow}});
+    state.outflow=(j.outflow_sectors||[]).map(function(x){return{f12:x.code,f14:x.name,f3:x.pct,f62:x.flow}});
+    var rows=(j.candidates||[]).map(snapshotRow);
+    if(j.market_status==="closed"){$("#candidateTitle").textContent="今日休市";$("#candidateSub").textContent="最近交易日 "+(j.last_trading_date||"--")+"，未生成实时候选";renderTable("#candidateRows",[],false)}
+    else if(rows.length&&!state.candidates.length){state.candidates=rows.slice(0,5);$("#candidateTitle").textContent="最新定时快照";$("#candidateSub").textContent="实时接口尚未完成时先展示 "+new Date(j.generated_at).toLocaleString("zh-CN",{hour12:false,timeZone:"Asia/Shanghai"})+" 的缓存数据";renderTable("#candidateRows",state.candidates,false)}
+    renderSectors();renderFlowSectors();renderSnapshotHotStocks();renderTodayBrief();loadServerHealth();return j;
+  }catch(e){renderTodayBrief();return null}
 }
 function snapshotForBoard(board){
   if(!state.snapshot)return[];
@@ -416,14 +436,14 @@ function buildReport(){
 function switchView(id){
   if(id==="accounts"){toast("账号管理需接入安全后端后启用");return}
   $$(".tab").forEach(function(x){x.classList.toggle("active",x.dataset.view===id)});$$(".view").forEach(function(x){x.classList.toggle("active",x.id===id)});
-  if(id==="watch")renderWatch();if(id==="events"&&!state.events.length)loadEvents();if(id==="logs")renderApiLogs();
+  if(id==="watch")renderWatch();if(id==="events"&&!state.events.length)loadEvents();if(id==="logs"){renderApiLogs();loadServerHealth()}
 }
 async function refresh(){
   $("#refreshBtn").disabled=true;$("#sourceDot").className="dot";$("#sourceText").textContent="正在连接腾讯财经";
   state.fallbackHits=0;
   try{await Promise.all([loadIndices(),loadBoards()]);setSource(true,(state.fallbackHits?"腾讯财经 + 东方财富容灾":"腾讯财经")+" · "+new Date().toLocaleTimeString("zh-CN",{hour12:false}));if($("#watch").classList.contains("active"))renderWatch()}
   catch(e){if(state.snapshot){setSource(false,"实时接口限流 · 当前显示定时快照");toast("实时请求受限，已切换到缓存快照")}else{setSource(false,"行情接口不可用，未使用模拟数据");toast(e.message)}}
-  finally{$("#refreshBtn").disabled=false}
+  finally{$("#refreshBtn").disabled=false;renderTodayBrief()}
 }
 $$(".tab").forEach(function(b){b.onclick=function(){switchView(b.dataset.view)}});
 $("#refreshBtn").onclick=refresh;$("#logShortcut").onclick=function(){switchView("logs")};$("#logProvider").onchange=renderApiLogs;$("#logLevel").onchange=renderApiLogs;$("#clearLogs").onclick=clearApiLogs;$("#hsOnlyToggle").onclick=function(){setHsOnly(!state.hsOnly)};$("#strategyHsToggle").onclick=function(){setHsOnly(!state.hsOnly)};$("#addSector").onclick=addSector;$("#sectorInput").onkeydown=function(e){if(e.key==="Enter")addSector()};
