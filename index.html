@@ -5,16 +5,28 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="A股量价雷达：全市场搜索、自选、热门板块、分时K线与公告">
   <title>A股量价雷达</title>
-  <link rel="stylesheet" href="./styles.css?v=ui-10">
+  <link rel="stylesheet" href="./styles.css?v=ui-11">
   <script defer src="https://cdn.jsdelivr.net/npm/echarts@5.5.1/dist/echarts.min.js"></script>
-  <script defer src="./app.js?v=ui-10"></script>
+  <script defer src="./auth-config.js"></script>
+  <script defer src="./auth.js?v=auth-1"></script>
+  <script defer src="./app.js?v=ui-11"></script>
 </head>
 <body>
+<div class="login-shell" id="loginShell" hidden>
+  <form class="login-card" id="loginForm">
+    <div class="login-brand"><div class="logo">量</div><div><h1>A股量价雷达</h1><p>受邀用户登录</p></div></div>
+    <label>手机号<input id="loginPhone" inputmode="numeric" autocomplete="username" maxlength="11" required></label>
+    <label>密码<input id="loginPassword" type="password" autocomplete="current-password" required></label>
+    <button class="btn primary login-submit" type="submit">登录</button>
+    <p class="login-error" id="loginError"></p><p class="login-note">系统不开放注册，账号由管理员统一创建。</p>
+  </form>
+</div>
 <div class="app">
   <header class="topbar">
     <div class="brand"><div class="logo">量</div><div><h1>A股量价雷达</h1><div class="subtitle">自选跟踪 · 全市场搜索 · 量价结构 · 风险先行</div></div></div>
     <div class="actions">
       <div class="status"><i class="dot" id="sourceDot"></i><span id="sourceText">正在连接腾讯财经</span></div>
+      <span class="user-pill hidden" id="userPill"></span><button class="btn hidden" id="logoutBtn">退出</button>
       <button class="btn" id="logShortcut">接口日志 <span class="badge" id="logBadge">0</span></button>
       <button class="btn primary" id="refreshBtn">刷新行情</button>
     </div>
@@ -125,9 +137,9 @@
   </section>
 
   <section id="accounts" class="view">
-    <div class="page-head"><div><h2>账号管理</h2><p>仅超级管理员可见。新增账号默认密码为 123456。</p></div><span class="local-mode">本机账号模式</span></div>
+    <div class="page-head"><div><h2>账号管理</h2><p>仅超级管理员可见。新增账号默认密码为 123456。</p></div><span class="local-mode">服务端安全模式</span></div>
     <div class="account-layout">
-      <form class="card account-form" id="accountForm"><h3>新增账号</h3><label>手机号<input class="search" id="accountPhone" inputmode="numeric" maxlength="11" placeholder="11位手机号" required></label><button class="btn primary" type="submit">新增账号</button><p class="help">账号创建后即可在本浏览器登录。请提醒用户首次登录后谨慎使用默认密码。</p></form>
+      <form class="card account-form" id="accountForm"><h3>新增账号</h3><label>手机号<input class="search" id="accountPhone" inputmode="numeric" maxlength="11" placeholder="11位手机号" required></label><button class="btn primary" type="submit">新增账号</button><p class="help">账号创建后即可登录；默认密码仅用于首次进入，请提醒用户尽快修改。</p></form>
       <div class="card"><div class="panel-title"><div><h3>全部账号</h3><p>超级账号不可删除或停用</p></div></div><div class="table-wrap"><table class="account-table"><thead><tr><th>手机号</th><th>角色</th><th>状态</th><th>创建时间</th><th>操作</th></tr></thead><tbody id="accountRows"></tbody></table></div></div>
     </div>
   </section>
