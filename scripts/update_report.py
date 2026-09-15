@@ -64,23 +64,29 @@ def symbol(code):
         return "bj"+code
     return ("sh" if code.startswith(("6","9")) else "sz")+code
 
+def normalize_volume(raw, amount, price):
+    raw=float(raw or 0);amount=float(amount or 0);price=float(price or 0)
+    if not raw or not amount or not price: return raw
+    expected=amount/price
+    candidates=(raw,raw*100)
+    return min(candidates,key=lambda value:abs(value-expected)/max(expected,1))
+
 def tencent_quote(code):
     raw=get_text(TENCENT_QUOTE+symbol(code),encoding="gb18030")
     match=re.search(r'="(.*)"',raw)
     a=(match.group(1) if match else "").split("~")
-    if len(a)<40 or not a[3]:
-        raise ValueError("Tencent quote is empty")
-    return {"name":a[1],"price":float(a[3]),"pct":float(a[32] or 0),
-            "volume":float(a[36] or 0) if a[36] else float(a[6] or 0)*100,"amount":float(a[37] or 0)*10000}, "腾讯财经"
+    if len(a)<40 or not a[3]: raise ValueError("Tencent quote is empty")
+    price=float(a[3]);amount=float(a[37] or 0)*10000
+    volume=normalize_volume(a[36] or a[6],amount,price)
+    return {"name":a[1],"price":price,"pct":float(a[32] or 0),"volume":volume,"amount":amount}, "腾讯财经"
 
 def eastmoney_quote(code):
-    j=get(QBASE,{"secid":secid(code),"fltt":2,
-                 "fields":"f43,f47,f48,f57,f58,f170"})
+    j=get(QBASE,{"secid":secid(code),"fltt":2,"fields":"f43,f47,f48,f57,f58,f170"})
     q=j.get("data") or {}
-    if q.get("f43") is None:
-        raise ValueError("Eastmoney quote is empty")
-    return {"name":q.get("f58") or code,"price":float(q["f43"]),"pct":float(q.get("f170") or 0),
-            "volume":float(q.get("f47") or 0)*100,"amount":float(q.get("f48") or 0)}, "东方财富"
+    if q.get("f43") is None: raise ValueError("Eastmoney quote is empty")
+    price=float(q["f43"]);amount=float(q.get("f48") or 0)
+    return {"name":q.get("f58") or code,"price":price,"pct":float(q.get("f170") or 0),
+            "volume":normalize_volume(q.get("f47"),amount,price),"amount":amount}, "东方财富"
 
 def quote(code):
     try:
@@ -90,33 +96,28 @@ def quote(code):
         return eastmoney_quote(code)
 
 def tencent_klines(code):
-    s=symbol(code)
-    j=get(TENCENT_K,{"param":f"{s},day,,,90,qfq"})
-    root=((j.get("data") or {}).get(s) or {})
-    rows=root.get("qfqday") or root.get("day") or []
-    if not rows:
-        raise ValueError("Tencent kline is empty")
-    out=[]
-    previous=None
+    s=symbol(code);j=get(TENCENT_K,{"param":f"{s},day,,,90,qfq"})
+    root=((j.get("data") or {}).get(s) or {});rows=root.get("qfqday") or root.get("day") or []
+    if not rows: raise ValueError("Tencent kline is empty")
+    out=[];previous=None
     for a in rows:
-        close=float(a[2])
+        close=float(a[2]);open_price=float(a[1]);high=float(a[3]);low=float(a[4])
+        amount=float(a[6]) if len(a)>6 and a[6] else 0
         pct=(close/previous-1)*100 if previous else 0
-        out.append({"date":a[0],"open":float(a[1]),"close":close,"high":float(a[3]),"low":float(a[4]),
-                    "volume":float(a[5])*100,"amount":float(a[6]) if len(a)>6 and a[6] else 0,"pct":pct})
+        out.append({"date":a[0],"open":open_price,"close":close,"high":high,"low":low,
+                    "volume":normalize_volume(a[5],amount,(open_price+close+high+low)/4),"amount":amount,"pct":pct})
         previous=close
     return out, "腾讯财经"
 
 def eastmoney_klines(code):
     j=get(KBASE,{"secid":secid(code),"klt":101,"fqt":1,"lmt":90,"end":"20500101",
                  "fields1":"f1,f2,f3,f4,f5,f6","fields2":"f51,f52,f53,f54,f55,f56,f57,f58,f59,f60,f61"})
-    rows=(j.get("data") or {}).get("klines") or []
-    out=[]
+    rows=(j.get("data") or {}).get("klines") or [];out=[]
     for row in rows:
-        a=row.split(",")
-        out.append({"date":a[0],"open":float(a[1]),"close":float(a[2]),"high":float(a[3]),"low":float(a[4]),
-                    "volume":float(a[5])*100,"amount":float(a[6]),"pct":float(a[8])})
-    if not out:
-        raise ValueError("Eastmoney kline is empty")
+        a=row.split(",");open_price=float(a[1]);close=float(a[2]);high=float(a[3]);low=float(a[4]);amount=float(a[6])
+        out.append({"date":a[0],"open":open_price,"close":close,"high":high,"low":low,
+                    "volume":normalize_volume(a[5],amount,(open_price+close+high+low)/4),"amount":amount,"pct":float(a[8])})
+    if not out: raise ValueError("Eastmoney kline is empty")
     return out, "东方财富"
 
 def klines(code):
