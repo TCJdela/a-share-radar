@@ -9,25 +9,13 @@
   <script defer src="https://cdn.jsdelivr.net/npm/echarts@5.5.1/dist/echarts.min.js"></script>
   <script defer src="./app.js"></script>
 </head>
-<body class="locked">
-<section class="login-shell" id="loginShell">
-  <form class="login-card" id="loginForm">
-    <div class="login-brand"><span class="logo">量</span><div><h1>A股量价雷达</h1><p>专业行情观察与策略研究</p></div></div>
-    <label>手机号<input id="loginPhone" inputmode="numeric" autocomplete="username" maxlength="11" placeholder="请输入11位手机号" required></label>
-    <label>密码<input id="loginPassword" type="password" autocomplete="current-password" placeholder="请输入密码" required></label>
-    <button class="btn primary login-submit" type="submit">登录</button>
-    <p class="login-error" id="loginError"></p>
-    <p class="login-note">系统不开放自主注册；新账号由超级管理员创建。</p>
-  </form>
-</section>
+<body>
 <div class="app">
   <header class="topbar">
     <div class="brand"><div class="logo">量</div><div><h1>A股量价雷达</h1><div class="subtitle">自选跟踪 · 全市场搜索 · 量价结构 · 风险先行</div></div></div>
     <div class="actions">
       <div class="status"><i class="dot" id="sourceDot"></i><span id="sourceText">正在连接腾讯财经</span></div>
       <button class="btn" id="logShortcut">接口日志 <span class="badge" id="logBadge">0</span></button>
-      <span class="user-pill" id="userBadge">未登录</span>
-      <button class="btn" id="logoutBtn">退出</button>
       <button class="btn primary" id="refreshBtn">刷新行情</button>
     </div>
   </header>
