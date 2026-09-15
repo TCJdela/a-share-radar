@@ -370,6 +370,7 @@ function renderTodayBrief(){
   var box=$("#todayBrief"),stamp=$("#todayStamp");if(!box)return;var j=state.snapshot||{},closed=j.market_status==="closed",selected=j.selected_sectors||j.hot_sectors||[],rows=j.candidates||[];
   if(stamp)stamp.textContent=j.generated_at?"更新于 "+new Date(j.generated_at).toLocaleString("zh-CN",{hour12:false,timeZone:"Asia/Shanghai"}):"等待数据";
   if(closed){box.innerHTML='<div class="today-alert closed"><b>今日休市</b><span>最近交易日 '+esc(j.last_trading_date||"--")+'，页面未生成实时行情。</span></div>';return}
+  var uniqueToday={};rows.forEach(function(x){if(!uniqueToday[x.code])uniqueToday[x.code]=x});rows=Object.keys(uniqueToday).map(function(k){return uniqueToday[k]});
   var signals={};rows.forEach(function(x){signals[x.signal]=(signals[x.signal]||0)+1});
   box.innerHTML='<div class="today-kpi"><span>综合关注池最强板块</span><b>'+esc(selected.slice(0,3).map(function(x){return x.name}).join(" / ")||"--")+'</b></div><div class="today-kpi"><span>候选股票</span><b>'+rows.length+' 只</b></div><div class="today-kpi"><span>结构信号</span><b>'+esc(Object.keys(signals).slice(0,3).map(function(k){return k+" "+signals[k]}).join(" · ")||"--")+'</b></div><div class="today-kpi"><span>数据模式</span><b>'+(j.mode==="noon"?"午间快照":j.mode==="previous"?"前日复盘":"最新快照")+'</b></div>';
 }
@@ -418,6 +419,7 @@ async function runStrategy(key){
     pool=pool.slice(0,40);var done=0,rows=[];
     for(var i=0;i<pool.length;i+=4){var batch=await Promise.all(pool.slice(i,i+4).map(async function(x){try{return await analyze(x)}catch(e){logApi("error","系统","策略分析",x.code,e);return null}finally{done++;progress.innerHTML="正在应用 <b>"+esc(rule.name)+"</b>："+done+" / "+pool.length}}));rows=rows.concat(batch.filter(Boolean));if(i+4<pool.length)await sleep(350)}
     var usedSnapshot=false;if(!rows.length&&state.snapshot&&state.snapshot.candidates){usedSnapshot=true;rows=state.snapshot.candidates.map(snapshotRow)}
+    var uniqueStrategy={};rows.forEach(function(x){var old=uniqueStrategy[x.code];if(!old)uniqueStrategy[x.code]=x;else if(old.sector!==x.sector)old.sector=old.sector+" / "+x.sector});rows=Object.keys(uniqueStrategy).map(function(k){return uniqueStrategy[k]});
     state.strategyRows=rows.filter(rule.test).map(function(x){return Object.assign({},x,{reason:reasonFor(x)})}).sort(function(a,b){return b.score-a.score}).slice(0,20);
     progress.innerHTML=(usedSnapshot?"实时行情源均不可用，已改用当日定时快照筛选。":"已成功分析 <b>"+rows.length+"</b> 只股票。")+" 找到 <b>"+state.strategyRows.length+"</b> 只完全符合条件的股票。"+(!usedSnapshot&&rows.length<pool.length?" 部分失败记录已写入接口日志。":"");
     renderTable("#strategyRows",state.strategyRows,false);
