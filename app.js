@@ -388,13 +388,13 @@ async function loadSnapshot(){
 }
 function snapshotForBoard(board){
   if(!state.snapshot)return[];
-  var rows=(state.snapshot.candidates||[]).filter(function(x){return x.sector===(board.name||board.label)||x.sector===board.label}).map(function(x){return{code:x.code,name:x.name,sector:x.sector,price:x.price,pct:x.pct,volume:x.volume,amount:x.amount,avg3:x.avg3_volume,r10:x.return_10d,r20:x.return_20d,d10:x.deviation_10d,d30:x.deviation_30d,vr:x.volume_ratio,signal:x.signal,score:x.score,k:[],quote:{},source:"定时快照"}});
+  var rows=(state.snapshot.candidates||[]).filter(function(x){return x.sector===(board.name||board.label)||x.sector===board.label}).map(snapshotRow);
   return rows.slice(0,5);
 }
 var STRATEGIES={
   breakout:{name:"趋势突破",test:function(x){return x.signal==="放量突破"&&x.d10<12&&x.r20<35}},
   pullback:{name:"缩量回踩",test:function(x){return x.signal==="缩量回踩"&&(!isFinite(x.rsi14)||(x.rsi14>38&&x.rsi14<72))}},
-  reversal:{name:"弱转强",test:function(x){return x.signal==="弱转强"||(x.pct>2&&x.prevPct<0&&x.vr>1)}},
+  reversal:{name:"弱转强",test:function(x){return x.signal==="弱转强"||(x.pct>2&&x.prevPct<0&&x.volumePace>1)}},
   lowvol:{name:"低波动趋势",test:function(x){return x.ma5>x.ma10&&x.ma10>x.ma20&&x.r20>3&&x.r20<25&&x.vol20<42&&x.d10>0&&x.d10<9}},
   oversold:{name:"超跌修复",test:function(x){return x.rsi14<38&&x.pct>0&&x.r20<0}}
 };
@@ -411,7 +411,7 @@ async function runStrategy(key){
     market.concat(state.candidates).concat(state.watch).forEach(function(x){var code=x.f12||x.code,name=x.f14||x.name;if(!/^\d{6}$/.test(code)||seen[code]||(state.hsOnly&&!isHuShen(code)))return;seen[code]=1;pool.push({code:code,name:name,sector:"策略池"})});
     pool=pool.slice(0,40);var done=0,rows=[];
     for(var i=0;i<pool.length;i+=4){var batch=await Promise.all(pool.slice(i,i+4).map(async function(x){try{return await analyze(x)}catch(e){logApi("error","系统","策略分析",x.code,e);return null}finally{done++;progress.innerHTML="正在应用 <b>"+esc(rule.name)+"</b>："+done+" / "+pool.length}}));rows=rows.concat(batch.filter(Boolean));if(i+4<pool.length)await sleep(350)}
-    var usedSnapshot=false;if(!rows.length&&state.snapshot&&state.snapshot.candidates){usedSnapshot=true;rows=state.snapshot.candidates.map(function(x){return{code:x.code,name:x.name,sector:x.sector,price:x.price,pct:x.pct,volume:x.volume,amount:x.amount,avg3:x.avg3_volume,r10:x.return_10d,r20:x.return_20d,d10:x.deviation_10d,d30:x.deviation_30d,vr:x.volume_ratio,signal:x.signal,score:x.score,k:[],quote:{},source:"定时快照"}})}
+    var usedSnapshot=false;if(!rows.length&&state.snapshot&&state.snapshot.candidates){usedSnapshot=true;rows=state.snapshot.candidates.map(snapshotRow)}
     state.strategyRows=rows.filter(rule.test).map(function(x){return Object.assign({},x,{reason:reasonFor(x)})}).sort(function(a,b){return b.score-a.score}).slice(0,20);
     progress.innerHTML=(usedSnapshot?"实时行情源均不可用，已改用当日定时快照筛选。":"已成功分析 <b>"+rows.length+"</b> 只股票。")+" 找到 <b>"+state.strategyRows.length+"</b> 只完全符合条件的股票。"+(!usedSnapshot&&rows.length<pool.length?" 部分失败记录已写入接口日志。":"");
     renderTable("#strategyRows",state.strategyRows,false);
