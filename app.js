@@ -178,6 +178,13 @@ async function loadIndices(){
   var rows=await Promise.all(defs.map(async function(x){try{return[x[0],await getQuote(x[1],{symbol:x[2],secid:x[3]})]}catch(e){return[x[0],null]}}));
   $("#indices").innerHTML=rows.map(function(x){var q=x[1];return'<div class="card index"><span class="label">'+x[0]+'</span><div class="value '+(q?color(q.f170):"")+'">'+(q?fmt(q.f43):"--")+'</div><span class="delta '+(q?color(q.f170):"flat")+'">'+(q?pct(q.f170):"接口不可用")+'</span></div>'}).join("")+'<div class="card index"><span class="label">热门板块</span><div class="value">'+state.hot.length+'</div><span class="delta flat">动态跟踪</span></div>';
 }
+function renderSnapshotHotStocks(){
+  var box=$("#hotStocks"),source=state.snapshot&&state.snapshot.candidates||[];
+  var rows=source.slice().filter(function(x){return /^\d{6}$/.test(x.code)&&(!state.hsOnly||isHuShen(x.code))}).sort(function(a,b){return(+b.amount||0)-(+a.amount||0)}).slice(0,10).map(function(x){return{code:x.code,name:x.name,price:x.price,pct:x.pct,amount:x.amount,turnover:null,heat:Math.log10(Math.max(1,+x.amount||1))*8+Math.abs(+x.pct||0)*2}});
+  state.hotStocks=rows;if(!rows.length){box.innerHTML='<div class="empty compact">热门股票实时列表暂不可用，请稍后刷新。</div>';return}
+  var max=rows[0].heat||1;box.innerHTML='<div class="fallback-note">实时列表不可用，以下为当日定时快照</div>'+rows.map(function(x){return'<article class="hot-stock" data-hot-stock="'+x.code+'"><div class="hot-stock-top"><span class="hot-stock-name">'+esc(x.name)+'</span><span class="code">'+x.code+'</span></div><div class="hot-stock-price '+color(x.pct)+'">'+fmt(x.price)+' <small>'+pct(x.pct)+'</small></div><div class="hot-stock-meta"><span>成交 '+unit(x.amount)+'</span><span>定时快照</span></div><div class="heat-bar"><i style="width:'+Math.max(8,x.heat/max*100)+'%"></i></div></article>'}).join("");
+  $("[data-hot-stock]").forEach(function(el){el.onclick=function(){var x=state.hotStocks.find(function(v){return v.code===el.dataset.hotStock});openDetail({code:x.code,name:x.name,price:x.price,pct:x.pct,amount:x.amount,sector:"今日热门"})}})
+}
 async function loadBoards(){
   try{
   var both=await Promise.all([clist("m:90+t:2",500,"f3"),clist("m:90+t:3",500,"f3")]);
@@ -197,7 +204,7 @@ async function loadBoards(){
   }catch(e){
     $("#inflowSectors").innerHTML='<div class="empty compact">板块资金接口暂不可用，失败详情已写入接口日志。</div>';
     $("#outflowSectors").innerHTML='<div class="empty compact">板块资金接口暂不可用，失败详情已写入接口日志。</div>';
-    $("#hotStocks").innerHTML='<div class="empty compact">热门股票实时列表暂不可用，请稍后刷新。</div>';
+    renderSnapshotHotStocks();
     renderSectors();
     throw e;
   }
@@ -348,7 +355,7 @@ async function loadSnapshot(){
     var j=await res.json();state.snapshot=j;
     if(!state.hot.length)state.hot=(j.hot_sectors||[]).filter(function(x){return!META_BOARD.test(x.name)}).map(function(x){return{label:x.name,name:x.name,code:x.code,pct:x.pct}});
     var rows=(j.candidates||[]).map(function(x){return{code:x.code,name:x.name,sector:x.sector,price:x.price,pct:x.pct,volume:x.volume,amount:x.amount,avg3:x.avg3_volume,r10:x.return_10d,r20:x.return_20d,d10:x.deviation_10d,d30:x.deviation_30d,vr:x.volume_ratio,signal:x.signal,score:x.score,k:[],quote:{},source:"定时快照"}});
-    if(rows.length&&!state.candidates.length){state.candidates=rows.slice(0,5);$("#candidateTitle").textContent="最新定时快照";$("#candidateSub").textContent="实时接口尚未完成时先展示 "+new Date(j.generated_at).toLocaleString("zh-CN")+" 的缓存数据";renderTable("#candidateRows",state.candidates,false)}
+    if(rows.length&&!state.candidates.length){state.candidates=rows.slice(0,5);$("#candidateTitle").textContent="最新定时快照";$("#candidateSub").textContent="实时接口尚未完成时先展示 "+new Date(j.generated_at).toLocaleString("zh-CN",{hour12:false,timeZone:"Asia/Shanghai"})+" 的缓存数据";renderTable("#candidateRows",state.candidates,false)}
     renderSectors();return j;
   }catch(e){return null}
 }
@@ -359,8 +366,8 @@ function snapshotForBoard(board){
 }
 var STRATEGIES={
   breakout:{name:"趋势突破",test:function(x){return x.signal==="放量突破"&&x.d10<12&&x.r20<35}},
-  pullback:{name:"缩量回踩",test:function(x){return x.signal==="缩量回踩"&&x.rsi14>38&&x.rsi14<72}},
-  reversal:{name:"弱转强",test:function(x){return x.pct>2&&x.prevPct<0&&x.vr>1}},
+  pullback:{name:"缩量回踩",test:function(x){return x.signal==="缩量回踩"&&(!isFinite(x.rsi14)||(x.rsi14>38&&x.rsi14<72))}},
+  reversal:{name:"弱转强",test:function(x){return x.signal==="弱转强"||(x.pct>2&&x.prevPct<0&&x.vr>1)}},
   lowvol:{name:"低波动趋势",test:function(x){return x.ma5>x.ma10&&x.ma10>x.ma20&&x.r20>3&&x.r20<25&&x.vol20<42&&x.d10>0&&x.d10<9}},
   oversold:{name:"超跌修复",test:function(x){return x.rsi14<38&&x.pct>0&&x.r20<0}}
 };
@@ -377,8 +384,9 @@ async function runStrategy(key){
     market.concat(state.candidates).concat(state.watch).forEach(function(x){var code=x.f12||x.code,name=x.f14||x.name;if(!/^\d{6}$/.test(code)||seen[code]||(state.hsOnly&&!isHuShen(code)))return;seen[code]=1;pool.push({code:code,name:name,sector:"策略池"})});
     pool=pool.slice(0,40);var done=0,rows=[];
     for(var i=0;i<pool.length;i+=4){var batch=await Promise.all(pool.slice(i,i+4).map(async function(x){try{return await analyze(x)}catch(e){logApi("error","系统","策略分析",x.code,e);return null}finally{done++;progress.innerHTML="正在应用 <b>"+esc(rule.name)+"</b>："+done+" / "+pool.length}}));rows=rows.concat(batch.filter(Boolean));if(i+4<pool.length)await sleep(350)}
+    var usedSnapshot=false;if(!rows.length&&state.snapshot&&state.snapshot.candidates){usedSnapshot=true;rows=state.snapshot.candidates.map(function(x){return{code:x.code,name:x.name,sector:x.sector,price:x.price,pct:x.pct,volume:x.volume,amount:x.amount,avg3:x.avg3_volume,r10:x.return_10d,r20:x.return_20d,d10:x.deviation_10d,d30:x.deviation_30d,vr:x.volume_ratio,signal:x.signal,score:x.score,k:[],quote:{},source:"定时快照"}})}
     state.strategyRows=rows.filter(rule.test).sort(function(a,b){return b.score-a.score}).slice(0,20);
-    progress.innerHTML="已成功分析 <b>"+rows.length+"</b> 只股票，找到 <b>"+state.strategyRows.length+"</b> 只完全符合条件的股票。"+(rows.length<pool.length?" 部分失败记录已写入接口日志。":"");
+    progress.innerHTML=(usedSnapshot?"实时行情源均不可用，已改用当日定时快照筛选。":"已成功分析 <b>"+rows.length+"</b> 只股票。")+" 找到 <b>"+state.strategyRows.length+"</b> 只完全符合条件的股票。"+(!usedSnapshot&&rows.length<pool.length?" 部分失败记录已写入接口日志。":"");
     renderTable("#strategyRows",state.strategyRows,false);
   }catch(e){progress.textContent="策略运行失败："+e.message;$("#strategyRows").innerHTML='<tr><td colspan="12" class="empty">未取得可用策略数据</td></tr>'}
   finally{$$("[data-strategy]").forEach(function(b){b.disabled=false})}
