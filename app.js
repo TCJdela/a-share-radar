@@ -17,7 +17,7 @@ var DEFAULT_SECTORS=[
  {label:"贵金属",aliases:["贵金属","黄金"]},{label:"小金属",aliases:["小金属"]},{label:"化工",aliases:["化工","化学制品"]},
  {label:"油气",aliases:["油气开采","油气"]},{label:"粮食",aliases:["粮食概念","种植业"]},{label:"MLCC",aliases:["MLCC","被动元件"]}
 ];
-var META_BOARD=/昨日|涨停|连板|ST|预盈|融资融券|深股通|沪股通|百元股|机构重仓|基金重仓|MSCI|标准普尔|证金持股|AH股|次新股|破净股|低价股|高送转|转债标的|HS300|沪深300|深成\d*|深证\d*|上证\d*|中证\d*|大盘股|小盘股|权重股|富时|成份|风格|周期股|高贝塔|低波/;
+var META_BOARD=/昨日|涨停|连板|ST|预盈|融资融券|深股通|沪股通|百元股|机构重仓|基金重仓|MSCI|标准普尔|证金持股|AH股|次新股|破净股|低价股|高送转|转债标的|HS300|沪深300|深成\d*|深证\d*|上证\d*|中证\d*|大盘股|小盘股|权重股|富时|成份|风格|周期股|高贝塔|低波|大盘|中盘|小盘|成长|价值|红利|金股|高价股|蓝筹|绩优|基金|社保|QFII|北向|陆股通|养老金|股权激励/;
 var state={
   hot:[],boards:[],fixed:readStore("ashare.fixed",DEFAULT_SECTORS.map(function(x){return{label:x.label,name:x.label,code:""}})),watch:readStore("ashare.watch",[]),
   candidates:[],watchRows:[],searchRows:[],universe:null,activeBoard:null,selected:null,chart:null,searchTimer:null,fallbackHits:0,hsOnly:readStore("ashare.hsOnly",false),events:[],eventFilter:"all",strategyRows:[],inflow:[],outflow:[],hotStocks:[]
