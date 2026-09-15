@@ -113,8 +113,11 @@ async function getTencentQuote(code,symbolOverride){
 }
 async function getQuote(code,overrides){overrides=overrides||{};try{return await getTencentQuote(code,overrides.symbol)}catch(e){logApi("warn","腾讯财经","实时行情",code,e,{fallback:true});state.fallbackHits++;try{var q=await getEastmoneyQuote(code,overrides.secid);logApi("info","系统","容灾切换",code,"腾讯行情失败，已使用东方财富",{fallback:true});return q}catch(e2){logApi("error","东方财富","实时行情",code,e2);throw new Error("腾讯财经与东方财富行情均不可用")}}}
 function parseKRows(rows,source){
-  var out=(rows||[]).map(function(a){if(typeof a==="string")a=a.split(",");var amount=+a[6]||0,price=(+a[1]+ +a[2]+ +a[3]+ +a[4])/4;return{date:a[0],open:+a[1],close:+a[2],high:+a[3],low:+a[4],volume:normalizedVolume(+a[5],amount,price),amount:amount,amplitude:+a[7]||0,pct:+a[8]||0,turnover:+a[10]||0}});
-  out._source=source;return out;
+  var parsed=(rows||[]).map(function(a){if(typeof a==="string")a=a.split(",");var amount=+a[6]||0,price=(+a[1]+ +a[2]+ +a[3]+ +a[4])/4;return{a:a,raw:+a[5]||0,amount:amount,price:price}});
+  var ratios=parsed.slice(-20).filter(function(x){return x.raw&&x.amount&&x.price}).map(function(x){return(x.amount/x.price)/x.raw}).sort(function(x,y){return x-y});
+  var median=ratios.length?ratios[Math.floor(ratios.length/2)]:100,scale=Math.abs(Math.log(Math.max(median,.0001)))<Math.abs(Math.log(Math.max(median/100,.0001)))?1:100;
+  var out=parsed.map(function(x){var a=x.a;return{date:a[0],open:+a[1],close:+a[2],high:+a[3],low:+a[4],volume:x.raw*scale,amount:x.amount,amplitude:+a[7]||0,pct:+a[8]||0,turnover:+a[10]||0}});
+  out._source=source;out._volumeScale=scale;return out;
 }
 function getEastmoneyK(code,klt,lmt){
   return jsonp(API.kline,{secid:marketId(code),klt:klt||101,fqt:1,lmt:lmt||120,end:20500101,fields1:"f1,f2,f3,f4,f5,f6",fields2:"f51,f52,f53,f54,f55,f56,f57,f58,f59,f60,f61"}).then(function(j){return parseKRows(j&&j.data&&j.data.klines?j.data.klines:[],"东方财富")});
