@@ -21,8 +21,8 @@
   </header>
 
   <nav class="tabs">
-    <button class="tab active" data-view="watch">自选</button>
-    <button class="tab" data-view="market">股市</button>
+    <button class="tab active" data-view="market">今日</button>
+    <button class="tab" data-view="watch">自选</button>
     <button class="tab" data-view="strategy">策略选股</button>
     <button class="tab" data-view="events">大事件</button>
     <button class="tab" data-view="report">市场报告</button>
@@ -31,18 +31,23 @@
     <button class="tab" data-view="method">筛选说明</button>
   </nav>
 
-  <section id="watch" class="view active">
+  <section id="watch" class="view">
     <div class="page-head">
       <div><h2>我的自选</h2><p>配置仅保存在当前浏览器。点击详情查看分时、K线和公告。</p></div>
       <div class="summary-row"><span class="summary-pill">自选数量 <b id="watchCount">0</b></span><span class="summary-pill">上涨 <b id="watchUp">0</b></span><span class="summary-pill">平均涨幅 <b id="watchAvg">--</b></span></div>
     </div>
     <div class="card">
       <div class="panel-title"><div><h3>自选行情与指标</h3><p>右侧 × 可删除自选，☆/★ 可切换自选状态</p></div><button class="btn small" data-view-jump="market" onclick="document.querySelector('[data-view=market]').click()">去股市搜索</button></div>
-      <div class="table-wrap"><table><thead><tr><th>股票</th><th>分组 / 形态</th><th>现价</th><th>涨幅</th><th>成交量</th><th>成交额</th><th>3日均量</th><th>10日</th><th>20日</th><th>偏离10/30</th><th>评分</th><th>操作</th></tr></thead><tbody id="watchRows"><tr><td colspan="12" class="empty">还没有自选股。请到“股市”搜索股票并加入。</td></tr></tbody></table></div>
+      <div class="table-wrap"><table><thead><tr><th>股票</th><th>板块 / 入选解释</th><th>现价</th><th>涨幅</th><th>成交量</th><th>成交额</th><th>3日均量</th><th>10日</th><th>20日</th><th>偏离10/30</th><th>评分</th><th>操作</th></tr></thead><tbody id="watchRows"><tr><td colspan="12" class="empty">还没有自选股。请到“股市”搜索股票并加入。</td></tr></tbody></table></div>
     </div>
   </section>
 
-  <section id="market" class="view">
+  <section id="market" class="view active">
+    <div class="today-heading">
+      <div><span class="eyebrow">MARKET DESK</span><h2>今日盘面</h2><p>先看市场状态、板块轮动与可执行信号，再进入个股详情。</p></div>
+      <span class="today-stamp" id="todayStamp">等待数据</span>
+    </div>
+    <div class="today-brief" id="todayBrief"><div class="today-kpi"><span>综合关注池</span><b>加载中</b></div></div>
     <div class="card market-search">
       <div class="search-row"><input class="search" id="globalSearch" autocomplete="off" placeholder="搜索全部A股：输入股票名称、拼音首字母或6位代码"><button class="btn" id="hsOnlyToggle" title="过滤北交所及其他市场">只显示沪深</button><button class="btn primary" id="globalSearchBtn">搜索</button></div>
       <div class="search-results hidden" id="searchResults"></div>
@@ -112,6 +117,7 @@
 
   <section id="logs" class="view">
     <div class="page-head"><div><h2>接口日志</h2><p>记录腾讯财经与东方财富的失败、超时、容灾切换和恢复情况。</p></div><div class="summary-row"><span class="summary-pill">总计 <b id="logTotal">0</b></span><span class="summary-pill">错误 <b id="logErrors">0</b></span><span class="summary-pill">容灾 <b id="logFallbacks">0</b></span></div></div>
+    <div class="server-health" id="serverHealth"><div class="empty compact">正在读取后台任务状态...</div></div>
     <div class="card">
       <div class="log-toolbar"><select id="logProvider"><option value="all">全部数据源</option><option value="腾讯财经">腾讯财经</option><option value="东方财富">东方财富</option><option value="系统">系统</option></select><select id="logLevel"><option value="all">全部级别</option><option value="error">错误</option><option value="warn">警告</option><option value="info">信息</option></select><button class="btn danger" id="clearLogs">清空日志</button></div>
       <div class="table-wrap"><table class="log-table"><thead><tr><th>时间</th><th>级别</th><th>数据源</th><th>接口</th><th>对象</th><th>说明</th></tr></thead><tbody id="logRows"><tr><td colspan="6" class="empty">暂无接口日志</td></tr></tbody></table></div>
