@@ -309,7 +309,7 @@ function resetChart(){
   state.chart=echarts.init($("#chart"));return true
 }
 async function selectChart(mode){
-  $$$(".period").forEach(function(b){b.classList.toggle("active",b.dataset.chart===mode)});
+  $$(".period").forEach(function(b){b.classList.toggle("active",b.dataset.chart===mode)});
   $("#chart").innerHTML='<div class="chart-status">正在加载图表...</div>';
   try{
     if(mode==="trend"){var t=await getTrend(state.selected.code);drawTrend(t)}
@@ -402,7 +402,7 @@ async function refresh(){
   catch(e){if(state.snapshot){setSource(false,"实时接口限流 · 当前显示定时快照");toast("实时请求受限，已切换到缓存快照")}else{setSource(false,"行情接口不可用，未使用模拟数据");toast(e.message)}}
   finally{$("#refreshBtn").disabled=false}
 }
-$$$(".tab").forEach(function(b){b.onclick=function(){switchView(b.dataset.view)}});
+$$(".tab").forEach(function(b){b.onclick=function(){switchView(b.dataset.view)}});
 $("#refreshBtn").onclick=refresh;$("#logShortcut").onclick=function(){switchView("logs")};$("#logProvider").onchange=renderApiLogs;$("#logLevel").onchange=renderApiLogs;$("#clearLogs").onclick=clearApiLogs;$("#hsOnlyToggle").onclick=function(){setHsOnly(!state.hsOnly)};$("#strategyHsToggle").onclick=function(){setHsOnly(!state.hsOnly)};$("#addSector").onclick=addSector;$("#sectorInput").onkeydown=function(e){if(e.key==="Enter")addSector()};
 $("#globalSearch").oninput=debounce(function(e){runSearch(e.target.value)},320);$("#globalSearchBtn").onclick=function(){runSearch($("#globalSearch").value)};
 document.addEventListener("click",function(e){if(!e.target.closest(".market-search"))hideSearch()});
