@@ -6,6 +6,7 @@ on:
     branches: [main]
     paths:
       - ".github/workflows/deploy-auth.yml"
+      - "auth-worker/**"
 
 permissions:
   contents: write
