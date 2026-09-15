@@ -15,16 +15,27 @@ var API={
 var DEFAULT_SECTORS=[
  {label:"PCB",aliases:["PCB","印制电路板"]},{label:"半导体",aliases:["半导体"]},{label:"光纤",aliases:["光纤","光通信"]},
  {label:"贵金属",aliases:["贵金属","黄金"]},{label:"小金属",aliases:["小金属"]},{label:"化工",aliases:["化工","化学制品"]},
- {label:"油气",aliases:["油气开采","油气"]},{label:"粮食",aliases:["粮食概念","种植业"]},{label:"MLCC",aliases:["MLCC","被动元件"]}
+ {label:"天然气",aliases:["天然气"]},{label:"农业种植",aliases:["农业种植","种植业与林业","种植业"]},{label:"MLCC",aliases:["MLCC","被动元件"]}
 ];
 var META_BOARD=/昨日|涨停|连板|ST|预盈|融资融券|深股通|沪股通|百元股|机构重仓|基金重仓|MSCI|标准普尔|证金持股|AH股|次新股|破净股|低价股|高送转|转债标的|HS300|沪深300|深成\d*|深证\d*|上证\d*|中证\d*|大盘股|小盘股|权重股|富时|成份|风格|周期股|高贝塔|低波|大盘|中盘|小盘|成长|价值|红利|金股|高价股|蓝筹|绩优|基金|社保|QFII|北向|陆股通|养老金|股权激励/;
 var state={
-  hot:[],boards:[],fixed:readStore("ashare.fixed",DEFAULT_SECTORS.map(function(x){return{label:x.label,name:x.label,code:""}})),watch:readStore("ashare.watch",[]),
+  hot:[],boards:[],fixed:loadFixedSectors(),watch:readStore("ashare.watch",[]),
   candidates:[],watchRows:[],searchRows:[],universe:null,activeBoard:null,selected:null,chart:null,searchTimer:null,fallbackHits:0,hsOnly:readStore("ashare.hsOnly",false),events:[],eventFilter:"all",strategyRows:[],inflow:[],outflow:[],hotStocks:[]
 };
 var $=function(s){return document.querySelector(s)};
 var $$=function(s){return Array.from(document.querySelectorAll(s))};
 function readStore(key,fallback){try{var x=localStorage.getItem(key);return x?JSON.parse(x):fallback}catch(e){return fallback}}
+function loadFixedSectors(){
+  var fallback=DEFAULT_SECTORS.map(function(x){return{label:x.label,name:x.label,code:""}}),rows=readStore("ashare.fixed",fallback),changed=false;
+  rows=rows.map(function(x){
+    if(x.label==="油气"||x.name==="油气"){changed=true;return{label:"天然气",name:"天然气",code:""}}
+    if(x.label==="粮食"||x.name==="粮食"){changed=true;return{label:"农业种植",name:"农业种植",code:""}}
+    return x;
+  });
+  DEFAULT_SECTORS.forEach(function(def){if(!rows.some(function(x){return x.label===def.label})){rows.push({label:def.label,name:def.label,code:""});changed=true}});
+  if(changed)try{localStorage.setItem("ashare.fixed",JSON.stringify(rows))}catch(e){}
+  return rows;
+}
 function saveStore(key,value){localStorage.setItem(key,JSON.stringify(value))}
 function esc(v){return String(v===undefined||v===null?"":v).replace(/[&<>"']/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]})}
 function fmt(n,d){if(n===null||n===undefined||!isFinite(Number(n)))return"--";return Number(n).toFixed(d===undefined?2:d)}
@@ -257,10 +268,10 @@ async function selectBoard(board){
   switchView("market");state.activeBoard=board;renderSectors();$("#candidateTitle").textContent=(board.label||board.name)+" · 推荐观察";
   $("#candidateSub").textContent="正在读取板块成分股并计算量价结构";$("#candidateRows").innerHTML='<tr><td colspan="12" class="empty">正在分析板块成分股...</td></tr>';
   try{
-    var members=await clist("b:"+board.code,18,"f3");members=members.filter(function(x){return/^\d{6}$/.test(x.f12)&&(!state.hsOnly||isHuShen(x.f12))}).slice(0,8);
+    var members=await clist("b:"+board.code,24,"f3");members=members.filter(function(x){return/^\d{6}$/.test(x.f12)&&(!state.hsOnly||isHuShen(x.f12))&&!/ST|退/.test(x.f14||"")}).slice(0,14);
     var rows=await Promise.all(members.map(async function(x){try{return await analyze({code:x.f12,name:x.f14,sector:board.label||board.name})}catch(e){return null}}));
-    state.candidates=rows.filter(Boolean).sort(function(a,b){return b.score-a.score}).slice(0,5);
-    $("#candidateSub").textContent="按结构评分列出 3–5 只，点击“详情”查看分时、K线和公告";renderTable("#candidateRows",state.candidates,false);buildReport();
+    state.candidates=rows.filter(Boolean).sort(function(a,b){return b.score-a.score}).slice(0,10);
+    $("#candidateSub").textContent="按结构评分最多列出10只，点击“详情”查看分时、K线和公告";renderTable("#candidateRows",state.candidates,false);buildReport();
   }catch(e){var cached=snapshotForBoard(board);state.candidates=cached;if(cached.length){$("#candidateSub").textContent="实时接口限流，当前显示定时快照";renderTable("#candidateRows",cached,false)}else{$("#candidateRows").innerHTML='<tr><td colspan="12" class="empty">板块数据读取失败：'+esc(e.message)+'</td></tr>'}}
 }
 function reasonFor(x){
@@ -325,13 +336,13 @@ function renderSearch(){
 }
 function hideSearch(){var b=$("#searchResults");b.classList.add("hidden");b.innerHTML=""}
 async function openDetail(meta){
-  $("#detail").showModal();$("#detailName").textContent=meta.name||meta.code;$("#detailCode").textContent=meta.code;$("#detailPrice").textContent="读取中";$("#metrics").innerHTML='<div class="metric skeleton"><span class="label">读取行情</span><b>--</b></div>';$("#chart").innerHTML='<div class="chart-status">正在加载分时数据...</div>';$("#professionalFactors").innerHTML="";$("#announcements").innerHTML='<div class="help">正在读取近期公告...</div>';
+  $("#detail").showModal();$("#detailName").textContent=meta.name||meta.code;$("#detailCode").textContent=meta.code;$("#detailMarket").textContent=/^(6|9)/.test(meta.code)?"沪A":/^[03]/.test(meta.code)?"深A":"北交";$("#detailSector").textContent=meta.sector||"全市场";$("#detailDataGrade").textContent="数据校验中";$("#detailChange").textContent="--";$("#detailPrice").textContent="读取中";$("#metrics").innerHTML='<div class="metric skeleton"><span class="label">读取行情</span><b>--</b></div>';$("#chart").innerHTML='<div class="chart-status">正在加载分时数据...</div>';$("#professionalFactors").innerHTML="";$("#announcements").innerHTML='<div class="help">正在读取近期公告...</div>';
   try{
     var x=meta.k&&meta.k.length?meta:await analyze({code:meta.code,name:meta.name,sector:meta.sector||"全市场"});
-    state.selected=x;$("#detailName").textContent=x.name;$("#detailCode").textContent=x.code+" · "+(x.sector||"全市场");$("#detailPrice").textContent=fmt(x.price);$("#detailPrice").className="modal-price "+color(x.pct);
+    state.selected=x;$("#detailName").textContent=x.name;$("#detailCode").textContent=x.code;$("#detailMarket").textContent=/^(6|9)/.test(x.code)?"沪A":/^[03]/.test(x.code)?"深A":"北交";$("#detailSector").textContent=x.sector||"全市场";$("#detailDataGrade").textContent=(x.confidence||"C")+"级数据";$("#detailDataGrade").className="security-grade grade-"+String(x.confidence||"C").toLowerCase();$("#detailPrice").textContent=fmt(x.price);$("#detailPrice").className="modal-price "+color(x.pct);$("#detailChange").textContent=pct(x.pct);$("#detailChange").className="modal-change "+color(x.pct);
     $("#metrics").innerHTML=metric("涨幅",pct(x.pct),color(x.pct))+metric("成交额",unit(x.amount))+metric("换手率",fmt(x.quote.f168,2)+"%")+metric("当前/5日量比",fmt(x.vr,2))+metric("盘中量速",fmt(x.volumePace,2))+metric("10日涨幅",pct(x.r10),color(x.r10))+metric("20日涨幅",pct(x.r20),color(x.r20))+metric("市盈率",fmt(x.quote.f162,2))+metric("数据源",esc(x.source||"缓存快照"));$("#professionalFactors").innerHTML=factor("RSI14",fmt(x.rsi14,1),x.rsi14>70?"偏热":x.rsi14<30?"超跌区":"中性")+factor("ATR14",fmt(x.atrPct,2)+"%","日内真实波幅")+factor("20日波动",fmt(x.vol20,1)+"%","年化估算")+factor("60日回撤",fmt(x.maxDrawdown60,1)+"%","峰值至低点")+factor("距60日高点",fmt(x.high60Distance,1)+"%","位置指标")+factor("20日支撑",fmt(x.support20,2),"区间低点")+factor("20日压力",fmt(x.resistance20,2),"区间高点")+factor("MA20偏离",fmt((x.price/x.ma20-1)*100,1)+"%","趋势距离");
     syncWatchButtons();selectChart("trend");loadAnnouncements(x);
-  }catch(e){if(isFinite(meta.price)){state.selected=meta;$("#detailPrice").textContent=fmt(meta.price);$("#metrics").innerHTML=metric("涨幅",pct(meta.pct),color(meta.pct))+metric("成交额",unit(meta.amount))+metric("数据源","定时快照");$("#chart").innerHTML='<div class="chart-status">实时K线源均不可用，已保留快照指标。</div>';loadAnnouncements(meta)}else{$("#metrics").innerHTML='<div class="empty">详情读取失败：'+esc(e.message)+'</div>';$("#chart").innerHTML=""}}
+  }catch(e){if(isFinite(meta.price)){state.selected=meta;$("#detailPrice").textContent=fmt(meta.price);$("#detailChange").textContent=pct(meta.pct);$("#detailChange").className="modal-change "+color(meta.pct);$("#detailDataGrade").textContent="快照数据";$("#metrics").innerHTML=metric("涨幅",pct(meta.pct),color(meta.pct))+metric("成交额",unit(meta.amount))+metric("数据源","定时快照");$("#chart").innerHTML='<div class="chart-status">实时K线源均不可用，已保留快照指标。</div>';loadAnnouncements(meta)}else{$("#metrics").innerHTML='<div class="empty">详情读取失败：'+esc(e.message)+'</div>';$("#chart").innerHTML=""}}
 }
 function metric(label,value,c){return'<div class="metric"><span class="label">'+label+'</span><b class="'+(c||"")+'">'+value+'</b></div>'}
 function factor(label,value,note){return'<div class="factor"><span class="label">'+label+'</span><b>'+value+'</b><span class="metric-note">'+note+'</span></div>'}
