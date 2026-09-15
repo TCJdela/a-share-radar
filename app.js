@@ -398,19 +398,20 @@ async function loadSnapshot(){
     var res=await fetch("./data/latest.json?v="+Date.now(),{cache:"no-store"});
     if(!res.ok)throw new Error("快照不存在");
     var j=await res.json();state.snapshot=j;
+    (j.fixed_sectors||[]).forEach(function(s){var target=state.fixed.find(function(x){return x.label===s.name||x.name===s.name});if(target&&s.code){target.code=s.code;target.name=s.name}});
     if(!state.hot.length)state.hot=(j.hot_sectors||[]).filter(function(x){return!META_BOARD.test(x.name)}).map(function(x){return{label:x.name,name:x.name,code:x.code,pct:x.pct}});
     state.inflow=(j.inflow_sectors||[]).filter(function(x){return!META_BOARD.test(x.name||"")}).map(function(x){return{f12:x.code,f14:x.name,f3:x.pct,f62:x.flow}});
     state.outflow=(j.outflow_sectors||[]).filter(function(x){return!META_BOARD.test(x.name||"")}).map(function(x){return{f12:x.code,f14:x.name,f3:x.pct,f62:x.flow}});
     var rows=(j.candidates||[]).map(snapshotRow);
     if(j.market_status==="closed"){$("#candidateTitle").textContent="今日休市";$("#candidateSub").textContent="最近交易日 "+(j.last_trading_date||"--")+"，未生成实时候选";renderTable("#candidateRows",[],false)}
-    else if(rows.length&&!state.candidates.length){state.candidates=rows.slice(0,5);$("#candidateTitle").textContent="最新定时快照";$("#candidateSub").textContent="实时接口尚未完成时先展示 "+new Date(j.generated_at).toLocaleString("zh-CN",{hour12:false,timeZone:"Asia/Shanghai"})+" 的缓存数据";renderTable("#candidateRows",state.candidates,false)}
+    else if(rows.length&&!state.candidates.length){state.candidates=rows.slice(0,10);$("#candidateTitle").textContent="最新定时快照";$("#candidateSub").textContent="实时接口尚未完成时先展示 "+new Date(j.generated_at).toLocaleString("zh-CN",{hour12:false,timeZone:"Asia/Shanghai"})+" 的缓存数据";renderTable("#candidateRows",state.candidates,false)}
     renderSectors();renderFlowSectors();renderSnapshotHotStocks();renderTodayBrief();loadServerHealth();return j;
   }catch(e){renderTodayBrief();return null}
 }
 function snapshotForBoard(board){
   if(!state.snapshot)return[];
   var rows=(state.snapshot.candidates||[]).filter(function(x){return x.sector===(board.name||board.label)||x.sector===board.label}).map(snapshotRow);
-  return rows.slice(0,5);
+  return rows.slice(0,10);
 }
 var STRATEGIES={
   breakout:{name:"趋势突破",test:function(x){return x.signal==="放量突破"&&x.d10<12&&x.r20<35}},
@@ -456,7 +457,7 @@ function buildReport(){
   $("#reportContent").innerHTML='<h3>热门板块</h3><p>'+state.hot.map(function(x){return esc(x.name)+" "+pct(x.pct)}).join("；")+'</p><h3>当前板块候选</h3><p>'+(best.length?best.map(function(x){return esc(x.name)+"（"+esc(x.signal)+"，"+x.score+"分）"}).join("；"):"尚未选择板块")+'</p><h3>风险观察</h3><p>'+(risk.length?risk.map(function(x){return esc(x.name)+"（"+esc(x.signal)+"）"}).join("；"):"当前列表未识别到典型放量滞涨，仍需结合位置和公告判断。")+'</p>';
 }
 function switchView(id){
-  if(id==="accounts"){toast("账号管理需接入安全后端后启用");return}
+  if(id==="accounts"&&!(window.AShareAuth&&window.AShareAuth.isSuper)){toast("仅超级管理员可访问账号管理");return}
   $$(".tab").forEach(function(x){x.classList.toggle("active",x.dataset.view===id)});$$(".view").forEach(function(x){x.classList.toggle("active",x.id===id)});
   if(id==="watch")renderWatch();if(id==="events"&&!state.events.length)loadEvents();if(id==="logs"){renderApiLogs();loadServerHealth()}
 }
