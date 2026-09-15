@@ -32,6 +32,11 @@ function unit(n){n=Number(n);if(!isFinite(n))return"--";if(Math.abs(n)>=1e8)retu
 function pct(n){return(n>0?"+":"")+fmt(n,2)+"%"}
 function color(n){return Number(n)>0?"up":Number(n)<0?"down":"flat"}
 function mean(a){return a.length?a.reduce(function(x,y){return x+y},0)/a.length:0}
+function normalizedVolume(raw,amount,price){
+  raw=+raw||0;amount=+amount||0;price=+price||0;if(!raw||!amount||!price)return raw;
+  var expected=amount/price,c1=raw,c2=raw*100;
+  return Math.abs(Math.log(Math.max(c1,1)/Math.max(expected,1)))<=Math.abs(Math.log(Math.max(c2,1)/Math.max(expected,1)))?c1:c2;
+}
 function tradingProgress(){
   var now=new Date(new Date().toLocaleString("en-US",{timeZone:"Asia/Shanghai"})),m=now.getHours()*60+now.getMinutes();
   if(m<570)return .08;if(m<=690)return Math.max(.08,(m-570)/240);if(m<780)return .5;if(m<=900)return .5+(m-780)/240;return 1;
@@ -98,26 +103,27 @@ function globalScript(url,globalName,timeout){
   return queued(async function(){var last;for(var i=0;i<2;i++){try{return await rawGlobalScript(url,globalName,timeout)}catch(e){last=e;if(i===0)await sleep(700)}}throw last});
 }
 function getEastmoneyQuote(code,secidOverride){
-  return jsonp(API.quote,{secid:secidOverride||marketId(code),fltt:2,fields:"f43,f44,f45,f46,f47,f48,f57,f58,f60,f116,f117,f162,f167,f168,f169,f170"}).then(function(j){var q=j&&j.data?j.data:{};q.f47=(+q.f47||0)*100;q._source="东方财富";return q});
+  return jsonp(API.quote,{secid:secidOverride||marketId(code),fltt:2,fields:"f43,f44,f45,f46,f47,f48,f57,f58,f60,f116,f117,f162,f167,f168,f169,f170"}).then(function(j){var q=j&&j.data?j.data:{};q.f47=normalizedVolume(q.f47,q.f48,q.f43);q._source="东方财富";return q});
 }
 async function getTencentQuote(code,symbolOverride){
   var s=symbolOverride||symbol(code),raw=await globalScript(API.tencentQuote+s,"v_"+s),a=String(raw||"").split("~");
   if(a.length<10||!isFinite(+a[3]))throw new Error("腾讯行情无该股票数据");
-  return{f58:a[1],f57:a[2],f43:+a[3],f60:+a[4],f46:+a[5],f47:+a[36]||(+a[6]||0)*100,f48:(+a[37]||0)*10000,f170:+a[32],f169:+a[31],f44:+a[33],f45:+a[34],f168:+a[38],f162:+a[39],_source:"腾讯行情"};
+  var price=+a[3],amount=(+a[37]||0)*10000,volume=normalizedVolume(+a[36]||+a[6],amount,price);
+  return{f58:a[1],f57:a[2],f43:price,f60:+a[4],f46:+a[5],f47:volume,f48:amount,f170:+a[32],f169:+a[31],f44:+a[33],f45:+a[34],f168:+a[38],f162:+a[39],_source:"腾讯行情"};
 }
 async function getQuote(code,overrides){overrides=overrides||{};try{return await getTencentQuote(code,overrides.symbol)}catch(e){logApi("warn","腾讯财经","实时行情",code,e,{fallback:true});state.fallbackHits++;try{var q=await getEastmoneyQuote(code,overrides.secid);logApi("info","系统","容灾切换",code,"腾讯行情失败，已使用东方财富",{fallback:true});return q}catch(e2){logApi("error","东方财富","实时行情",code,e2);throw new Error("腾讯财经与东方财富行情均不可用")}}}
-function parseKRows(rows,source,volumeScale){
-  volumeScale=volumeScale||1;var out=(rows||[]).map(function(a){if(typeof a==="string")a=a.split(",");return{date:a[0],open:+a[1],close:+a[2],high:+a[3],low:+a[4],volume:(+a[5]||0)*volumeScale,amount:+a[6]||0,amplitude:+a[7]||0,pct:+a[8]||0,turnover:+a[10]||0}});
+function parseKRows(rows,source){
+  var out=(rows||[]).map(function(a){if(typeof a==="string")a=a.split(",");var amount=+a[6]||0,price=(+a[1]+ +a[2]+ +a[3]+ +a[4])/4;return{date:a[0],open:+a[1],close:+a[2],high:+a[3],low:+a[4],volume:normalizedVolume(+a[5],amount,price),amount:amount,amplitude:+a[7]||0,pct:+a[8]||0,turnover:+a[10]||0}});
   out._source=source;return out;
 }
 function getEastmoneyK(code,klt,lmt){
-  return jsonp(API.kline,{secid:marketId(code),klt:klt||101,fqt:1,lmt:lmt||120,end:20500101,fields1:"f1,f2,f3,f4,f5,f6",fields2:"f51,f52,f53,f54,f55,f56,f57,f58,f59,f60,f61"}).then(function(j){return parseKRows(j&&j.data&&j.data.klines?j.data.klines:[],"东方财富",100)});
+  return jsonp(API.kline,{secid:marketId(code),klt:klt||101,fqt:1,lmt:lmt||120,end:20500101,fields1:"f1,f2,f3,f4,f5,f6",fields2:"f51,f52,f53,f54,f55,f56,f57,f58,f59,f60,f61"}).then(function(j){return parseKRows(j&&j.data&&j.data.klines?j.data.klines:[],"东方财富")});
 }
 async function getTencentK(code,klt,lmt){
   var s=symbol(code),period=String(klt||101)==="101"?"day":"m"+String(klt),key="tq_"+s+"_"+period+"_"+Date.now(),url=API.tencentK+"?_var="+key+"&param="+encodeURIComponent(s+","+period+",,,"+(lmt||120)+",qfq");
   var j=await globalScript(url,key),root=j&&j.data&&j.data[s]||{},rows=root["qfq"+period]||root[period]||root.day||[];
   if(!rows.length)throw new Error("腾讯K线数据为空");
-  var out=parseKRows(rows,"腾讯行情",100);
+  var out=parseKRows(rows,"腾讯行情");
   for(var i=0;i<out.length;i++){if(!out[i].pct&&i)out[i].pct=(out[i].close/out[i-1].close-1)*100}
   return out;
 }
