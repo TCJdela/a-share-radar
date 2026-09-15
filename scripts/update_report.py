@@ -19,7 +19,7 @@ NEG=re.compile(r"减持|亏损|处罚|立案|诉讼|终止|退市|风险|质押"
 FIXED_SECTORS=[
     ("PCB",["PCB","印制电路板"]),("半导体",["半导体"]),("光纤",["光纤","光通信"]),
     ("贵金属",["贵金属","黄金"]),("小金属",["小金属"]),("化工",["化工","化学制品"]),
-    ("油气",["油气开采","油气","石油行业","油气设服","油服工程","天然气","石油石化","石油开采","石油服务","燃气"]),("粮食",["粮食概念","种植业","农业种植","农牧饲渔","粮食","农林牧渔","种植业与林业"]),("MLCC",["MLCC","被动元件"])
+    ("天然气",["天然气"]),("农业种植",["农业种植","种植业与林业","种植业"]),("MLCC",["MLCC","被动元件"])
 ]
 META_BOARD=re.compile(r"昨日|涨停|连板|ST|预盈|融资融券|深股通|沪股通|百元股|机构重仓|基金重仓|MSCI|标准普尔|证金持股|AH股|次新股|破净股|低价股|高送转|转债标的|HS300|沪深300|深成|深证|上证|中证|大盘股|小盘股|权重股|富时|成份|风格|周期股|高贝塔|低波|大盘|中盘|小盘|成长|价值|红利|金股|高价股|蓝筹|绩优|基金|社保|QFII|北向|陆股通|养老金|股权激励")
 DOMESTIC_EVENT=re.compile(r"国务院|中央|央行|人民银行|证监会|财政部|发改委|统计局|政策|利率|降准|降息|GDP|CPI|关税|贸易|经济|科技|人工智能|能源|地震|台风|洪水|事故|外交")
@@ -367,15 +367,15 @@ def main():
         except Exception as exc:
             print("skip board",b.get("f14"),exc);continue
         scored=[]
-        for row in rows[:8]:
+        for row in rows[:14]:
             try:
                 item=analyze(row,b.get("display_name") or b["f14"])
                 if item: scored.append(item)
             except Exception as exc:
                 print("skip stock",row.get("f12"),exc)
         scored.sort(key=lambda x:x["score"],reverse=True)
-        for item in scored[:5]: item["announcements"]=announcements(item["code"])
-        candidates.extend(scored[:5])
+        for item in scored[:10]: item["announcements"]=announcements(item["code"])
+        candidates.extend(scored[:10])
     hot_stocks=[]
     try:
         stocks=clist("m:0+t:6,m:0+t:80,m:1+t:2,m:1+t:23",150,"f6")
