@@ -388,8 +388,8 @@ async function loadSnapshot(){
     if(!res.ok)throw new Error("快照不存在");
     var j=await res.json();state.snapshot=j;
     if(!state.hot.length)state.hot=(j.hot_sectors||[]).filter(function(x){return!META_BOARD.test(x.name)}).map(function(x){return{label:x.name,name:x.name,code:x.code,pct:x.pct}});
-    state.inflow=(j.inflow_sectors||[]).map(function(x){return{f12:x.code,f14:x.name,f3:x.pct,f62:x.flow}});
-    state.outflow=(j.outflow_sectors||[]).map(function(x){return{f12:x.code,f14:x.name,f3:x.pct,f62:x.flow}});
+    state.inflow=(j.inflow_sectors||[]).filter(function(x){return!META_BOARD.test(x.name||"")}).map(function(x){return{f12:x.code,f14:x.name,f3:x.pct,f62:x.flow}});
+    state.outflow=(j.outflow_sectors||[]).filter(function(x){return!META_BOARD.test(x.name||"")}).map(function(x){return{f12:x.code,f14:x.name,f3:x.pct,f62:x.flow}});
     var rows=(j.candidates||[]).map(snapshotRow);
     if(j.market_status==="closed"){$("#candidateTitle").textContent="今日休市";$("#candidateSub").textContent="最近交易日 "+(j.last_trading_date||"--")+"，未生成实时候选";renderTable("#candidateRows",[],false)}
     else if(rows.length&&!state.candidates.length){state.candidates=rows.slice(0,5);$("#candidateTitle").textContent="最新定时快照";$("#candidateSub").textContent="实时接口尚未完成时先展示 "+new Date(j.generated_at).toLocaleString("zh-CN",{hour12:false,timeZone:"Asia/Shanghai"})+" 的缓存数据";renderTable("#candidateRows",state.candidates,false)}
