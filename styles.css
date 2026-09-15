@@ -58,3 +58,21 @@ dialog{width:min(1160px,96vw);height:min(850px,94vh);background:#fff;color:var(-
 @media(max-width:640px){.app{padding:0 12px 18px}.topbar{margin:0 -12px;padding:10px 12px;align-items:flex-start}.brand .subtitle,.actions .status,.user-pill{display:none}.tabs{margin:10px 0}.tab{padding:9px 12px}.indices,.market-grid,.strategy-grid{grid-template-columns:1fr}.hot-stock-grid{grid-template-columns:1fr}.hot-stock{border-right:0!important}.page-head,.event-toolbar{align-items:stretch;flex-direction:column}.search{width:100%;min-width:0}.search-item{grid-template-columns:1fr auto}.search-item .quote-cell{display:none}.metric-grid{grid-template-columns:repeat(2,1fr)}.chart,.chart-status{height:340px}.event-day{grid-template-columns:1fr;gap:6px}.event-item{grid-template-columns:52px 1fr}.event-source{display:none}.flow-row{grid-template-columns:24px 1fr 72px}.flow-row .flow-pct{display:none}.login-card{padding:22px}}
 
 .fallback-note{grid-column:1/-1;padding:8px 10px;border:1px solid #d8e1ea;border-radius:6px;background:#f7f9fb;color:#64748b;font-size:12px}
+
+.today-heading{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin:4px 0 14px}
+.today-heading h2{font-size:24px;letter-spacing:-.02em;margin:2px 0 4px}
+.today-heading p{margin:0;color:var(--muted);font-size:13px}
+.eyebrow{font-size:10px;font-weight:800;letter-spacing:.16em;color:var(--primary)}
+.today-stamp{font-size:12px;color:var(--muted);white-space:nowrap}
+.today-brief{display:grid;grid-template-columns:1.6fr .7fr 1.25fr .7fr;gap:1px;margin-bottom:14px;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:var(--line)}
+.today-kpi{min-width:0;padding:13px 15px;background:#fff}
+.today-kpi span{display:block;color:var(--muted);font-size:11px;margin-bottom:6px}
+.today-kpi b{display:block;color:var(--text);font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.today-alert{grid-column:1/-1;display:flex;align-items:center;gap:16px;padding:15px;background:#fff}
+.today-alert.closed b{color:#9a6700}.today-alert span{color:var(--muted);font-size:13px}
+.reason{display:inline-block;max-width:260px;margin-top:5px;color:#64748b;font-size:11px;line-height:1.35}
+.server-health{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;margin:0 0 14px;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:var(--line)}
+.server-health>div{padding:13px 15px;background:#fff}
+.server-health span{display:block;color:var(--muted);font-size:11px;margin-bottom:5px}.server-health b{font-size:13px}
+@media(max-width:900px){.today-brief,.server-health{grid-template-columns:1fr 1fr}.today-heading{align-items:flex-start;flex-direction:column;gap:6px}}
+@media(max-width:560px){.today-brief,.server-health{grid-template-columns:1fr}.reason{max-width:180px}}
