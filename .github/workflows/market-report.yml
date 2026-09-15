@@ -19,6 +19,8 @@ on:
 
 permissions:
   contents: write
+  pages: write
+  id-token: write
 
 concurrency:
   group: market-report
@@ -58,3 +60,21 @@ jobs:
           git fetch origin main
           git rebase -X theirs origin/main
           git push
+
+  deploy-report:
+    needs: update-report
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+      - name: Deploy refreshed report
+        id: deployment
+        uses: actions/deploy-pages@v4
