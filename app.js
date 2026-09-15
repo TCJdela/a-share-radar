@@ -379,7 +379,7 @@ function renderTodayBrief(){
 }
 async function loadServerHealth(){
   var box=$("#serverHealth");if(!box)return;
-  try{var res=await fetch("./data/health.json?v="+Date.now(),{cache:"no-store"});if(!res.ok)throw new Error();var j=await res.json(),age=(Date.now()-new Date(j.generated_at).getTime())/60000;box.innerHTML='<div><span>后台任务</span><b class="'+(j.status==="ok"?"up":j.status==="closed"?"flat":"down")+'">'+esc(j.status||"未知")+'</b></div><div><span>最后更新</span><b>'+new Date(j.generated_at).toLocaleString("zh-CN",{hour12:false,timeZone:"Asia/Shanghai"})+'</b></div><div><span>快照年龄</span><b>'+fmt(age,0)+' 分钟</b></div><div><span>候选/板块</span><b>'+esc((j.details&&j.details.candidates||0)+" / "+(j.details&&j.details.selected_sectors||0))+'</b></div>'}
+  try{var res=await fetch("./data/health.json?v="+Date.now(),{cache:"no-store"});if(!res.ok)throw new Error();var j=await res.json(),age=(Date.now()-new Date(j.generated_at).getTime())/60000;box.innerHTML='<div><span>后台任务</span><b class="'+(j.status==="ok"?"up":j.status==="closed"?"flat":"down")+'">'+esc(j.status||"未知")+'</b></div><div><span>最后更新</span><b>'+new Date(j.generated_at).toLocaleString("zh-CN",{hour12:false,timeZone:"Asia/Shanghai"})+'</b></div><div><span>快照年龄</span><b>'+fmt(age,0)+' 分钟</b></div><div><span>候选 / 板块 / 固定匹配</span><b>'+esc((j.details&&j.details.candidates||0)+" / "+(j.details&&j.details.selected_sectors||0)+" / "+(j.details&&j.details.fixed_resolved||0)+"/"+(j.details&&j.details.fixed_total||0))+'</b></div>'}
   catch(e){box.innerHTML='<div class="empty compact">后台健康记录尚未生成</div>'}
 }
 async function loadSnapshot(){
