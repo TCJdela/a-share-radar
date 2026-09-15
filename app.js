@@ -32,6 +32,10 @@ function unit(n){n=Number(n);if(!isFinite(n))return"--";if(Math.abs(n)>=1e8)retu
 function pct(n){return(n>0?"+":"")+fmt(n,2)+"%"}
 function color(n){return Number(n)>0?"up":Number(n)<0?"down":"flat"}
 function mean(a){return a.length?a.reduce(function(x,y){return x+y},0)/a.length:0}
+function tradingProgress(){
+  var now=new Date(),m=now.getHours()*60+now.getMinutes();
+  if(m<570)return .08;if(m<=690)return Math.max(.08,(m-570)/240);if(m<780)return .5;if(m<=900)return .5+(m-780)/240;return 1;
+}
 function marketId(code){return(/^(6|9)/.test(code)?"1.":"0.")+code}
 function debounce(fn,ms){return function(){var args=arguments;clearTimeout(state.searchTimer);state.searchTimer=setTimeout(function(){fn.apply(null,args)},ms)}}
 function toast(text){var el=$("#toast");el.textContent=text;el.classList.add("show");setTimeout(function(){el.classList.remove("show")},1800)}
@@ -99,21 +103,21 @@ function getEastmoneyQuote(code,secidOverride){
 async function getTencentQuote(code,symbolOverride){
   var s=symbolOverride||symbol(code),raw=await globalScript(API.tencentQuote+s,"v_"+s),a=String(raw||"").split("~");
   if(a.length<10||!isFinite(+a[3]))throw new Error("腾讯行情无该股票数据");
-  return{f58:a[1],f57:a[2],f43:+a[3],f60:+a[4],f46:+a[5],f47:+a[36]||+a[6],f48:(+a[37]||0)*10000,f170:+a[32],f169:+a[31],f44:+a[33],f45:+a[34],f168:+a[38],f162:+a[39],_source:"腾讯行情"};
+  return{f58:a[1],f57:a[2],f43:+a[3],f60:+a[4],f46:+a[5],f47:+a[36]||(+a[6]||0)*100,f48:(+a[37]||0)*10000,f170:+a[32],f169:+a[31],f44:+a[33],f45:+a[34],f168:+a[38],f162:+a[39],_source:"腾讯行情"};
 }
 async function getQuote(code,overrides){overrides=overrides||{};try{return await getTencentQuote(code,overrides.symbol)}catch(e){logApi("warn","腾讯财经","实时行情",code,e,{fallback:true});state.fallbackHits++;try{var q=await getEastmoneyQuote(code,overrides.secid);logApi("info","系统","容灾切换",code,"腾讯行情失败，已使用东方财富",{fallback:true});return q}catch(e2){logApi("error","东方财富","实时行情",code,e2);throw new Error("腾讯财经与东方财富行情均不可用")}}}
-function parseKRows(rows,source){
-  var out=(rows||[]).map(function(a){if(typeof a==="string")a=a.split(",");return{date:a[0],open:+a[1],close:+a[2],high:+a[3],low:+a[4],volume:+a[5],amount:+a[6]||0,amplitude:+a[7]||0,pct:+a[8]||0,turnover:+a[10]||0}});
+function parseKRows(rows,source,volumeScale){
+  volumeScale=volumeScale||1;var out=(rows||[]).map(function(a){if(typeof a==="string")a=a.split(",");return{date:a[0],open:+a[1],close:+a[2],high:+a[3],low:+a[4],volume:(+a[5]||0)*volumeScale,amount:+a[6]||0,amplitude:+a[7]||0,pct:+a[8]||0,turnover:+a[10]||0}});
   out._source=source;return out;
 }
 function getEastmoneyK(code,klt,lmt){
-  return jsonp(API.kline,{secid:marketId(code),klt:klt||101,fqt:1,lmt:lmt||120,end:20500101,fields1:"f1,f2,f3,f4,f5,f6",fields2:"f51,f52,f53,f54,f55,f56,f57,f58,f59,f60,f61"}).then(function(j){return parseKRows(j&&j.data&&j.data.klines?j.data.klines:[],"东方财富")});
+  return jsonp(API.kline,{secid:marketId(code),klt:klt||101,fqt:1,lmt:lmt||120,end:20500101,fields1:"f1,f2,f3,f4,f5,f6",fields2:"f51,f52,f53,f54,f55,f56,f57,f58,f59,f60,f61"}).then(function(j){return parseKRows(j&&j.data&&j.data.klines?j.data.klines:[],"东方财富",100)});
 }
 async function getTencentK(code,klt,lmt){
   var s=symbol(code),period=String(klt||101)==="101"?"day":"m"+String(klt),key="tq_"+s+"_"+period+"_"+Date.now(),url=API.tencentK+"?_var="+key+"&param="+encodeURIComponent(s+","+period+",,,"+(lmt||120)+",qfq");
   var j=await globalScript(url,key),root=j&&j.data&&j.data[s]||{},rows=root["qfq"+period]||root[period]||root.day||[];
   if(!rows.length)throw new Error("腾讯K线数据为空");
-  var out=parseKRows(rows,"腾讯行情");
+  var out=parseKRows(rows,"腾讯行情",100);
   for(var i=0;i<out.length;i++){if(!out[i].pct&&i)out[i].pct=(out[i].close/out[i-1].close-1)*100}
   return out;
 }
@@ -150,13 +154,13 @@ function compute(meta,q,k){
   var last=k[k.length-1],prev=k[k.length-2],avg5=mean(k.slice(-6,-1).map(function(x){return x.volume})),ma=function(n){return mean(k.slice(-n).map(function(x){return x.close}))};
   var ma5=ma(5),ma10=ma(10),ma20=ma(20),ma30=ma(30),max20=Math.max.apply(null,k.slice(-21,-1).map(function(x){return x.high}));
   var price=isFinite(q.f43)?+q.f43:last.close,dayPct=isFinite(q.f170)?+q.f170:last.pct,volume=isFinite(q.f47)?+q.f47:last.volume,amount=isFinite(q.f48)?+q.f48:last.amount;
-  var r10=(price/k[k.length-11].close-1)*100,r20=(price/k[k.length-21].close-1)*100,d10=(price/ma10-1)*100,d30=(price/ma30-1)*100,vr=avg5?volume/avg5:0,rsi=rsi14(k),atr=atrPct(k),vol20=annualVol(k),drawdown=maxDrawdown(k),high60=Math.max.apply(null,k.slice(-60).map(function(x){return x.high})),signal="趋势观察",score=45;
-  if(price>max20&&vr>1.5){signal="放量突破";score=88}
-  else if(price>=ma20*.98&&price<=ma20*1.04&&vr<.82&&r20>4){signal="缩量回踩";score=82}
-  else if(dayPct>2&&prev.pct<0&&vr>1.05){signal="弱转强";score=78}
-  else if(Math.abs(dayPct)<2&&vr>1.8&&r20>15){signal="放量滞涨";score=30}
+  var r10=(price/k[k.length-11].close-1)*100,r20=(price/k[k.length-21].close-1)*100,d10=(price/ma10-1)*100,d30=(price/ma30-1)*100,rawVr=avg5?volume/avg5:0,volumePace=rawVr/Math.max(.08,tradingProgress()),rsi=rsi14(k),atr=atrPct(k),vol20=annualVol(k),drawdown=maxDrawdown(k),high60=Math.max.apply(null,k.slice(-60).map(function(x){return x.high})),signal="趋势观察",score=45;
+  if(price>max20&&volumePace>1.5){signal="放量突破";score=88}
+  else if(price>=ma20*.98&&price<=ma20*1.04&&volumePace<.82&&r20>4){signal="缩量回踩";score=82}
+  else if(dayPct>2&&prev.pct<0&&volumePace>1.05){signal="弱转强";score=78}
+  else if(Math.abs(dayPct)<2&&volumePace>1.8&&r20>15){signal="放量滞涨";score=30}
   if(ma5>ma10&&ma10>ma20)score+=7;if(dayPct>0)score+=3;if(r20>35)score-=10;if(d10>12)score-=8;
-  return Object.assign({},meta,{name:q.f58||meta.name,price:price,pct:dayPct,volume:volume,amount:amount,avg3:mean(k.slice(-3).map(function(x){return x.volume})),r10:r10,r20:r20,d10:d10,d30:d30,vr:vr,ma5:ma5,ma10:ma10,ma20:ma20,signal:signal,score:Math.max(0,Math.min(99,score)),k:k,quote:q,source:q._source||k._source||"未知",rsi14:rsi,atrPct:atr,vol20:vol20,maxDrawdown60:drawdown,high60Distance:(price/high60-1)*100,prevPct:prev.pct});
+  return Object.assign({},meta,{name:q.f58||meta.name,price:price,pct:dayPct,volume:volume,amount:amount,avg3:mean(k.slice(-3).map(function(x){return x.volume})),r10:r10,r20:r20,d10:d10,d30:d30,vr:rawVr,volumePace:volumePace,ma5:ma5,ma10:ma10,ma20:ma20,signal:signal,score:Math.max(0,Math.min(99,score)),k:k,quote:q,source:q._source||k._source||"未知",rsi14:rsi,atrPct:atr,vol20:vol20,maxDrawdown60:drawdown,high60Distance:(price/high60-1)*100,prevPct:prev.pct,support20:Math.min.apply(null,k.slice(-20).map(function(x){return x.low})),resistance20:Math.max.apply(null,k.slice(-20).map(function(x){return x.high})),confidence:(q._source==="腾讯行情"&&k._source==="腾讯行情")?"A":(q._source&&k._source?"B":"D")});
 }
 async function analyze(meta){
   var pair=await Promise.all([getQuote(meta.code),getK(meta.code,101,100)]);
@@ -248,11 +252,14 @@ async function selectBoard(board){
     $("#candidateSub").textContent="按结构评分列出 3–5 只，点击“详情”查看分时、K线和公告";renderTable("#candidateRows",state.candidates,false);buildReport();
   }catch(e){var cached=snapshotForBoard(board);state.candidates=cached;if(cached.length){$("#candidateSub").textContent="实时接口限流，当前显示定时快照";renderTable("#candidateRows",cached,false)}else{$("#candidateRows").innerHTML='<tr><td colspan="12" class="empty">板块数据读取失败：'+esc(e.message)+'</td></tr>'}}
 }
+function reasonFor(x){
+  var parts=[];if(x.signal)parts.push(x.signal);if(isFinite(x.volumePace))parts.push("量速"+fmt(x.volumePace,2));if(isFinite(x.r20))parts.push("20日"+pct(x.r20));if(x.confidence)parts.push("数据"+x.confidence+"级");return parts.slice(0,4).join(" · ");
+}
 function tagClass(s){return s==="放量突破"||s==="缩量回踩"?"good":s==="放量滞涨"?"risk":"warn"}
 function renderTable(selector,rows,isWatch){
   var body=$(selector);rows=state.hsOnly?rows.filter(function(x){return isHuShen(x.code)}):rows;
   if(!rows.length){body.innerHTML='<tr><td colspan="12" class="empty">'+(isWatch?'还没有自选股。请到“股市”搜索股票并点击 ☆ 加入自选。':'暂无可展示的推荐股')+'</td></tr>';return}
-  body.innerHTML=rows.map(function(x){return'<tr><td><span class="name">'+esc(x.name)+'</span><br><span class="code">'+x.code+'</span></td><td><span class="code">'+esc(x.sector||"--")+'</span><br><span class="tag '+tagClass(x.signal)+'">'+esc(x.signal)+'</span></td><td>'+fmt(x.price)+'</td><td class="'+color(x.pct)+'">'+pct(x.pct)+'</td><td>'+unit(x.volume)+'</td><td>'+unit(x.amount)+'</td><td>'+unit(x.avg3)+'</td><td class="'+color(x.r10)+'">'+pct(x.r10)+'</td><td class="'+color(x.r20)+'">'+pct(x.r20)+'</td><td>'+fmt(x.d10,1)+'% / '+fmt(x.d30,1)+'%</td><td class="score">'+x.score+'</td><td><div class="row-actions"><button class="btn small" data-detail="'+x.code+'">详情</button><button class="icon-btn '+(isWatched(x.code)?"starred":"")+'" data-watch="'+x.code+'" title="'+(isWatched(x.code)?"删除自选":"加入自选")+'">'+(isWatched(x.code)?"★":"☆")+'</button>'+(isWatch?'<button class="icon-btn danger" data-remove="'+x.code+'" title="删除自选">×</button>':'')+'</div></td></tr>'}).join("");
+  body.innerHTML=rows.map(function(x){return'<tr><td><span class="name">'+esc(x.name)+'</span><br><span class="code">'+x.code+'</span></td><td><span class="code">'+esc(x.sector||"--")+'</span><br><span class="tag '+tagClass(x.signal)+'">'+esc(x.signal)+'</span><br><span class="reason">'+esc(x.reason||reasonFor(x))+'</span></td><td>'+fmt(x.price)+'</td><td class="'+color(x.pct)+'">'+pct(x.pct)+'</td><td>'+unit(x.volume)+'</td><td>'+unit(x.amount)+'</td><td>'+unit(x.avg3)+'</td><td class="'+color(x.r10)+'">'+pct(x.r10)+'</td><td class="'+color(x.r20)+'">'+pct(x.r20)+'</td><td>'+fmt(x.d10,1)+'% / '+fmt(x.d30,1)+'%</td><td class="score">'+x.score+'</td><td><div class="row-actions"><button class="btn small" data-detail="'+x.code+'">详情</button><button class="icon-btn '+(isWatched(x.code)?"starred":"")+'" data-watch="'+x.code+'" title="'+(isWatched(x.code)?"删除自选":"加入自选")+'">'+(isWatched(x.code)?"★":"☆")+'</button>'+(isWatch?'<button class="icon-btn danger" data-remove="'+x.code+'" title="删除自选">×</button>':'')+'</div></td></tr>'}).join("");
   body.querySelectorAll("[data-detail]").forEach(function(b){b.onclick=function(){var x=rows.find(function(r){return r.code===b.dataset.detail});openDetail(x)}});
   body.querySelectorAll("[data-watch]").forEach(function(b){b.onclick=function(){var x=rows.find(function(r){return r.code===b.dataset.watch});toggleWatch(x)}});
   body.querySelectorAll("[data-remove]").forEach(function(b){b.onclick=function(){var x=rows.find(function(r){return r.code===b.dataset.remove});toggleWatch(x)}});
@@ -311,7 +318,7 @@ async function openDetail(meta){
   try{
     var x=meta.k&&meta.k.length?meta:await analyze({code:meta.code,name:meta.name,sector:meta.sector||"全市场"});
     state.selected=x;$("#detailName").textContent=x.name;$("#detailCode").textContent=x.code+" · "+(x.sector||"全市场");$("#detailPrice").textContent=fmt(x.price);$("#detailPrice").className="modal-price "+color(x.pct);
-    $("#metrics").innerHTML=metric("涨幅",pct(x.pct),color(x.pct))+metric("成交额",unit(x.amount))+metric("换手率",fmt(x.quote.f168,2)+"%")+metric("量比",fmt(x.vr,2))+metric("10日涨幅",pct(x.r10),color(x.r10))+metric("20日涨幅",pct(x.r20),color(x.r20))+metric("市盈率",fmt(x.quote.f162,2))+metric("数据源",esc(x.source||"缓存快照"));$("#professionalFactors").innerHTML=factor("RSI14",fmt(x.rsi14,1),x.rsi14>70?"偏热":x.rsi14<30?"超跌区":"中性")+factor("ATR14",fmt(x.atrPct,2)+"%","日内真实波幅")+factor("20日波动",fmt(x.vol20,1)+"%","年化估算")+factor("60日回撤",fmt(x.maxDrawdown60,1)+"%","峰值至低点")+factor("距60日高点",fmt(x.high60Distance,1)+"%","位置指标")+factor("MA20偏离",fmt((x.price/x.ma20-1)*100,1)+"%","趋势距离");
+    $("#metrics").innerHTML=metric("涨幅",pct(x.pct),color(x.pct))+metric("成交额",unit(x.amount))+metric("换手率",fmt(x.quote.f168,2)+"%")+metric("当前/5日量比",fmt(x.vr,2))+metric("盘中量速",fmt(x.volumePace,2))+metric("10日涨幅",pct(x.r10),color(x.r10))+metric("20日涨幅",pct(x.r20),color(x.r20))+metric("市盈率",fmt(x.quote.f162,2))+metric("数据源",esc(x.source||"缓存快照"));$("#professionalFactors").innerHTML=factor("RSI14",fmt(x.rsi14,1),x.rsi14>70?"偏热":x.rsi14<30?"超跌区":"中性")+factor("ATR14",fmt(x.atrPct,2)+"%","日内真实波幅")+factor("20日波动",fmt(x.vol20,1)+"%","年化估算")+factor("60日回撤",fmt(x.maxDrawdown60,1)+"%","峰值至低点")+factor("距60日高点",fmt(x.high60Distance,1)+"%","位置指标")+factor("20日支撑",fmt(x.support20,2),"区间低点")+factor("20日压力",fmt(x.resistance20,2),"区间高点")+factor("MA20偏离",fmt((x.price/x.ma20-1)*100,1)+"%","趋势距离");
     syncWatchButtons();selectChart("trend");loadAnnouncements(x);
   }catch(e){if(isFinite(meta.price)){state.selected=meta;$("#detailPrice").textContent=fmt(meta.price);$("#metrics").innerHTML=metric("涨幅",pct(meta.pct),color(meta.pct))+metric("成交额",unit(meta.amount))+metric("数据源","定时快照");$("#chart").innerHTML='<div class="chart-status">实时K线源均不可用，已保留快照指标。</div>';loadAnnouncements(meta)}else{$("#metrics").innerHTML='<div class="empty">详情读取失败：'+esc(e.message)+'</div>';$("#chart").innerHTML=""}}
 }
@@ -385,7 +392,7 @@ async function runStrategy(key){
     pool=pool.slice(0,40);var done=0,rows=[];
     for(var i=0;i<pool.length;i+=4){var batch=await Promise.all(pool.slice(i,i+4).map(async function(x){try{return await analyze(x)}catch(e){logApi("error","系统","策略分析",x.code,e);return null}finally{done++;progress.innerHTML="正在应用 <b>"+esc(rule.name)+"</b>："+done+" / "+pool.length}}));rows=rows.concat(batch.filter(Boolean));if(i+4<pool.length)await sleep(350)}
     var usedSnapshot=false;if(!rows.length&&state.snapshot&&state.snapshot.candidates){usedSnapshot=true;rows=state.snapshot.candidates.map(function(x){return{code:x.code,name:x.name,sector:x.sector,price:x.price,pct:x.pct,volume:x.volume,amount:x.amount,avg3:x.avg3_volume,r10:x.return_10d,r20:x.return_20d,d10:x.deviation_10d,d30:x.deviation_30d,vr:x.volume_ratio,signal:x.signal,score:x.score,k:[],quote:{},source:"定时快照"}})}
-    state.strategyRows=rows.filter(rule.test).sort(function(a,b){return b.score-a.score}).slice(0,20);
+    state.strategyRows=rows.filter(rule.test).map(function(x){return Object.assign({},x,{reason:reasonFor(x)})}).sort(function(a,b){return b.score-a.score}).slice(0,20);
     progress.innerHTML=(usedSnapshot?"实时行情源均不可用，已改用当日定时快照筛选。":"已成功分析 <b>"+rows.length+"</b> 只股票。")+" 找到 <b>"+state.strategyRows.length+"</b> 只完全符合条件的股票。"+(!usedSnapshot&&rows.length<pool.length?" 部分失败记录已写入接口日志。":"");
     renderTable("#strategyRows",state.strategyRows,false);
   }catch(e){progress.textContent="策略运行失败："+e.message;$("#strategyRows").innerHTML='<tr><td colspan="12" class="empty">未取得可用策略数据</td></tr>'}
