@@ -19,7 +19,7 @@ NEG=re.compile(r"减持|亏损|处罚|立案|诉讼|终止|退市|风险|质押"
 FIXED_SECTORS=[
     ("PCB",["PCB","印制电路板"]),("半导体",["半导体"]),("光纤",["光纤","光通信"]),
     ("贵金属",["贵金属","黄金"]),("小金属",["小金属"]),("化工",["化工","化学制品"]),
-    ("油气",["油气开采","油气","石油行业","油气设服","油服工程","天然气"]),("粮食",["粮食概念","种植业","农业种植","农牧饲渔"]),("MLCC",["MLCC","被动元件"])
+    ("油气",["油气开采","油气","石油行业","油气设服","油服工程","天然气","石油石化","石油开采","石油服务","燃气"]),("粮食",["粮食概念","种植业","农业种植","农牧饲渔","粮食","农林牧渔","种植业与林业"]),("MLCC",["MLCC","被动元件"])
 ]
 META_BOARD=re.compile(r"昨日|涨停|连板|ST|预盈|融资融券|深股通|沪股通|百元股|机构重仓|基金重仓|MSCI|标准普尔|证金持股|AH股|次新股|破净股|低价股|高送转|转债标的")
 DOMESTIC_EVENT=re.compile(r"国务院|中央|央行|人民银行|证监会|财政部|发改委|统计局|政策|利率|降准|降息|GDP|CPI|关税|贸易|经济|科技|人工智能|能源|地震|台风|洪水|事故|外交")
@@ -307,8 +307,10 @@ def resolve_fixed(boards):
         if not match:
             match=next((b for b in boards if any(a in (b.get("f14") or "") or (b.get("f14") or "") in a for a in aliases)),None)
         if match:
-            item=dict(match);item["display_name"]=label;item["pool_source"]="固定关注"
+            item=dict(match);item["display_name"]=label;item["pool_source"]="固定关注";item["resolved"]=True
             resolved.append(item)
+        else:
+            resolved.append({"f12":"","f14":label,"display_name":label,"pool_source":"固定关注","resolved":False})
     return resolved
 
 def write_health(status,details=None):
@@ -345,8 +347,9 @@ def main():
     all_boards=list(unique.values())
     market_hot=sorted(all_boards,key=lambda x:num(x.get("f3"),-999),reverse=True)[:5]
     fixed=resolve_fixed(all_boards)
+    fixed_resolved=[b for b in fixed if b.get("resolved")]
     pool=[];seen=set()
-    for b in fixed+market_hot:
+    for b in fixed_resolved+market_hot:
         if b.get("f12") not in seen:
             seen.add(b.get("f12"));pool.append(dict(b))
     pct_norm=normalize([b.get("f3") for b in pool])
@@ -385,7 +388,7 @@ def main():
         print("hot stocks unavailable",exc)
     payload={"generated_at":now.isoformat(),"report_date":report_date,"mode":mode,"market_status":"open",
              "source":"个股行情与K线：腾讯财经优先，东方财富容灾；板块目录与公告：东方财富",
-             "fixed_sectors":[{"code":b["f12"],"name":b.get("display_name") or b["f14"],"pct":b.get("f3")} for b in fixed],
+             "fixed_sectors":[{"code":b.get("f12",""),"name":b.get("display_name") or b["f14"],"pct":b.get("f3"),"resolved":bool(b.get("resolved"))} for b in fixed],
              "hot_sectors":[{"code":b["f12"],"name":b["f14"],"pct":b.get("f3")} for b in market_hot],
              "attention_pool":[{"code":b["f12"],"name":b.get("display_name") or b["f14"],"pct":b.get("f3"),"heat_score":b["heat_score"]} for b in pool],
              "selected_sectors":[{"code":b["f12"],"name":b.get("display_name") or b["f14"],"pct":b.get("f3"),"heat_score":b["heat_score"]} for b in selected],
@@ -396,7 +399,7 @@ def main():
     Path("data").mkdir(exist_ok=True);Path("reports").mkdir(exist_ok=True)
     Path("data/latest.json").write_text(json.dumps(payload,ensure_ascii=False,indent=2),encoding="utf-8")
     Path("reports",now.strftime("%Y-%m-%d-%H%M")+".json").write_text(json.dumps(payload,ensure_ascii=False,indent=2),encoding="utf-8")
-    write_health("ok",{"candidates":len(candidates),"selected_sectors":len(selected),"mode":mode})
+    write_health("ok",{"candidates":len(candidates),"selected_sectors":len(selected),"fixed_resolved":len(fixed_resolved),"fixed_total":len(fixed),"mode":mode})
     print("generated",now.strftime("%Y-%m-%d-%H%M"),len(candidates))
 
 if __name__=="__main__":
