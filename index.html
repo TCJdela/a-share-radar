@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="A股量价雷达：全市场搜索、自选、热门板块、分时K线与公告">
   <title>A股量价雷达</title>
-  <link rel="stylesheet" href="./styles.css?v=09509755">
+  <link rel="stylesheet" href="./styles.css?v=ui-10">
   <script defer src="https://cdn.jsdelivr.net/npm/echarts@5.5.1/dist/echarts.min.js"></script>
-  <script defer src="./app.js?v=9c5f4339"></script>
+  <script defer src="./app.js?v=ui-10"></script>
 </head>
 <body>
 <div class="app">
@@ -76,7 +76,7 @@
         <h3 class="section-title">固定关注板块 <span class="label">支持增删</span></h3>
         <div class="chips" id="fixedSectors"></div>
         <div class="add-sector"><input class="search" id="sectorInput" placeholder="输入板块名称"><button class="icon-btn" id="addSector" title="添加板块">＋</button></div>
-        <div class="sourcebox"><b>点击板块查看推荐股</b><div class="help">系统读取板块成分股后，按突破、回踩、弱转强及风险结构评分，列出 3–5 只观察标的。</div></div>
+        <div class="sourcebox"><b>点击板块查看推荐股</b><div class="help">系统读取板块成分股后，按突破、回踩、弱转强及风险结构评分，最多列出10只观察标的。</div></div>
         <div class="sourcebox"><b>偏离值口径</b><div class="help">10/30日偏离为相对均价的技术偏离率，不等于交易所监管公告口径。</div></div>
       </aside>
 
@@ -139,7 +139,11 @@
 
 <dialog id="detail">
   <div class="modal-head">
-    <div class="modal-title"><div><b id="detailName">个股详情</b><br><span class="code" id="detailCode"></span></div><span class="modal-price" id="detailPrice">--</span></div>
+    <div class="security-summary">
+      <div class="security-market" id="detailMarket">A股</div>
+      <div class="security-identity"><div class="security-name-row"><b id="detailName">个股详情</b><span class="security-grade" id="detailDataGrade">等待数据</span></div><div class="security-meta"><span class="security-code" id="detailCode">--</span><i></i><span id="detailSector">全市场</span></div></div>
+      <div class="security-quote"><span class="modal-price" id="detailPrice">--</span><span class="modal-change" id="detailChange">--</span></div>
+    </div>
     <div class="modal-head-actions"><button class="btn small" id="detailWatch">☆ 加自选</button><button class="close" id="detailClose" aria-label="关闭">×</button></div>
   </div>
   <div class="modal-body">
