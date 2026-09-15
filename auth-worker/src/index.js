@@ -96,12 +96,12 @@ async function toggleAccount(request,env,cors,id){
 }
 async function hashPassword(password){
   const salt=crypto.getRandomValues(new Uint8Array(16)),key=await crypto.subtle.importKey("raw",encoder.encode(password),"PBKDF2",false,["deriveBits"]);
-  const bits=await crypto.subtle.deriveBits({name:"PBKDF2",hash:"SHA-256",salt,iterations:210000},key,256);
+  const bits=await crypto.subtle.deriveBits({name:"PBKDF2",hash:"SHA-256",salt,iterations:100000},key,256);
   return{salt:b64(salt),hash:b64(new Uint8Array(bits))};
 }
 async function verifyPassword(password,salt,expected){
   const key=await crypto.subtle.importKey("raw",encoder.encode(password),"PBKDF2",false,["deriveBits"]);
-  const bits=await crypto.subtle.deriveBits({name:"PBKDF2",hash:"SHA-256",salt:unb64(salt),iterations:210000},key,256);
+  const bits=await crypto.subtle.deriveBits({name:"PBKDF2",hash:"SHA-256",salt:unb64(salt),iterations:100000},key,256);
   return timingSafe(b64(new Uint8Array(bits)),expected);
 }
 async function sha256(value){const bits=await crypto.subtle.digest("SHA-256",encoder.encode(value));return b64(new Uint8Array(bits))}
