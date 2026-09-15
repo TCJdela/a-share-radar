@@ -309,7 +309,7 @@ function resetChart(){
   state.chart=echarts.init($("#chart"));return true
 }
 async function selectChart(mode){
-  $$(".period").forEach(function(b){b.classList.toggle("active",b.dataset.chart===mode)});
+  $$$(".period").forEach(function(b){b.classList.toggle("active",b.dataset.chart===mode)});
   $("#chart").innerHTML='<div class="chart-status">正在加载图表...</div>';
   try{
     if(mode==="trend"){var t=await getTrend(state.selected.code);drawTrend(t)}
@@ -363,7 +363,7 @@ function setHsOnly(value){
 }
 async function runStrategy(key){
   var rule=STRATEGIES[key];if(!rule)return;switchView("strategy");$("#strategyTitle").textContent=rule.name+" · 筛选结果";$("#strategyRows").innerHTML='<tr><td colspan="12" class="empty">正在建立活跃股票池...</td></tr>';
-  $("[data-strategy]").forEach(function(b){b.disabled=true});var progress=$("#strategyProgress");
+  $$("[data-strategy]").forEach(function(b){b.disabled=true});var progress=$("#strategyProgress");
   try{
     var market=[];try{market=await clist("m:0+t:6,m:0+t:80,m:1+t:2,m:1+t:23",50,"f6")}catch(sourceError){market=(state.snapshot&&state.snapshot.candidates||[]).map(function(x){return{f12:x.code,f14:x.name}})}var seen={},pool=[];
     market.concat(state.candidates).concat(state.watch).forEach(function(x){var code=x.f12||x.code,name=x.f14||x.name;if(!/^\d{6}$/.test(code)||seen[code]||(state.hsOnly&&!isHuShen(code)))return;seen[code]=1;pool.push({code:code,name:name,sector:"策略池"})});
@@ -373,7 +373,7 @@ async function runStrategy(key){
     progress.innerHTML="已成功分析 <b>"+rows.length+"</b> 只股票，找到 <b>"+state.strategyRows.length+"</b> 只完全符合条件的股票。"+(rows.length<pool.length?" 部分失败记录已写入接口日志。":"");
     renderTable("#strategyRows",state.strategyRows,false);
   }catch(e){progress.textContent="策略运行失败："+e.message;$("#strategyRows").innerHTML='<tr><td colspan="12" class="empty">未取得可用策略数据</td></tr>'}
-  finally{$("[data-strategy]").forEach(function(b){b.disabled=false})}
+  finally{$$("[data-strategy]").forEach(function(b){b.disabled=false})}
 }
 async function loadEvents(){
   try{var res=await fetch("./data/events.json?v="+Date.now(),{cache:"no-store"});if(!res.ok)throw new Error();var j=await res.json();state.events=j.events||[];renderEvents()}
@@ -392,7 +392,7 @@ function buildReport(){
 }
 function switchView(id){
   if(id==="accounts"){toast("账号管理需接入安全后端后启用");return}
-  $(".tab").forEach(function(x){x.classList.toggle("active",x.dataset.view===id)});$(".view").forEach(function(x){x.classList.toggle("active",x.id===id)});
+  $$(".tab").forEach(function(x){x.classList.toggle("active",x.dataset.view===id)});$$(".view").forEach(function(x){x.classList.toggle("active",x.id===id)});
   if(id==="watch")renderWatch();if(id==="events"&&!state.events.length)loadEvents();if(id==="logs")renderApiLogs();
 }
 async function refresh(){
@@ -402,12 +402,12 @@ async function refresh(){
   catch(e){if(state.snapshot){setSource(false,"实时接口限流 · 当前显示定时快照");toast("实时请求受限，已切换到缓存快照")}else{setSource(false,"行情接口不可用，未使用模拟数据");toast(e.message)}}
   finally{$("#refreshBtn").disabled=false}
 }
-$$(".tab").forEach(function(b){b.onclick=function(){switchView(b.dataset.view)}});
+$$$(".tab").forEach(function(b){b.onclick=function(){switchView(b.dataset.view)}});
 $("#refreshBtn").onclick=refresh;$("#logShortcut").onclick=function(){switchView("logs")};$("#logProvider").onchange=renderApiLogs;$("#logLevel").onchange=renderApiLogs;$("#clearLogs").onclick=clearApiLogs;$("#hsOnlyToggle").onclick=function(){setHsOnly(!state.hsOnly)};$("#strategyHsToggle").onclick=function(){setHsOnly(!state.hsOnly)};$("#addSector").onclick=addSector;$("#sectorInput").onkeydown=function(e){if(e.key==="Enter")addSector()};
 $("#globalSearch").oninput=debounce(function(e){runSearch(e.target.value)},320);$("#globalSearchBtn").onclick=function(){runSearch($("#globalSearch").value)};
 document.addEventListener("click",function(e){if(!e.target.closest(".market-search"))hideSearch()});
 $("#detailClose").onclick=function(){$("#detail").close()};$("#detailWatch").onclick=function(){if(state.selected)toggleWatch(state.selected)};
-$(".period").forEach(function(b){b.onclick=function(){if(state.selected)selectChart(b.dataset.chart)}});$("[data-strategy]").forEach(function(b){b.onclick=function(){runStrategy(b.dataset.strategy)}});$("[data-event-filter]").forEach(function(b){b.onclick=function(){$("[data-event-filter]").forEach(function(x){x.classList.toggle("active",x===b)});state.eventFilter=b.dataset.eventFilter;renderEvents()}});
+$$(".period").forEach(function(b){b.onclick=function(){if(state.selected)selectChart(b.dataset.chart)}});$$("[data-strategy]").forEach(function(b){b.onclick=function(){runStrategy(b.dataset.strategy)}});$$("[data-event-filter]").forEach(function(b){b.onclick=function(){$$("[data-event-filter]").forEach(function(x){x.classList.toggle("active",x===b)});state.eventFilter=b.dataset.eventFilter;renderEvents()}});
 window.addEventListener("resize",function(){if(state.chart)state.chart.resize()});
 setHsOnly(state.hsOnly);loadEvents();loadSnapshot().finally(function(){refresh()});setInterval(refresh,300000);
 })();
