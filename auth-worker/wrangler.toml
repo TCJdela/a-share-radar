@@ -1,0 +1,13 @@
+name = "a-share-radar-auth"
+main = "src/index.js"
+compatibility_date = "2026-09-01"
+
+[vars]
+APP_ORIGIN = "https://tcjdela.github.io"
+SUPER_PHONE = "15858198564"
+DEFAULT_PASSWORD = "123456"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "a-share-radar-auth"
+database_id = "REPLACE_WITH_D1_DATABASE_ID"
