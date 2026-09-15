@@ -147,7 +147,7 @@ function rsi14(k){
   if(!losses)return 100;var rs=(gains/14)/(losses/14);return 100-100/(1+rs);
 }
 function atrPct(k){
-  var rows=k.slice(-15);if(rows.length<15)return NaN,tr=[];
+  var rows=k.slice(-15),tr=[];if(rows.length<15)return NaN;
   for(var i=1;i<rows.length;i++)tr.push(Math.max(rows[i].high-rows[i].low,Math.abs(rows[i].high-rows[i-1].close),Math.abs(rows[i].low-rows[i-1].close)));
   return mean(tr)/rows[rows.length-1].close*100;
 }
