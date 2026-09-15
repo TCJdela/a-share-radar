@@ -1,0 +1,8 @@
+{
+  "generated_at": "2026-09-15T17:33:56.456290+08:00",
+  "status": "degraded",
+  "details": {
+    "stage": "board_list",
+    "error": "HTTP Error 502: Bad Gateway"
+  }
+}
