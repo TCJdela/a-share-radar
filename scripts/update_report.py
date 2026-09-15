@@ -279,8 +279,12 @@ def update_events():
         Path("data/events.json").write_text(json.dumps({"generated_at":datetime.now(ZoneInfo("Asia/Shanghai")).isoformat(),"events":[],"status":"news sources unavailable"},ensure_ascii=False,indent=2),encoding="utf-8")
         print("no fresh events; stale entries cleared")
 
+def num(value, default=0):
+    try: return float(value)
+    except (TypeError,ValueError): return default
+
 def normalize(values):
-    clean=[float(v or 0) for v in values]
+    clean=[num(v) for v in values]
     lo,hi=min(clean,default=0),max(clean,default=0)
     return [0.5 if hi==lo else (v-lo)/(hi-lo) for v in clean]
 
@@ -327,20 +331,20 @@ def main():
         name=b.get("f14")
         if name and name not in unique and not META_BOARD.search(name): unique[name]=b
     all_boards=list(unique.values())
-    market_hot=sorted(all_boards,key=lambda x:float(x.get("f3") or -999),reverse=True)[:5]
+    market_hot=sorted(all_boards,key=lambda x:num(x.get("f3"),-999),reverse=True)[:5]
     fixed=resolve_fixed(all_boards)
     pool=[];seen=set()
     for b in fixed+market_hot:
         if b.get("f12") not in seen:
             seen.add(b.get("f12"));pool.append(dict(b))
     pct_norm=normalize([b.get("f3") for b in pool])
-    flow_norm=normalize([(float(b.get("f62") or 0)/max(1,float(b.get("f6") or 0)))*100 for b in pool])
-    amount_norm=normalize([float(b.get("f6") or 0) for b in pool])
+    flow_norm=normalize([(num(b.get("f62"))/max(1,num(b.get("f6"))))*100 for b in pool])
+    amount_norm=normalize([num(b.get("f6")) for b in pool])
     for i,b in enumerate(pool):
         b["heat_score"]=round(pct_norm[i]*55+flow_norm[i]*25+amount_norm[i]*20,1)
     selected=sorted(pool,key=lambda x:x["heat_score"],reverse=True)[:5]
     flow_rows=[b for b in all_boards if b.get("f62") is not None]
-    inflow=sorted(flow_rows,key=lambda x:float(x.get("f62") or 0),reverse=True)[:5]
+    inflow=sorted(flow_rows,key=lambda x:num(x.get("f62")),reverse=True)[:5]
     outflow=sorted(flow_rows,key=lambda x:float(x.get("f62") or 0))[:5]
     candidates=[]
     for b in selected:
@@ -348,7 +352,7 @@ def main():
         except Exception as exc:
             print("skip board",b.get("f14"),exc);continue
         scored=[]
-        for row in rows[:12]:
+        for row in rows[:8]:
             try:
                 item=analyze(row,b.get("display_name") or b["f14"])
                 if item: scored.append(item)
@@ -362,7 +366,6 @@ def main():
         stocks=clist("m:0+t:6,m:0+t:80,m:1+t:2,m:1+t:23",150,"f6")
         valid=[x for x in stocks if re.match(r"^\d{6}$",str(x.get("f12",""))) and not re.search(r"ST|退",x.get("f14",""))]
         for x in valid:
-            heat=(max(1,float(x.get("f6") or 0))).bit_length() if isinstance(x.get("f6"),int) else 0
             hot_stocks.append({"code":x.get("f12"),"name":x.get("f14"),"price":x.get("f2"),"pct":x.get("f3"),
                                "amount":x.get("f6"),"turnover":x.get("f8"),"volume_ratio":x.get("f10")})
         hot_stocks=hot_stocks[:10]
