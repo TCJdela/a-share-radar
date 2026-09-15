@@ -19,7 +19,7 @@ NEG=re.compile(r"减持|亏损|处罚|立案|诉讼|终止|退市|风险|质押"
 FIXED_SECTORS=[
     ("PCB",["PCB","印制电路板"]),("半导体",["半导体"]),("光纤",["光纤","光通信"]),
     ("贵金属",["贵金属","黄金"]),("小金属",["小金属"]),("化工",["化工","化学制品"]),
-    ("油气",["油气开采","油气"]),("粮食",["粮食概念","种植业"]),("MLCC",["MLCC","被动元件"])
+    ("油气",["油气开采","油气","石油行业","油气设服","油服工程","天然气"]),("粮食",["粮食概念","种植业","农业种植","农牧饲渔"]),("MLCC",["MLCC","被动元件"])
 ]
 META_BOARD=re.compile(r"昨日|涨停|连板|ST|预盈|融资融券|深股通|沪股通|百元股|机构重仓|基金重仓|MSCI|标准普尔|证金持股|AH股|次新股|破净股|低价股|高送转|转债标的")
 DOMESTIC_EVENT=re.compile(r"国务院|中央|央行|人民银行|证监会|财政部|发改委|统计局|政策|利率|降准|降息|GDP|CPI|关税|贸易|经济|科技|人工智能|能源|地震|台风|洪水|事故|外交")
@@ -95,29 +95,41 @@ def quote(code):
         print("quote fallback",code,exc)
         return eastmoney_quote(code)
 
+def series_volume_scale(rows):
+    ratios=sorted((x["amount"]/x["typical_price"])/x["raw_volume"] for x in rows[-20:]
+                  if x["raw_volume"] and x["amount"] and x["typical_price"])
+    median=ratios[len(ratios)//2] if ratios else 100
+    return min((1,100),key=lambda scale:abs(scale-median))
+
 def tencent_klines(code):
     s=symbol(code);j=get(TENCENT_K,{"param":f"{s},day,,,90,qfq"})
-    root=((j.get("data") or {}).get(s) or {});rows=root.get("qfqday") or root.get("day") or []
-    if not rows: raise ValueError("Tencent kline is empty")
+    root=((j.get("data") or {}).get(s) or {});source_rows=root.get("qfqday") or root.get("day") or []
+    if not source_rows: raise ValueError("Tencent kline is empty")
     out=[];previous=None
-    for a in rows:
+    for a in source_rows:
         close=float(a[2]);open_price=float(a[1]);high=float(a[3]);low=float(a[4])
         amount=float(a[6]) if len(a)>6 and a[6] else 0
         pct=(close/previous-1)*100 if previous else 0
         out.append({"date":a[0],"open":open_price,"close":close,"high":high,"low":low,
-                    "volume":normalize_volume(a[5],amount,(open_price+close+high+low)/4),"amount":amount,"pct":pct})
+                    "raw_volume":float(a[5]),"typical_price":(open_price+close+high+low)/4,
+                    "amount":amount,"pct":pct})
         previous=close
+    scale=series_volume_scale(out)
+    for row in out: row["volume"]=row.pop("raw_volume")*scale;row.pop("typical_price")
     return out, "腾讯财经"
 
 def eastmoney_klines(code):
     j=get(KBASE,{"secid":secid(code),"klt":101,"fqt":1,"lmt":90,"end":"20500101",
                  "fields1":"f1,f2,f3,f4,f5,f6","fields2":"f51,f52,f53,f54,f55,f56,f57,f58,f59,f60,f61"})
-    rows=(j.get("data") or {}).get("klines") or [];out=[]
-    for row in rows:
-        a=row.split(",");open_price=float(a[1]);close=float(a[2]);high=float(a[3]);low=float(a[4]);amount=float(a[6])
+    source_rows=(j.get("data") or {}).get("klines") or [];out=[]
+    for text in source_rows:
+        a=text.split(",");open_price=float(a[1]);close=float(a[2]);high=float(a[3]);low=float(a[4]);amount=float(a[6])
         out.append({"date":a[0],"open":open_price,"close":close,"high":high,"low":low,
-                    "volume":normalize_volume(a[5],amount,(open_price+close+high+low)/4),"amount":amount,"pct":float(a[8])})
+                    "raw_volume":float(a[5]),"typical_price":(open_price+close+high+low)/4,
+                    "amount":amount,"pct":float(a[8])})
     if not out: raise ValueError("Eastmoney kline is empty")
+    scale=series_volume_scale(out)
+    for row in out: row["volume"]=row.pop("raw_volume")*scale;row.pop("typical_price")
     return out, "东方财富"
 
 def klines(code):
