@@ -1,5 +1,14 @@
 {
-  "generated_at": "2026-09-21T03:17:59.106635+08:00",
-  "events": [],
-  "status": "news sources unavailable"
+  "generated_at": "2026-09-21T17:33:37.795650+08:00",
+  "events": [
+    {
+      "title": "俄乌能源战背后的三重博弈 全球规则重构",
+      "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ab0f9f1d5d6400686389fb86aa75738&url=https%3a%2f%2f3g.china.com%2fact%2fmilitary%2f13004177%2f20260917%2f49746734.html&c=7912223868094606380&mkt=en-us",
+      "category": "国际",
+      "source": "Bing News",
+      "date": "2026-09-17",
+      "time": "08:34",
+      "timestamp": "2026-09-17T08:34:00+08:00"
+    }
+  ]
 }
