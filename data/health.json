@@ -1,11 +1,8 @@
 {
-  "generated_at": "2026-09-28T18:36:56.696748+08:00",
-  "status": "ok",
+  "generated_at": "2026-09-29T06:27:24.710970+08:00",
+  "status": "degraded",
   "details": {
-    "candidates": 28,
-    "selected_sectors": 5,
-    "fixed_resolved": 1,
-    "fixed_total": 9,
-    "mode": "noon"
+    "stage": "board_list",
+    "error": "HTTP Error 502: Bad Gateway"
   }
 }
