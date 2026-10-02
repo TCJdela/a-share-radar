@@ -1,8 +1,7 @@
 {
-  "generated_at": "2026-10-02T05:39:50.471849+08:00",
-  "status": "degraded",
+  "generated_at": "2026-10-02T18:17:28.373559+08:00",
+  "status": "closed",
   "details": {
-    "stage": "board_list",
-    "error": "HTTP Error 502: Bad Gateway"
+    "last_trading_date": "2026-09-30"
   }
 }
