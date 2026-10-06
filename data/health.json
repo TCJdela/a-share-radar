@@ -1,7 +1,11 @@
 {
-  "generated_at": "2026-10-06T18:59:19.269694+08:00",
-  "status": "closed",
+  "generated_at": "2026-10-07T05:36:17.759833+08:00",
+  "status": "ok",
   "details": {
-    "last_trading_date": "2026-09-30"
+    "candidates": 17,
+    "selected_sectors": 5,
+    "fixed_resolved": 3,
+    "fixed_total": 9,
+    "mode": "previous"
   }
 }
