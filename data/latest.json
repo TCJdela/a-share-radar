@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-10-09T19:06:05.550637+08:00",
+  "generated_at": "2026-10-12T04:50:25.762262+08:00",
   "report_date": "2026-10-09",
-  "mode": "noon",
+  "mode": "previous",
   "market_status": "open",
   "source": "个股行情与K线：腾讯财经优先，东方财富容灾；板块目录与公告：东方财富",
   "fixed_sectors": [
@@ -327,6 +327,47 @@
   ],
   "candidates": [
     {
+      "code": "300413",
+      "name": "芒果超媒",
+      "sector": "视频媒体",
+      "price": 23.0,
+      "pct": 19.98,
+      "volume": 114120700.0,
+      "amount": 2384980000.0,
+      "avg3_volume": 103632733.33333333,
+      "return_10d": 26.79,
+      "return_20d": 14.14,
+      "deviation_10d": 17.06,
+      "deviation_30d": 26.08,
+      "volume_ratio": 1.52,
+      "volume_pace": 19.05,
+      "signal": "弱转强",
+      "score": 80,
+      "source": "腾讯财经（行情）/东方财富（K线）",
+      "announcements": [
+        {
+          "title": "芒果超媒:300413湖南辖区上市公司投资者网上集体接待日活动记录表",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "芒果超媒:股票交易异常波动公告",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "芒果超媒:关于参加2026年湖南辖区上市公司投资者网上集体接待日暨半年度业绩说明会活动的公告",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "芒果超媒:关于芒果TV版权库扩建项目延期并调整资金使用计划的公告",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "芒果超媒:关于芒果TV智慧视听媒体服务平台项目节余尾款永久补充流动资金的公告",
+          "tone": "中性/待核实"
+        }
+      ]
+    },
+    {
       "code": "300364",
       "name": "中文在线",
       "sector": "文字媒体",
@@ -340,7 +381,7 @@
       "deviation_10d": 2.21,
       "deviation_30d": 0.46,
       "volume_ratio": 1.5,
-      "volume_pace": 1.5,
+      "volume_pace": 18.71,
       "signal": "弱转强",
       "score": 81,
       "source": "腾讯财经",
@@ -381,7 +422,7 @@
       "deviation_10d": 9.21,
       "deviation_30d": 10.22,
       "volume_ratio": 1.41,
-      "volume_pace": 1.41,
+      "volume_pace": 17.66,
       "signal": "弱转强",
       "score": 81,
       "source": "腾讯财经",
@@ -422,7 +463,7 @@
       "deviation_10d": 1.56,
       "deviation_30d": -6.59,
       "volume_ratio": 1.76,
-      "volume_pace": 1.76,
+      "volume_pace": 21.97,
       "signal": "弱转强",
       "score": 81,
       "source": "腾讯财经",
@@ -463,7 +504,7 @@
       "deviation_10d": 0.14,
       "deviation_30d": -7.05,
       "volume_ratio": 2.26,
-      "volume_pace": 2.26,
+      "volume_pace": 28.29,
       "signal": "弱转强",
       "score": 81,
       "source": "腾讯财经",
@@ -491,6 +532,47 @@
       ]
     },
     {
+      "code": "600988",
+      "name": "赤峰黄金",
+      "sector": "贵金属",
+      "price": 41.38,
+      "pct": 5.91,
+      "volume": 76223100.0,
+      "amount": 3097810000.0,
+      "avg3_volume": 49585733.333333336,
+      "return_10d": -4.74,
+      "return_20d": -11.2,
+      "deviation_10d": 1.19,
+      "deviation_30d": -6.52,
+      "volume_ratio": 1.84,
+      "volume_pace": 23.05,
+      "signal": "弱转强",
+      "score": 81,
+      "source": "腾讯财经",
+      "announcements": [
+        {
+          "title": "赤峰黄金:赤峰黄金H股市场公告",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "赤峰黄金:赤峰黄金关于公司控制权变更事项进展情况的公告",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "赤峰黄金:赤峰黄金H股市场公告",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "赤峰黄金:赤峰黄金关于紫金矿业集团股份有限公司收购公司控制权项目持续督导独立财务顾问主办人及协办人变更的公告",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "赤峰黄金:投资者关系活动记录表(2026年9月3日)",
+          "tone": "中性/待核实"
+        }
+      ]
+    },
+    {
       "code": "000506",
       "name": "招金黄金",
       "sector": "贵金属",
@@ -504,7 +586,7 @@
       "deviation_10d": -2.29,
       "deviation_30d": -11.32,
       "volume_ratio": 2.31,
-      "volume_pace": 2.31,
+      "volume_pace": 28.93,
       "signal": "弱转强",
       "score": 81,
       "source": "腾讯财经",
@@ -545,7 +627,7 @@
       "deviation_10d": 3.36,
       "deviation_30d": 10.01,
       "volume_ratio": 1.68,
-      "volume_pace": 1.68,
+      "volume_pace": 20.99,
       "signal": "弱转强",
       "score": 81,
       "source": "腾讯财经",
@@ -586,7 +668,7 @@
       "deviation_10d": 6.36,
       "deviation_30d": 1.87,
       "volume_ratio": 2.63,
-      "volume_pace": 2.63,
+      "volume_pace": 32.89,
       "signal": "弱转强",
       "score": 81,
       "source": "腾讯财经",
@@ -627,7 +709,7 @@
       "deviation_10d": 2.17,
       "deviation_30d": -0.42,
       "volume_ratio": 2.06,
-      "volume_pace": 2.06,
+      "volume_pace": 25.81,
       "signal": "弱转强",
       "score": 81,
       "source": "腾讯财经",
@@ -668,7 +750,7 @@
       "deviation_10d": 6.09,
       "deviation_30d": 1.58,
       "volume_ratio": 2.48,
-      "volume_pace": 2.48,
+      "volume_pace": 31.02,
       "signal": "趋势观察",
       "score": 48,
       "source": "腾讯财经",
@@ -709,7 +791,7 @@
       "deviation_10d": -0.09,
       "deviation_30d": 10.68,
       "volume_ratio": 1.16,
-      "volume_pace": 1.16,
+      "volume_pace": 14.51,
       "signal": "趋势观察",
       "score": 48,
       "source": "腾讯财经",
@@ -750,7 +832,7 @@
       "deviation_10d": 3.36,
       "deviation_30d": 10.01,
       "volume_ratio": 1.68,
-      "volume_pace": 1.68,
+      "volume_pace": 20.99,
       "signal": "弱转强",
       "score": 81,
       "source": "腾讯财经",
@@ -791,7 +873,7 @@
       "deviation_10d": 6.36,
       "deviation_30d": 1.87,
       "volume_ratio": 2.63,
-      "volume_pace": 2.63,
+      "volume_pace": 32.89,
       "signal": "弱转强",
       "score": 81,
       "source": "腾讯财经",
@@ -832,7 +914,7 @@
       "deviation_10d": 2.09,
       "deviation_30d": 3.23,
       "volume_ratio": 1.11,
-      "volume_pace": 1.11,
+      "volume_pace": 13.93,
       "signal": "弱转强",
       "score": 81,
       "source": "腾讯财经",
@@ -860,6 +942,47 @@
       ]
     },
     {
+      "code": "600359",
+      "name": "新农开发",
+      "sector": "农业种植",
+      "price": 7.66,
+      "pct": 4.79,
+      "volume": 32926700.0,
+      "amount": 245520000.0,
+      "avg3_volume": 27551366.666666668,
+      "return_10d": -1.79,
+      "return_20d": 6.98,
+      "deviation_10d": 0.12,
+      "deviation_30d": -0.56,
+      "volume_ratio": 0.94,
+      "volume_pace": 11.8,
+      "signal": "弱转强",
+      "score": 81,
+      "source": "腾讯财经",
+      "announcements": [
+        {
+          "title": "新农开发:新疆塔里木农业综合开发股份有限公司股票交易异常波动公告",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "新农开发:2026-037新疆塔里木农业综合开发股份有限公司股票交易异常波动公告",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "新农开发:新疆塔里木农垦集团有限公司关于对《新疆塔里木农业综合开发股份有限公司关于股票交易异常波动的问询函》的回复",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "新农开发:新疆生产建设兵团第一师国有资产监督管理委员会关于对《新疆塔里木农业综合开发股份有限公司股票交易异常波动问询函》的回函",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "新农开发:九届十次董事会决议",
+          "tone": "中性/待核实"
+        }
+      ]
+    },
+    {
       "code": "300189",
       "name": "神农种业",
       "sector": "农业种植",
@@ -873,7 +996,7 @@
       "deviation_10d": 6.09,
       "deviation_30d": 1.58,
       "volume_ratio": 2.48,
-      "volume_pace": 2.48,
+      "volume_pace": 31.02,
       "signal": "趋势观察",
       "score": 48,
       "source": "腾讯财经",
@@ -914,7 +1037,7 @@
       "deviation_10d": -0.09,
       "deviation_30d": 10.68,
       "volume_ratio": 1.16,
-      "volume_pace": 1.16,
+      "volume_pace": 14.51,
       "signal": "趋势观察",
       "score": 48,
       "source": "腾讯财经",
@@ -955,7 +1078,7 @@
       "deviation_10d": 11.81,
       "deviation_30d": 8.75,
       "volume_ratio": 2.31,
-      "volume_pace": 2.31,
+      "volume_pace": 28.85,
       "signal": "趋势观察",
       "score": 48,
       "source": "腾讯财经",
@@ -978,47 +1101,6 @@
         },
         {
           "title": "海南橡胶:2026年第三次临时股东会会议资料",
-          "tone": "中性/待核实"
-        }
-      ]
-    },
-    {
-      "code": "600359",
-      "name": "新农开发",
-      "sector": "农业种植",
-      "price": 7.66,
-      "pct": 4.79,
-      "volume": 32926700.0,
-      "amount": 245520000.0,
-      "avg3_volume": 27551366.666666668,
-      "return_10d": -1.79,
-      "return_20d": 6.98,
-      "deviation_10d": 0.12,
-      "deviation_30d": -0.56,
-      "volume_ratio": 0.94,
-      "volume_pace": 0.94,
-      "signal": "趋势观察",
-      "score": 48,
-      "source": "腾讯财经",
-      "announcements": [
-        {
-          "title": "新农开发:新疆塔里木农业综合开发股份有限公司股票交易异常波动公告",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "新农开发:2026-037新疆塔里木农业综合开发股份有限公司股票交易异常波动公告",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "新农开发:新疆塔里木农垦集团有限公司关于对《新疆塔里木农业综合开发股份有限公司关于股票交易异常波动的问询函》的回复",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "新农开发:新疆生产建设兵团第一师国有资产监督管理委员会关于对《新疆塔里木农业综合开发股份有限公司股票交易异常波动问询函》的回函",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "新农开发:九届十次董事会决议",
           "tone": "中性/待核实"
         }
       ]
