@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-10-16T16:45:13.069737+08:00",
+  "generated_at": "2026-10-17T03:58:18.844921+08:00",
   "status": "ok",
   "details": {
-    "candidates": 41,
+    "candidates": 27,
     "selected_sectors": 5,
     "fixed_resolved": 4,
     "fixed_total": 9,
-    "mode": "noon"
+    "mode": "previous"
   }
 }
