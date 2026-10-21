@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-10-21T17:05:29.541549+08:00",
+  "generated_at": "2026-10-22T04:28:22.736232+08:00",
   "report_date": "2026-10-21",
-  "mode": "noon",
+  "mode": "previous",
   "market_status": "open",
   "source": "个股行情与K线：腾讯财经优先，东方财富容灾；板块目录与公告：东方财富",
   "fixed_sectors": [
@@ -340,7 +340,7 @@
       "deviation_10d": 15.35,
       "deviation_30d": 18.24,
       "volume_ratio": 6.52,
-      "volume_pace": 6.52,
+      "volume_pace": 81.45,
       "signal": "放量突破",
       "score": 90,
       "source": "腾讯财经（行情）/东方财富（K线）",
@@ -368,6 +368,47 @@
       ]
     },
     {
+      "code": "002027",
+      "name": "分众传媒",
+      "sector": "广告媒体",
+      "price": 5.12,
+      "pct": -1.16,
+      "volume": 149479300.0,
+      "amount": 771490000.0,
+      "avg3_volume": 193152933.33333334,
+      "return_10d": 8.25,
+      "return_20d": 9.17,
+      "deviation_10d": 0.25,
+      "deviation_30d": 5.08,
+      "volume_ratio": 0.57,
+      "volume_pace": 7.11,
+      "signal": "趋势观察",
+      "score": 52,
+      "source": "腾讯财经（行情）/东方财富（K线）",
+      "announcements": [
+        {
+          "title": "分众传媒:公司关于收到国家市场监督管理总局附加限制性条件批准公司收购成都新潮传媒集团股份有限公司股权案反垄断审查决定的公告",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "分众传媒:公司关于为境外子公司提供担保的公告",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "3-1独立财务顾问报告(申报稿)(分众传媒信息技术股份有限公司)",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "2-1重大资产重组报告书(申报稿)(分众传媒信息技术股份有限公司)",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "4-2本次重大资产重组涉及的拟购买资产的评估报告及评估说明，或者估值报告(申报稿)(分众传媒信息技术股份有限公司)",
+          "tone": "中性/待核实"
+        }
+      ]
+    },
+    {
       "code": "000607",
       "name": "华媒控股",
       "sector": "广告媒体",
@@ -381,7 +422,7 @@
       "deviation_10d": -1.05,
       "deviation_30d": 1.34,
       "volume_ratio": 0.96,
-      "volume_pace": 0.96,
+      "volume_pace": 12.05,
       "signal": "趋势观察",
       "score": 48,
       "source": "腾讯财经",
@@ -422,7 +463,7 @@
       "deviation_10d": 2.31,
       "deviation_30d": 0.46,
       "volume_ratio": 1.1,
-      "volume_pace": 1.1,
+      "volume_pace": 13.7,
       "signal": "弱转强",
       "score": 81,
       "source": "腾讯财经",
@@ -463,7 +504,7 @@
       "deviation_10d": -0.62,
       "deviation_30d": -5.43,
       "volume_ratio": 1.38,
-      "volume_pace": 1.38,
+      "volume_pace": 17.21,
       "signal": "弱转强",
       "score": 81,
       "source": "腾讯财经",
@@ -504,7 +545,7 @@
       "deviation_10d": -1.85,
       "deviation_30d": -8.43,
       "volume_ratio": 1.29,
-      "volume_pace": 1.29,
+      "volume_pace": 16.12,
       "signal": "弱转强",
       "score": 81,
       "source": "腾讯财经",
@@ -545,7 +586,7 @@
       "deviation_10d": 9.78,
       "deviation_30d": 10.95,
       "volume_ratio": 1.71,
-      "volume_pace": 1.71,
+      "volume_pace": 21.37,
       "signal": "趋势观察",
       "score": 48,
       "source": "腾讯财经",
@@ -586,7 +627,7 @@
       "deviation_10d": 3.28,
       "deviation_30d": -5.73,
       "volume_ratio": 1.27,
-      "volume_pace": 1.27,
+      "volume_pace": 15.82,
       "signal": "趋势观察",
       "score": 48,
       "source": "腾讯财经",
@@ -627,7 +668,7 @@
       "deviation_10d": -9.42,
       "deviation_30d": -21.22,
       "volume_ratio": 0.69,
-      "volume_pace": 0.69,
+      "volume_pace": 8.62,
       "signal": "趋势观察",
       "score": 48,
       "source": "腾讯财经",
@@ -668,7 +709,7 @@
       "deviation_10d": 0.21,
       "deviation_30d": -4.52,
       "volume_ratio": 1.1,
-      "volume_pace": 1.1,
+      "volume_pace": 13.77,
       "signal": "趋势观察",
       "score": 48,
       "source": "腾讯财经",
@@ -709,7 +750,7 @@
       "deviation_10d": 0.7,
       "deviation_30d": -7.56,
       "volume_ratio": 0.81,
-      "volume_pace": 0.81,
+      "volume_pace": 10.13,
       "signal": "趋势观察",
       "score": 45,
       "source": "腾讯财经",
@@ -750,7 +791,7 @@
       "deviation_10d": 47.12,
       "deviation_30d": 59.79,
       "volume_ratio": 1.58,
-      "volume_pace": 1.58,
+      "volume_pace": 19.71,
       "signal": "放量突破",
       "score": 80,
       "source": "腾讯财经",
@@ -791,9 +832,9 @@
       "deviation_10d": 10.97,
       "deviation_30d": 14.39,
       "volume_ratio": 1.03,
-      "volume_pace": 1.03,
-      "signal": "趋势观察",
-      "score": 55,
+      "volume_pace": 12.93,
+      "signal": "放量滞涨",
+      "score": 40,
       "source": "腾讯财经",
       "announcements": [
         {
@@ -832,7 +873,7 @@
       "deviation_10d": 7.39,
       "deviation_30d": -3.94,
       "volume_ratio": 2.01,
-      "volume_pace": 2.01,
+      "volume_pace": 25.14,
       "signal": "趋势观察",
       "score": 48,
       "source": "腾讯财经",
@@ -873,7 +914,7 @@
       "deviation_10d": 7.68,
       "deviation_30d": 4.6,
       "volume_ratio": 2.9,
-      "volume_pace": 2.9,
+      "volume_pace": 36.24,
       "signal": "趋势观察",
       "score": 48,
       "source": "腾讯财经",
@@ -914,7 +955,7 @@
       "deviation_10d": 6.17,
       "deviation_30d": 14.46,
       "volume_ratio": 3.17,
-      "volume_pace": 3.17,
+      "volume_pace": 39.62,
       "signal": "趋势观察",
       "score": 48,
       "source": "腾讯财经",
@@ -955,11 +996,15 @@
       "deviation_10d": 13.74,
       "deviation_30d": 12.61,
       "volume_ratio": 0.72,
-      "volume_pace": 0.72,
+      "volume_pace": 8.94,
       "signal": "趋势观察",
       "score": 40,
       "source": "腾讯财经",
       "announcements": [
+        {
+          "title": "日海智能:股票交易异常波动公告",
+          "tone": "中性/待核实"
+        },
         {
           "title": "日海智能:关于转让子公司股权的进展公告",
           "tone": "中性/待核实"
@@ -974,51 +1019,6 @@
         },
         {
           "title": "日海智能:简式权益变动报告书",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "日海智能:关于对外担保的进展公告",
-          "tone": "中性/待核实"
-        }
-      ]
-    },
-    {
-      "code": "600996",
-      "name": "贵广网络",
-      "sector": "电视广播Ⅲ",
-      "price": 6.71,
-      "pct": 3.87,
-      "volume": 30991600.0,
-      "amount": 208870000.0,
-      "avg3_volume": 20854533.333333332,
-      "return_10d": -0.74,
-      "return_20d": -0.89,
-      "deviation_10d": -0.07,
-      "deviation_30d": -2.51,
-      "volume_ratio": 1.54,
-      "volume_pace": 1.54,
-      "signal": "弱转强",
-      "score": 81,
-      "source": "腾讯财经",
-      "announcements": [
-        {
-          "title": "贵广网络:关于选举龚媛媛女士为公司副董事长的公告",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "贵广网络:2026年半年度报告摘要",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "贵广网络:关于召开2026年半年度业绩说明会的公告",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "贵广网络:关于调整公司第六届董事会薪酬与考核委员会成员的公告",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "贵广网络:第六届董事会2026年第二次会议决议公告",
           "tone": "中性/待核实"
         }
       ]
@@ -1037,9 +1037,9 @@
       "deviation_10d": 6.24,
       "deviation_30d": 10.0,
       "volume_ratio": 0.89,
-      "volume_pace": 0.89,
-      "signal": "趋势观察",
-      "score": 48,
+      "volume_pace": 11.12,
+      "signal": "弱转强",
+      "score": 81,
       "source": "腾讯财经",
       "announcements": [
         {
@@ -1078,9 +1078,9 @@
       "deviation_10d": -1.07,
       "deviation_30d": 5.45,
       "volume_ratio": 0.91,
-      "volume_pace": 0.91,
-      "signal": "趋势观察",
-      "score": 48,
+      "volume_pace": 11.44,
+      "signal": "弱转强",
+      "score": 81,
       "source": "腾讯财经",
       "announcements": [
         {
@@ -1106,6 +1106,47 @@
       ]
     },
     {
+      "code": "600996",
+      "name": "贵广网络",
+      "sector": "电视广播Ⅲ",
+      "price": 6.71,
+      "pct": 3.87,
+      "volume": 30991600.0,
+      "amount": 208870000.0,
+      "avg3_volume": 20854533.333333332,
+      "return_10d": -0.74,
+      "return_20d": -0.89,
+      "deviation_10d": -0.07,
+      "deviation_30d": -2.51,
+      "volume_ratio": 1.54,
+      "volume_pace": 19.31,
+      "signal": "弱转强",
+      "score": 81,
+      "source": "腾讯财经",
+      "announcements": [
+        {
+          "title": "贵广网络:关于选举龚媛媛女士为公司副董事长的公告",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "贵广网络:2026年半年度报告摘要",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "贵广网络:关于召开2026年半年度业绩说明会的公告",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "贵广网络:关于调整公司第六届董事会薪酬与考核委员会成员的公告",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "贵广网络:第六届董事会2026年第二次会议决议公告",
+          "tone": "中性/待核实"
+        }
+      ]
+    },
+    {
       "code": "000665",
       "name": "湖北广电",
       "sector": "电视广播Ⅲ",
@@ -1119,9 +1160,9 @@
       "deviation_10d": 1.15,
       "deviation_30d": 3.22,
       "volume_ratio": 0.91,
-      "volume_pace": 0.91,
-      "signal": "趋势观察",
-      "score": 48,
+      "volume_pace": 11.32,
+      "signal": "弱转强",
+      "score": 81,
       "source": "腾讯财经",
       "announcements": [
         {
@@ -1160,7 +1201,7 @@
       "deviation_10d": -1.59,
       "deviation_30d": -0.04,
       "volume_ratio": 0.84,
-      "volume_pace": 0.84,
+      "volume_pace": 10.52,
       "signal": "趋势观察",
       "score": 48,
       "source": "腾讯财经",
