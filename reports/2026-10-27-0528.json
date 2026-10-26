@@ -1,0 +1,318 @@
+{
+  "generated_at": "2026-10-27T05:28:57.131414+08:00",
+  "report_date": "2026-10-26",
+  "mode": "previous",
+  "market_status": "open",
+  "source": "个股行情与K线：腾讯财经优先，东方财富容灾；板块目录与公告：东方财富",
+  "fixed_sectors": [
+    {
+      "code": "",
+      "name": "PCB",
+      "pct": null,
+      "resolved": false
+    },
+    {
+      "code": "",
+      "name": "半导体",
+      "pct": null,
+      "resolved": false
+    },
+    {
+      "code": "",
+      "name": "光纤",
+      "pct": null,
+      "resolved": false
+    },
+    {
+      "code": "",
+      "name": "贵金属",
+      "pct": null,
+      "resolved": false
+    },
+    {
+      "code": "",
+      "name": "小金属",
+      "pct": null,
+      "resolved": false
+    },
+    {
+      "code": "BK1572",
+      "name": "化工",
+      "pct": 2.1,
+      "resolved": true
+    },
+    {
+      "code": "",
+      "name": "天然气",
+      "pct": null,
+      "resolved": false
+    },
+    {
+      "code": "",
+      "name": "农业种植",
+      "pct": null,
+      "resolved": false
+    },
+    {
+      "code": "",
+      "name": "MLCC",
+      "pct": null,
+      "resolved": false
+    }
+  ],
+  "hot_sectors": [
+    {
+      "code": "BK1565",
+      "name": "会展服务",
+      "pct": 8.11
+    },
+    {
+      "code": "BK1295",
+      "name": "其他数字媒体",
+      "pct": 5.35
+    },
+    {
+      "code": "BK1582",
+      "name": "烘焙食品",
+      "pct": 4.72
+    },
+    {
+      "code": "BK1296",
+      "name": "视频媒体",
+      "pct": 4.0
+    },
+    {
+      "code": "BK1558",
+      "name": "学历教育",
+      "pct": 3.78
+    }
+  ],
+  "attention_pool": [
+    {
+      "code": "BK1572",
+      "name": "化工",
+      "pct": 2.1,
+      "heat_score": 7.0
+    },
+    {
+      "code": "BK1565",
+      "name": "会展服务",
+      "pct": 8.11,
+      "heat_score": 59.3
+    },
+    {
+      "code": "BK1295",
+      "name": "其他数字媒体",
+      "pct": 5.35,
+      "heat_score": 49.7
+    },
+    {
+      "code": "BK1582",
+      "name": "烘焙食品",
+      "pct": 4.72,
+      "heat_score": 33.5
+    },
+    {
+      "code": "BK1296",
+      "name": "视频媒体",
+      "pct": 4.0,
+      "heat_score": 35.0
+    },
+    {
+      "code": "BK1558",
+      "name": "学历教育",
+      "pct": 3.78,
+      "heat_score": 40.4
+    }
+  ],
+  "selected_sectors": [
+    {
+      "code": "BK1565",
+      "name": "会展服务",
+      "pct": 8.11,
+      "heat_score": 59.3
+    },
+    {
+      "code": "BK1295",
+      "name": "其他数字媒体",
+      "pct": 5.35,
+      "heat_score": 49.7
+    },
+    {
+      "code": "BK1558",
+      "name": "学历教育",
+      "pct": 3.78,
+      "heat_score": 40.4
+    },
+    {
+      "code": "BK1296",
+      "name": "视频媒体",
+      "pct": 4.0,
+      "heat_score": 35.0
+    },
+    {
+      "code": "BK1582",
+      "name": "烘焙食品",
+      "pct": 4.72,
+      "heat_score": 33.5
+    }
+  ],
+  "inflow_sectors": [
+    {
+      "code": "BK0664",
+      "name": "婴童概念",
+      "pct": 0.84,
+      "flow": 1135397264.0
+    },
+    {
+      "code": "BK1301",
+      "name": "游戏Ⅲ",
+      "pct": 3.26,
+      "flow": 765660944.0
+    },
+    {
+      "code": "BK1046",
+      "name": "游戏Ⅱ",
+      "pct": 3.26,
+      "flow": 765660944.0
+    },
+    {
+      "code": "BK0464",
+      "name": "石油石化",
+      "pct": 1.15,
+      "flow": 689936912.0
+    },
+    {
+      "code": "BK0509",
+      "name": "网络游戏",
+      "pct": 1.4,
+      "flow": 565976832.0
+    }
+  ],
+  "outflow_sectors": [
+    {
+      "code": "BK1661",
+      "name": "行业龙头",
+      "pct": 0.54,
+      "flow": -3965215744.0
+    },
+    {
+      "code": "BK0610",
+      "name": "央视50_",
+      "pct": 0.64,
+      "flow": -1914635520.0
+    },
+    {
+      "code": "BK1637",
+      "name": "东方财富热股",
+      "pct": 1.47,
+      "flow": -1812075264.0
+    },
+    {
+      "code": "BK1638",
+      "name": "最近多板",
+      "pct": 0.72,
+      "flow": -1433861376.0
+    },
+    {
+      "code": "BK1685",
+      "name": "保险重仓",
+      "pct": 1.01,
+      "flow": -1380651264.0
+    }
+  ],
+  "hot_stocks": [
+    {
+      "code": "300308",
+      "name": "中际旭创",
+      "price": 594.5,
+      "pct": -2.96,
+      "amount": 16976277504.81,
+      "turnover": 2.6,
+      "volume_ratio": 0.93
+    },
+    {
+      "code": "300502",
+      "name": "新易盛",
+      "price": 251.69,
+      "pct": -3.57,
+      "amount": 14715758150.97,
+      "turnover": 4.73,
+      "volume_ratio": 1.09
+    },
+    {
+      "code": "300750",
+      "name": "宁德时代",
+      "price": 238.0,
+      "pct": 0.17,
+      "amount": 14617036424.16,
+      "turnover": 1.45,
+      "volume_ratio": 0.72
+    },
+    {
+      "code": "688825",
+      "name": "长鑫科技",
+      "price": 42.66,
+      "pct": -0.44,
+      "amount": 13851500318.0,
+      "turnover": 7.23,
+      "volume_ratio": 0.9
+    },
+    {
+      "code": "688256",
+      "name": "寒武纪",
+      "price": 968.0,
+      "pct": 3.84,
+      "amount": 13423545684.0,
+      "turnover": 2.26,
+      "volume_ratio": 1.49
+    },
+    {
+      "code": "603986",
+      "name": "兆易创新",
+      "price": 276.45,
+      "pct": -5.33,
+      "amount": 8648085935.0,
+      "turnover": 4.6,
+      "volume_ratio": 0.94
+    },
+    {
+      "code": "601899",
+      "name": "紫金矿业",
+      "price": 27.47,
+      "pct": -4.58,
+      "amount": 8249097649.0,
+      "turnover": 1.47,
+      "volume_ratio": 1.54
+    },
+    {
+      "code": "002384",
+      "name": "东山精密",
+      "price": 105.43,
+      "pct": -7.7,
+      "amount": 8171263940.69,
+      "turnover": 5.56,
+      "volume_ratio": 1.33
+    },
+    {
+      "code": "688836",
+      "name": "宇树科技-W",
+      "price": 672.0,
+      "pct": 7.69,
+      "amount": 7464759738.0,
+      "turnover": 37.72,
+      "volume_ratio": 1.68
+    },
+    {
+      "code": "603259",
+      "name": "药明康德",
+      "price": 146.0,
+      "pct": 0.88,
+      "amount": 7280014184.0,
+      "turnover": 2.06,
+      "volume_ratio": 1.14
+    }
+  ],
+  "candidates": [],
+  "notice": "成交量统一为股；盘中量速按交易进度校正。技术偏离率不等同于交易所监管口径；报告不构成投资建议。"
+}
