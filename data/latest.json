@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-10-27T17:33:42.675957+08:00",
+  "generated_at": "2026-10-28T05:08:48.801230+08:00",
   "report_date": "2026-10-27",
-  "mode": "noon",
+  "mode": "previous",
   "market_status": "open",
   "source": "个股行情与K线：腾讯财经优先，东方财富容灾；板块目录与公告：东方财富",
   "fixed_sectors": [
@@ -334,7 +334,7 @@
       "deviation_10d": 5.91,
       "deviation_30d": 5.39,
       "volume_ratio": 4.7,
-      "volume_pace": 4.7,
+      "volume_pace": 58.73,
       "signal": "放量突破",
       "score": 91,
       "source": "腾讯财经",
@@ -375,29 +375,29 @@
       "deviation_10d": 9.11,
       "deviation_30d": 6.54,
       "volume_ratio": 3.56,
-      "volume_pace": 3.56,
+      "volume_pace": 44.54,
       "signal": "弱转强",
       "score": 81,
       "source": "腾讯财经",
       "announcements": [
         {
-          "title": "八方股份:关于董事会延期换届选举的提示性公告",
+          "title": "八方股份:独立董事提名人声明与承诺",
           "tone": "中性/待核实"
         },
         {
-          "title": "八方股份:第三届董事会第十五次会议决议公告",
+          "title": "八方股份:2026年限制性股票激励计划首次授予激励对象名单",
           "tone": "中性/待核实"
         },
         {
-          "title": "八方股份:2026年半年度报告",
+          "title": "八方股份:国浩律师(上海)事务所关于八方电气(苏州)股份有限公司2026年限制性股票激励计划(草案)之法律意见书",
           "tone": "中性/待核实"
         },
         {
-          "title": "八方股份:关于2026年半年度计提资产减值准备的公告",
+          "title": "八方股份:2026年限制性股票激励计划(草案)摘要公告",
           "tone": "中性/待核实"
         },
         {
-          "title": "八方股份:2026年半年度报告摘要",
+          "title": "八方股份:董事会提名委员会关于第四届董事会董事候选人任职资格的审查意见",
           "tone": "中性/待核实"
         }
       ]
@@ -416,7 +416,7 @@
       "deviation_10d": 7.63,
       "deviation_30d": 7.65,
       "volume_ratio": 2.07,
-      "volume_pace": 2.07,
+      "volume_pace": 25.88,
       "signal": "弱转强",
       "score": 81,
       "source": "腾讯财经",
@@ -457,10 +457,10 @@
       "deviation_10d": 10.74,
       "deviation_30d": 4.15,
       "volume_ratio": 4.36,
-      "volume_pace": 4.36,
+      "volume_pace": 54.49,
       "signal": "趋势观察",
       "score": 48,
-      "source": "腾讯财经（行情）/东方财富（K线）",
+      "source": "腾讯财经",
       "announcements": [
         {
           "title": "亚太股份:关于公开摘牌取得广州亚太汽车底盘系统有限公司49%股权的公告",
@@ -485,6 +485,88 @@
       ]
     },
     {
+      "code": "300695",
+      "name": "兆丰股份",
+      "sector": "轮毂电机",
+      "price": 50.25,
+      "pct": 0.6,
+      "volume": 3699200.0,
+      "amount": 193300000.0,
+      "avg3_volume": 2993833.3333333335,
+      "return_10d": 6.08,
+      "return_20d": -5.62,
+      "deviation_10d": 6.84,
+      "deviation_30d": 3.93,
+      "volume_ratio": 1.86,
+      "volume_pace": 23.29,
+      "signal": "趋势观察",
+      "score": 48,
+      "source": "腾讯财经",
+      "announcements": [
+        {
+          "title": "兆丰股份:关于对外投资设立境外子公司的公告",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "兆丰股份:第六届董事会第十四次会议决议公告",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "兆丰股份:关于使用部分闲置募集资金进行现金管理的进展公告",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "兆丰股份:关于控股子公司项目预中标公示的提示性公告",
+          "tone": "偏利好"
+        },
+        {
+          "title": "兆丰股份:2026年第四次临时股东会法律意见书",
+          "tone": "中性/待核实"
+        }
+      ]
+    },
+    {
+      "code": "000581",
+      "name": "威孚高科",
+      "sector": "轮毂电机",
+      "price": 17.31,
+      "pct": -0.97,
+      "volume": 6876600.0,
+      "amount": 119910000.0,
+      "avg3_volume": 7153233.333333333,
+      "return_10d": -2.37,
+      "return_20d": -2.26,
+      "deviation_10d": -2.29,
+      "deviation_30d": -2.71,
+      "volume_ratio": 1.04,
+      "volume_pace": 12.95,
+      "signal": "趋势观察",
+      "score": 45,
+      "source": "腾讯财经（行情）/东方财富（K线）",
+      "announcements": [
+        {
+          "title": "威孚高科:第十一届董事会第二十三次会议决议公告",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "威孚高科:2026年三季度报告",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "威孚高科:天风证券股份有限公司关于无锡威孚高科技集团股份有限公司选举董事长之受托管理事务临时报告",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "威孚高科:2026年第一次临时股东会决议公告",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "威孚高科:第十一届董事会第二十二次会议决议公告",
+          "tone": "中性/待核实"
+        }
+      ]
+    },
+    {
       "code": "603178",
       "name": "圣龙股份",
       "sector": "轮毂电机",
@@ -498,7 +580,7 @@
       "deviation_10d": -0.49,
       "deviation_30d": -4.34,
       "volume_ratio": 0.97,
-      "volume_pace": 0.97,
+      "volume_pace": 12.18,
       "signal": "趋势观察",
       "score": 45,
       "source": "腾讯财经",
@@ -539,7 +621,7 @@
       "deviation_10d": -2.3,
       "deviation_30d": -3.07,
       "volume_ratio": 0.76,
-      "volume_pace": 0.76,
+      "volume_pace": 9.5,
       "signal": "趋势观察",
       "score": 45,
       "source": "腾讯财经",
@@ -580,7 +662,7 @@
       "deviation_10d": -5.57,
       "deviation_30d": -11.52,
       "volume_ratio": 2.07,
-      "volume_pace": 2.07,
+      "volume_pace": 25.91,
       "signal": "趋势观察",
       "score": 45,
       "source": "腾讯财经",
@@ -621,7 +703,7 @@
       "deviation_10d": 9.75,
       "deviation_30d": 6.83,
       "volume_ratio": 3.54,
-      "volume_pace": 3.54,
+      "volume_pace": 44.19,
       "signal": "放量突破",
       "score": 91,
       "source": "腾讯财经",
@@ -662,11 +744,15 @@
       "deviation_10d": 15.38,
       "deviation_30d": 10.29,
       "volume_ratio": 2.13,
-      "volume_pace": 2.13,
+      "volume_pace": 26.65,
       "signal": "放量突破",
       "score": 83,
       "source": "腾讯财经",
       "announcements": [
+        {
+          "title": "百大集团:百大集团股份有限公司股票交易异常波动公告",
+          "tone": "中性/待核实"
+        },
         {
           "title": "百大集团:百大集团股份有限公司2026年第三季度报告(更正后)",
           "tone": "中性/待核实"
@@ -681,10 +767,6 @@
         },
         {
           "title": "百大集团:百大集团股份有限公司2026年第三季度报告",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "百大集团:百大集团股份有限公司第十二届董事会第四次会议决议公告",
           "tone": "中性/待核实"
         }
       ]
@@ -703,7 +785,7 @@
       "deviation_10d": 8.44,
       "deviation_30d": 3.36,
       "volume_ratio": 1.58,
-      "volume_pace": 1.58,
+      "volume_pace": 19.79,
       "signal": "趋势观察",
       "score": 48,
       "source": "腾讯财经",
@@ -744,7 +826,7 @@
       "deviation_10d": 5.95,
       "deviation_30d": -11.25,
       "volume_ratio": 2.32,
-      "volume_pace": 2.32,
+      "volume_pace": 29.04,
       "signal": "趋势观察",
       "score": 48,
       "source": "腾讯财经",
@@ -785,7 +867,7 @@
       "deviation_10d": 2.77,
       "deviation_30d": 3.05,
       "volume_ratio": 1.49,
-      "volume_pace": 1.49,
+      "volume_pace": 18.68,
       "signal": "趋势观察",
       "score": 48,
       "source": "腾讯财经",
@@ -826,7 +908,7 @@
       "deviation_10d": -0.03,
       "deviation_30d": -2.32,
       "volume_ratio": 1.66,
-      "volume_pace": 1.66,
+      "volume_pace": 20.72,
       "signal": "趋势观察",
       "score": 48,
       "source": "腾讯财经",
@@ -867,7 +949,7 @@
       "deviation_10d": 5.01,
       "deviation_30d": 3.22,
       "volume_ratio": 2.03,
-      "volume_pace": 2.03,
+      "volume_pace": 25.36,
       "signal": "趋势观察",
       "score": 48,
       "source": "腾讯财经",
@@ -908,7 +990,7 @@
       "deviation_10d": -1.7,
       "deviation_30d": -7.1,
       "volume_ratio": 1.21,
-      "volume_pace": 1.21,
+      "volume_pace": 15.17,
       "signal": "趋势观察",
       "score": 45,
       "source": "腾讯财经",
@@ -949,7 +1031,7 @@
       "deviation_10d": 0.05,
       "deviation_30d": -1.56,
       "volume_ratio": 1.2,
-      "volume_pace": 1.2,
+      "volume_pace": 15.04,
       "signal": "趋势观察",
       "score": 45,
       "source": "腾讯财经",
@@ -990,7 +1072,7 @@
       "deviation_10d": -0.83,
       "deviation_30d": -5.55,
       "volume_ratio": 1.53,
-      "volume_pace": 1.53,
+      "volume_pace": 19.08,
       "signal": "趋势观察",
       "score": 45,
       "source": "腾讯财经",
@@ -1031,9 +1113,9 @@
       "deviation_10d": 2.66,
       "deviation_30d": 7.16,
       "volume_ratio": 0.93,
-      "volume_pace": 0.93,
-      "signal": "趋势观察",
-      "score": 55,
+      "volume_pace": 11.59,
+      "signal": "弱转强",
+      "score": 88,
       "source": "腾讯财经",
       "announcements": [
         {
@@ -1072,9 +1154,9 @@
       "deviation_10d": -6.4,
       "deviation_30d": -17.0,
       "volume_ratio": 0.91,
-      "volume_pace": 0.91,
-      "signal": "趋势观察",
-      "score": 48,
+      "volume_pace": 11.38,
+      "signal": "弱转强",
+      "score": 81,
       "source": "腾讯财经",
       "announcements": [
         {
@@ -1113,7 +1195,7 @@
       "deviation_10d": 3.9,
       "deviation_30d": -2.67,
       "volume_ratio": 1.22,
-      "volume_pace": 1.22,
+      "volume_pace": 15.22,
       "signal": "趋势观察",
       "score": 48,
       "source": "腾讯财经",
@@ -1154,7 +1236,7 @@
       "deviation_10d": 10.67,
       "deviation_30d": 12.67,
       "volume_ratio": 1.94,
-      "volume_pace": 1.94,
+      "volume_pace": 24.2,
       "signal": "放量突破",
       "score": 98,
       "source": "腾讯财经",
@@ -1195,7 +1277,7 @@
       "deviation_10d": -1.85,
       "deviation_30d": -7.91,
       "volume_ratio": 1.04,
-      "volume_pace": 1.04,
+      "volume_pace": 13.04,
       "signal": "趋势观察",
       "score": 45,
       "source": "腾讯财经",
