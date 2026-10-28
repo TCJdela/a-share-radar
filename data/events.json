@@ -1,5 +1,23 @@
 {
-  "generated_at": "2026-10-28T05:08:49.806292+08:00",
-  "events": [],
-  "status": "news sources unavailable"
+  "generated_at": "2026-10-28T18:18:15.016359+08:00",
+  "events": [
+    {
+      "title": "东亚及太平洋地区成全球经济重要支点",
+      "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ae1cbe65cde4701b78963ca4a9ca275&url=http%3a%2f%2fnews.cnfol.com%2fguojicaijing%2f20261028%2f32409591.shtml&c=3822643308010512087&mkt=en-us",
+      "category": "国际",
+      "source": "Bing News",
+      "date": "2026-10-28",
+      "time": "09:49",
+      "timestamp": "2026-10-28T09:49:00+08:00"
+    },
+    {
+      "title": "【早报】美方：强力打击伊朗、终止对伊油制裁豁免；美股科技股集体跳水；原油大涨、黄金收跌；阿根廷3-2逆转埃及 - 财联社",
+      "link": "https://news.google.com/rss/articles/CBMiSEFVX3lxTE1uNWtuWXlRdHNodHI4Rk9tZTZremxOTXZqYjY3MXp6MlZsS2FfTk51Qm04a2dKTFNoVkhaTlprUjgzS0FZcnVjbQ?oc=5",
+      "category": "国内",
+      "source": "Google News",
+      "date": "2026-10-27",
+      "time": "13:22",
+      "timestamp": "2026-10-27T13:22:44+08:00"
+    }
+  ]
 }
