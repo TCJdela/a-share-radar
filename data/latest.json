@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-10-29T18:41:17.372033+08:00",
+  "generated_at": "2026-10-30T05:38:52.918498+08:00",
   "report_date": "2026-10-29",
-  "mode": "noon",
+  "mode": "previous",
   "market_status": "open",
   "source": "个股行情与K线：腾讯财经优先，东方财富容灾；板块目录与公告：东方财富",
   "fixed_sectors": [
@@ -328,11 +328,15 @@
       "deviation_10d": 19.62,
       "deviation_30d": 14.94,
       "volume_ratio": 3.9,
-      "volume_pace": 3.9,
+      "volume_pace": 48.75,
       "signal": "放量突破",
       "score": 83,
       "source": "腾讯财经（行情）/东方财富（K线）",
       "announcements": [
+        {
+          "title": "电科蓝天:股票交易异常波动公告",
+          "tone": "中性/待核实"
+        },
         {
           "title": "电科蓝天:信息披露管理制度(2026年10月修订)",
           "tone": "中性/待核实"
@@ -347,10 +351,6 @@
         },
         {
           "title": "电科蓝天:2026年第三季度报告",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "电科蓝天:关于召开2026年第三季度业绩说明会的公告",
           "tone": "中性/待核实"
         }
       ]
@@ -369,7 +369,7 @@
       "deviation_10d": 8.86,
       "deviation_30d": 2.44,
       "volume_ratio": 3.44,
-      "volume_pace": 3.44,
+      "volume_pace": 42.95,
       "signal": "趋势观察",
       "score": 48,
       "source": "腾讯财经（行情）/东方财富（K线）",
@@ -397,6 +397,47 @@
       ]
     },
     {
+      "code": "600879",
+      "name": "航天电子",
+      "sector": "航天装备Ⅲ",
+      "price": 13.72,
+      "pct": 6.27,
+      "volume": 183371900.0,
+      "amount": 2495840000.0,
+      "avg3_volume": 95374166.66666667,
+      "return_10d": 11.09,
+      "return_20d": -4.06,
+      "deviation_10d": 5.73,
+      "deviation_30d": 0.81,
+      "volume_ratio": 3.55,
+      "volume_pace": 44.43,
+      "signal": "趋势观察",
+      "score": 48,
+      "source": "腾讯财经（行情）/东方财富（K线）",
+      "announcements": [
+        {
+          "title": "航天电子:航天时代电子技术股份有限公司2026年第三季度报告",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "航天电子:航天时代电子技术股份有限公司关于召开2026年第三季度业绩说明会的公告",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "航天电子:航天时代电子技术股份有限公司关于2026年度第四期超短期融资券完成发行及2026年度第二期超短期融资券完成兑付的公告",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "航天电子:航天时代电子技术股份有限公司关于2026年度第一期超短期融资券完成兑付的公告",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "航天电子:2026年半年度业绩说明会投资者关系活动记录表0904",
+          "tone": "中性/待核实"
+        }
+      ]
+    },
+    {
       "code": "003009",
       "name": "中天火箭",
       "sector": "航天装备Ⅲ",
@@ -410,7 +451,7 @@
       "deviation_10d": 4.93,
       "deviation_30d": 0.67,
       "volume_ratio": 1.75,
-      "volume_pace": 1.75,
+      "volume_pace": 21.89,
       "signal": "趋势观察",
       "score": 48,
       "source": "腾讯财经",
@@ -451,7 +492,7 @@
       "deviation_10d": 2.53,
       "deviation_30d": -4.15,
       "volume_ratio": 0.03,
-      "volume_pace": 0.03,
+      "volume_pace": 0.44,
       "signal": "趋势观察",
       "score": 48,
       "source": "腾讯财经",
@@ -492,7 +533,7 @@
       "deviation_10d": -1.42,
       "deviation_30d": -1.45,
       "volume_ratio": 1.17,
-      "volume_pace": 1.17,
+      "volume_pace": 14.63,
       "signal": "趋势观察",
       "score": 48,
       "source": "腾讯财经",
@@ -533,7 +574,7 @@
       "deviation_10d": -9.95,
       "deviation_30d": -9.43,
       "volume_ratio": 0.01,
-      "volume_pace": 0.01,
+      "volume_pace": 0.09,
       "signal": "趋势观察",
       "score": 45,
       "source": "腾讯财经",
@@ -574,7 +615,7 @@
       "deviation_10d": -3.15,
       "deviation_30d": -13.47,
       "volume_ratio": 1.46,
-      "volume_pace": 1.46,
+      "volume_pace": 18.25,
       "signal": "趋势观察",
       "score": 45,
       "source": "腾讯财经",
@@ -615,7 +656,7 @@
       "deviation_10d": 4.93,
       "deviation_30d": 0.67,
       "volume_ratio": 1.75,
-      "volume_pace": 1.75,
+      "volume_pace": 21.89,
       "signal": "趋势观察",
       "score": 48,
       "source": "腾讯财经",
@@ -656,7 +697,7 @@
       "deviation_10d": 2.53,
       "deviation_30d": -4.15,
       "volume_ratio": 0.03,
-      "volume_pace": 0.03,
+      "volume_pace": 0.44,
       "signal": "趋势观察",
       "score": 48,
       "source": "腾讯财经",
@@ -697,7 +738,7 @@
       "deviation_10d": -1.42,
       "deviation_30d": -1.45,
       "volume_ratio": 1.17,
-      "volume_pace": 1.17,
+      "volume_pace": 14.63,
       "signal": "趋势观察",
       "score": 48,
       "source": "腾讯财经",
@@ -738,7 +779,7 @@
       "deviation_10d": -9.95,
       "deviation_30d": -9.43,
       "volume_ratio": 0.01,
-      "volume_pace": 0.01,
+      "volume_pace": 0.09,
       "signal": "趋势观察",
       "score": 45,
       "source": "腾讯财经",
@@ -779,7 +820,7 @@
       "deviation_10d": -3.15,
       "deviation_30d": -13.47,
       "volume_ratio": 1.46,
-      "volume_pace": 1.46,
+      "volume_pace": 18.25,
       "signal": "趋势观察",
       "score": 45,
       "source": "腾讯财经",
@@ -820,7 +861,7 @@
       "deviation_10d": 1.64,
       "deviation_30d": 0.42,
       "volume_ratio": 0.94,
-      "volume_pace": 0.94,
+      "volume_pace": 11.74,
       "signal": "趋势观察",
       "score": 55,
       "source": "腾讯财经",
@@ -861,7 +902,7 @@
       "deviation_10d": 9.98,
       "deviation_30d": 8.08,
       "volume_ratio": 1.4,
-      "volume_pace": 1.4,
+      "volume_pace": 17.56,
       "signal": "趋势观察",
       "score": 48,
       "source": "腾讯财经",
@@ -902,7 +943,7 @@
       "deviation_10d": -2.14,
       "deviation_30d": -6.52,
       "volume_ratio": 1.05,
-      "volume_pace": 1.05,
+      "volume_pace": 13.08,
       "signal": "趋势观察",
       "score": 48,
       "source": "腾讯财经",
@@ -943,7 +984,7 @@
       "deviation_10d": 3.16,
       "deviation_30d": -3.78,
       "volume_ratio": 2.07,
-      "volume_pace": 2.07,
+      "volume_pace": 25.86,
       "signal": "趋势观察",
       "score": 48,
       "source": "腾讯财经",
@@ -984,7 +1025,7 @@
       "deviation_10d": 0.59,
       "deviation_30d": -0.94,
       "volume_ratio": 0.84,
-      "volume_pace": 0.84,
+      "volume_pace": 10.51,
       "signal": "趋势观察",
       "score": 45,
       "source": "腾讯财经",
