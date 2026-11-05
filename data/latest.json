@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-11-05T19:49:47.244985+08:00",
+  "generated_at": "2026-11-06T06:36:15.236717+08:00",
   "report_date": "2026-11-05",
-  "mode": "noon",
+  "mode": "previous",
   "market_status": "open",
   "source": "个股行情与K线：腾讯财经优先，东方财富容灾；板块目录与公告：东方财富",
   "fixed_sectors": [
@@ -340,7 +340,7 @@
       "deviation_10d": 11.52,
       "deviation_30d": 8.76,
       "volume_ratio": 2.63,
-      "volume_pace": 2.63,
+      "volume_pace": 32.92,
       "signal": "放量突破",
       "score": 91,
       "source": "腾讯财经（行情）/东方财富（K线）",
@@ -368,6 +368,47 @@
       ]
     },
     {
+      "code": "603381",
+      "name": "永臻股份",
+      "sector": "光伏辅材",
+      "price": 18.85,
+      "pct": 9.98,
+      "volume": 3404500.0,
+      "amount": 64180000.0,
+      "avg3_volume": 9408266.666666666,
+      "return_10d": 37.29,
+      "return_20d": 28.06,
+      "deviation_10d": 25.27,
+      "deviation_30d": 28.53,
+      "volume_ratio": 0.45,
+      "volume_pace": 5.58,
+      "signal": "放量突破",
+      "score": 90,
+      "source": "腾讯财经",
+      "announcements": [
+        {
+          "title": "永臻股份:股票交易异常波动公告",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "永臻股份:关于担保额度调剂及对外担保的进展公告",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "永臻股份:关于修订公司2026年员工持股计划相关内容的公告",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "永臻股份:永臻科技股份有限公司2026年员工持股计划(修订稿)摘要公告",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "永臻股份:永臻科技股份有限公司2026年员工持股计划管理办法(修订稿)",
+          "tone": "中性/待核实"
+        }
+      ]
+    },
+    {
       "code": "688680",
       "name": "海优新材",
       "sector": "光伏辅材",
@@ -381,7 +422,7 @@
       "deviation_10d": 9.54,
       "deviation_30d": 4.27,
       "volume_ratio": 0.03,
-      "volume_pace": 0.03,
+      "volume_pace": 0.32,
       "signal": "趋势观察",
       "score": 48,
       "source": "腾讯财经",
@@ -422,7 +463,7 @@
       "deviation_10d": 10.69,
       "deviation_30d": -14.19,
       "volume_ratio": 0.02,
-      "volume_pace": 0.02,
+      "volume_pace": 0.26,
       "signal": "趋势观察",
       "score": 48,
       "source": "腾讯财经",
@@ -463,7 +504,7 @@
       "deviation_10d": 5.04,
       "deviation_30d": -8.02,
       "volume_ratio": 1.7,
-      "volume_pace": 1.7,
+      "volume_pace": 21.25,
       "signal": "趋势观察",
       "score": 48,
       "source": "腾讯财经",
@@ -504,7 +545,7 @@
       "deviation_10d": 6.68,
       "deviation_30d": -1.0,
       "volume_ratio": 0.74,
-      "volume_pace": 0.74,
+      "volume_pace": 9.28,
       "signal": "趋势观察",
       "score": 48,
       "source": "腾讯财经",
@@ -545,7 +586,7 @@
       "deviation_10d": 10.64,
       "deviation_30d": 5.72,
       "volume_ratio": 1.23,
-      "volume_pace": 1.23,
+      "volume_pace": 15.39,
       "signal": "趋势观察",
       "score": 48,
       "source": "腾讯财经",
@@ -586,7 +627,7 @@
       "deviation_10d": 5.69,
       "deviation_30d": -1.59,
       "volume_ratio": 0.02,
-      "volume_pace": 0.02,
+      "volume_pace": 0.26,
       "signal": "趋势观察",
       "score": 48,
       "source": "腾讯财经",
@@ -627,7 +668,7 @@
       "deviation_10d": 5.68,
       "deviation_30d": 4.48,
       "volume_ratio": 2.13,
-      "volume_pace": 2.13,
+      "volume_pace": 26.63,
       "signal": "趋势观察",
       "score": 48,
       "source": "腾讯财经",
@@ -668,7 +709,7 @@
       "deviation_10d": 5.33,
       "deviation_30d": -4.77,
       "volume_ratio": 2.86,
-      "volume_pace": 2.86,
+      "volume_pace": 35.74,
       "signal": "趋势观察",
       "score": 48,
       "source": "腾讯财经（行情）/东方财富（K线）",
@@ -696,47 +737,6 @@
       ]
     },
     {
-      "code": "603381",
-      "name": "永臻股份",
-      "sector": "光伏辅材",
-      "price": 18.85,
-      "pct": 9.98,
-      "volume": 3404500.0,
-      "amount": 64180000.0,
-      "avg3_volume": 9408266.666666666,
-      "return_10d": 37.29,
-      "return_20d": 28.06,
-      "deviation_10d": 25.27,
-      "deviation_30d": 28.53,
-      "volume_ratio": 0.45,
-      "volume_pace": 0.45,
-      "signal": "趋势观察",
-      "score": 47,
-      "source": "腾讯财经",
-      "announcements": [
-        {
-          "title": "永臻股份:股票交易异常波动公告",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "永臻股份:关于担保额度调剂及对外担保的进展公告",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "永臻股份:关于修订公司2026年员工持股计划相关内容的公告",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "永臻股份:永臻科技股份有限公司2026年员工持股计划(修订稿)摘要公告",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "永臻股份:永臻科技股份有限公司2026年员工持股计划管理办法(修订稿)",
-          "tone": "中性/待核实"
-        }
-      ]
-    },
-    {
       "code": "688516",
       "name": "奥特维",
       "sector": "光伏设备",
@@ -750,7 +750,7 @@
       "deviation_10d": 23.74,
       "deviation_30d": 22.06,
       "volume_ratio": 3.06,
-      "volume_pace": 3.06,
+      "volume_pace": 38.24,
       "signal": "放量突破",
       "score": 90,
       "source": "腾讯财经（行情）/东方财富（K线）",
@@ -791,7 +791,7 @@
       "deviation_10d": 10.45,
       "deviation_30d": -2.66,
       "volume_ratio": 3.69,
-      "volume_pace": 3.69,
+      "volume_pace": 46.13,
       "signal": "趋势观察",
       "score": 48,
       "source": "腾讯财经",
@@ -832,7 +832,7 @@
       "deviation_10d": 9.54,
       "deviation_30d": 4.27,
       "volume_ratio": 0.03,
-      "volume_pace": 0.03,
+      "volume_pace": 0.32,
       "signal": "趋势观察",
       "score": 48,
       "source": "腾讯财经",
@@ -873,7 +873,7 @@
       "deviation_10d": 10.69,
       "deviation_30d": -14.19,
       "volume_ratio": 0.02,
-      "volume_pace": 0.02,
+      "volume_pace": 0.26,
       "signal": "趋势观察",
       "score": 48,
       "source": "腾讯财经",
@@ -914,7 +914,7 @@
       "deviation_10d": 5.04,
       "deviation_30d": -8.02,
       "volume_ratio": 1.7,
-      "volume_pace": 1.7,
+      "volume_pace": 21.25,
       "signal": "趋势观察",
       "score": 48,
       "source": "腾讯财经",
@@ -955,7 +955,7 @@
       "deviation_10d": 31.81,
       "deviation_30d": 20.05,
       "volume_ratio": 1.37,
-      "volume_pace": 1.37,
+      "volume_pace": 17.15,
       "signal": "趋势观察",
       "score": 40,
       "source": "腾讯财经",
@@ -996,7 +996,7 @@
       "deviation_10d": 19.82,
       "deviation_30d": 15.03,
       "volume_ratio": 0.02,
-      "volume_pace": 0.02,
+      "volume_pace": 0.22,
       "signal": "趋势观察",
       "score": 40,
       "source": "腾讯财经",
@@ -1037,7 +1037,7 @@
       "deviation_10d": 22.89,
       "deviation_30d": 5.31,
       "volume_ratio": 1.86,
-      "volume_pace": 1.86,
+      "volume_pace": 23.26,
       "signal": "趋势观察",
       "score": 40,
       "source": "腾讯财经（行情）/东方财富（K线）",
@@ -1078,7 +1078,7 @@
       "deviation_10d": 13.78,
       "deviation_30d": 3.2,
       "volume_ratio": 0.03,
-      "volume_pace": 0.03,
+      "volume_pace": 0.36,
       "signal": "趋势观察",
       "score": 40,
       "source": "腾讯财经",
@@ -1119,7 +1119,7 @@
       "deviation_10d": 23.74,
       "deviation_30d": 22.06,
       "volume_ratio": 3.06,
-      "volume_pace": 3.06,
+      "volume_pace": 38.24,
       "signal": "放量突破",
       "score": 90,
       "source": "腾讯财经（行情）/东方财富（K线）",
@@ -1160,7 +1160,7 @@
       "deviation_10d": 16.08,
       "deviation_30d": 18.05,
       "volume_ratio": 2.91,
-      "volume_pace": 2.91,
+      "volume_pace": 36.4,
       "signal": "放量突破",
       "score": 90,
       "source": "腾讯财经",
@@ -1201,7 +1201,7 @@
       "deviation_10d": 14.29,
       "deviation_30d": 6.47,
       "volume_ratio": 2.33,
-      "volume_pace": 2.33,
+      "volume_pace": 29.13,
       "signal": "放量突破",
       "score": 83,
       "source": "腾讯财经（行情）/东方财富（K线）",
@@ -1242,7 +1242,7 @@
       "deviation_10d": 11.54,
       "deviation_30d": 8.81,
       "volume_ratio": 0.02,
-      "volume_pace": 0.02,
+      "volume_pace": 0.22,
       "signal": "趋势观察",
       "score": 55,
       "source": "腾讯财经",
@@ -1283,7 +1283,7 @@
       "deviation_10d": 4.66,
       "deviation_30d": -16.48,
       "volume_ratio": 2.08,
-      "volume_pace": 2.08,
+      "volume_pace": 26.04,
       "signal": "趋势观察",
       "score": 48,
       "source": "腾讯财经",
@@ -1324,7 +1324,7 @@
       "deviation_10d": 7.55,
       "deviation_30d": -3.91,
       "volume_ratio": 2.43,
-      "volume_pace": 2.43,
+      "volume_pace": 30.36,
       "signal": "趋势观察",
       "score": 48,
       "source": "腾讯财经",
@@ -1365,7 +1365,7 @@
       "deviation_10d": 7.13,
       "deviation_30d": 0.92,
       "volume_ratio": 2.58,
-      "volume_pace": 2.58,
+      "volume_pace": 32.28,
       "signal": "趋势观察",
       "score": 48,
       "source": "腾讯财经（行情）/东方财富（K线）",
@@ -1406,7 +1406,7 @@
       "deviation_10d": 22.89,
       "deviation_30d": 5.31,
       "volume_ratio": 1.86,
-      "volume_pace": 1.86,
+      "volume_pace": 23.26,
       "signal": "趋势观察",
       "score": 40,
       "source": "腾讯财经（行情）/东方财富（K线）",
@@ -1447,7 +1447,7 @@
       "deviation_10d": 13.78,
       "deviation_30d": 3.2,
       "volume_ratio": 0.03,
-      "volume_pace": 0.03,
+      "volume_pace": 0.36,
       "signal": "趋势观察",
       "score": 40,
       "source": "腾讯财经",
@@ -1488,7 +1488,7 @@
       "deviation_10d": 11.53,
       "deviation_30d": 20.27,
       "volume_ratio": 2.84,
-      "volume_pace": 2.84,
+      "volume_pace": 35.56,
       "signal": "放量突破",
       "score": 98,
       "source": "腾讯财经",
@@ -1516,6 +1516,88 @@
       ]
     },
     {
+      "code": "002506",
+      "name": "协鑫集成",
+      "sector": "光伏电池组件",
+      "price": 2.54,
+      "pct": 9.96,
+      "volume": 204338200.0,
+      "amount": 512060000.0,
+      "avg3_volume": 218763633.33333334,
+      "return_10d": 12.39,
+      "return_20d": 7.17,
+      "deviation_10d": 11.99,
+      "deviation_30d": 8.87,
+      "volume_ratio": 1.06,
+      "volume_pace": 13.3,
+      "signal": "放量突破",
+      "score": 91,
+      "source": "腾讯财经",
+      "announcements": [
+        {
+          "title": "协鑫集成:2026年三季度报告",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "协鑫集成:第六届董事会第三十一次会议决议公告",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "协鑫集成:2026年第六次临时股东会决议公告",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "协鑫集成:北京市竞天公诚律师事务所关于协鑫集成科技股份有限公司2026年第六次临时股东会的法律意见书",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "协鑫集成:关于对子公司提供担保的进展公告",
+          "tone": "中性/待核实"
+        }
+      ]
+    },
+    {
+      "code": "002865",
+      "name": "钧达股份",
+      "sector": "光伏电池组件",
+      "price": 43.67,
+      "pct": 10.0,
+      "volume": 27628200.0,
+      "amount": 1172910000.0,
+      "avg3_volume": 38290533.333333336,
+      "return_10d": 21.98,
+      "return_20d": 22.29,
+      "deviation_10d": 15.76,
+      "deviation_30d": 19.69,
+      "volume_ratio": 0.66,
+      "volume_pace": 8.23,
+      "signal": "放量突破",
+      "score": 90,
+      "source": "腾讯财经",
+      "announcements": [
+        {
+          "title": "钧达股份:H股公告-截至二零二六年十月三十一日止月份之股份发行人的证券变动月报表",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "钧达股份:关于控股股东部分股份解除质押的公告",
+          "tone": "偏利空"
+        },
+        {
+          "title": "钧达股份:2026-055关于为全资子公司提供担保的公告",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "钧达股份:2026年三季度报告",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "钧达股份:2026-053第五届董事会第十五次会议决议公告",
+          "tone": "中性/待核实"
+        }
+      ]
+    },
+    {
       "code": "688472",
       "name": "阿特斯",
       "sector": "光伏电池组件",
@@ -1529,7 +1611,7 @@
       "deviation_10d": 15.47,
       "deviation_30d": 15.24,
       "volume_ratio": 3.39,
-      "volume_pace": 3.39,
+      "volume_pace": 42.38,
       "signal": "放量突破",
       "score": 90,
       "source": "腾讯财经（行情）/东方财富（K线）",
@@ -1570,7 +1652,7 @@
       "deviation_10d": 10.45,
       "deviation_30d": -2.66,
       "volume_ratio": 3.69,
-      "volume_pace": 3.69,
+      "volume_pace": 46.13,
       "signal": "趋势观察",
       "score": 48,
       "source": "腾讯财经",
@@ -1611,7 +1693,7 @@
       "deviation_10d": 9.11,
       "deviation_30d": 5.05,
       "volume_ratio": 1.24,
-      "volume_pace": 1.24,
+      "volume_pace": 15.53,
       "signal": "趋势观察",
       "score": 48,
       "source": "腾讯财经",
@@ -1639,47 +1721,6 @@
       ]
     },
     {
-      "code": "002506",
-      "name": "协鑫集成",
-      "sector": "光伏电池组件",
-      "price": 2.54,
-      "pct": 9.96,
-      "volume": 204338200.0,
-      "amount": 512060000.0,
-      "avg3_volume": 218763633.33333334,
-      "return_10d": 12.39,
-      "return_20d": 7.17,
-      "deviation_10d": 11.99,
-      "deviation_30d": 8.87,
-      "volume_ratio": 1.06,
-      "volume_pace": 1.06,
-      "signal": "趋势观察",
-      "score": 48,
-      "source": "腾讯财经",
-      "announcements": [
-        {
-          "title": "协鑫集成:2026年三季度报告",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "协鑫集成:第六届董事会第三十一次会议决议公告",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "协鑫集成:2026年第六次临时股东会决议公告",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "协鑫集成:北京市竞天公诚律师事务所关于协鑫集成科技股份有限公司2026年第六次临时股东会的法律意见书",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "协鑫集成:关于对子公司提供担保的进展公告",
-          "tone": "中性/待核实"
-        }
-      ]
-    },
-    {
       "code": "301636",
       "name": "泽润新能",
       "sector": "光伏电池组件",
@@ -1693,7 +1734,7 @@
       "deviation_10d": 7.83,
       "deviation_30d": -0.13,
       "volume_ratio": 2.81,
-      "volume_pace": 2.81,
+      "volume_pace": 35.12,
       "signal": "趋势观察",
       "score": 48,
       "source": "腾讯财经",
@@ -1734,7 +1775,7 @@
       "deviation_10d": 4.39,
       "deviation_30d": -4.97,
       "volume_ratio": 2.22,
-      "volume_pace": 2.22,
+      "volume_pace": 27.77,
       "signal": "趋势观察",
       "score": 48,
       "source": "腾讯财经",
@@ -1775,7 +1816,7 @@
       "deviation_10d": 8.51,
       "deviation_30d": 1.02,
       "volume_ratio": 2.46,
-      "volume_pace": 2.46,
+      "volume_pace": 30.72,
       "signal": "趋势观察",
       "score": 48,
       "source": "腾讯财经",
@@ -1803,47 +1844,6 @@
       ]
     },
     {
-      "code": "002865",
-      "name": "钧达股份",
-      "sector": "光伏电池组件",
-      "price": 43.67,
-      "pct": 10.0,
-      "volume": 27628200.0,
-      "amount": 1172910000.0,
-      "avg3_volume": 38290533.333333336,
-      "return_10d": 21.98,
-      "return_20d": 22.29,
-      "deviation_10d": 15.76,
-      "deviation_30d": 19.69,
-      "volume_ratio": 0.66,
-      "volume_pace": 0.66,
-      "signal": "趋势观察",
-      "score": 47,
-      "source": "腾讯财经",
-      "announcements": [
-        {
-          "title": "钧达股份:H股公告-截至二零二六年十月三十一日止月份之股份发行人的证券变动月报表",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "钧达股份:关于控股股东部分股份解除质押的公告",
-          "tone": "偏利空"
-        },
-        {
-          "title": "钧达股份:2026-055关于为全资子公司提供担保的公告",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "钧达股份:2026年三季度报告",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "钧达股份:2026-053第五届董事会第十五次会议决议公告",
-          "tone": "中性/待核实"
-        }
-      ]
-    },
-    {
       "code": "688223",
       "name": "晶科能源",
       "sector": "光伏电池组件",
@@ -1857,7 +1857,7 @@
       "deviation_10d": 12.36,
       "deviation_30d": 16.66,
       "volume_ratio": 0.02,
-      "volume_pace": 0.02,
+      "volume_pace": 0.28,
       "signal": "趋势观察",
       "score": 47,
       "source": "腾讯财经",
@@ -1898,7 +1898,7 @@
       "deviation_10d": 6.13,
       "deviation_30d": -17.71,
       "volume_ratio": 2.67,
-      "volume_pace": 2.67,
+      "volume_pace": 33.42,
       "signal": "趋势观察",
       "score": 48,
       "source": "腾讯财经（行情）/东方财富（K线）",
@@ -1939,7 +1939,7 @@
       "deviation_10d": 7.16,
       "deviation_30d": -12.31,
       "volume_ratio": 1.76,
-      "volume_pace": 1.76,
+      "volume_pace": 21.96,
       "signal": "趋势观察",
       "score": 48,
       "source": "腾讯财经",
@@ -1980,7 +1980,7 @@
       "deviation_10d": 3.74,
       "deviation_30d": -24.53,
       "volume_ratio": 0.02,
-      "volume_pace": 0.02,
+      "volume_pace": 0.28,
       "signal": "趋势观察",
       "score": 48,
       "source": "腾讯财经",
@@ -2021,7 +2021,7 @@
       "deviation_10d": 2.35,
       "deviation_30d": -12.74,
       "volume_ratio": 2.02,
-      "volume_pace": 2.02,
+      "volume_pace": 25.3,
       "signal": "趋势观察",
       "score": 48,
       "source": "腾讯财经",
@@ -2062,7 +2062,7 @@
       "deviation_10d": 3.29,
       "deviation_30d": -21.15,
       "volume_ratio": 2.16,
-      "volume_pace": 2.16,
+      "volume_pace": 27.03,
       "signal": "趋势观察",
       "score": 48,
       "source": "腾讯财经（行情）/东方财富（K线）",
@@ -2103,7 +2103,7 @@
       "deviation_10d": 7.92,
       "deviation_30d": -11.85,
       "volume_ratio": 0.02,
-      "volume_pace": 0.02,
+      "volume_pace": 0.22,
       "signal": "趋势观察",
       "score": 48,
       "source": "腾讯财经",
@@ -2144,7 +2144,7 @@
       "deviation_10d": 1.52,
       "deviation_30d": -20.39,
       "volume_ratio": 0.02,
-      "volume_pace": 0.02,
+      "volume_pace": 0.19,
       "signal": "趋势观察",
       "score": 48,
       "source": "腾讯财经",
@@ -2185,7 +2185,7 @@
       "deviation_10d": 9.6,
       "deviation_30d": -14.33,
       "volume_ratio": 1.97,
-      "volume_pace": 1.97,
+      "volume_pace": 24.62,
       "signal": "趋势观察",
       "score": 48,
       "source": "腾讯财经（行情）/东方财富（K线）",
@@ -2226,7 +2226,7 @@
       "deviation_10d": 9.61,
       "deviation_30d": -3.42,
       "volume_ratio": 1.75,
-      "volume_pace": 1.75,
+      "volume_pace": 21.92,
       "signal": "趋势观察",
       "score": 48,
       "source": "腾讯财经（行情）/东方财富（K线）",
@@ -2267,7 +2267,7 @@
       "deviation_10d": 2.03,
       "deviation_30d": -26.17,
       "volume_ratio": 1.62,
-      "volume_pace": 1.62,
+      "volume_pace": 20.26,
       "signal": "趋势观察",
       "score": 48,
       "source": "腾讯财经（行情）/东方财富（K线）",
