@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-11-09T20:29:18.723201+08:00",
+  "generated_at": "2026-11-10T08:35:08.427983+08:00",
   "report_date": "2026-11-09",
-  "mode": "noon",
+  "mode": "previous",
   "market_status": "open",
   "source": "个股行情与K线：腾讯财经优先，东方财富容灾；板块目录与公告：东方财富",
   "fixed_sectors": [
@@ -364,7 +364,7 @@
       "deviation_10d": 3.16,
       "deviation_30d": -2.44,
       "volume_ratio": 1.89,
-      "volume_pace": 1.89,
+      "volume_pace": 23.61,
       "signal": "弱转强",
       "score": 81,
       "source": "腾讯财经",
@@ -405,7 +405,7 @@
       "deviation_10d": 1.51,
       "deviation_30d": -0.7,
       "volume_ratio": 0.5,
-      "volume_pace": 0.5,
+      "volume_pace": 6.28,
       "signal": "趋势观察",
       "score": 48,
       "source": "腾讯财经（行情）/东方财富（K线）",
@@ -446,7 +446,7 @@
       "deviation_10d": 20.61,
       "deviation_30d": 29.17,
       "volume_ratio": 0.1,
-      "volume_pace": 0.1,
+      "volume_pace": 1.2,
       "signal": "趋势观察",
       "score": 37,
       "source": "腾讯财经",
@@ -474,6 +474,47 @@
       ]
     },
     {
+      "code": "600997",
+      "name": "开滦股份",
+      "sector": "焦炭Ⅲ",
+      "price": 5.57,
+      "pct": 3.53,
+      "volume": 17248600.0,
+      "amount": 95740000.0,
+      "avg3_volume": 16686100.0,
+      "return_10d": 13.21,
+      "return_20d": 6.91,
+      "deviation_10d": 4.25,
+      "deviation_30d": 7.16,
+      "volume_ratio": 0.66,
+      "volume_pace": 8.28,
+      "signal": "弱转强",
+      "score": 88,
+      "source": "腾讯财经",
+      "announcements": [
+        {
+          "title": "开滦股份:开滦能源化工股份有限公司关于为全资子公司提供担保的公告",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "开滦股份:开滦能源化工股份有限公司2026年第三季度主要经营数据公告",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "开滦股份:开滦能源化工股份有限公司2026年第三季度报告",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "开滦股份:开滦能源化工股份有限公司关于为控股子公司提供担保的公告",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "开滦股份:开滦能源化工股份有限公司关于召开2026年半年度业绩说明会的公告",
+          "tone": "中性/待核实"
+        }
+      ]
+    },
+    {
       "code": "600792",
       "name": "云煤能源",
       "sector": "焦炭Ⅲ",
@@ -487,7 +528,7 @@
       "deviation_10d": 8.5,
       "deviation_30d": -6.73,
       "volume_ratio": 4.36,
-      "volume_pace": 4.36,
+      "volume_pace": 54.53,
       "signal": "弱转强",
       "score": 81,
       "source": "腾讯财经",
@@ -515,6 +556,47 @@
       ]
     },
     {
+      "code": "600408",
+      "name": "安泰集团",
+      "sector": "焦炭Ⅲ",
+      "price": 3.32,
+      "pct": 9.93,
+      "volume": 97317800.0,
+      "amount": 316900000.0,
+      "avg3_volume": 92274300.0,
+      "return_10d": -2.06,
+      "return_20d": -5.95,
+      "deviation_10d": 0.85,
+      "deviation_30d": -1.89,
+      "volume_ratio": 0.99,
+      "volume_pace": 12.41,
+      "signal": "弱转强",
+      "score": 81,
+      "source": "腾讯财经",
+      "announcements": [
+        {
+          "title": "安泰集团:安泰集团2026年第三季度报告",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "安泰集团:安泰集团2026年第三季度主要经营数据的公告",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "安泰集团:安泰集团股票交易异常波动公告",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "安泰集团:北京海润天睿律师事务所关于安泰集团2026年第一次临时股东会之法律意见书",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "安泰集团:安泰集团2026年第一次临时股东会决议公告",
+          "tone": "中性/待核实"
+        }
+      ]
+    },
+    {
       "code": "601015",
       "name": "陕西黑猫",
       "sector": "焦炭Ⅲ",
@@ -528,7 +610,7 @@
       "deviation_10d": 6.66,
       "deviation_30d": -0.11,
       "volume_ratio": 3.21,
-      "volume_pace": 3.21,
+      "volume_pace": 40.07,
       "signal": "弱转强",
       "score": 81,
       "source": "腾讯财经",
@@ -569,7 +651,7 @@
       "deviation_10d": 1.92,
       "deviation_30d": -5.25,
       "volume_ratio": 1.92,
-      "volume_pace": 1.92,
+      "volume_pace": 23.96,
       "signal": "弱转强",
       "score": 81,
       "source": "腾讯财经",
@@ -610,7 +692,7 @@
       "deviation_10d": 1.24,
       "deviation_30d": -0.93,
       "volume_ratio": 1.23,
-      "volume_pace": 1.23,
+      "volume_pace": 15.35,
       "signal": "弱转强",
       "score": 81,
       "source": "腾讯财经",
@@ -638,88 +720,6 @@
       ]
     },
     {
-      "code": "600997",
-      "name": "开滦股份",
-      "sector": "焦炭Ⅲ",
-      "price": 5.57,
-      "pct": 3.53,
-      "volume": 17248600.0,
-      "amount": 95740000.0,
-      "avg3_volume": 16686100.0,
-      "return_10d": 13.21,
-      "return_20d": 6.91,
-      "deviation_10d": 4.25,
-      "deviation_30d": 7.16,
-      "volume_ratio": 0.66,
-      "volume_pace": 0.66,
-      "signal": "趋势观察",
-      "score": 55,
-      "source": "腾讯财经",
-      "announcements": [
-        {
-          "title": "开滦股份:开滦能源化工股份有限公司关于为全资子公司提供担保的公告",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "开滦股份:开滦能源化工股份有限公司2026年第三季度主要经营数据公告",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "开滦股份:开滦能源化工股份有限公司2026年第三季度报告",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "开滦股份:开滦能源化工股份有限公司关于为控股子公司提供担保的公告",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "开滦股份:开滦能源化工股份有限公司关于召开2026年半年度业绩说明会的公告",
-          "tone": "中性/待核实"
-        }
-      ]
-    },
-    {
-      "code": "600408",
-      "name": "安泰集团",
-      "sector": "焦炭Ⅲ",
-      "price": 3.32,
-      "pct": 9.93,
-      "volume": 97317800.0,
-      "amount": 316900000.0,
-      "avg3_volume": 92274300.0,
-      "return_10d": -2.06,
-      "return_20d": -5.95,
-      "deviation_10d": 0.85,
-      "deviation_30d": -1.89,
-      "volume_ratio": 0.99,
-      "volume_pace": 0.99,
-      "signal": "趋势观察",
-      "score": 48,
-      "source": "腾讯财经",
-      "announcements": [
-        {
-          "title": "安泰集团:安泰集团2026年第三季度报告",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "安泰集团:安泰集团2026年第三季度主要经营数据的公告",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "安泰集团:安泰集团股票交易异常波动公告",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "安泰集团:北京海润天睿律师事务所关于安泰集团2026年第一次临时股东会之法律意见书",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "安泰集团:安泰集团2026年第一次临时股东会决议公告",
-          "tone": "中性/待核实"
-        }
-      ]
-    },
-    {
       "code": "000723",
       "name": "美锦能源",
       "sector": "焦炭Ⅲ",
@@ -733,7 +733,7 @@
       "deviation_10d": 1.86,
       "deviation_30d": -3.07,
       "volume_ratio": 1.12,
-      "volume_pace": 1.12,
+      "volume_pace": 14.06,
       "signal": "趋势观察",
       "score": 48,
       "source": "腾讯财经",
@@ -761,6 +761,47 @@
       ]
     },
     {
+      "code": "600997",
+      "name": "开滦股份",
+      "sector": "焦炭Ⅱ",
+      "price": 5.57,
+      "pct": 3.53,
+      "volume": 17248600.0,
+      "amount": 95740000.0,
+      "avg3_volume": 16686100.0,
+      "return_10d": 13.21,
+      "return_20d": 6.91,
+      "deviation_10d": 4.25,
+      "deviation_30d": 7.16,
+      "volume_ratio": 0.66,
+      "volume_pace": 8.28,
+      "signal": "弱转强",
+      "score": 88,
+      "source": "腾讯财经",
+      "announcements": [
+        {
+          "title": "开滦股份:开滦能源化工股份有限公司关于为全资子公司提供担保的公告",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "开滦股份:开滦能源化工股份有限公司2026年第三季度主要经营数据公告",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "开滦股份:开滦能源化工股份有限公司2026年第三季度报告",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "开滦股份:开滦能源化工股份有限公司关于为控股子公司提供担保的公告",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "开滦股份:开滦能源化工股份有限公司关于召开2026年半年度业绩说明会的公告",
+          "tone": "中性/待核实"
+        }
+      ]
+    },
+    {
       "code": "600792",
       "name": "云煤能源",
       "sector": "焦炭Ⅱ",
@@ -774,7 +815,7 @@
       "deviation_10d": 8.5,
       "deviation_30d": -6.73,
       "volume_ratio": 4.36,
-      "volume_pace": 4.36,
+      "volume_pace": 54.53,
       "signal": "弱转强",
       "score": 81,
       "source": "腾讯财经",
@@ -802,6 +843,47 @@
       ]
     },
     {
+      "code": "600408",
+      "name": "安泰集团",
+      "sector": "焦炭Ⅱ",
+      "price": 3.32,
+      "pct": 9.93,
+      "volume": 97317800.0,
+      "amount": 316900000.0,
+      "avg3_volume": 92274300.0,
+      "return_10d": -2.06,
+      "return_20d": -5.95,
+      "deviation_10d": 0.85,
+      "deviation_30d": -1.89,
+      "volume_ratio": 0.99,
+      "volume_pace": 12.41,
+      "signal": "弱转强",
+      "score": 81,
+      "source": "腾讯财经",
+      "announcements": [
+        {
+          "title": "安泰集团:安泰集团2026年第三季度报告",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "安泰集团:安泰集团2026年第三季度主要经营数据的公告",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "安泰集团:安泰集团股票交易异常波动公告",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "安泰集团:北京海润天睿律师事务所关于安泰集团2026年第一次临时股东会之法律意见书",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "安泰集团:安泰集团2026年第一次临时股东会决议公告",
+          "tone": "中性/待核实"
+        }
+      ]
+    },
+    {
       "code": "601015",
       "name": "陕西黑猫",
       "sector": "焦炭Ⅱ",
@@ -815,7 +897,7 @@
       "deviation_10d": 6.66,
       "deviation_30d": -0.11,
       "volume_ratio": 3.21,
-      "volume_pace": 3.21,
+      "volume_pace": 40.07,
       "signal": "弱转强",
       "score": 81,
       "source": "腾讯财经",
@@ -856,7 +938,7 @@
       "deviation_10d": 1.92,
       "deviation_30d": -5.25,
       "volume_ratio": 1.92,
-      "volume_pace": 1.92,
+      "volume_pace": 23.96,
       "signal": "弱转强",
       "score": 81,
       "source": "腾讯财经",
@@ -897,7 +979,7 @@
       "deviation_10d": 1.24,
       "deviation_30d": -0.93,
       "volume_ratio": 1.23,
-      "volume_pace": 1.23,
+      "volume_pace": 15.35,
       "signal": "弱转强",
       "score": 81,
       "source": "腾讯财经",
@@ -925,88 +1007,6 @@
       ]
     },
     {
-      "code": "600997",
-      "name": "开滦股份",
-      "sector": "焦炭Ⅱ",
-      "price": 5.57,
-      "pct": 3.53,
-      "volume": 17248600.0,
-      "amount": 95740000.0,
-      "avg3_volume": 16686100.0,
-      "return_10d": 13.21,
-      "return_20d": 6.91,
-      "deviation_10d": 4.25,
-      "deviation_30d": 7.16,
-      "volume_ratio": 0.66,
-      "volume_pace": 0.66,
-      "signal": "趋势观察",
-      "score": 55,
-      "source": "腾讯财经",
-      "announcements": [
-        {
-          "title": "开滦股份:开滦能源化工股份有限公司关于为全资子公司提供担保的公告",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "开滦股份:开滦能源化工股份有限公司2026年第三季度主要经营数据公告",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "开滦股份:开滦能源化工股份有限公司2026年第三季度报告",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "开滦股份:开滦能源化工股份有限公司关于为控股子公司提供担保的公告",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "开滦股份:开滦能源化工股份有限公司关于召开2026年半年度业绩说明会的公告",
-          "tone": "中性/待核实"
-        }
-      ]
-    },
-    {
-      "code": "600408",
-      "name": "安泰集团",
-      "sector": "焦炭Ⅱ",
-      "price": 3.32,
-      "pct": 9.93,
-      "volume": 97317800.0,
-      "amount": 316900000.0,
-      "avg3_volume": 92274300.0,
-      "return_10d": -2.06,
-      "return_20d": -5.95,
-      "deviation_10d": 0.85,
-      "deviation_30d": -1.89,
-      "volume_ratio": 0.99,
-      "volume_pace": 0.99,
-      "signal": "趋势观察",
-      "score": 48,
-      "source": "腾讯财经",
-      "announcements": [
-        {
-          "title": "安泰集团:安泰集团2026年第三季度报告",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "安泰集团:安泰集团2026年第三季度主要经营数据的公告",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "安泰集团:安泰集团股票交易异常波动公告",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "安泰集团:北京海润天睿律师事务所关于安泰集团2026年第一次临时股东会之法律意见书",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "安泰集团:安泰集团2026年第一次临时股东会决议公告",
-          "tone": "中性/待核实"
-        }
-      ]
-    },
-    {
       "code": "000723",
       "name": "美锦能源",
       "sector": "焦炭Ⅱ",
@@ -1020,7 +1020,7 @@
       "deviation_10d": 1.86,
       "deviation_30d": -3.07,
       "volume_ratio": 1.12,
-      "volume_pace": 1.12,
+      "volume_pace": 14.06,
       "signal": "趋势观察",
       "score": 48,
       "source": "腾讯财经",
@@ -1043,170 +1043,6 @@
         },
         {
           "title": "美锦能源:关于召开2026年第四次临时股东会的通知",
-          "tone": "中性/待核实"
-        }
-      ]
-    },
-    {
-      "code": "603228",
-      "name": "景旺电子",
-      "sector": "PCB",
-      "price": 57.59,
-      "pct": 7.12,
-      "volume": 59026500.0,
-      "amount": 3356830000.0,
-      "avg3_volume": 51908166.666666664,
-      "return_10d": -22.98,
-      "return_20d": -40.07,
-      "deviation_10d": -10.0,
-      "deviation_30d": -31.78,
-      "volume_ratio": 1.39,
-      "volume_pace": 1.39,
-      "signal": "弱转强",
-      "score": 81,
-      "source": "腾讯财经",
-      "announcements": [
-        {
-          "title": "景旺电子:投资者关系活动记录表(20261104-1105)",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "景旺电子:H股公告-截至二零二六年十月三十一日止股份发行人的证券变动月报表",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "景旺电子:景旺电子关于完成工商变更登记的公告",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "景旺电子:景旺电子关于以集中竞价交易方式回购公司A股股份的进展公告",
-          "tone": "偏利好"
-        },
-        {
-          "title": "景旺电子:H股公告-翌日披露报表",
-          "tone": "中性/待核实"
-        }
-      ]
-    },
-    {
-      "code": "002815",
-      "name": "崇达技术",
-      "sector": "PCB",
-      "price": 15.13,
-      "pct": 6.4,
-      "volume": 96901900.0,
-      "amount": 1465920000.0,
-      "avg3_volume": 75686900.0,
-      "return_10d": -12.9,
-      "return_20d": -26.45,
-      "deviation_10d": -2.78,
-      "deviation_30d": -24.0,
-      "volume_ratio": 1.38,
-      "volume_pace": 1.38,
-      "signal": "弱转强",
-      "score": 81,
-      "source": "腾讯财经",
-      "announcements": [
-        {
-          "title": "崇达技术:2026年11月6日投资者关系活动记录表",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "崇达技术:关于控股子公司普诺威撤回北京证券交易所上市申请材料的公告",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "崇达技术:关于2026年限制性股票激励计划预留授予登记完成的公告",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "崇达技术:关于举行2026年第三季度业绩说明会并征集相关问题的公告",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "崇达技术:第六届董事会第八次会议决议公告",
-          "tone": "中性/待核实"
-        }
-      ]
-    },
-    {
-      "code": "002141",
-      "name": "贤丰控股",
-      "sector": "PCB",
-      "price": 5.05,
-      "pct": 5.21,
-      "volume": 101405800.0,
-      "amount": 506270000.0,
-      "avg3_volume": 88574500.0,
-      "return_10d": -2.51,
-      "return_20d": -4.17,
-      "deviation_10d": 2.64,
-      "deviation_30d": -9.53,
-      "volume_ratio": 1.12,
-      "volume_pace": 1.12,
-      "signal": "弱转强",
-      "score": 81,
-      "source": "腾讯财经",
-      "announcements": [
-        {
-          "title": "贤丰控股:贤丰控股第九届董事会第一次会议决议公告",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "贤丰控股:广东晟典律师事务所关于贤丰控股股份有限公司2026年第三次临时股东会的法律意见书",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "贤丰控股:贤丰控股股份有限公司2026年第三次临时股东会决议公告",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "贤丰控股:贤丰控股关于完成董事会换届选举及聘任高级管理人员、内部审计机构负责人及证券事务代表的公告",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "贤丰控股:贤丰控股关于为下属子公司提供担保的进展公告",
-          "tone": "中性/待核实"
-        }
-      ]
-    },
-    {
-      "code": "300964",
-      "name": "本川智能",
-      "sector": "PCB",
-      "price": 53.68,
-      "pct": 4.82,
-      "volume": 5988100.0,
-      "amount": 322040000.0,
-      "avg3_volume": 5545333.333333333,
-      "return_10d": -13.18,
-      "return_20d": -29.01,
-      "deviation_10d": -0.18,
-      "deviation_30d": -19.33,
-      "volume_ratio": 1.06,
-      "volume_pace": 1.06,
-      "signal": "弱转强",
-      "score": 81,
-      "source": "腾讯财经",
-      "announcements": [
-        {
-          "title": "本川智能:300964本川智能投资者关系管理信息20261026",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "本川智能:2026年三季度报告",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "本川智能:第四届董事会第七次会议决议公告",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "本川智能:自愿性信息披露管理制度(2026年10月)",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "本川智能:关于“本川转债”开始转股的提示性公告",
           "tone": "中性/待核实"
         }
       ]
@@ -1225,9 +1061,9 @@
       "deviation_10d": 2.74,
       "deviation_30d": -22.76,
       "volume_ratio": 0.64,
-      "volume_pace": 0.64,
-      "signal": "趋势观察",
-      "score": 48,
+      "volume_pace": 8.01,
+      "signal": "弱转强",
+      "score": 81,
       "source": "腾讯财经",
       "announcements": [
         {
@@ -1266,9 +1102,9 @@
       "deviation_10d": 0.89,
       "deviation_30d": -14.35,
       "volume_ratio": 0.76,
-      "volume_pace": 0.76,
-      "signal": "趋势观察",
-      "score": 48,
+      "volume_pace": 9.55,
+      "signal": "弱转强",
+      "score": 81,
       "source": "腾讯财经",
       "announcements": [
         {
@@ -1307,9 +1143,9 @@
       "deviation_10d": 3.12,
       "deviation_30d": -16.7,
       "volume_ratio": 0.76,
-      "volume_pace": 0.76,
-      "signal": "趋势观察",
-      "score": 48,
+      "volume_pace": 9.56,
+      "signal": "弱转强",
+      "score": 81,
       "source": "腾讯财经",
       "announcements": [
         {
@@ -1335,6 +1171,47 @@
       ]
     },
     {
+      "code": "603228",
+      "name": "景旺电子",
+      "sector": "PCB",
+      "price": 57.59,
+      "pct": 7.12,
+      "volume": 59026500.0,
+      "amount": 3356830000.0,
+      "avg3_volume": 51908166.666666664,
+      "return_10d": -22.98,
+      "return_20d": -40.07,
+      "deviation_10d": -10.0,
+      "deviation_30d": -31.78,
+      "volume_ratio": 1.39,
+      "volume_pace": 17.42,
+      "signal": "弱转强",
+      "score": 81,
+      "source": "腾讯财经",
+      "announcements": [
+        {
+          "title": "景旺电子:投资者关系活动记录表(20261104-1105)",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "景旺电子:H股公告-截至二零二六年十月三十一日止股份发行人的证券变动月报表",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "景旺电子:景旺电子关于完成工商变更登记的公告",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "景旺电子:景旺电子关于以集中竞价交易方式回购公司A股股份的进展公告",
+          "tone": "偏利好"
+        },
+        {
+          "title": "景旺电子:H股公告-翌日披露报表",
+          "tone": "中性/待核实"
+        }
+      ]
+    },
+    {
       "code": "301132",
       "name": "满坤科技",
       "sector": "PCB",
@@ -1348,9 +1225,9 @@
       "deviation_10d": 2.94,
       "deviation_30d": -12.02,
       "volume_ratio": 0.87,
-      "volume_pace": 0.87,
-      "signal": "趋势观察",
-      "score": 48,
+      "volume_pace": 10.88,
+      "signal": "弱转强",
+      "score": 81,
       "source": "腾讯财经（行情）/东方财富（K线）",
       "announcements": [
         {
@@ -1376,6 +1253,47 @@
       ]
     },
     {
+      "code": "002815",
+      "name": "崇达技术",
+      "sector": "PCB",
+      "price": 15.13,
+      "pct": 6.4,
+      "volume": 96901900.0,
+      "amount": 1465920000.0,
+      "avg3_volume": 75686900.0,
+      "return_10d": -12.9,
+      "return_20d": -26.45,
+      "deviation_10d": -2.78,
+      "deviation_30d": -24.0,
+      "volume_ratio": 1.38,
+      "volume_pace": 17.21,
+      "signal": "弱转强",
+      "score": 81,
+      "source": "腾讯财经",
+      "announcements": [
+        {
+          "title": "崇达技术:2026年11月6日投资者关系活动记录表",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "崇达技术:关于控股子公司普诺威撤回北京证券交易所上市申请材料的公告",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "崇达技术:关于2026年限制性股票激励计划预留授予登记完成的公告",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "崇达技术:关于举行2026年第三季度业绩说明会并征集相关问题的公告",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "崇达技术:第六届董事会第八次会议决议公告",
+          "tone": "中性/待核实"
+        }
+      ]
+    },
+    {
       "code": "300476",
       "name": "胜宏科技",
       "sector": "PCB",
@@ -1389,9 +1307,9 @@
       "deviation_10d": -8.58,
       "deviation_30d": -28.47,
       "volume_ratio": 0.94,
-      "volume_pace": 0.94,
-      "signal": "趋势观察",
-      "score": 48,
+      "volume_pace": 11.72,
+      "signal": "弱转强",
+      "score": 81,
       "source": "腾讯财经",
       "announcements": [
         {
@@ -1430,9 +1348,9 @@
       "deviation_10d": -11.04,
       "deviation_30d": -27.06,
       "volume_ratio": 1.04,
-      "volume_pace": 1.04,
-      "signal": "趋势观察",
-      "score": 48,
+      "volume_pace": 13.05,
+      "signal": "弱转强",
+      "score": 81,
       "source": "腾讯财经",
       "announcements": [
         {
@@ -1458,6 +1376,88 @@
       ]
     },
     {
+      "code": "002141",
+      "name": "贤丰控股",
+      "sector": "PCB",
+      "price": 5.05,
+      "pct": 5.21,
+      "volume": 101405800.0,
+      "amount": 506270000.0,
+      "avg3_volume": 88574500.0,
+      "return_10d": -2.51,
+      "return_20d": -4.17,
+      "deviation_10d": 2.64,
+      "deviation_30d": -9.53,
+      "volume_ratio": 1.12,
+      "volume_pace": 13.97,
+      "signal": "弱转强",
+      "score": 81,
+      "source": "腾讯财经",
+      "announcements": [
+        {
+          "title": "贤丰控股:贤丰控股第九届董事会第一次会议决议公告",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "贤丰控股:广东晟典律师事务所关于贤丰控股股份有限公司2026年第三次临时股东会的法律意见书",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "贤丰控股:贤丰控股股份有限公司2026年第三次临时股东会决议公告",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "贤丰控股:贤丰控股关于完成董事会换届选举及聘任高级管理人员、内部审计机构负责人及证券事务代表的公告",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "贤丰控股:贤丰控股关于为下属子公司提供担保的进展公告",
+          "tone": "中性/待核实"
+        }
+      ]
+    },
+    {
+      "code": "603186",
+      "name": "华正新材",
+      "sector": "PCB",
+      "price": 148.51,
+      "pct": 4.88,
+      "volume": 16628900.0,
+      "amount": 2446420000.0,
+      "avg3_volume": 19610433.333333332,
+      "return_10d": -18.17,
+      "return_20d": -20.07,
+      "deviation_10d": 0.08,
+      "deviation_30d": -19.87,
+      "volume_ratio": 0.8,
+      "volume_pace": 9.99,
+      "signal": "弱转强",
+      "score": 81,
+      "source": "腾讯财经",
+      "announcements": [
+        {
+          "title": "华正新材:浙江华正新材料股份有限公司关于回购股份事项前十大股东和前十大无限售条件股东持股情况的公告",
+          "tone": "偏利好"
+        },
+        {
+          "title": "华正新材:浙江华正新材料股份有限公司第六届董事会第六次会议决议公告",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "华正新材:浙江华正新材料股份有限公司关于以集中竞价方式回购股份的方案暨回购报告书",
+          "tone": "偏利好"
+        },
+        {
+          "title": "华正新材:浙江华正新材料股份有限公司关于参与投资的新材料类投资基金完成工商变更登记的公告",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "华正新材:浙江华正新材料股份有限公司投资者关系活动记录表(2026年10月)",
+          "tone": "中性/待核实"
+        }
+      ]
+    },
+    {
       "code": "300825",
       "name": "阿尔特",
       "sector": "汽车综合服务",
@@ -1471,7 +1471,7 @@
       "deviation_10d": 13.4,
       "deviation_30d": 11.25,
       "volume_ratio": 2.53,
-      "volume_pace": 2.53,
+      "volume_pace": 31.62,
       "signal": "弱转强",
       "score": 80,
       "source": "腾讯财经",
@@ -1507,12 +1507,12 @@
       "volume": 10702800.0,
       "amount": 59010000.0,
       "avg3_volume": 14192300.0,
-      "return_10d": 0.92,
-      "return_20d": -0.72,
-      "deviation_10d": 0.88,
-      "deviation_30d": 1.99,
+      "return_10d": 1.85,
+      "return_20d": 0.18,
+      "deviation_10d": 1.81,
+      "deviation_30d": 2.95,
       "volume_ratio": 0.63,
-      "volume_pace": 0.63,
+      "volume_pace": 7.83,
       "signal": "趋势观察",
       "score": 52,
       "source": "腾讯财经",
@@ -1553,7 +1553,7 @@
       "deviation_10d": -3.2,
       "deviation_30d": -9.63,
       "volume_ratio": 0.93,
-      "volume_pace": 0.93,
+      "volume_pace": 11.65,
       "signal": "趋势观察",
       "score": 45,
       "source": "腾讯财经",
