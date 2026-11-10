@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-11-10T20:03:36.704553+08:00",
+  "generated_at": "2026-11-11T06:12:12.464792+08:00",
   "report_date": "2026-11-10",
-  "mode": "noon",
+  "mode": "previous",
   "market_status": "open",
   "source": "个股行情与K线：腾讯财经优先，东方财富容灾；板块目录与公告：东方财富",
   "fixed_sectors": [
@@ -346,9 +346,9 @@
       "deviation_10d": 13.65,
       "deviation_30d": 22.01,
       "volume_ratio": 0.79,
-      "volume_pace": 0.79,
-      "signal": "趋势观察",
-      "score": 47,
+      "volume_pace": 9.86,
+      "signal": "弱转强",
+      "score": 80,
       "source": "腾讯财经",
       "announcements": [
         {
@@ -387,7 +387,7 @@
       "deviation_10d": 13.09,
       "deviation_30d": 17.63,
       "volume_ratio": 1.25,
-      "volume_pace": 1.25,
+      "volume_pace": 15.63,
       "signal": "趋势观察",
       "score": 47,
       "source": "腾讯财经",
@@ -428,7 +428,7 @@
       "deviation_10d": 12.33,
       "deviation_30d": 15.97,
       "volume_ratio": 1.06,
-      "volume_pace": 1.06,
+      "volume_pace": 13.19,
       "signal": "趋势观察",
       "score": 40,
       "source": "腾讯财经",
@@ -469,7 +469,7 @@
       "deviation_10d": 17.08,
       "deviation_30d": 59.92,
       "volume_ratio": 1.15,
-      "volume_pace": 1.15,
+      "volume_pace": 14.38,
       "signal": "趋势观察",
       "score": 37,
       "source": "腾讯财经",
@@ -497,6 +497,47 @@
       ]
     },
     {
+      "code": "300426",
+      "name": "华智数媒",
+      "sector": "影视动漫制作",
+      "price": 11.47,
+      "pct": 19.98,
+      "volume": 110234800.0,
+      "amount": 1150420000.0,
+      "avg3_volume": 83621966.66666667,
+      "return_10d": 72.74,
+      "return_20d": 32.75,
+      "deviation_10d": 29.22,
+      "deviation_30d": 41.08,
+      "volume_ratio": 1.21,
+      "volume_pace": 15.16,
+      "signal": "放量突破",
+      "score": 90,
+      "source": "腾讯财经",
+      "announcements": [
+        {
+          "title": "华智数媒:股票交易异常波动公告",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "华智数媒:关于持股5%以上股东的股份被司法冻结的公告",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "华智数媒:2026年三季度报告",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "华智数媒:第五届董事会第二十六次会议决议公告",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "华智数媒:关于2026年度高级管理人员薪酬考核激励方案的公告",
+          "tone": "中性/待核实"
+        }
+      ]
+    },
+    {
       "code": "300133",
       "name": "华策影视",
       "sector": "影视动漫制作",
@@ -510,7 +551,7 @@
       "deviation_10d": 16.43,
       "deviation_30d": 26.88,
       "volume_ratio": 2.08,
-      "volume_pace": 2.08,
+      "volume_pace": 25.99,
       "signal": "放量突破",
       "score": 90,
       "source": "腾讯财经（行情）/东方财富（K线）",
@@ -551,7 +592,7 @@
       "deviation_10d": 10.75,
       "deviation_30d": 21.07,
       "volume_ratio": 1.31,
-      "volume_pace": 1.31,
+      "volume_pace": 16.32,
       "signal": "弱转强",
       "score": 88,
       "source": "腾讯财经",
@@ -592,7 +633,7 @@
       "deviation_10d": 6.26,
       "deviation_30d": 11.07,
       "volume_ratio": 1.72,
-      "volume_pace": 1.72,
+      "volume_pace": 21.48,
       "signal": "弱转强",
       "score": 88,
       "source": "腾讯财经",
@@ -633,7 +674,7 @@
       "deviation_10d": 5.69,
       "deviation_30d": 12.2,
       "volume_ratio": 1.45,
-      "volume_pace": 1.45,
+      "volume_pace": 18.11,
       "signal": "弱转强",
       "score": 88,
       "source": "腾讯财经（行情）/东方财富（K线）",
@@ -674,7 +715,7 @@
       "deviation_10d": 9.12,
       "deviation_30d": 12.46,
       "volume_ratio": 1.13,
-      "volume_pace": 1.13,
+      "volume_pace": 14.11,
       "signal": "弱转强",
       "score": 88,
       "source": "腾讯财经（行情）/东方财富（K线）",
@@ -715,9 +756,9 @@
       "deviation_10d": 9.42,
       "deviation_30d": 15.63,
       "volume_ratio": 0.58,
-      "volume_pace": 0.58,
-      "signal": "缩量回踩",
-      "score": 85,
+      "volume_pace": 7.22,
+      "signal": "弱转强",
+      "score": 81,
       "source": "腾讯财经",
       "announcements": [
         {
@@ -756,7 +797,7 @@
       "deviation_10d": 9.39,
       "deviation_30d": 7.51,
       "volume_ratio": 1.14,
-      "volume_pace": 1.14,
+      "volume_pace": 14.23,
       "signal": "弱转强",
       "score": 81,
       "source": "腾讯财经",
@@ -797,7 +838,7 @@
       "deviation_10d": 7.38,
       "deviation_30d": 4.85,
       "volume_ratio": 1.51,
-      "volume_pace": 1.51,
+      "volume_pace": 18.85,
       "signal": "弱转强",
       "score": 81,
       "source": "腾讯财经",
@@ -838,7 +879,7 @@
       "deviation_10d": 6.04,
       "deviation_30d": 4.09,
       "volume_ratio": 1.5,
-      "volume_pace": 1.5,
+      "volume_pace": 18.74,
       "signal": "弱转强",
       "score": 81,
       "source": "腾讯财经（行情）/东方财富（K线）",
@@ -868,7 +909,7 @@
     {
       "code": "300426",
       "name": "华智数媒",
-      "sector": "影视动漫制作",
+      "sector": "影视院线",
       "price": 11.47,
       "pct": 19.98,
       "volume": 110234800.0,
@@ -879,9 +920,9 @@
       "deviation_10d": 29.22,
       "deviation_30d": 41.08,
       "volume_ratio": 1.21,
-      "volume_pace": 1.21,
-      "signal": "弱转强",
-      "score": 80,
+      "volume_pace": 15.16,
+      "signal": "放量突破",
+      "score": 90,
       "source": "腾讯财经",
       "announcements": [
         {
@@ -920,7 +961,7 @@
       "deviation_10d": 16.43,
       "deviation_30d": 26.88,
       "volume_ratio": 2.08,
-      "volume_pace": 2.08,
+      "volume_pace": 25.99,
       "signal": "放量突破",
       "score": 90,
       "source": "腾讯财经（行情）/东方财富（K线）",
@@ -961,7 +1002,7 @@
       "deviation_10d": 10.75,
       "deviation_30d": 21.07,
       "volume_ratio": 1.31,
-      "volume_pace": 1.31,
+      "volume_pace": 16.32,
       "signal": "弱转强",
       "score": 88,
       "source": "腾讯财经",
@@ -1002,7 +1043,7 @@
       "deviation_10d": 6.26,
       "deviation_30d": 11.07,
       "volume_ratio": 1.72,
-      "volume_pace": 1.72,
+      "volume_pace": 21.48,
       "signal": "弱转强",
       "score": 88,
       "source": "腾讯财经",
@@ -1043,7 +1084,7 @@
       "deviation_10d": 5.69,
       "deviation_30d": 12.2,
       "volume_ratio": 1.45,
-      "volume_pace": 1.45,
+      "volume_pace": 18.11,
       "signal": "弱转强",
       "score": 88,
       "source": "腾讯财经（行情）/东方财富（K线）",
@@ -1084,7 +1125,7 @@
       "deviation_10d": 9.12,
       "deviation_30d": 12.46,
       "volume_ratio": 1.13,
-      "volume_pace": 1.13,
+      "volume_pace": 14.11,
       "signal": "弱转强",
       "score": 88,
       "source": "腾讯财经（行情）/东方财富（K线）",
@@ -1125,9 +1166,9 @@
       "deviation_10d": 9.42,
       "deviation_30d": 15.63,
       "volume_ratio": 0.58,
-      "volume_pace": 0.58,
-      "signal": "缩量回踩",
-      "score": 85,
+      "volume_pace": 7.22,
+      "signal": "弱转强",
+      "score": 81,
       "source": "腾讯财经",
       "announcements": [
         {
@@ -1166,7 +1207,7 @@
       "deviation_10d": 9.39,
       "deviation_30d": 7.51,
       "volume_ratio": 1.14,
-      "volume_pace": 1.14,
+      "volume_pace": 14.23,
       "signal": "弱转强",
       "score": 81,
       "source": "腾讯财经",
@@ -1207,7 +1248,7 @@
       "deviation_10d": 7.38,
       "deviation_30d": 4.85,
       "volume_ratio": 1.51,
-      "volume_pace": 1.51,
+      "volume_pace": 18.85,
       "signal": "弱转强",
       "score": 81,
       "source": "腾讯财经",
@@ -1248,7 +1289,7 @@
       "deviation_10d": 6.04,
       "deviation_30d": 4.09,
       "volume_ratio": 1.5,
-      "volume_pace": 1.5,
+      "volume_pace": 18.74,
       "signal": "弱转强",
       "score": 81,
       "source": "腾讯财经（行情）/东方财富（K线）",
@@ -1271,88 +1312,6 @@
         },
         {
           "title": "中视传媒:中视传媒股份有限公司2026年上海辖区上市公司集体接待日暨中报业绩说明会活动记录",
-          "tone": "中性/待核实"
-        }
-      ]
-    },
-    {
-      "code": "300426",
-      "name": "华智数媒",
-      "sector": "影视院线",
-      "price": 11.47,
-      "pct": 19.98,
-      "volume": 110234800.0,
-      "amount": 1150420000.0,
-      "avg3_volume": 83621966.66666667,
-      "return_10d": 72.74,
-      "return_20d": 32.75,
-      "deviation_10d": 29.22,
-      "deviation_30d": 41.08,
-      "volume_ratio": 1.21,
-      "volume_pace": 1.21,
-      "signal": "弱转强",
-      "score": 80,
-      "source": "腾讯财经",
-      "announcements": [
-        {
-          "title": "华智数媒:股票交易异常波动公告",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "华智数媒:关于持股5%以上股东的股份被司法冻结的公告",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "华智数媒:2026年三季度报告",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "华智数媒:第五届董事会第二十六次会议决议公告",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "华智数媒:关于2026年度高级管理人员薪酬考核激励方案的公告",
-          "tone": "中性/待核实"
-        }
-      ]
-    },
-    {
-      "code": "603766",
-      "name": "隆鑫通用",
-      "sector": "历史新高",
-      "price": 15.8,
-      "pct": -0.38,
-      "volume": 15441400.0,
-      "amount": 244740000.0,
-      "avg3_volume": 16324633.333333334,
-      "return_10d": 4.36,
-      "return_20d": 8.82,
-      "deviation_10d": 1.15,
-      "deviation_30d": 5.45,
-      "volume_ratio": 0.83,
-      "volume_pace": 0.83,
-      "signal": "趋势观察",
-      "score": 52,
-      "source": "腾讯财经",
-      "announcements": [
-        {
-          "title": "隆鑫通用:隆鑫通用动力股份有限公司2026年中期权益分派实施公告",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "隆鑫通用:隆鑫通用动力股份有限公司第五届董事会第十八次会议决议公告",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "隆鑫通用:隆鑫通用动力股份有限公司董事会授权管理办法(2026年10月制定)",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "隆鑫通用:隆鑫通用动力股份有限公司2026年第三季度报告",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "隆鑫通用:隆鑫通用动力股份有限公司关于2026年中期利润分配方案的公告",
           "tone": "中性/待核实"
         }
       ]
@@ -1371,9 +1330,9 @@
       "deviation_10d": 18.16,
       "deviation_30d": 39.98,
       "volume_ratio": 0.15,
-      "volume_pace": 0.15,
-      "signal": "趋势观察",
-      "score": 37,
+      "volume_pace": 1.87,
+      "signal": "放量突破",
+      "score": 80,
       "source": "腾讯财经",
       "announcements": [
         {
@@ -1412,9 +1371,9 @@
       "deviation_10d": 19.03,
       "deviation_30d": 55.89,
       "volume_ratio": 0.55,
-      "volume_pace": 0.55,
-      "signal": "趋势观察",
-      "score": 37,
+      "volume_pace": 6.89,
+      "signal": "放量突破",
+      "score": 80,
       "source": "腾讯财经",
       "announcements": [
         {
@@ -1440,6 +1399,88 @@
       ]
     },
     {
+      "code": "001219",
+      "name": "青岛食品",
+      "sector": "历史新高",
+      "price": 25.12,
+      "pct": 4.41,
+      "volume": 44130000.0,
+      "amount": 1093670000.0,
+      "avg3_volume": 42265266.666666664,
+      "return_10d": 67.69,
+      "return_20d": 91.61,
+      "deviation_10d": 16.71,
+      "deviation_30d": 59.1,
+      "volume_ratio": 0.97,
+      "volume_pace": 12.12,
+      "signal": "放量突破",
+      "score": 80,
+      "source": "腾讯财经",
+      "announcements": [
+        {
+          "title": "青岛食品:关于控股股东、实际控制人协议转让部分股权暨控制权拟发生变更的提示性公告",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "青岛食品:股票交易异常波动暨风险提示公告",
+          "tone": "偏利空"
+        },
+        {
+          "title": "青岛食品:股票交易异常波动暨风险提示公告",
+          "tone": "偏利空"
+        },
+        {
+          "title": "青岛食品:股票交易异常波动公告",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "青岛食品:2026年三季度报告",
+          "tone": "中性/待核实"
+        }
+      ]
+    },
+    {
+      "code": "603766",
+      "name": "隆鑫通用",
+      "sector": "历史新高",
+      "price": 15.8,
+      "pct": -0.38,
+      "volume": 15441400.0,
+      "amount": 244740000.0,
+      "avg3_volume": 16324633.333333334,
+      "return_10d": 4.36,
+      "return_20d": 8.82,
+      "deviation_10d": 1.15,
+      "deviation_30d": 5.45,
+      "volume_ratio": 0.83,
+      "volume_pace": 10.33,
+      "signal": "趋势观察",
+      "score": 52,
+      "source": "腾讯财经",
+      "announcements": [
+        {
+          "title": "隆鑫通用:隆鑫通用动力股份有限公司2026年中期权益分派实施公告",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "隆鑫通用:隆鑫通用动力股份有限公司第五届董事会第十八次会议决议公告",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "隆鑫通用:隆鑫通用动力股份有限公司董事会授权管理办法(2026年10月制定)",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "隆鑫通用:隆鑫通用动力股份有限公司2026年第三季度报告",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "隆鑫通用:隆鑫通用动力股份有限公司关于2026年中期利润分配方案的公告",
+          "tone": "中性/待核实"
+        }
+      ]
+    },
+    {
       "code": "301313",
       "name": "凡拓数创",
       "sector": "历史新高",
@@ -1453,7 +1494,7 @@
       "deviation_10d": 17.08,
       "deviation_30d": 59.92,
       "volume_ratio": 1.15,
-      "volume_pace": 1.15,
+      "volume_pace": 14.38,
       "signal": "趋势观察",
       "score": 37,
       "source": "腾讯财经",
@@ -1476,47 +1517,6 @@
         },
         {
           "title": "凡拓数创:2026年三季度报告",
-          "tone": "中性/待核实"
-        }
-      ]
-    },
-    {
-      "code": "001219",
-      "name": "青岛食品",
-      "sector": "历史新高",
-      "price": 25.12,
-      "pct": 4.41,
-      "volume": 44130000.0,
-      "amount": 1093670000.0,
-      "avg3_volume": 42265266.666666664,
-      "return_10d": 67.69,
-      "return_20d": 91.61,
-      "deviation_10d": 16.71,
-      "deviation_30d": 59.1,
-      "volume_ratio": 0.97,
-      "volume_pace": 0.97,
-      "signal": "趋势观察",
-      "score": 37,
-      "source": "腾讯财经",
-      "announcements": [
-        {
-          "title": "青岛食品:股票交易异常波动暨风险提示公告",
-          "tone": "偏利空"
-        },
-        {
-          "title": "青岛食品:股票交易异常波动暨风险提示公告",
-          "tone": "偏利空"
-        },
-        {
-          "title": "青岛食品:股票交易异常波动公告",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "青岛食品:2026年三季度报告",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "青岛食品:信息披露暂缓与豁免管理制度",
           "tone": "中性/待核实"
         }
       ]
