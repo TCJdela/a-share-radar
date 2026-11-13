@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-11-13T19:49:32.188262+08:00",
+  "generated_at": "2026-11-14T06:24:50.882416+08:00",
   "report_date": "2026-11-13",
-  "mode": "noon",
+  "mode": "previous",
   "market_status": "open",
   "source": "个股行情与K线：腾讯财经优先，东方财富容灾；板块目录与公告：东方财富",
   "fixed_sectors": [
@@ -321,6 +321,47 @@
   ],
   "candidates": [
     {
+      "code": "603103",
+      "name": "横店影视",
+      "sector": "院线",
+      "price": 19.31,
+      "pct": 10.03,
+      "volume": 7025100.0,
+      "amount": 133280000.0,
+      "avg3_volume": 9305033.333333334,
+      "return_10d": 22.99,
+      "return_20d": 16.82,
+      "deviation_10d": 10.79,
+      "deviation_30d": 16.95,
+      "volume_ratio": 0.6,
+      "volume_pace": 7.47,
+      "signal": "放量突破",
+      "score": 98,
+      "source": "腾讯财经",
+      "announcements": [
+        {
+          "title": "横店影视:横店影视股份有限公司2026年第三季度报告",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "横店影视:横店影视股份有限公司2026年半年度业绩说明会交流记录",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "横店影视:横店影视股份有限公司关于召开2026年半年度业绩说明会的公告",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "横店影视:横店影视股份有限公司关于修订公司相关制度的公告",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "横店影视:横店影视股份有限公司2026年半年度报告摘要",
+          "tone": "中性/待核实"
+        }
+      ]
+    },
+    {
       "code": "002739",
       "name": "儒意电影",
       "sector": "院线",
@@ -334,7 +375,7 @@
       "deviation_10d": 9.49,
       "deviation_30d": 16.91,
       "volume_ratio": 3.14,
-      "volume_pace": 3.14,
+      "volume_pace": 39.28,
       "signal": "放量突破",
       "score": 98,
       "source": "腾讯财经",
@@ -362,6 +403,47 @@
       ]
     },
     {
+      "code": "002905",
+      "name": "金逸影视",
+      "sector": "院线",
+      "price": 9.9,
+      "pct": 10.0,
+      "volume": 8251200.0,
+      "amount": 80200000.0,
+      "avg3_volume": 17181633.333333332,
+      "return_10d": 29.58,
+      "return_20d": 12.88,
+      "deviation_10d": 12.98,
+      "deviation_30d": 15.01,
+      "volume_ratio": 0.49,
+      "volume_pace": 6.08,
+      "signal": "放量突破",
+      "score": 90,
+      "source": "腾讯财经",
+      "announcements": [
+        {
+          "title": "金逸影视:2026年三季度报告",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "金逸影视:2026年第一次临时股东会决议公告",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "金逸影视:北京大成(深圳)律师事务所关于广州金逸影视传媒股份有限公司2026年第一次临时股东会之法律意见书",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "金逸影视:关于完成工商变更登记的公告",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "金逸影视:2026年半年度非经营性资金占用及其他关联资金往来情况汇总表",
+          "tone": "中性/待核实"
+        }
+      ]
+    },
+    {
       "code": "300528",
       "name": "幸福蓝海",
       "sector": "院线",
@@ -375,7 +457,7 @@
       "deviation_10d": 22.55,
       "deviation_30d": 33.91,
       "volume_ratio": 1.92,
-      "volume_pace": 1.92,
+      "volume_pace": 24.0,
       "signal": "放量突破",
       "score": 80,
       "source": "腾讯财经",
@@ -405,7 +487,7 @@
     {
       "code": "603103",
       "name": "横店影视",
-      "sector": "院线",
+      "sector": "影视院线",
       "price": 19.31,
       "pct": 10.03,
       "volume": 7025100.0,
@@ -416,9 +498,9 @@
       "deviation_10d": 10.79,
       "deviation_30d": 16.95,
       "volume_ratio": 0.6,
-      "volume_pace": 0.6,
-      "signal": "趋势观察",
-      "score": 55,
+      "volume_pace": 7.47,
+      "signal": "放量突破",
+      "score": 98,
       "source": "腾讯财经",
       "announcements": [
         {
@@ -444,47 +526,6 @@
       ]
     },
     {
-      "code": "002905",
-      "name": "金逸影视",
-      "sector": "院线",
-      "price": 9.9,
-      "pct": 10.0,
-      "volume": 8251200.0,
-      "amount": 80200000.0,
-      "avg3_volume": 17181633.333333332,
-      "return_10d": 29.58,
-      "return_20d": 12.88,
-      "deviation_10d": 12.98,
-      "deviation_30d": 15.01,
-      "volume_ratio": 0.49,
-      "volume_pace": 0.49,
-      "signal": "趋势观察",
-      "score": 47,
-      "source": "腾讯财经",
-      "announcements": [
-        {
-          "title": "金逸影视:2026年三季度报告",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "金逸影视:2026年第一次临时股东会决议公告",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "金逸影视:北京大成(深圳)律师事务所关于广州金逸影视传媒股份有限公司2026年第一次临时股东会之法律意见书",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "金逸影视:关于完成工商变更登记的公告",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "金逸影视:2026年半年度非经营性资金占用及其他关联资金往来情况汇总表",
-          "tone": "中性/待核实"
-        }
-      ]
-    },
-    {
       "code": "600977",
       "name": "中国电影",
       "sector": "影视院线",
@@ -498,7 +539,7 @@
       "deviation_10d": 8.62,
       "deviation_30d": 16.35,
       "volume_ratio": 2.09,
-      "volume_pace": 2.09,
+      "volume_pace": 26.1,
       "signal": "放量突破",
       "score": 98,
       "source": "腾讯财经（行情）/东方财富（K线）",
@@ -539,7 +580,7 @@
       "deviation_10d": 9.49,
       "deviation_30d": 16.91,
       "volume_ratio": 3.14,
-      "volume_pace": 3.14,
+      "volume_pace": 39.28,
       "signal": "放量突破",
       "score": 98,
       "source": "腾讯财经",
@@ -580,7 +621,7 @@
       "deviation_10d": 8.51,
       "deviation_30d": 10.0,
       "volume_ratio": 3.19,
-      "volume_pace": 3.19,
+      "volume_pace": 39.85,
       "signal": "放量突破",
       "score": 98,
       "source": "腾讯财经",
@@ -608,42 +649,42 @@
       ]
     },
     {
-      "code": "603721",
-      "name": "中广天择",
+      "code": "002905",
+      "name": "金逸影视",
       "sector": "影视院线",
-      "price": 21.5,
-      "pct": -0.6,
-      "volume": 11420500.0,
-      "amount": 250050000.0,
-      "avg3_volume": 14738666.666666666,
-      "return_10d": 17.55,
-      "return_20d": 12.92,
-      "deviation_10d": 0.92,
-      "deviation_30d": 6.58,
-      "volume_ratio": 0.75,
-      "volume_pace": 0.75,
-      "signal": "缩量回踩",
-      "score": 89,
+      "price": 9.9,
+      "pct": 10.0,
+      "volume": 8251200.0,
+      "amount": 80200000.0,
+      "avg3_volume": 17181633.333333332,
+      "return_10d": 29.58,
+      "return_20d": 12.88,
+      "deviation_10d": 12.98,
+      "deviation_30d": 15.01,
+      "volume_ratio": 0.49,
+      "volume_pace": 6.08,
+      "signal": "放量突破",
+      "score": 90,
       "source": "腾讯财经",
       "announcements": [
         {
-          "title": "中广天择:中广天择传媒股份有限公司2026年第三季度报告",
+          "title": "金逸影视:2026年三季度报告",
           "tone": "中性/待核实"
         },
         {
-          "title": "中广天择:中广天择传媒股份有限公司关于控股股东协议转让股份过户完成的公告",
+          "title": "金逸影视:2026年第一次临时股东会决议公告",
           "tone": "中性/待核实"
         },
         {
-          "title": "中广天择:中广天择传媒股份有限公司关于召开2026年第三季度业绩说明会的公告",
+          "title": "金逸影视:北京大成(深圳)律师事务所关于广州金逸影视传媒股份有限公司2026年第一次临时股东会之法律意见书",
           "tone": "中性/待核实"
         },
         {
-          "title": "中广天择:中广天择传媒股份有限公司2026年第二次临时股东会决议公告",
+          "title": "金逸影视:关于完成工商变更登记的公告",
           "tone": "中性/待核实"
         },
         {
-          "title": "中广天择:北京国枫(深圳)律师事务所关于中广天择传媒股份有限公司2026年第二次临时股东会的法律意见书",
+          "title": "金逸影视:2026年半年度非经营性资金占用及其他关联资金往来情况汇总表",
           "tone": "中性/待核实"
         }
       ]
@@ -662,7 +703,7 @@
       "deviation_10d": 9.41,
       "deviation_30d": 7.25,
       "volume_ratio": 1.35,
-      "volume_pace": 1.35,
+      "volume_pace": 16.86,
       "signal": "弱转强",
       "score": 88,
       "source": "腾讯财经",
@@ -703,7 +744,7 @@
       "deviation_10d": 4.44,
       "deviation_30d": 10.85,
       "volume_ratio": 1.45,
-      "volume_pace": 1.45,
+      "volume_pace": 18.11,
       "signal": "弱转强",
       "score": 88,
       "source": "腾讯财经",
@@ -744,7 +785,7 @@
       "deviation_10d": 22.55,
       "deviation_30d": 33.91,
       "volume_ratio": 1.92,
-      "volume_pace": 1.92,
+      "volume_pace": 24.0,
       "signal": "放量突破",
       "score": 80,
       "source": "腾讯财经",
@@ -772,42 +813,42 @@
       ]
     },
     {
-      "code": "603103",
-      "name": "横店影视",
+      "code": "300426",
+      "name": "华智数媒",
       "sector": "影视院线",
-      "price": 19.31,
-      "pct": 10.03,
-      "volume": 7025100.0,
-      "amount": 133280000.0,
-      "avg3_volume": 9305033.333333334,
-      "return_10d": 22.99,
-      "return_20d": 16.82,
-      "deviation_10d": 10.79,
-      "deviation_30d": 16.95,
-      "volume_ratio": 0.6,
-      "volume_pace": 0.6,
-      "signal": "趋势观察",
-      "score": 55,
+      "price": 11.19,
+      "pct": 3.52,
+      "volume": 87088700.0,
+      "amount": 1007810000.0,
+      "avg3_volume": 85950533.33333333,
+      "return_10d": 73.49,
+      "return_20d": 49.8,
+      "deviation_10d": 9.91,
+      "deviation_30d": 32.6,
+      "volume_ratio": 1.03,
+      "volume_pace": 12.91,
+      "signal": "弱转强",
+      "score": 78,
       "source": "腾讯财经",
       "announcements": [
         {
-          "title": "横店影视:横店影视股份有限公司2026年第三季度报告",
+          "title": "华智数媒:股票交易异常波动公告",
           "tone": "中性/待核实"
         },
         {
-          "title": "横店影视:横店影视股份有限公司2026年半年度业绩说明会交流记录",
+          "title": "华智数媒:关于持股5%以上股东的股份被司法冻结的公告",
           "tone": "中性/待核实"
         },
         {
-          "title": "横店影视:横店影视股份有限公司关于召开2026年半年度业绩说明会的公告",
+          "title": "华智数媒:2026年三季度报告",
           "tone": "中性/待核实"
         },
         {
-          "title": "横店影视:横店影视股份有限公司关于修订公司相关制度的公告",
+          "title": "华智数媒:第五届董事会第二十六次会议决议公告",
           "tone": "中性/待核实"
         },
         {
-          "title": "横店影视:横店影视股份有限公司2026年半年度报告摘要",
+          "title": "华智数媒:关于2026年度高级管理人员薪酬考核激励方案的公告",
           "tone": "中性/待核实"
         }
       ]
@@ -826,7 +867,7 @@
       "deviation_10d": 1.46,
       "deviation_30d": 1.12,
       "volume_ratio": 1.25,
-      "volume_pace": 1.25,
+      "volume_pace": 15.58,
       "signal": "趋势观察",
       "score": 55,
       "source": "腾讯财经",
@@ -854,42 +895,42 @@
       ]
     },
     {
-      "code": "000892",
-      "name": "欢瑞世纪",
-      "sector": "影视院线",
-      "price": 5.0,
-      "pct": 0.6,
-      "volume": 130651400.0,
-      "amount": 661310000.0,
-      "avg3_volume": 147173433.33333334,
-      "return_10d": 24.69,
-      "return_20d": 0.0,
-      "deviation_10d": 3.91,
-      "deviation_30d": 6.13,
-      "volume_ratio": 0.96,
-      "volume_pace": 0.96,
-      "signal": "趋势观察",
-      "score": 55,
+      "code": "603477",
+      "name": "巨星农牧",
+      "sector": "生猪养殖",
+      "price": 15.92,
+      "pct": 5.15,
+      "volume": 24947700.0,
+      "amount": 395870000.0,
+      "avg3_volume": 13780200.0,
+      "return_10d": 18.72,
+      "return_20d": 19.43,
+      "deviation_10d": 6.28,
+      "deviation_30d": 12.57,
+      "volume_ratio": 2.58,
+      "volume_pace": 32.24,
+      "signal": "放量突破",
+      "score": 98,
       "source": "腾讯财经",
       "announcements": [
         {
-          "title": "欢瑞世纪:关于拟聘任会计师事务所的公告",
+          "title": "巨星农牧:乐山巨星农牧股份有限公司2026年10月份担保情况的公告",
           "tone": "中性/待核实"
         },
         {
-          "title": "欢瑞世纪:关于召开2026年第二次临时股东会的通知",
+          "title": "巨星农牧:乐山巨星农牧股份有限公司2026年10月养殖业务销售情况简报",
           "tone": "中性/待核实"
         },
         {
-          "title": "欢瑞世纪:第十届董事会第七次会议决议公告",
+          "title": "巨星农牧:乐山巨星农牧股份有限公司关于收到可转债评级机构跟踪评级结果的公告",
           "tone": "中性/待核实"
         },
         {
-          "title": "欢瑞世纪:关于重大诉讼进展的公告",
-          "tone": "偏利空"
+          "title": "巨星农牧:乐山巨星农牧股份有限公司投资者关系活动记录表(2026年10月30日)",
+          "tone": "中性/待核实"
         },
         {
-          "title": "欢瑞世纪:2026年三季度报告",
+          "title": "巨星农牧:乐山巨星农牧股份有限公司2026年第三季度业绩说明会投资者关系活动记录",
           "tone": "中性/待核实"
         }
       ]
@@ -908,7 +949,7 @@
       "deviation_10d": 9.57,
       "deviation_30d": 16.97,
       "volume_ratio": 1.67,
-      "volume_pace": 1.67,
+      "volume_pace": 20.93,
       "signal": "放量突破",
       "score": 98,
       "source": "腾讯财经",
@@ -949,7 +990,7 @@
       "deviation_10d": 4.32,
       "deviation_30d": 8.71,
       "volume_ratio": 1.69,
-      "volume_pace": 1.69,
+      "volume_pace": 21.18,
       "signal": "放量突破",
       "score": 98,
       "source": "腾讯财经",
@@ -977,6 +1018,47 @@
       ]
     },
     {
+      "code": "605296",
+      "name": "神农集团",
+      "sector": "生猪养殖",
+      "price": 33.64,
+      "pct": 2.31,
+      "volume": 3918800.0,
+      "amount": 132490000.0,
+      "avg3_volume": 2481766.6666666665,
+      "return_10d": 16.64,
+      "return_20d": 17.13,
+      "deviation_10d": 3.9,
+      "deviation_30d": 9.63,
+      "volume_ratio": 1.46,
+      "volume_pace": 18.25,
+      "signal": "放量突破",
+      "score": 98,
+      "source": "腾讯财经",
+      "announcements": [
+        {
+          "title": "神农集团:云南神农农业产业集团股份有限公司2026年10月养殖业务主要经营数据公告",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "神农集团:云南神农农业产业集团股份有限公司简式权益变动报告书(罗婉瑜)",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "神农集团:云南神农农业产业集团股份有限公司简式权益变动报告书(何祖训)",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "神农集团:云南神农农业产业集团股份有限公司关于持股5%以上股东权益变动的提示性公告",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "神农集团:云南神农农业产业集团股份有限公司投资者关系活动记录表(2026年10月30日)",
+          "tone": "中性/待核实"
+        }
+      ]
+    },
+    {
       "code": "300498",
       "name": "温氏股份",
       "sector": "生猪养殖",
@@ -990,7 +1072,7 @@
       "deviation_10d": 3.56,
       "deviation_30d": 9.61,
       "volume_ratio": 1.86,
-      "volume_pace": 1.86,
+      "volume_pace": 23.27,
       "signal": "放量突破",
       "score": 98,
       "source": "腾讯财经",
@@ -1031,7 +1113,7 @@
       "deviation_10d": 3.88,
       "deviation_30d": 1.58,
       "volume_ratio": 3.19,
-      "volume_pace": 3.19,
+      "volume_pace": 39.85,
       "signal": "弱转强",
       "score": 81,
       "source": "腾讯财经",
@@ -1072,7 +1154,7 @@
       "deviation_10d": 3.32,
       "deviation_30d": 8.07,
       "volume_ratio": 2.14,
-      "volume_pace": 2.14,
+      "volume_pace": 26.71,
       "signal": "趋势观察",
       "score": 55,
       "source": "腾讯财经",
@@ -1100,47 +1182,6 @@
       ]
     },
     {
-      "code": "605296",
-      "name": "神农集团",
-      "sector": "生猪养殖",
-      "price": 33.64,
-      "pct": 2.31,
-      "volume": 3918800.0,
-      "amount": 132490000.0,
-      "avg3_volume": 2481766.6666666665,
-      "return_10d": 16.64,
-      "return_20d": 17.13,
-      "deviation_10d": 3.9,
-      "deviation_30d": 9.63,
-      "volume_ratio": 1.46,
-      "volume_pace": 1.46,
-      "signal": "趋势观察",
-      "score": 55,
-      "source": "腾讯财经",
-      "announcements": [
-        {
-          "title": "神农集团:云南神农农业产业集团股份有限公司2026年10月养殖业务主要经营数据公告",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "神农集团:云南神农农业产业集团股份有限公司简式权益变动报告书(罗婉瑜)",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "神农集团:云南神农农业产业集团股份有限公司简式权益变动报告书(何祖训)",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "神农集团:云南神农农业产业集团股份有限公司关于持股5%以上股东权益变动的提示性公告",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "神农集团:云南神农农业产业集团股份有限公司投资者关系活动记录表(2026年10月30日)",
-          "tone": "中性/待核实"
-        }
-      ]
-    },
-    {
       "code": "002157",
       "name": "正邦科技",
       "sector": "生猪养殖",
@@ -1154,7 +1195,7 @@
       "deviation_10d": 0.9,
       "deviation_30d": 1.23,
       "volume_ratio": 1.69,
-      "volume_pace": 1.69,
+      "volume_pace": 21.18,
       "signal": "趋势观察",
       "score": 55,
       "source": "腾讯财经",
@@ -1195,7 +1236,7 @@
       "deviation_10d": 1.71,
       "deviation_30d": -1.99,
       "volume_ratio": 2.92,
-      "volume_pace": 2.92,
+      "volume_pace": 36.54,
       "signal": "趋势观察",
       "score": 48,
       "source": "腾讯财经",
@@ -1236,7 +1277,7 @@
       "deviation_10d": 13.29,
       "deviation_30d": 16.49,
       "volume_ratio": 1.83,
-      "volume_pace": 1.83,
+      "volume_pace": 22.86,
       "signal": "趋势观察",
       "score": 47,
       "source": "腾讯财经",
@@ -1264,47 +1305,6 @@
       ]
     },
     {
-      "code": "000048",
-      "name": "京基智农",
-      "sector": "生猪养殖",
-      "price": 13.64,
-      "pct": -0.58,
-      "volume": 10782700.0,
-      "amount": 148320000.0,
-      "avg3_volume": 9853433.333333334,
-      "return_10d": 6.48,
-      "return_20d": -11.43,
-      "deviation_10d": -1.23,
-      "deviation_30d": -10.0,
-      "volume_ratio": 0.98,
-      "volume_pace": 0.98,
-      "signal": "趋势观察",
-      "score": 45,
-      "source": "腾讯财经",
-      "announcements": [
-        {
-          "title": "京基智农:2026年10月生猪销售情况简报",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "京基智农:第十一届董事会第二十二次临时会议决议公告",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "京基智农:关于2026年第三季度计提资产及信用减值准备的公告",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "京基智农:2026年三季度报告",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "京基智农:2026年第四次临时股东会决议公告",
-          "tone": "中性/待核实"
-        }
-      ]
-    },
-    {
       "code": "002567",
       "name": "唐人神",
       "sector": "畜禽饲料",
@@ -1318,7 +1318,7 @@
       "deviation_10d": 4.76,
       "deviation_30d": 6.65,
       "volume_ratio": 1.79,
-      "volume_pace": 1.79,
+      "volume_pace": 22.43,
       "signal": "放量突破",
       "score": 98,
       "source": "腾讯财经",
@@ -1359,7 +1359,7 @@
       "deviation_10d": 8.65,
       "deviation_30d": 5.14,
       "volume_ratio": 2.37,
-      "volume_pace": 2.37,
+      "volume_pace": 29.57,
       "signal": "放量突破",
       "score": 91,
       "source": "腾讯财经",
@@ -1400,7 +1400,7 @@
       "deviation_10d": 0.68,
       "deviation_30d": 3.52,
       "volume_ratio": 1.76,
-      "volume_pace": 1.76,
+      "volume_pace": 22.04,
       "signal": "弱转强",
       "score": 88,
       "source": "腾讯财经",
@@ -1428,47 +1428,6 @@
       ]
     },
     {
-      "code": "603151",
-      "name": "邦基科技",
-      "sector": "畜禽饲料",
-      "price": 22.3,
-      "pct": 7.57,
-      "volume": 8205500.0,
-      "amount": 179120000.0,
-      "avg3_volume": 6553200.0,
-      "return_10d": 30.18,
-      "return_20d": 31.41,
-      "deviation_10d": 11.33,
-      "deviation_30d": 20.29,
-      "volume_ratio": 0.95,
-      "volume_pace": 0.95,
-      "signal": "趋势观察",
-      "score": 55,
-      "source": "腾讯财经（行情）/东方财富（K线）",
-      "announcements": [
-        {
-          "title": "邦基科技:山东邦基科技股份有限公司关于公司对外担保的进展公告",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "邦基科技:山东邦基科技股份有限公司关于计提资产减值准备的公告",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "邦基科技:山东邦基科技股份有限公司关于召开2026年第三季度业绩说明会的公告",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "邦基科技:山东邦基科技股份有限公司第三届董事会第六次会议决议公告",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "邦基科技:山东邦基科技股份有限公司2026年第三季度报告",
-          "tone": "中性/待核实"
-        }
-      ]
-    },
-    {
       "code": "603609",
       "name": "禾丰股份",
       "sector": "畜禽饲料",
@@ -1482,7 +1441,7 @@
       "deviation_10d": 1.4,
       "deviation_30d": 2.65,
       "volume_ratio": 1.58,
-      "volume_pace": 1.58,
+      "volume_pace": 19.7,
       "signal": "趋势观察",
       "score": 55,
       "source": "腾讯财经",
@@ -1523,7 +1482,7 @@
       "deviation_10d": 1.23,
       "deviation_30d": 0.18,
       "volume_ratio": 2.11,
-      "volume_pace": 2.11,
+      "volume_pace": 26.43,
       "signal": "趋势观察",
       "score": 55,
       "source": "腾讯财经",
@@ -1564,7 +1523,7 @@
       "deviation_10d": 2.04,
       "deviation_30d": -4.42,
       "volume_ratio": 1.55,
-      "volume_pace": 1.55,
+      "volume_pace": 19.38,
       "signal": "趋势观察",
       "score": 48,
       "source": "腾讯财经",
@@ -1605,7 +1564,7 @@
       "deviation_10d": -0.1,
       "deviation_30d": -1.16,
       "volume_ratio": 1.09,
-      "volume_pace": 1.09,
+      "volume_pace": 13.66,
       "signal": "趋势观察",
       "score": 48,
       "source": "腾讯财经",
@@ -1633,47 +1592,6 @@
       ]
     },
     {
-      "code": "001366",
-      "name": "播恩集团",
-      "sector": "畜禽饲料",
-      "price": 11.47,
-      "pct": -0.61,
-      "volume": 2503600.0,
-      "amount": 28760000.0,
-      "avg3_volume": 2522400.0,
-      "return_10d": 4.56,
-      "return_20d": -9.04,
-      "deviation_10d": 1.24,
-      "deviation_30d": -4.48,
-      "volume_ratio": 0.82,
-      "volume_pace": 0.82,
-      "signal": "趋势观察",
-      "score": 45,
-      "source": "腾讯财经（行情）/东方财富（K线）",
-      "announcements": [
-        {
-          "title": "播恩集团:2026年中期权益分派预案实施公告",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "播恩集团:第四届董事会第四次会议决议公告",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "播恩集团:2026年三季度报告",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "播恩集团:关于调整2026年度日常关联交易预计的公告",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "播恩集团:关于2026年前三季度计提减值的公告",
-          "tone": "中性/待核实"
-        }
-      ]
-    },
-    {
       "code": "603166",
       "name": "福达股份",
       "sector": "农业种植",
@@ -1687,7 +1605,7 @@
       "deviation_10d": 11.3,
       "deviation_30d": 13.24,
       "volume_ratio": 1.93,
-      "volume_pace": 1.93,
+      "volume_pace": 24.08,
       "signal": "放量突破",
       "score": 98,
       "source": "腾讯财经",
@@ -1728,7 +1646,7 @@
       "deviation_10d": 8.32,
       "deviation_30d": 6.19,
       "volume_ratio": 4.64,
-      "volume_pace": 4.64,
+      "volume_pace": 57.95,
       "signal": "放量突破",
       "score": 98,
       "source": "腾讯财经",
@@ -1756,129 +1674,6 @@
       ]
     },
     {
-      "code": "300138",
-      "name": "晨光生物",
-      "sector": "农业种植",
-      "price": 12.69,
-      "pct": 1.04,
-      "volume": 4103100.0,
-      "amount": 51860000.0,
-      "avg3_volume": 3958233.3333333335,
-      "return_10d": 0.0,
-      "return_20d": 11.81,
-      "deviation_10d": -0.31,
-      "deviation_30d": 4.02,
-      "volume_ratio": 0.79,
-      "volume_pace": 0.79,
-      "signal": "缩量回踩",
-      "score": 85,
-      "source": "腾讯财经",
-      "announcements": [
-        {
-          "title": "晨光生物:关于为参股公司银行借款提供担保的进展公告",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "晨光生物:关于回购公司股份的进展公告",
-          "tone": "偏利好"
-        },
-        {
-          "title": "晨光生物:关于子公司完成变更登记的公告",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "晨光生物:关于为子公司银行借款提供担保的进展公告",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "晨光生物:2026年10月27日投资者关系活动记录表",
-          "tone": "中性/待核实"
-        }
-      ]
-    },
-    {
-      "code": "000568",
-      "name": "泸州老窖",
-      "sector": "农业种植",
-      "price": 79.6,
-      "pct": 3.73,
-      "volume": 18855300.0,
-      "amount": 1479000000.0,
-      "avg3_volume": 15921333.333333334,
-      "return_10d": 3.28,
-      "return_20d": 10.65,
-      "deviation_10d": 0.06,
-      "deviation_30d": 7.69,
-      "volume_ratio": 1.48,
-      "volume_pace": 1.48,
-      "signal": "弱转强",
-      "score": 81,
-      "source": "腾讯财经（行情）/东方财富（K线）",
-      "announcements": [
-        {
-          "title": "泸州老窖:2026年第三季度报告(英文)",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "000568泸州老窖投资者关系管理信息20261103",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "泸州老窖:第十一届董事会三十次会议决议公告",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "泸州老窖:2026年三季度报告",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "泸州老窖:关于2021年限制性股票激励计划预留部分第三个解除限售期解除限售股份上市流通的提示性公告",
-          "tone": "中性/待核实"
-        }
-      ]
-    },
-    {
-      "code": "603336",
-      "name": "宏辉果蔬",
-      "sector": "农业种植",
-      "price": 7.94,
-      "pct": 2.98,
-      "volume": 23703500.0,
-      "amount": 189560000.0,
-      "avg3_volume": 14147266.666666666,
-      "return_10d": 7.59,
-      "return_20d": -12.65,
-      "deviation_10d": 2.57,
-      "deviation_30d": -8.23,
-      "volume_ratio": 2.51,
-      "volume_pace": 2.51,
-      "signal": "弱转强",
-      "score": 81,
-      "source": "腾讯财经（行情）/东方财富（K线）",
-      "announcements": [
-        {
-          "title": "宏辉果蔬:关于续聘会计师事务所的公告",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "宏辉果蔬:2026年第三季度主要经营数据公告",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "宏辉果蔬:2026年第三季度报告",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "宏辉果蔬:关于调整日常关联交易预计的公告",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "宏辉果蔬:关于终止宏辉家家唛健康食品加工生产基地项目的公告",
-          "tone": "偏利空"
-        }
-      ]
-    },
-    {
       "code": "300804",
       "name": "广康生化",
       "sector": "农业种植",
@@ -1892,7 +1687,7 @@
       "deviation_10d": 7.75,
       "deviation_30d": -1.85,
       "volume_ratio": 1.67,
-      "volume_pace": 1.67,
+      "volume_pace": 20.92,
       "signal": "弱转强",
       "score": 81,
       "source": "腾讯财经",
@@ -1933,9 +1728,9 @@
       "deviation_10d": 20.74,
       "deviation_30d": 33.92,
       "volume_ratio": 1.47,
-      "volume_pace": 1.47,
-      "signal": "弱转强",
-      "score": 70,
+      "volume_pace": 18.33,
+      "signal": "放量突破",
+      "score": 80,
       "source": "腾讯财经",
       "announcements": [
         {
@@ -1961,47 +1756,6 @@
       ]
     },
     {
-      "code": "000902",
-      "name": "新洋丰",
-      "sector": "农业种植",
-      "price": 14.73,
-      "pct": 1.03,
-      "volume": 13613500.0,
-      "amount": 200850000.0,
-      "avg3_volume": 11309766.666666666,
-      "return_10d": 4.1,
-      "return_20d": 10.17,
-      "deviation_10d": 0.45,
-      "deviation_30d": 5.38,
-      "volume_ratio": 1.2,
-      "volume_pace": 1.2,
-      "signal": "趋势观察",
-      "score": 55,
-      "source": "腾讯财经（行情）/东方财富（K线）",
-      "announcements": [
-        {
-          "title": "新洋丰农业科技股份有限公司2026年10月26日投资者关系活动记录",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "新洋丰:新洋丰2026年第二次临时股东会法律意见书",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "新洋丰:第九届董事会第二十三次会议决议公告",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "新洋丰:2026年三季度报告",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "新洋丰:公司2026年第二次临时股东会决议公告",
-          "tone": "中性/待核实"
-        }
-      ]
-    },
-    {
       "code": "002588",
       "name": "史丹利",
       "sector": "农业种植",
@@ -2015,7 +1769,7 @@
       "deviation_10d": -0.15,
       "deviation_30d": 0.3,
       "volume_ratio": 1.02,
-      "volume_pace": 1.02,
+      "volume_pace": 12.69,
       "signal": "趋势观察",
       "score": 55,
       "source": "腾讯财经",
@@ -2043,42 +1797,206 @@
       ]
     },
     {
-      "code": "300829",
-      "name": "金丹科技",
+      "code": "600598",
+      "name": "北大荒",
       "sector": "农业种植",
-      "price": 28.62,
-      "pct": 0.53,
-      "volume": 27074200.0,
-      "amount": 770740000.0,
-      "avg3_volume": 29072633.333333332,
-      "return_10d": 17.58,
-      "return_20d": 19.2,
-      "deviation_10d": 10.89,
-      "deviation_30d": 18.38,
-      "volume_ratio": 1.22,
-      "volume_pace": 1.22,
+      "price": 13.34,
+      "pct": 1.06,
+      "volume": 13619700.0,
+      "amount": 181470000.0,
+      "avg3_volume": 12818833.333333334,
+      "return_10d": 0.91,
+      "return_20d": 0.76,
+      "deviation_10d": -1.54,
+      "deviation_30d": 0.15,
+      "volume_ratio": 0.95,
+      "volume_pace": 11.91,
       "signal": "趋势观察",
-      "score": 55,
+      "score": 48,
       "source": "腾讯财经",
       "announcements": [
         {
-          "title": "金丹科技:第六届董事会第四次会议决议公告",
+          "title": "北大荒:黑龙江北大荒农业股份有限公司董事会换届完成及聘任高级管理人员、证券事务代表的公告",
           "tone": "中性/待核实"
         },
         {
-          "title": "金丹科技:关于开展商品套期保值业务的公告",
+          "title": "北大荒:黑龙江北大荒农业股份有限公司第八届董事会第一次会议决议公告",
           "tone": "中性/待核实"
         },
         {
-          "title": "金丹科技:2026年三季度报告",
+          "title": "北大荒:黑龙江北大荒农业股份有限公司关于聘任董事会秘书的公告",
           "tone": "中性/待核实"
         },
         {
-          "title": "金丹科技:河南金丹乳酸科技股份有限公司关于开展外汇套期保值业务的可行性分析报告",
+          "title": "北大荒:黑龙江北大荒农业股份有限公司2026年第一次临时股东会决议公告",
           "tone": "中性/待核实"
         },
         {
-          "title": "金丹科技:河南金丹乳酸科技股份有限公司关于开展商品套期保值业务的可行性分析报告",
+          "title": "北大荒:法律意见书(北大荒)20261105",
+          "tone": "中性/待核实"
+        }
+      ]
+    },
+    {
+      "code": "300138",
+      "name": "晨光生物",
+      "sector": "农业种植",
+      "price": 12.69,
+      "pct": 1.04,
+      "volume": 4103100.0,
+      "amount": 51860000.0,
+      "avg3_volume": 3958233.3333333335,
+      "return_10d": 0.0,
+      "return_20d": 11.81,
+      "deviation_10d": -0.31,
+      "deviation_30d": 4.02,
+      "volume_ratio": 0.79,
+      "volume_pace": 9.84,
+      "signal": "趋势观察",
+      "score": 48,
+      "source": "腾讯财经",
+      "announcements": [
+        {
+          "title": "晨光生物:关于为参股公司银行借款提供担保的进展公告",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "晨光生物:关于回购公司股份的进展公告",
+          "tone": "偏利好"
+        },
+        {
+          "title": "晨光生物:关于子公司完成变更登记的公告",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "晨光生物:关于为子公司银行借款提供担保的进展公告",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "晨光生物:2026年10月27日投资者关系活动记录表",
+          "tone": "中性/待核实"
+        }
+      ]
+    },
+    {
+      "code": "601118",
+      "name": "海南橡胶",
+      "sector": "农业种植",
+      "price": 5.45,
+      "pct": 0.93,
+      "volume": 99507200.0,
+      "amount": 546930000.0,
+      "avg3_volume": 118615933.33333333,
+      "return_10d": 7.28,
+      "return_20d": -19.26,
+      "deviation_10d": 2.37,
+      "deviation_30d": -8.3,
+      "volume_ratio": 1.0,
+      "volume_pace": 12.54,
+      "signal": "趋势观察",
+      "score": 48,
+      "source": "腾讯财经",
+      "announcements": [
+        {
+          "title": "海南橡胶:关于控股子公司合盛农业拟出售资产的公告",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "海南橡胶:Halcyon Agri Corporation Limited拟转让JFL Agro Pte. Ltd.股权涉及JFL Agro Pte. Ltd.股东全部权益价值估值项目估值报告",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "海南橡胶:第六届董事会第五十九次会议决议公告",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "海南橡胶:2026年第三季度报告",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "海南橡胶:第六届董事会第五十八次会议决议公告",
+          "tone": "中性/待核实"
+        }
+      ]
+    },
+    {
+      "code": "002385",
+      "name": "大北农",
+      "sector": "农业种植",
+      "price": 2.98,
+      "pct": 0.68,
+      "volume": 40678200.0,
+      "amount": 121290000.0,
+      "avg3_volume": 32927433.333333332,
+      "return_10d": 4.56,
+      "return_20d": -1.32,
+      "deviation_10d": -0.1,
+      "deviation_30d": -1.16,
+      "volume_ratio": 1.09,
+      "volume_pace": 13.66,
+      "signal": "趋势观察",
+      "score": 48,
+      "source": "腾讯财经",
+      "announcements": [
+        {
+          "title": "大北农:关于募集资金专户销户完成的公告",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "大北农:公司及控股子公司担保进展公告",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "大北农:2026年10月份商品肥猪销售情况简报",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "大北农:关于部分募集资金专户销户完成的公告",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "大北农:关于回购股份进展情况的公告",
+          "tone": "偏利好"
+        }
+      ]
+    },
+    {
+      "code": "688765",
+      "name": "禾元生物-U",
+      "sector": "农业种植",
+      "price": 36.76,
+      "pct": 8.76,
+      "volume": 13369892.0,
+      "amount": 476330000.0,
+      "avg3_volume": 835276200.0,
+      "return_10d": 21.12,
+      "return_20d": 10.76,
+      "deviation_10d": 13.55,
+      "deviation_30d": 10.55,
+      "volume_ratio": 0.02,
+      "volume_pace": 0.29,
+      "signal": "趋势观察",
+      "score": 47,
+      "source": "腾讯财经",
+      "announcements": [
+        {
+          "title": "禾元生物:关于控股股东、实际控制人承诺延长所持公司股份锁定期的公告",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "禾元生物:国泰海通证券股份有限公司关于武汉禾元生物科技股份有限公司使用部分暂时闲置募集资金(含超募资金)进行现金管理的核查意见",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "禾元生物:2026年第三季度报告",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "禾元生物:关于使用部分闲置募集资金(含超募资金)进行现金管理的公告",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "禾元生物:投资者关系活动记录表(2026年10月)",
           "tone": "中性/待核实"
         }
       ]
