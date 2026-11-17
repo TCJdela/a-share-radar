@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-11-17T20:44:30.212509+08:00",
+  "generated_at": "2026-11-18T07:46:39.488367+08:00",
   "report_date": "2026-11-17",
-  "mode": "noon",
+  "mode": "previous",
   "market_status": "open",
   "source": "个股行情与K线：腾讯财经优先，东方财富容灾；板块目录与公告：东方财富",
   "fixed_sectors": [
@@ -339,6 +339,47 @@
   ],
   "candidates": [
     {
+      "code": "688396",
+      "name": "华润微",
+      "sector": "集成电路制造",
+      "price": 46.8,
+      "pct": 2.83,
+      "volume": 12515914.0,
+      "amount": 580980000.0,
+      "avg3_volume": 12460566.666666666,
+      "return_10d": 0.19,
+      "return_20d": -7.4,
+      "deviation_10d": -3.38,
+      "deviation_30d": -5.13,
+      "volume_ratio": 1.01,
+      "volume_pace": 12.6,
+      "signal": "弱转强",
+      "score": 81,
+      "source": "腾讯财经（行情）/东方财富（K线）",
+      "announcements": [
+        {
+          "title": "华润微:电子有限公司2026年10月投资者关系活动记录表",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "华润微:华润微电子有限公司董事会提名委员会关于独立董事候选人的审核意见",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "华润微:独立董事候选人声明与承诺-冯凯燕",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "华润微:独立董事提名人声明与承诺-冯凯燕",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "华润微:关于公司选举独立董事的公告",
+          "tone": "中性/待核实"
+        }
+      ]
+    },
+    {
       "code": "300456",
       "name": "赛微电子",
       "sector": "集成电路制造",
@@ -352,7 +393,7 @@
       "deviation_10d": -4.77,
       "deviation_30d": -12.86,
       "volume_ratio": 1.22,
-      "volume_pace": 1.22,
+      "volume_pace": 15.23,
       "signal": "弱转强",
       "score": 81,
       "source": "腾讯财经",
@@ -393,7 +434,7 @@
       "deviation_10d": 3.67,
       "deviation_30d": 3.3,
       "volume_ratio": 0.02,
-      "volume_pace": 0.02,
+      "volume_pace": 0.19,
       "signal": "趋势观察",
       "score": 55,
       "source": "腾讯财经",
@@ -434,7 +475,7 @@
       "deviation_10d": 3.04,
       "deviation_30d": 7.65,
       "volume_ratio": 0.02,
-      "volume_pace": 0.02,
+      "volume_pace": 0.23,
       "signal": "趋势观察",
       "score": 55,
       "source": "腾讯财经",
@@ -475,7 +516,7 @@
       "deviation_10d": 6.39,
       "deviation_30d": -0.54,
       "volume_ratio": 0.02,
-      "volume_pace": 0.02,
+      "volume_pace": 0.26,
       "signal": "趋势观察",
       "score": 48,
       "source": "腾讯财经",
@@ -516,7 +557,7 @@
       "deviation_10d": -1.75,
       "deviation_30d": -1.58,
       "volume_ratio": 0.01,
-      "volume_pace": 0.01,
+      "volume_pace": 0.17,
       "signal": "趋势观察",
       "score": 48,
       "source": "腾讯财经",
@@ -544,47 +585,6 @@
       ]
     },
     {
-      "code": "688396",
-      "name": "华润微",
-      "sector": "集成电路制造",
-      "price": 46.8,
-      "pct": 2.83,
-      "volume": 12515914.0,
-      "amount": 580980000.0,
-      "avg3_volume": 12460566.666666666,
-      "return_10d": 0.19,
-      "return_20d": -7.4,
-      "deviation_10d": -3.38,
-      "deviation_30d": -5.13,
-      "volume_ratio": 1.01,
-      "volume_pace": 1.01,
-      "signal": "趋势观察",
-      "score": 48,
-      "source": "腾讯财经（行情）/东方财富（K线）",
-      "announcements": [
-        {
-          "title": "华润微:电子有限公司2026年10月投资者关系活动记录表",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "华润微:华润微电子有限公司董事会提名委员会关于独立董事候选人的审核意见",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "华润微:独立董事候选人声明与承诺-冯凯燕",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "华润微:独立董事提名人声明与承诺-冯凯燕",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "华润微:关于公司选举独立董事的公告",
-          "tone": "中性/待核实"
-        }
-      ]
-    },
-    {
       "code": "688469",
       "name": "芯联集成-U",
       "sector": "集成电路制造",
@@ -598,7 +598,7 @@
       "deviation_10d": -5.05,
       "deviation_30d": -11.51,
       "volume_ratio": 0.01,
-      "volume_pace": 0.01,
+      "volume_pace": 0.12,
       "signal": "趋势观察",
       "score": 48,
       "source": "腾讯财经",
@@ -639,7 +639,7 @@
       "deviation_10d": 28.04,
       "deviation_30d": 31.13,
       "volume_ratio": 4.53,
-      "volume_pace": 4.53,
+      "volume_pace": 56.66,
       "signal": "放量突破",
       "score": 90,
       "source": "腾讯财经",
@@ -680,7 +680,7 @@
       "deviation_10d": 15.3,
       "deviation_30d": 18.76,
       "volume_ratio": 1.6,
-      "volume_pace": 1.6,
+      "volume_pace": 19.94,
       "signal": "放量突破",
       "score": 90,
       "source": "腾讯财经（行情）/东方财富（K线）",
@@ -721,7 +721,7 @@
       "deviation_10d": 9.63,
       "deviation_30d": 11.39,
       "volume_ratio": 1.25,
-      "volume_pace": 1.25,
+      "volume_pace": 15.66,
       "signal": "弱转强",
       "score": 88,
       "source": "腾讯财经（行情）/东方财富（K线）",
@@ -762,7 +762,7 @@
       "deviation_10d": 24.48,
       "deviation_30d": 30.09,
       "volume_ratio": 2.55,
-      "volume_pace": 2.55,
+      "volume_pace": 31.87,
       "signal": "放量突破",
       "score": 80,
       "source": "腾讯财经（行情）/东方财富（K线）",
@@ -790,6 +790,88 @@
       ]
     },
     {
+      "code": "002685",
+      "name": "华东重机",
+      "sector": "反转股",
+      "price": 6.7,
+      "pct": 10.02,
+      "volume": 34015100.0,
+      "amount": 227900000.0,
+      "avg3_volume": 96857866.66666667,
+      "return_10d": 48.56,
+      "return_20d": 38.14,
+      "deviation_10d": 29.72,
+      "deviation_30d": 35.3,
+      "volume_ratio": 0.44,
+      "volume_pace": 5.47,
+      "signal": "放量突破",
+      "score": 80,
+      "source": "腾讯财经",
+      "announcements": [
+        {
+          "title": "华东重机:股票交易异常波动公告",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "华东重机:关于2026年度以简易程序向特定对象发行股票申请获得深圳证券交易所受理的公告",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "4-1法律意见书(申报稿)(无锡华东重型机械股份有限公司)",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "3-1证券发行保荐书(申报稿)(无锡华东重型机械股份有限公司)",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "3-3上市保荐书(申报稿)(无锡华东重型机械股份有限公司)",
+          "tone": "中性/待核实"
+        }
+      ]
+    },
+    {
+      "code": "600410",
+      "name": "华胜天成",
+      "sector": "反转股",
+      "price": 15.29,
+      "pct": 10.0,
+      "volume": 92891800.0,
+      "amount": 1403190000.0,
+      "avg3_volume": 164490166.66666666,
+      "return_10d": 35.79,
+      "return_20d": 21.35,
+      "deviation_10d": 17.33,
+      "deviation_30d": 20.46,
+      "volume_ratio": 0.73,
+      "volume_pace": 9.13,
+      "signal": "弱转强",
+      "score": 80,
+      "source": "腾讯财经（行情）/东方财富（K线）",
+      "announcements": [
+        {
+          "title": "华胜天成:2026年第三季度报告",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "华胜天成:关于2026年第三季度计提及冲回资产减值准备的公告",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "华胜天成:关于召开2026年第三季度业绩说明会的公告",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "华胜天成:公司关于为全资子公司提供担保的进展公告",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "华胜天成:董事会秘书辞职暨新聘董事会秘书的公告",
+          "tone": "中性/待核实"
+        }
+      ]
+    },
+    {
       "code": "301106",
       "name": "骏成科技",
       "sector": "反转股",
@@ -803,7 +885,7 @@
       "deviation_10d": 9.03,
       "deviation_30d": 10.54,
       "volume_ratio": 1.3,
-      "volume_pace": 1.3,
+      "volume_pace": 16.21,
       "signal": "趋势观察",
       "score": 52,
       "source": "腾讯财经",
@@ -844,7 +926,7 @@
       "deviation_10d": 3.15,
       "deviation_30d": 6.2,
       "volume_ratio": 0.49,
-      "volume_pace": 0.49,
+      "volume_pace": 6.11,
       "signal": "趋势观察",
       "score": 52,
       "source": "腾讯财经",
@@ -885,7 +967,7 @@
       "deviation_10d": 6.74,
       "deviation_30d": 10.79,
       "volume_ratio": 1.09,
-      "volume_pace": 1.09,
+      "volume_pace": 13.61,
       "signal": "趋势观察",
       "score": 52,
       "source": "腾讯财经",
@@ -926,7 +1008,7 @@
       "deviation_10d": 2.69,
       "deviation_30d": 2.21,
       "volume_ratio": 1.62,
-      "volume_pace": 1.62,
+      "volume_pace": 20.27,
       "signal": "趋势观察",
       "score": 52,
       "source": "腾讯财经",
@@ -954,88 +1036,6 @@
       ]
     },
     {
-      "code": "002853",
-      "name": "皮阿诺",
-      "sector": "反转股",
-      "price": 20.85,
-      "pct": -8.71,
-      "volume": 4531200.0,
-      "amount": 96310000.0,
-      "avg3_volume": 5533666.666666667,
-      "return_10d": 12.4,
-      "return_20d": 4.51,
-      "deviation_10d": 4.08,
-      "deviation_30d": 4.96,
-      "volume_ratio": 1.51,
-      "volume_pace": 1.51,
-      "signal": "趋势观察",
-      "score": 52,
-      "source": "腾讯财经",
-      "announcements": [
-        {
-          "title": "皮阿诺:关于续聘2026年度审计机构的公告",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "皮阿诺:第五届董事会第七次会议决议公告",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "皮阿诺:关于召开公司2026年第六次临时股东会的通知",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "皮阿诺:股票交易异常波动公告",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "皮阿诺:国信证券股份有限公司关于广东皮阿诺科学艺术家居股份有限公司详式权益变动报告书之2026年第三季度持续督导意见",
-          "tone": "中性/待核实"
-        }
-      ]
-    },
-    {
-      "code": "688502",
-      "name": "茂莱光学",
-      "sector": "反转股",
-      "price": 441.0,
-      "pct": 10.34,
-      "volume": 2842871.0,
-      "amount": 1248660000.0,
-      "avg3_volume": 234870300.0,
-      "return_10d": 40.45,
-      "return_20d": 25.11,
-      "deviation_10d": 13.66,
-      "deviation_30d": 20.92,
-      "volume_ratio": 0.02,
-      "volume_pace": 0.02,
-      "signal": "趋势观察",
-      "score": 47,
-      "source": "腾讯财经",
-      "announcements": [
-        {
-          "title": "茂莱光学:关于债券持有人可转债持有比例变动达10%的公告",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "茂莱光学:关于“茂莱转债”2026年付息的公告",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "茂莱光学:关于为深圳茂莱创芯科技有限公司提供担保的进展公告",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "茂莱光学:2026年第三季度报告",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "茂莱光学:关于变更对外投资项目实施主体暨对全资子公司增资的公告",
-          "tone": "中性/待核实"
-        }
-      ]
-    },
-    {
       "code": "603650",
       "name": "彤程新材",
       "sector": "橡胶助剂",
@@ -1049,7 +1049,7 @@
       "deviation_10d": -0.05,
       "deviation_30d": -3.88,
       "volume_ratio": 1.68,
-      "volume_pace": 1.68,
+      "volume_pace": 20.96,
       "signal": "弱转强",
       "score": 88,
       "source": "腾讯财经",
@@ -1090,7 +1090,7 @@
       "deviation_10d": 4.67,
       "deviation_30d": 6.46,
       "volume_ratio": 1.76,
-      "volume_pace": 1.76,
+      "volume_pace": 22.0,
       "signal": "趋势观察",
       "score": 55,
       "source": "腾讯财经（行情）/东方财富（K线）",
@@ -1131,7 +1131,7 @@
       "deviation_10d": 4.92,
       "deviation_30d": 0.78,
       "volume_ratio": 1.71,
-      "volume_pace": 1.71,
+      "volume_pace": 21.39,
       "signal": "弱转强",
       "score": 88,
       "source": "腾讯财经（行情）/东方财富（K线）",
@@ -1172,7 +1172,7 @@
       "deviation_10d": 3.9,
       "deviation_30d": 0.57,
       "volume_ratio": 1.94,
-      "volume_pace": 1.94,
+      "volume_pace": 24.31,
       "signal": "弱转强",
       "score": 88,
       "source": "腾讯财经（行情）/东方财富（K线）",
@@ -1213,7 +1213,7 @@
       "deviation_10d": 3.75,
       "deviation_30d": 1.32,
       "volume_ratio": 2.25,
-      "volume_pace": 2.25,
+      "volume_pace": 28.15,
       "signal": "弱转强",
       "score": 88,
       "source": "腾讯财经（行情）/东方财富（K线）",
@@ -1254,7 +1254,7 @@
       "deviation_10d": 2.86,
       "deviation_30d": 2.1,
       "volume_ratio": 2.64,
-      "volume_pace": 2.64,
+      "volume_pace": 32.94,
       "signal": "弱转强",
       "score": 88,
       "source": "腾讯财经",
@@ -1295,7 +1295,7 @@
       "deviation_10d": 24.85,
       "deviation_30d": 8.03,
       "volume_ratio": 1.56,
-      "volume_pace": 1.56,
+      "volume_pace": 19.44,
       "signal": "放量突破",
       "score": 83,
       "source": "腾讯财经",
@@ -1336,7 +1336,7 @@
       "deviation_10d": 9.77,
       "deviation_30d": 4.26,
       "volume_ratio": 6.55,
-      "volume_pace": 6.55,
+      "volume_pace": 81.85,
       "signal": "弱转强",
       "score": 81,
       "source": "腾讯财经",
@@ -1377,7 +1377,7 @@
       "deviation_10d": 3.33,
       "deviation_30d": 0.12,
       "volume_ratio": 1.11,
-      "volume_pace": 1.11,
+      "volume_pace": 13.89,
       "signal": "弱转强",
       "score": 81,
       "source": "腾讯财经",
@@ -1418,7 +1418,7 @@
       "deviation_10d": 3.02,
       "deviation_30d": -1.01,
       "volume_ratio": 3.42,
-      "volume_pace": 3.42,
+      "volume_pace": 42.71,
       "signal": "弱转强",
       "score": 81,
       "source": "腾讯财经",
@@ -1459,7 +1459,7 @@
       "deviation_10d": -2.62,
       "deviation_30d": -9.74,
       "volume_ratio": 1.31,
-      "volume_pace": 1.31,
+      "volume_pace": 16.34,
       "signal": "弱转强",
       "score": 81,
       "source": "腾讯财经（行情）/东方财富（K线）",
@@ -1500,7 +1500,7 @@
       "deviation_10d": 1.11,
       "deviation_30d": -2.25,
       "volume_ratio": 2.21,
-      "volume_pace": 2.21,
+      "volume_pace": 27.58,
       "signal": "弱转强",
       "score": 81,
       "source": "腾讯财经",
@@ -1541,7 +1541,7 @@
       "deviation_10d": 4.9,
       "deviation_30d": 9.81,
       "volume_ratio": 1.56,
-      "volume_pace": 1.56,
+      "volume_pace": 19.51,
       "signal": "放量突破",
       "score": 98,
       "source": "腾讯财经",
@@ -1582,7 +1582,7 @@
       "deviation_10d": 2.63,
       "deviation_30d": 2.54,
       "volume_ratio": 2.12,
-      "volume_pace": 2.12,
+      "volume_pace": 26.51,
       "signal": "放量突破",
       "score": 91,
       "source": "腾讯财经",
@@ -1623,7 +1623,7 @@
       "deviation_10d": 29.85,
       "deviation_30d": 28.48,
       "volume_ratio": 6.7,
-      "volume_pace": 6.7,
+      "volume_pace": 83.8,
       "signal": "放量突破",
       "score": 90,
       "source": "腾讯财经（行情）/东方财富（K线）",
@@ -1664,7 +1664,7 @@
       "deviation_10d": 15.81,
       "deviation_30d": 14.23,
       "volume_ratio": 4.65,
-      "volume_pace": 4.65,
+      "volume_pace": 58.1,
       "signal": "放量突破",
       "score": 90,
       "source": "腾讯财经",
@@ -1692,6 +1692,47 @@
       ]
     },
     {
+      "code": "002242",
+      "name": "九阳股份",
+      "sector": "厨房小家电",
+      "price": 31.52,
+      "pct": 10.02,
+      "volume": 124553500.0,
+      "amount": 3544080000.0,
+      "avg3_volume": 115120233.33333333,
+      "return_10d": 37.76,
+      "return_20d": 53.31,
+      "deviation_10d": 18.6,
+      "deviation_30d": 44.16,
+      "volume_ratio": 1.46,
+      "volume_pace": 18.23,
+      "signal": "放量突破",
+      "score": 80,
+      "source": "腾讯财经",
+      "announcements": [
+        {
+          "title": "九阳股份:九阳股份股票交易异常波动暨风险提示公告",
+          "tone": "偏利空"
+        },
+        {
+          "title": "九阳股份:国浩律师(上海)事务所关于九阳股份有限公司2026年第三次临时股东会的法律意见书",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "九阳股份:九阳股份有限公司2026年第三次临时股东会决议公告",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "九阳股份:关于控股股东持股变动触及1%整数倍的提示性公告",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "九阳股份:关于调减2026年度日常关联交易预计额度及2027年度日常关联交易预计的公告",
+          "tone": "中性/待核实"
+        }
+      ]
+    },
+    {
       "code": "603215",
       "name": "比依股份",
       "sector": "厨房小家电",
@@ -1705,7 +1746,7 @@
       "deviation_10d": 1.96,
       "deviation_30d": 3.84,
       "volume_ratio": 1.05,
-      "volume_pace": 1.05,
+      "volume_pace": 13.09,
       "signal": "趋势观察",
       "score": 55,
       "source": "腾讯财经（行情）/东方财富（K线）",
@@ -1746,7 +1787,7 @@
       "deviation_10d": -5.4,
       "deviation_30d": -2.78,
       "volume_ratio": 0.62,
-      "volume_pace": 0.62,
+      "volume_pace": 7.71,
       "signal": "趋势观察",
       "score": 52,
       "source": "腾讯财经",
@@ -1787,7 +1828,7 @@
       "deviation_10d": -0.74,
       "deviation_30d": -5.17,
       "volume_ratio": 1.5,
-      "volume_pace": 1.5,
+      "volume_pace": 18.77,
       "signal": "趋势观察",
       "score": 48,
       "source": "腾讯财经",
@@ -1807,7 +1848,7 @@
       "deviation_10d": -1.91,
       "deviation_30d": -8.91,
       "volume_ratio": 1.26,
-      "volume_pace": 1.26,
+      "volume_pace": 15.72,
       "signal": "趋势观察",
       "score": 45,
       "source": "腾讯财经",
@@ -1848,7 +1889,7 @@
       "deviation_10d": -6.04,
       "deviation_30d": -8.46,
       "volume_ratio": 1.66,
-      "volume_pace": 1.66,
+      "volume_pace": 20.76,
       "signal": "趋势观察",
       "score": 45,
       "source": "腾讯财经",
@@ -1871,47 +1912,6 @@
         },
         {
           "title": "利仁科技:关于公司向银行申请综合授信额度的公告",
-          "tone": "中性/待核实"
-        }
-      ]
-    },
-    {
-      "code": "002242",
-      "name": "九阳股份",
-      "sector": "厨房小家电",
-      "price": 31.52,
-      "pct": 10.02,
-      "volume": 124553500.0,
-      "amount": 3544080000.0,
-      "avg3_volume": 115120233.33333333,
-      "return_10d": 37.76,
-      "return_20d": 53.31,
-      "deviation_10d": 18.6,
-      "deviation_30d": 44.16,
-      "volume_ratio": 1.46,
-      "volume_pace": 1.46,
-      "signal": "趋势观察",
-      "score": 37,
-      "source": "腾讯财经",
-      "announcements": [
-        {
-          "title": "九阳股份:九阳股份股票交易异常波动暨风险提示公告",
-          "tone": "偏利空"
-        },
-        {
-          "title": "九阳股份:国浩律师(上海)事务所关于九阳股份有限公司2026年第三次临时股东会的法律意见书",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "九阳股份:九阳股份有限公司2026年第三次临时股东会决议公告",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "九阳股份:关于控股股东持股变动触及1%整数倍的提示性公告",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "九阳股份:关于调减2026年度日常关联交易预计额度及2027年度日常关联交易预计的公告",
           "tone": "中性/待核实"
         }
       ]
