@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-11-18T20:36:25.258530+08:00",
+  "generated_at": "2026-11-19T07:18:44.647188+08:00",
   "report_date": "2026-11-18",
-  "mode": "noon",
+  "mode": "previous",
   "market_status": "open",
   "source": "个股行情与K线：腾讯财经优先，东方财富容灾；板块目录与公告：东方财富",
   "fixed_sectors": [
@@ -333,47 +333,6 @@
   ],
   "candidates": [
     {
-      "code": "300310",
-      "name": "宜通世纪",
-      "sector": "通信工程及服务",
-      "price": 4.57,
-      "pct": 0.88,
-      "volume": 42427600.0,
-      "amount": 195920000.0,
-      "avg3_volume": 40425566.666666664,
-      "return_10d": 6.78,
-      "return_20d": 7.53,
-      "deviation_10d": -2.1,
-      "deviation_30d": 4.53,
-      "volume_ratio": 0.56,
-      "volume_pace": 0.56,
-      "signal": "缩量回踩",
-      "score": 92,
-      "source": "腾讯财经",
-      "announcements": [
-        {
-          "title": "宜通世纪:2026年三季度报告",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "宜通世纪:关于注销司法划转股份减少注册资本暨通知债权人的公告",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "宜通世纪:北京市君合(广州)律师事务所关于宜通世纪科技股份有限公司2026年第一次临时股东会的法律意见",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "宜通世纪:2026年第一次临时股东会决议公告",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "宜通世纪:公司章程(2026年10月)",
-          "tone": "中性/待核实"
-        }
-      ]
-    },
-    {
       "code": "603206",
       "name": "嘉环科技",
       "sector": "通信工程及服务",
@@ -387,7 +346,7 @@
       "deviation_10d": 12.23,
       "deviation_30d": 15.19,
       "volume_ratio": 5.11,
-      "volume_pace": 5.11,
+      "volume_pace": 63.85,
       "signal": "放量突破",
       "score": 90,
       "source": "腾讯财经",
@@ -428,7 +387,7 @@
       "deviation_10d": 4.97,
       "deviation_30d": 4.02,
       "volume_ratio": 1.43,
-      "volume_pace": 1.43,
+      "volume_pace": 17.88,
       "signal": "弱转强",
       "score": 81,
       "source": "腾讯财经",
@@ -456,6 +415,47 @@
       ]
     },
     {
+      "code": "002929",
+      "name": "润建股份",
+      "sector": "通信工程及服务",
+      "price": 53.76,
+      "pct": 10.01,
+      "volume": 34940700.0,
+      "amount": 1799250000.0,
+      "avg3_volume": 27824466.666666668,
+      "return_10d": 3.09,
+      "return_20d": -4.21,
+      "deviation_10d": -5.32,
+      "deviation_30d": 3.62,
+      "volume_ratio": 1.04,
+      "volume_pace": 12.97,
+      "signal": "弱转强",
+      "score": 81,
+      "source": "腾讯财经（行情）/东方财富（K线）",
+      "announcements": [
+        {
+          "title": "润建股份:2026年11月17日投资者关系活动记录表",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "润建股份:第六届董事会第九次会议决议公告",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "润建股份:关于修订《公司章程》并办理工商变更登记的公告",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "润建股份:关于2026年第三次临时股东会增加临时提案暨股东会补充通知的公告",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "润建股份:润建股份有限公司章程(2026年11月)",
+          "tone": "中性/待核实"
+        }
+      ]
+    },
+    {
       "code": "300025",
       "name": "华星创业",
       "sector": "通信工程及服务",
@@ -469,7 +469,7 @@
       "deviation_10d": 3.49,
       "deviation_30d": -1.27,
       "volume_ratio": 1.48,
-      "volume_pace": 1.48,
+      "volume_pace": 18.54,
       "signal": "弱转强",
       "score": 81,
       "source": "腾讯财经",
@@ -510,7 +510,7 @@
       "deviation_10d": 0.09,
       "deviation_30d": -5.65,
       "volume_ratio": 1.64,
-      "volume_pace": 1.64,
+      "volume_pace": 20.47,
       "signal": "弱转强",
       "score": 81,
       "source": "腾讯财经",
@@ -551,7 +551,7 @@
       "deviation_10d": -0.59,
       "deviation_30d": -2.03,
       "volume_ratio": 2.1,
-      "volume_pace": 2.1,
+      "volume_pace": 26.21,
       "signal": "弱转强",
       "score": 81,
       "source": "腾讯财经",
@@ -592,7 +592,7 @@
       "deviation_10d": -3.1,
       "deviation_30d": -8.6,
       "volume_ratio": 1.27,
-      "volume_pace": 1.27,
+      "volume_pace": 15.87,
       "signal": "弱转强",
       "score": 81,
       "source": "腾讯财经",
@@ -633,7 +633,7 @@
       "deviation_10d": -4.04,
       "deviation_30d": -11.78,
       "volume_ratio": 1.57,
-      "volume_pace": 1.57,
+      "volume_pace": 19.57,
       "signal": "弱转强",
       "score": 81,
       "source": "腾讯财经",
@@ -661,84 +661,84 @@
       ]
     },
     {
-      "code": "002929",
-      "name": "润建股份",
+      "code": "300310",
+      "name": "宜通世纪",
       "sector": "通信工程及服务",
-      "price": 53.76,
-      "pct": 10.01,
-      "volume": 34940700.0,
-      "amount": 1799250000.0,
-      "avg3_volume": 27824466.666666668,
-      "return_10d": 3.09,
-      "return_20d": -4.21,
-      "deviation_10d": -5.32,
-      "deviation_30d": 3.62,
-      "volume_ratio": 1.04,
-      "volume_pace": 1.04,
+      "price": 4.57,
+      "pct": 0.88,
+      "volume": 42427600.0,
+      "amount": 195920000.0,
+      "avg3_volume": 40425566.666666664,
+      "return_10d": 6.78,
+      "return_20d": 7.53,
+      "deviation_10d": -2.1,
+      "deviation_30d": 4.53,
+      "volume_ratio": 0.56,
+      "volume_pace": 7.0,
       "signal": "趋势观察",
-      "score": 48,
-      "source": "腾讯财经（行情）/东方财富（K线）",
+      "score": 55,
+      "source": "腾讯财经",
       "announcements": [
         {
-          "title": "润建股份:2026年11月17日投资者关系活动记录表",
+          "title": "宜通世纪:2026年三季度报告",
           "tone": "中性/待核实"
         },
         {
-          "title": "润建股份:第六届董事会第九次会议决议公告",
+          "title": "宜通世纪:关于注销司法划转股份减少注册资本暨通知债权人的公告",
           "tone": "中性/待核实"
         },
         {
-          "title": "润建股份:关于修订《公司章程》并办理工商变更登记的公告",
+          "title": "宜通世纪:北京市君合(广州)律师事务所关于宜通世纪科技股份有限公司2026年第一次临时股东会的法律意见",
           "tone": "中性/待核实"
         },
         {
-          "title": "润建股份:关于2026年第三次临时股东会增加临时提案暨股东会补充通知的公告",
+          "title": "宜通世纪:2026年第一次临时股东会决议公告",
           "tone": "中性/待核实"
         },
         {
-          "title": "润建股份:润建股份有限公司章程(2026年11月)",
+          "title": "宜通世纪:公司章程(2026年10月)",
           "tone": "中性/待核实"
         }
       ]
     },
     {
-      "code": "300050",
-      "name": "世纪鼎利",
+      "code": "603220",
+      "name": "中贝通信",
       "sector": "通信工程及服务",
-      "price": 5.27,
-      "pct": 0.38,
-      "volume": 16597900.0,
-      "amount": 87090000.0,
-      "avg3_volume": 21065800.0,
-      "return_10d": -12.31,
-      "return_20d": -19.05,
-      "deviation_10d": -9.37,
-      "deviation_30d": -15.53,
-      "volume_ratio": 0.79,
-      "volume_pace": 0.79,
+      "price": 15.62,
+      "pct": 10.0,
+      "volume": 52472300.0,
+      "amount": 797650000.0,
+      "avg3_volume": 26472266.666666668,
+      "return_10d": 9.85,
+      "return_20d": -1.01,
+      "deviation_10d": 6.46,
+      "deviation_30d": 4.98,
+      "volume_ratio": 4.05,
+      "volume_pace": 50.66,
       "signal": "趋势观察",
       "score": 48,
-      "source": "腾讯财经",
+      "source": "腾讯财经（行情）/东方财富（K线）",
       "announcements": [
         {
-          "title": "世纪鼎利:关于公司全资子公司涉及重大诉讼的进展公告",
-          "tone": "偏利空"
+          "title": "中贝通信:关于新增回购专用证券账户的公告",
+          "tone": "偏利好"
         },
         {
-          "title": "世纪鼎利:2026年三季度报告",
+          "title": "中贝通信:关于以集中竞价交易方式回购股份的回购报告书",
+          "tone": "偏利好"
+        },
+        {
+          "title": "中贝通信:关于取得金融机构回购专项贷款承诺函的公告",
+          "tone": "偏利好"
+        },
+        {
+          "title": "中贝通信:关于证券事务代表辞职的公告",
           "tone": "中性/待核实"
         },
         {
-          "title": "世纪鼎利:关于公司全资子公司涉及重大诉讼的进展公告",
-          "tone": "偏利空"
-        },
-        {
-          "title": "世纪鼎利:2026年广东辖区上市公司投资者网上集体接待日活动记录表",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "世纪鼎利:北京浩天(广州)律师事务所关于珠海世纪鼎利科技股份有限公司2026年第二次临时股东会之法律意见书",
-          "tone": "中性/待核实"
+          "title": "中贝通信:关于股份回购进展公告",
+          "tone": "偏利好"
         }
       ]
     },
@@ -756,7 +756,7 @@
       "deviation_10d": 13.0,
       "deviation_30d": 18.47,
       "volume_ratio": 1.87,
-      "volume_pace": 1.87,
+      "volume_pace": 23.41,
       "signal": "放量突破",
       "score": 90,
       "source": "腾讯财经",
@@ -797,7 +797,7 @@
       "deviation_10d": 17.66,
       "deviation_30d": 11.98,
       "volume_ratio": 1.77,
-      "volume_pace": 1.77,
+      "volume_pace": 22.09,
       "signal": "放量突破",
       "score": 90,
       "source": "腾讯财经",
@@ -838,7 +838,7 @@
       "deviation_10d": 7.78,
       "deviation_30d": 5.15,
       "volume_ratio": 2.18,
-      "volume_pace": 2.18,
+      "volume_pace": 27.23,
       "signal": "弱转强",
       "score": 88,
       "source": "腾讯财经",
@@ -866,6 +866,47 @@
       ]
     },
     {
+      "code": "301396",
+      "name": "宏景科技",
+      "sector": "算力租赁",
+      "price": 114.6,
+      "pct": 20.0,
+      "volume": 19347800.0,
+      "amount": 2021230000.0,
+      "avg3_volume": 13013066.666666666,
+      "return_10d": 5.35,
+      "return_20d": -13.41,
+      "deviation_10d": 2.71,
+      "deviation_30d": -3.82,
+      "volume_ratio": 1.68,
+      "volume_pace": 21.01,
+      "signal": "弱转强",
+      "score": 81,
+      "source": "腾讯财经（行情）/东方财富（K线）",
+      "announcements": [
+        {
+          "title": "宏景科技:关于回购股份实施完成暨股份变动的公告",
+          "tone": "偏利好"
+        },
+        {
+          "title": "宏景科技:301396宏景科技投资者关系管理信息20261028",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "宏景科技:2026年三季度报告",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "宏景科技:301396宏景科技投资者关系管理信息20261016",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "宏景科技:关于完成工商变更登记的公告",
+          "tone": "中性/待核实"
+        }
+      ]
+    },
+    {
       "code": "300857",
       "name": "协创数据",
       "sector": "算力租赁",
@@ -879,7 +920,7 @@
       "deviation_10d": -4.42,
       "deviation_30d": -21.48,
       "volume_ratio": 1.64,
-      "volume_pace": 1.64,
+      "volume_pace": 20.44,
       "signal": "弱转强",
       "score": 81,
       "source": "腾讯财经",
@@ -920,7 +961,7 @@
       "deviation_10d": -2.32,
       "deviation_30d": -18.2,
       "volume_ratio": 1.62,
-      "volume_pace": 1.62,
+      "volume_pace": 20.24,
       "signal": "弱转强",
       "score": 81,
       "source": "腾讯财经",
@@ -961,7 +1002,7 @@
       "deviation_10d": 4.71,
       "deviation_30d": 3.82,
       "volume_ratio": 3.05,
-      "volume_pace": 3.05,
+      "volume_pace": 38.12,
       "signal": "弱转强",
       "score": 81,
       "source": "腾讯财经",
@@ -1002,7 +1043,7 @@
       "deviation_10d": 7.57,
       "deviation_30d": 46.52,
       "volume_ratio": 1.23,
-      "volume_pace": 1.23,
+      "volume_pace": 15.33,
       "signal": "弱转强",
       "score": 71,
       "source": "腾讯财经",
@@ -1043,7 +1084,7 @@
       "deviation_10d": 11.95,
       "deviation_30d": 7.43,
       "volume_ratio": 3.11,
-      "volume_pace": 3.11,
+      "volume_pace": 38.91,
       "signal": "趋势观察",
       "score": 55,
       "source": "腾讯财经",
@@ -1084,7 +1125,7 @@
       "deviation_10d": 8.35,
       "deviation_30d": 17.21,
       "volume_ratio": 0.02,
-      "volume_pace": 0.02,
+      "volume_pace": 0.28,
       "signal": "趋势观察",
       "score": 48,
       "source": "腾讯财经",
@@ -1112,42 +1153,42 @@
       ]
     },
     {
-      "code": "603985",
-      "name": "恒润股份",
-      "sector": "算力租赁",
-      "price": 14.73,
-      "pct": 10.01,
-      "volume": 14371300.0,
-      "amount": 203080000.0,
-      "avg3_volume": 9090000.0,
-      "return_10d": 3.44,
-      "return_20d": -3.66,
-      "deviation_10d": 4.06,
-      "deviation_30d": 0.2,
-      "volume_ratio": 2.37,
-      "volume_pace": 2.37,
-      "signal": "趋势观察",
-      "score": 48,
+      "code": "002916",
+      "name": "深南电路",
+      "sector": "PCB",
+      "price": 201.19,
+      "pct": 10.0,
+      "volume": 13763600.0,
+      "amount": 2666630000.0,
+      "avg3_volume": 13775500.0,
+      "return_10d": -10.82,
+      "return_20d": -34.17,
+      "deviation_10d": -2.71,
+      "deviation_30d": -23.04,
+      "volume_ratio": 0.92,
+      "volume_pace": 11.55,
+      "signal": "弱转强",
+      "score": 81,
       "source": "腾讯财经",
       "announcements": [
         {
-          "title": "恒润股份:江阴市恒润重工股份有限公司第五届董事会第十九次会议决议公告",
+          "title": "深南电路:2026年11月10日-13日投资者关系活动记录表",
           "tone": "中性/待核实"
         },
         {
-          "title": "恒润股份:江阴市恒润重工股份有限公司2026年第三季度报告",
+          "title": "深南电路:关于2026年度向特定对象发行股票申请获得中国证券监督管理委员会同意注册批复的公告",
           "tone": "中性/待核实"
         },
         {
-          "title": "恒润股份:江阴市恒润重工股份有限公司关于追认关联交易的公告",
+          "title": "深南电路:2026年度向特定对象发行股票募集说明书(注册稿)",
           "tone": "中性/待核实"
         },
         {
-          "title": "恒润股份:江阴市恒润重工股份有限公司重要前期差错更正情况的鉴证报告",
-          "tone": "中性/待核实"
+          "title": "深南电路:关于收到控股股东2026年度现金分红提议的公告",
+          "tone": "偏利好"
         },
         {
-          "title": "恒润股份:江阴市恒润重工股份有限公司关于前期会计差错更正后的财务报表及相关附注",
+          "title": "关于同意深南电路再融资注册的批复",
           "tone": "中性/待核实"
         }
       ]
@@ -1166,7 +1207,7 @@
       "deviation_10d": -0.09,
       "deviation_30d": -16.67,
       "volume_ratio": 1.24,
-      "volume_pace": 1.24,
+      "volume_pace": 15.5,
       "signal": "弱转强",
       "score": 81,
       "source": "腾讯财经",
@@ -1207,7 +1248,7 @@
       "deviation_10d": -2.53,
       "deviation_30d": -16.6,
       "volume_ratio": 1.16,
-      "volume_pace": 1.16,
+      "volume_pace": 14.55,
       "signal": "弱转强",
       "score": 81,
       "source": "腾讯财经",
@@ -1248,7 +1289,7 @@
       "deviation_10d": -5.46,
       "deviation_30d": -25.73,
       "volume_ratio": 1.11,
-      "volume_pace": 1.11,
+      "volume_pace": 13.84,
       "signal": "弱转强",
       "score": 81,
       "source": "腾讯财经",
@@ -1289,7 +1330,7 @@
       "deviation_10d": -5.5,
       "deviation_30d": -26.58,
       "volume_ratio": 1.09,
-      "volume_pace": 1.09,
+      "volume_pace": 13.58,
       "signal": "弱转强",
       "score": 81,
       "source": "腾讯财经",
@@ -1317,6 +1358,47 @@
       ]
     },
     {
+      "code": "300476",
+      "name": "胜宏科技",
+      "sector": "PCB",
+      "price": 113.74,
+      "pct": 6.42,
+      "volume": 42524500.0,
+      "amount": 4799130000.0,
+      "avg3_volume": 40710700.0,
+      "return_10d": -15.9,
+      "return_20d": -39.46,
+      "deviation_10d": -9.74,
+      "deviation_30d": -28.52,
+      "volume_ratio": 0.88,
+      "volume_pace": 10.99,
+      "signal": "弱转强",
+      "score": 81,
+      "source": "腾讯财经",
+      "announcements": [
+        {
+          "title": "胜宏科技:关于回购事项前十大股东及前十大无限售股东持股情况的公告",
+          "tone": "偏利好"
+        },
+        {
+          "title": "胜宏科技:关于取得金融机构股票回购专项贷款承诺函的公告",
+          "tone": "偏利好"
+        },
+        {
+          "title": "胜宏科技:关于向三级全资子公司增资的公告",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "胜宏科技:董事会薪酬与考核委员会关于2026年A股限制性股票激励计划调整及首次授予相关事项的核查意见",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "胜宏科技:第五届董事会第二十次会议决议公告",
+          "tone": "中性/待核实"
+        }
+      ]
+    },
+    {
       "code": "300852",
       "name": "四会富仕",
       "sector": "PCB",
@@ -1330,7 +1412,7 @@
       "deviation_10d": -5.82,
       "deviation_30d": -18.49,
       "volume_ratio": 1.4,
-      "volume_pace": 1.4,
+      "volume_pace": 17.44,
       "signal": "弱转强",
       "score": 81,
       "source": "腾讯财经",
@@ -1358,170 +1440,6 @@
       ]
     },
     {
-      "code": "688183",
-      "name": "生益电子",
-      "sector": "PCB",
-      "price": 70.95,
-      "pct": 18.53,
-      "volume": 33536896.0,
-      "amount": 2261140000.0,
-      "avg3_volume": 2142406766.6666667,
-      "return_10d": 3.44,
-      "return_20d": -23.91,
-      "deviation_10d": 8.22,
-      "deviation_30d": -10.38,
-      "volume_ratio": 0.02,
-      "volume_pace": 0.02,
-      "signal": "趋势观察",
-      "score": 48,
-      "source": "腾讯财经",
-      "announcements": [
-        {
-          "title": "生益电子:生益电子关于持股5%以上股东增持计划实施完毕暨增持股份结果公告",
-          "tone": "偏利好"
-        },
-        {
-          "title": "生益电子:2026-006生益电子投资者关系活动记录",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "生益电子:生益电子关于持股5%以上股东增持公司股份暨后续增持计划的公告",
-          "tone": "偏利好"
-        },
-        {
-          "title": "生益电子:生益电子股份有限公司2026年第一次临时股东会会议资料",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "生益电子:生益电子关于股份回购进展公告",
-          "tone": "偏利好"
-        }
-      ]
-    },
-    {
-      "code": "002916",
-      "name": "深南电路",
-      "sector": "PCB",
-      "price": 201.19,
-      "pct": 10.0,
-      "volume": 13763600.0,
-      "amount": 2666630000.0,
-      "avg3_volume": 13775500.0,
-      "return_10d": -10.82,
-      "return_20d": -34.17,
-      "deviation_10d": -2.71,
-      "deviation_30d": -23.04,
-      "volume_ratio": 0.92,
-      "volume_pace": 0.92,
-      "signal": "趋势观察",
-      "score": 48,
-      "source": "腾讯财经",
-      "announcements": [
-        {
-          "title": "深南电路:2026年11月10日-13日投资者关系活动记录表",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "深南电路:关于2026年度向特定对象发行股票申请获得中国证券监督管理委员会同意注册批复的公告",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "深南电路:2026年度向特定对象发行股票募集说明书(注册稿)",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "深南电路:关于收到控股股东2026年度现金分红提议的公告",
-          "tone": "偏利好"
-        },
-        {
-          "title": "关于同意深南电路再融资注册的批复",
-          "tone": "中性/待核实"
-        }
-      ]
-    },
-    {
-      "code": "300476",
-      "name": "胜宏科技",
-      "sector": "PCB",
-      "price": 113.74,
-      "pct": 6.42,
-      "volume": 42524500.0,
-      "amount": 4799130000.0,
-      "avg3_volume": 40710700.0,
-      "return_10d": -15.9,
-      "return_20d": -39.46,
-      "deviation_10d": -9.74,
-      "deviation_30d": -28.52,
-      "volume_ratio": 0.88,
-      "volume_pace": 0.88,
-      "signal": "趋势观察",
-      "score": 48,
-      "source": "腾讯财经",
-      "announcements": [
-        {
-          "title": "胜宏科技:关于回购事项前十大股东及前十大无限售股东持股情况的公告",
-          "tone": "偏利好"
-        },
-        {
-          "title": "胜宏科技:关于取得金融机构股票回购专项贷款承诺函的公告",
-          "tone": "偏利好"
-        },
-        {
-          "title": "胜宏科技:关于向三级全资子公司增资的公告",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "胜宏科技:董事会薪酬与考核委员会关于2026年A股限制性股票激励计划调整及首次授予相关事项的核查意见",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "胜宏科技:第五届董事会第二十次会议决议公告",
-          "tone": "中性/待核实"
-        }
-      ]
-    },
-    {
-      "code": "688519",
-      "name": "南亚新材",
-      "sector": "PCB",
-      "price": 144.0,
-      "pct": 6.27,
-      "volume": 8820678.0,
-      "amount": 1252150000.0,
-      "avg3_volume": 843598533.3333334,
-      "return_10d": -19.26,
-      "return_20d": -46.02,
-      "deviation_10d": -11.22,
-      "deviation_30d": -31.6,
-      "volume_ratio": 0.01,
-      "volume_pace": 0.01,
-      "signal": "趋势观察",
-      "score": 48,
-      "source": "腾讯财经",
-      "announcements": [
-        {
-          "title": "南亚新材:关于回购股份事项前十大股东和前十大无限售条件股东持股情况的公告",
-          "tone": "偏利好"
-        },
-        {
-          "title": "南亚新材:2026-004投资者关系活动记录表",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "南亚新材:关于召开2026年第四次临时股东会的通知",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "南亚新材:关于以集中竞价交易方式回购公司股份方案的公告",
-          "tone": "偏利好"
-        },
-        {
-          "title": "南亚新材:关于变更公司注册资本、修订《公司章程》及部分公司治理制度并办理工商变更登记的公告",
-          "tone": "中性/待核实"
-        }
-      ]
-    },
-    {
       "code": "000823",
       "name": "超声电子",
       "sector": "PCB",
@@ -1535,9 +1453,9 @@
       "deviation_10d": -0.34,
       "deviation_30d": -11.27,
       "volume_ratio": 0.88,
-      "volume_pace": 0.88,
-      "signal": "趋势观察",
-      "score": 48,
+      "volume_pace": 11.05,
+      "signal": "弱转强",
+      "score": 81,
       "source": "腾讯财经",
       "announcements": [
         {
@@ -1563,6 +1481,88 @@
       ]
     },
     {
+      "code": "001389",
+      "name": "广合科技",
+      "sector": "PCB",
+      "price": 83.9,
+      "pct": 5.67,
+      "volume": 11856300.0,
+      "amount": 985080000.0,
+      "avg3_volume": 11275866.666666666,
+      "return_10d": -7.02,
+      "return_20d": -32.76,
+      "deviation_10d": -5.62,
+      "deviation_30d": -22.09,
+      "volume_ratio": 0.87,
+      "volume_pace": 10.87,
+      "signal": "弱转强",
+      "score": 81,
+      "source": "腾讯财经（行情）/东方财富（K线）",
+      "announcements": [
+        {
+          "title": "广合科技:H股公告-翌日披露報表",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "广合科技:H股公告-翌日披露報表",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "广合科技:关于首次回购公司A股股份的公告",
+          "tone": "偏利好"
+        },
+        {
+          "title": "广合科技:回购股份报告书公告",
+          "tone": "偏利好"
+        },
+        {
+          "title": "广合科技:关于取得金融机构股票回购专项贷款承诺函的公告",
+          "tone": "偏利好"
+        }
+      ]
+    },
+    {
+      "code": "603175",
+      "name": "超颖电子",
+      "sector": "PCB",
+      "price": 86.24,
+      "pct": 4.15,
+      "volume": 2246300.0,
+      "amount": 192200000.0,
+      "avg3_volume": 2351900.0,
+      "return_10d": 1.82,
+      "return_20d": -7.98,
+      "deviation_10d": -1.92,
+      "deviation_30d": -5.48,
+      "volume_ratio": 0.85,
+      "volume_pace": 10.62,
+      "signal": "弱转强",
+      "score": 81,
+      "source": "腾讯财经（行情）/东方财富（K线）",
+      "announcements": [
+        {
+          "title": "超颖电子:2026-013投资者关系活动记录表",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "超颖电子:关于2026年股票期权激励计划授予预留股票期权登记完成的公告",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "超颖电子:2026-011投资者关系活动记录表",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "超颖电子:2026-012投资者关系活动记录表",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "超颖电子:关于2026年10月营业收入的自愿性披露公告",
+          "tone": "中性/待核实"
+        }
+      ]
+    },
+    {
       "code": "603206",
       "name": "嘉环科技",
       "sector": "通信服务",
@@ -1576,7 +1576,7 @@
       "deviation_10d": 12.23,
       "deviation_30d": 15.19,
       "volume_ratio": 5.11,
-      "volume_pace": 5.11,
+      "volume_pace": 63.85,
       "signal": "放量突破",
       "score": 90,
       "source": "腾讯财经",
@@ -1617,7 +1617,7 @@
       "deviation_10d": 4.71,
       "deviation_30d": 3.82,
       "volume_ratio": 3.05,
-      "volume_pace": 3.05,
+      "volume_pace": 38.12,
       "signal": "弱转强",
       "score": 81,
       "source": "腾讯财经",
@@ -1658,7 +1658,7 @@
       "deviation_10d": 4.97,
       "deviation_30d": 4.02,
       "volume_ratio": 1.43,
-      "volume_pace": 1.43,
+      "volume_pace": 17.88,
       "signal": "弱转强",
       "score": 81,
       "source": "腾讯财经",
@@ -1699,7 +1699,7 @@
       "deviation_10d": 3.49,
       "deviation_30d": -1.27,
       "volume_ratio": 1.48,
-      "volume_pace": 1.48,
+      "volume_pace": 18.54,
       "signal": "弱转强",
       "score": 81,
       "source": "腾讯财经",
@@ -1740,7 +1740,7 @@
       "deviation_10d": -1.38,
       "deviation_30d": -6.19,
       "volume_ratio": 1.66,
-      "volume_pace": 1.66,
+      "volume_pace": 20.71,
       "signal": "弱转强",
       "score": 81,
       "source": "腾讯财经",
@@ -1781,7 +1781,7 @@
       "deviation_10d": 0.09,
       "deviation_30d": -5.65,
       "volume_ratio": 1.64,
-      "volume_pace": 1.64,
+      "volume_pace": 20.47,
       "signal": "弱转强",
       "score": 81,
       "source": "腾讯财经",
@@ -1822,7 +1822,7 @@
       "deviation_10d": -1.83,
       "deviation_30d": -8.7,
       "volume_ratio": 1.89,
-      "volume_pace": 1.89,
+      "volume_pace": 23.58,
       "signal": "弱转强",
       "score": 81,
       "source": "腾讯财经",
@@ -1863,7 +1863,7 @@
       "deviation_10d": -0.59,
       "deviation_30d": -2.03,
       "volume_ratio": 2.1,
-      "volume_pace": 2.1,
+      "volume_pace": 26.21,
       "signal": "弱转强",
       "score": 81,
       "source": "腾讯财经",
@@ -1904,7 +1904,7 @@
       "deviation_10d": 25.25,
       "deviation_30d": 38.76,
       "volume_ratio": 1.58,
-      "volume_pace": 1.58,
+      "volume_pace": 19.71,
       "signal": "放量突破",
       "score": 80,
       "source": "腾讯财经",
@@ -1932,43 +1932,84 @@
       ]
     },
     {
-      "code": "603220",
-      "name": "中贝通信",
+      "code": "300383",
+      "name": "光环新网",
       "sector": "通信服务",
-      "price": 15.62,
-      "pct": 10.0,
-      "volume": 52472300.0,
-      "amount": 797650000.0,
-      "avg3_volume": 26472266.666666668,
-      "return_10d": 9.85,
-      "return_20d": -1.01,
-      "deviation_10d": 6.46,
-      "deviation_30d": 4.98,
-      "volume_ratio": 4.05,
-      "volume_pace": 4.05,
+      "price": 9.89,
+      "pct": 4.32,
+      "volume": 52442800.0,
+      "amount": 511180000.0,
+      "avg3_volume": 36894000.0,
+      "return_10d": 0.82,
+      "return_20d": -4.07,
+      "deviation_10d": 0.47,
+      "deviation_30d": -0.64,
+      "volume_ratio": 1.73,
+      "volume_pace": 21.56,
       "signal": "趋势观察",
       "score": 48,
-      "source": "腾讯财经（行情）/东方财富（K线）",
+      "source": "腾讯财经",
       "announcements": [
         {
-          "title": "中贝通信:关于新增回购专用证券账户的公告",
-          "tone": "偏利好"
-        },
-        {
-          "title": "中贝通信:关于以集中竞价交易方式回购股份的回购报告书",
-          "tone": "偏利好"
-        },
-        {
-          "title": "中贝通信:关于取得金融机构回购专项贷款承诺函的公告",
-          "tone": "偏利好"
-        },
-        {
-          "title": "中贝通信:关于证券事务代表辞职的公告",
+          "title": "光环新网:2026年三季度报告",
           "tone": "中性/待核实"
         },
         {
-          "title": "中贝通信:关于股份回购进展公告",
-          "tone": "偏利好"
+          "title": "光环新网:关于子公司向金融机构申请授信并由公司提供担保的进展公告",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "光环新网:北京市嘉源律师事务所关于北京光环新网科技股份有限公司2026年第一次临时股东会的法律意见书",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "光环新网:2026年第一次临时股东会决议公告",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "光环新网:关于召开2026年第一次临时股东会的通知",
+          "tone": "中性/待核实"
+        }
+      ]
+    },
+    {
+      "code": "600405",
+      "name": "动力源",
+      "sector": "东数西算",
+      "price": 4.62,
+      "pct": 10.0,
+      "volume": 20428700.0,
+      "amount": 93410000.0,
+      "avg3_volume": 24924000.0,
+      "return_10d": 13.79,
+      "return_20d": 4.76,
+      "deviation_10d": 9.45,
+      "deviation_30d": 7.62,
+      "volume_ratio": 0.97,
+      "volume_pace": 12.08,
+      "signal": "放量突破",
+      "score": 98,
+      "source": "腾讯财经",
+      "announcements": [
+        {
+          "title": "动力源:关于为控股子公司申请授信提供担保的公告",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "动力源:关于部分募集资金投资项目延期的公告",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "动力源:中德证券有限责任公司关于北京动力源科技股份有限公司部分募集资金投资项目延期的核查意见",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "动力源:关于第九届董事会第十六次会议决议公告",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "动力源:2026年第三季度报告",
+          "tone": "中性/待核实"
         }
       ]
     },
@@ -1986,7 +2027,7 @@
       "deviation_10d": 14.15,
       "deviation_30d": 16.05,
       "volume_ratio": 2.21,
-      "volume_pace": 2.21,
+      "volume_pace": 27.67,
       "signal": "放量突破",
       "score": 90,
       "source": "腾讯财经",
@@ -2027,7 +2068,7 @@
       "deviation_10d": 7.78,
       "deviation_30d": 5.15,
       "volume_ratio": 2.18,
-      "volume_pace": 2.18,
+      "volume_pace": 27.23,
       "signal": "弱转强",
       "score": 88,
       "source": "腾讯财经",
@@ -2068,7 +2109,7 @@
       "deviation_10d": 2.38,
       "deviation_30d": 2.77,
       "volume_ratio": 2.2,
-      "volume_pace": 2.2,
+      "volume_pace": 27.55,
       "signal": "弱转强",
       "score": 81,
       "source": "腾讯财经",
@@ -2109,7 +2150,7 @@
       "deviation_10d": 4.14,
       "deviation_30d": 4.71,
       "volume_ratio": 3.26,
-      "volume_pace": 3.26,
+      "volume_pace": 40.8,
       "signal": "弱转强",
       "score": 81,
       "source": "腾讯财经",
@@ -2137,47 +2178,6 @@
       ]
     },
     {
-      "code": "600405",
-      "name": "动力源",
-      "sector": "东数西算",
-      "price": 4.62,
-      "pct": 10.0,
-      "volume": 20428700.0,
-      "amount": 93410000.0,
-      "avg3_volume": 24924000.0,
-      "return_10d": 13.79,
-      "return_20d": 4.76,
-      "deviation_10d": 9.45,
-      "deviation_30d": 7.62,
-      "volume_ratio": 0.97,
-      "volume_pace": 0.97,
-      "signal": "趋势观察",
-      "score": 55,
-      "source": "腾讯财经",
-      "announcements": [
-        {
-          "title": "动力源:关于为控股子公司申请授信提供担保的公告",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "动力源:关于部分募集资金投资项目延期的公告",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "动力源:中德证券有限责任公司关于北京动力源科技股份有限公司部分募集资金投资项目延期的核查意见",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "动力源:关于第九届董事会第十六次会议决议公告",
-          "tone": "中性/待核实"
-        },
-        {
-          "title": "动力源:2026年第三季度报告",
-          "tone": "中性/待核实"
-        }
-      ]
-    },
-    {
       "code": "603985",
       "name": "恒润股份",
       "sector": "东数西算",
@@ -2191,7 +2191,7 @@
       "deviation_10d": 4.06,
       "deviation_30d": 0.2,
       "volume_ratio": 2.37,
-      "volume_pace": 2.37,
+      "volume_pace": 29.57,
       "signal": "趋势观察",
       "score": 48,
       "source": "腾讯财经",
@@ -2232,7 +2232,7 @@
       "deviation_10d": -0.87,
       "deviation_30d": 3.23,
       "volume_ratio": 0.02,
-      "volume_pace": 0.02,
+      "volume_pace": 0.26,
       "signal": "趋势观察",
       "score": 48,
       "source": "腾讯财经",
@@ -2273,7 +2273,7 @@
       "deviation_10d": 4.55,
       "deviation_30d": 3.16,
       "volume_ratio": 3.93,
-      "volume_pace": 3.93,
+      "volume_pace": 49.1,
       "signal": "趋势观察",
       "score": 48,
       "source": "腾讯财经",
