@@ -1,0 +1,577 @@
+{
+  "generated_at": "2026-11-24T11:11:42.571583+08:00",
+  "report_date": "2026-11-24",
+  "mode": "previous",
+  "market_status": "open",
+  "source": "个股行情与K线：腾讯财经优先，东方财富容灾；板块目录与公告：东方财富",
+  "fixed_sectors": [
+    {
+      "code": "",
+      "name": "PCB",
+      "pct": null,
+      "resolved": false
+    },
+    {
+      "code": "BK1036",
+      "name": "半导体",
+      "pct": 2.97,
+      "resolved": true
+    },
+    {
+      "code": "BK1215",
+      "name": "光纤",
+      "pct": 2.34,
+      "resolved": true
+    },
+    {
+      "code": "",
+      "name": "贵金属",
+      "pct": null,
+      "resolved": false
+    },
+    {
+      "code": "",
+      "name": "小金属",
+      "pct": null,
+      "resolved": false
+    },
+    {
+      "code": "",
+      "name": "化工",
+      "pct": null,
+      "resolved": false
+    },
+    {
+      "code": "",
+      "name": "天然气",
+      "pct": null,
+      "resolved": false
+    },
+    {
+      "code": "",
+      "name": "农业种植",
+      "pct": null,
+      "resolved": false
+    },
+    {
+      "code": "BK1339",
+      "name": "MLCC",
+      "pct": 2.22,
+      "resolved": true
+    }
+  ],
+  "hot_sectors": [
+    {
+      "code": "BK1620",
+      "name": "钴",
+      "pct": 9.95
+    },
+    {
+      "code": "BK1295",
+      "name": "其他数字媒体",
+      "pct": 8.44
+    },
+    {
+      "code": "BK1542",
+      "name": "文化用品",
+      "pct": 7.06
+    },
+    {
+      "code": "BK1524",
+      "name": "汽车综合服务",
+      "pct": 6.75
+    },
+    {
+      "code": "BK1717",
+      "name": "题材股",
+      "pct": 5.82
+    }
+  ],
+  "attention_pool": [
+    {
+      "code": "BK1036",
+      "name": "半导体",
+      "pct": 2.97,
+      "heat_score": 32.3
+    },
+    {
+      "code": "BK1215",
+      "name": "光纤",
+      "pct": 2.34,
+      "heat_score": 20.8
+    },
+    {
+      "code": "BK1339",
+      "name": "MLCC",
+      "pct": 2.22,
+      "heat_score": 3.3
+    },
+    {
+      "code": "BK1620",
+      "name": "钴",
+      "pct": 9.95,
+      "heat_score": 80.0
+    },
+    {
+      "code": "BK1295",
+      "name": "其他数字媒体",
+      "pct": 8.44,
+      "heat_score": 52.3
+    },
+    {
+      "code": "BK1542",
+      "name": "文化用品",
+      "pct": 7.06,
+      "heat_score": 54.3
+    },
+    {
+      "code": "BK1524",
+      "name": "汽车综合服务",
+      "pct": 6.75,
+      "heat_score": 51.9
+    },
+    {
+      "code": "BK1717",
+      "name": "题材股",
+      "pct": 5.82,
+      "heat_score": 32.1
+    }
+  ],
+  "selected_sectors": [
+    {
+      "code": "BK1620",
+      "name": "钴",
+      "pct": 9.95,
+      "heat_score": 80.0
+    },
+    {
+      "code": "BK1542",
+      "name": "文化用品",
+      "pct": 7.06,
+      "heat_score": 54.3
+    },
+    {
+      "code": "BK1295",
+      "name": "其他数字媒体",
+      "pct": 8.44,
+      "heat_score": 52.3
+    },
+    {
+      "code": "BK1524",
+      "name": "汽车综合服务",
+      "pct": 6.75,
+      "heat_score": 51.9
+    },
+    {
+      "code": "BK1036",
+      "name": "半导体",
+      "pct": 2.97,
+      "heat_score": 32.3
+    }
+  ],
+  "inflow_sectors": [
+    {
+      "code": "BK1201",
+      "name": "电子",
+      "pct": 2.57,
+      "flow": 10133886208.0
+    },
+    {
+      "code": "BK1128",
+      "name": "CPO概念",
+      "pct": 2.96,
+      "flow": 8375558912.0
+    },
+    {
+      "code": "BK0714",
+      "name": "5G概念",
+      "pct": 2.27,
+      "flow": 7679786752.0
+    },
+    {
+      "code": "BK1650",
+      "name": "通信技术",
+      "pct": 2.27,
+      "flow": 6691655936.0
+    },
+    {
+      "code": "BK1090",
+      "name": "机器人概念",
+      "pct": 2.29,
+      "flow": 6372796672.0
+    }
+  ],
+  "outflow_sectors": [
+    {
+      "code": "BK1717",
+      "name": "题材股",
+      "pct": 5.82,
+      "flow": -1075349760.0
+    },
+    {
+      "code": "BK0964",
+      "name": "6G概念",
+      "pct": 2.32,
+      "flow": -766696432.0
+    },
+    {
+      "code": "BK1638",
+      "name": "最近多板",
+      "pct": 5.23,
+      "flow": -721905152.0
+    },
+    {
+      "code": "BK0905",
+      "name": "传感器",
+      "pct": 2.65,
+      "flow": -387641344.0
+    },
+    {
+      "code": "BK1325",
+      "name": "半导体材料",
+      "pct": 2.65,
+      "flow": -314395776.0
+    }
+  ],
+  "hot_stocks": [
+    {
+      "code": "300308",
+      "name": "中际旭创",
+      "price": 430.8,
+      "pct": 3.26,
+      "amount": 20650533688.83,
+      "turnover": 4.11,
+      "volume_ratio": 2.28
+    },
+    {
+      "code": "300502",
+      "name": "新易盛",
+      "price": 187.19,
+      "pct": 3.21,
+      "amount": 18580835139.39,
+      "turnover": 7.62,
+      "volume_ratio": 2.35
+    },
+    {
+      "code": "002384",
+      "name": "东山精密",
+      "price": 74.52,
+      "pct": 4.27,
+      "amount": 10568802802.66,
+      "turnover": 9.9,
+      "volume_ratio": 2.44
+    },
+    {
+      "code": "688256",
+      "name": "寒武纪",
+      "price": 953.0,
+      "pct": 4.18,
+      "amount": 8525209717.0,
+      "turnover": 1.43,
+      "volume_ratio": 1.7
+    },
+    {
+      "code": "688825",
+      "name": "长鑫科技",
+      "price": 36.61,
+      "pct": 1.98,
+      "amount": 8379730956.0,
+      "turnover": 4.98,
+      "volume_ratio": 1.87
+    },
+    {
+      "code": "300394",
+      "name": "天孚通信",
+      "price": 125.23,
+      "pct": 7.68,
+      "amount": 8056868370.73,
+      "turnover": 5.68,
+      "volume_ratio": 2.68
+    },
+    {
+      "code": "300750",
+      "name": "宁德时代",
+      "price": 229.7,
+      "pct": 1.02,
+      "amount": 7561465015.03,
+      "turnover": 0.77,
+      "volume_ratio": 2.05
+    },
+    {
+      "code": "601138",
+      "name": "工业富联",
+      "price": 41.95,
+      "pct": 9.56,
+      "amount": 7348010123.0,
+      "turnover": 0.88,
+      "volume_ratio": 3.23
+    },
+    {
+      "code": "002463",
+      "name": "沪电股份",
+      "price": 85.46,
+      "pct": 3.34,
+      "amount": 6671362816.85,
+      "turnover": 3.91,
+      "volume_ratio": 1.96
+    },
+    {
+      "code": "300476",
+      "name": "胜宏科技",
+      "price": 125.12,
+      "pct": 8.71,
+      "amount": 6029802009.64,
+      "turnover": 5.36,
+      "volume_ratio": 2.96
+    }
+  ],
+  "candidates": [
+    {
+      "code": "300618",
+      "name": "寒锐钴业",
+      "sector": "钴",
+      "price": 22.88,
+      "pct": 9.11,
+      "volume": 13384000.0,
+      "amount": 303130000.0,
+      "avg3_volume": 8860533.333333334,
+      "return_10d": -5.96,
+      "return_20d": -5.38,
+      "deviation_10d": 1.49,
+      "deviation_30d": -7.97,
+      "volume_ratio": 2.7,
+      "volume_pace": 6.36,
+      "signal": "趋势观察",
+      "score": 48,
+      "source": "腾讯财经",
+      "announcements": [
+        {
+          "title": "寒锐钴业:关于为子公司向银行申请授信提供担保的公告",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "寒锐钴业:关于公司2024年限制性股票激励计划第二个归属期归属结果暨股份上市的公告",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "寒锐钴业:关于2026年前三季度计提资产减值准备的公告",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "寒锐钴业:第五届董事会第二十五次会议决议公告",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "寒锐钴业:2026年三季度报告",
+          "tone": "中性/待核实"
+        }
+      ]
+    },
+    {
+      "code": "301313",
+      "name": "凡拓数创",
+      "sector": "其他数字媒体",
+      "price": 83.14,
+      "pct": 17.12,
+      "volume": 24789300.0,
+      "amount": 2014770000.0,
+      "avg3_volume": 26281766.666666668,
+      "return_10d": 8.69,
+      "return_20d": 29.1,
+      "deviation_10d": 27.39,
+      "deviation_30d": 39.58,
+      "volume_ratio": 0.98,
+      "volume_pace": 2.3,
+      "signal": "放量突破",
+      "score": 83,
+      "source": "腾讯财经",
+      "announcements": [
+        {
+          "title": "凡拓数创:关于公司股票交易异常波动的公告",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "凡拓数创:2025年限制性股票激励计划预留授予激励对象名单(授予日)",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "凡拓数创:广州凡拓数字创意科技股份有限公司第四届董事会提名、薪酬与考核委员会关于2025年限制性股票激励计划预留授予相关事项的核查意见",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "凡拓数创:关于向激励对象授予预留部分限制性股票的公告",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "凡拓数创:第四届董事会第二十八次会议决议公告",
+          "tone": "中性/待核实"
+        }
+      ]
+    },
+    {
+      "code": "603466",
+      "name": "风语筑",
+      "sector": "其他数字媒体",
+      "price": 15.43,
+      "pct": -0.39,
+      "volume": 87612600.0,
+      "amount": 1367760000.0,
+      "avg3_volume": 102983833.33333333,
+      "return_10d": 0.65,
+      "return_20d": 11.65,
+      "deviation_10d": 2.61,
+      "deviation_30d": 9.07,
+      "volume_ratio": 1.01,
+      "volume_pace": 2.34,
+      "signal": "趋势观察",
+      "score": 45,
+      "source": "腾讯财经",
+      "announcements": [
+        {
+          "title": "风语筑:上海风语筑文化科技股份有限公司股票交易异常波动的公告",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "风语筑:上海风语筑文化科技股份有限公司2026年第三次临时股东会会议材料",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "风语筑:上海风语筑文化科技股份有限公司股票交易异常波动的公告",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "风语筑:上海风语筑文化科技股份有限公司第四届董事会第二十次会议决议公告",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "风语筑:上海风语筑文化科技股份有限公司关于修订《公司章程》部分条款的公告",
+          "tone": "中性/待核实"
+        }
+      ]
+    },
+    {
+      "code": "300825",
+      "name": "阿尔特",
+      "sector": "汽车综合服务",
+      "price": 12.85,
+      "pct": 19.98,
+      "volume": 60717800.0,
+      "amount": 745250000.0,
+      "avg3_volume": 56632366.666666664,
+      "return_10d": -7.95,
+      "return_20d": 11.93,
+      "deviation_10d": 4.78,
+      "deviation_30d": 11.87,
+      "volume_ratio": 1.17,
+      "volume_pace": 2.73,
+      "signal": "趋势观察",
+      "score": 48,
+      "source": "腾讯财经",
+      "announcements": [
+        {
+          "title": "阿尔特:关于为全资子公司向银行申请授信提供担保的进展公告",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "阿尔特:股票交易异常波动公告",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "300825阿尔特投资者关系管理信息20261105",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "阿尔特:2026年三季度报告",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "阿尔特:第五届董事会第三十四次会议决议公告",
+          "tone": "中性/待核实"
+        }
+      ]
+    },
+    {
+      "code": "000757",
+      "name": "浩物股份",
+      "sector": "汽车综合服务",
+      "price": 3.23,
+      "pct": 1.25,
+      "volume": 7557200.0,
+      "amount": 24750000.0,
+      "avg3_volume": 12428733.333333334,
+      "return_10d": -14.55,
+      "return_20d": -18.43,
+      "deviation_10d": -8.94,
+      "deviation_30d": -16.09,
+      "volume_ratio": 0.68,
+      "volume_pace": 1.58,
+      "signal": "趋势观察",
+      "score": 48,
+      "source": "腾讯财经",
+      "announcements": [
+        {
+          "title": "浩物股份:关于股份回购结果暨股份变动的公告",
+          "tone": "偏利好"
+        },
+        {
+          "title": "浩物股份:关于股份回购进展情况的公告",
+          "tone": "偏利好"
+        },
+        {
+          "title": "浩物股份:2026年三季度报告",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "浩物股份:《董事、高级管理人员薪酬管理制度》(2026年10月修订)",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "浩物股份:《内部审计制度》(2026年10月修订)",
+          "tone": "中性/待核实"
+        }
+      ]
+    },
+    {
+      "code": "301215",
+      "name": "中汽股份",
+      "sector": "汽车综合服务",
+      "price": 5.05,
+      "pct": -1.17,
+      "volume": 5033200.0,
+      "amount": 25790000.0,
+      "avg3_volume": 10671400.0,
+      "return_10d": -8.51,
+      "return_20d": -5.61,
+      "deviation_10d": -4.21,
+      "deviation_30d": -5.61,
+      "volume_ratio": 0.45,
+      "volume_pace": 1.04,
+      "signal": "趋势观察",
+      "score": 45,
+      "source": "腾讯财经（行情）/东方财富（K线）",
+      "announcements": [
+        {
+          "title": "中汽股份:关于持股5%以上股东部分股权解除质押的公告",
+          "tone": "偏利空"
+        },
+        {
+          "title": "中汽股份:关于召开公司2026年第一次临时股东会的通知",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "中汽股份:关于可转换公司债券转股价格调整的公告",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "中汽股份:2026年中期权益分派实施公告",
+          "tone": "中性/待核实"
+        },
+        {
+          "title": "中汽股份:301215中汽股份投资者关系管理信息20261029",
+          "tone": "中性/待核实"
+        }
+      ]
+    }
+  ],
+  "notice": "成交量统一为股；盘中量速按交易进度校正。技术偏离率不等同于交易所监管口径；报告不构成投资建议。"
+}
